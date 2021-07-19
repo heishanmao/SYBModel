@@ -5,7 +5,7 @@
 # @Main    : Zheng@utk.edu
 # @File    : SYBMobel.py
 # @Software: PyCharm
-# @Notes   : A model function for SYB supply chain with Gurobi
+# @Notes   : A model function for SYB supply chain with Gurobi V13
 
 from gurobipy import *
 import pandas as pd
