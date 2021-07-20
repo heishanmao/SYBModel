@@ -45,8 +45,8 @@ if __name__ =='__main__':
     # Stream_Elevator to Export_Terminals by Barges @(s, e)
     Cost_Stream_Export = pd.read_csv('.\Data\CostByBarge.csv', index_col=0).to_numpy()
 
-    # Export_Terminals to Import_China by Ocean shipment @(e,i)
-    Cost_Export_Improt_Stream = pd.read_csv('.\Data\CostByOcean.csv', index_col=0).to_numpy()
+    # Export_Terminals to Import_China by Ocean shipment from barge @(e,i)
+    Cost_Export_Improt_Stream = pd.read_csv('.\Data\CostStreamToOcean.csv', index_col=0).to_numpy()
 
     # Country_Elevator to Domestic Processing Facility @(P^D)
     Cost_Country_Facility = pd.read_csv('.\Data\CostToFacility.csv', index_col=0,
@@ -57,6 +57,9 @@ if __name__ =='__main__':
 
     # Rail_Elevator to Export_Terminals by Rail @(r, e)
     Cost_Rail_Export = pd.read_csv('.\Data\CostByRail.csv', index_col=0).to_numpy()
+
+    # Export_Terminals to Import_China by Ocean shipment from rail @(e,i)
+    Cost_Export_Improt_Rail = pd.read_csv('.\Data\CostRailToOcean.csv', index_col=0).to_numpy()
 
     # elevators unit holding cost @h
     Unit_Holding_Cost = pd.read_csv('.\Data\CostToFacility.csv', index_col=0,
