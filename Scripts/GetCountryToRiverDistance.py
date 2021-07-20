@@ -1,11 +1,10 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-# @Time    : 20/07/2021 12:11 AM
+# @Time    : 17/06/2021 4:44 PM
 # @Author  : Scott
 # @Main    : Zheng@utk.edu
-# @File    : GetCountryToRailDistance.py
+# @File    : Distance.py
 # @Software: PyCharm
-# @Notes   : a script to get distance from Country_Elevator to Rail_Elevator
 
 from selenium import webdriver
 import pandas as pd
@@ -35,7 +34,7 @@ if __name__=='__main__':
 
     # import Data
     originLocation = pd.read_csv("./data10top.csv")
-    destinationLocation = pd.read_csv("./Shuttle tarins and ports.csv")
+    destinationLocation = pd.read_csv("./LargerElevators.csv")
 
     print(originLocation.head(), destinationLocation.head())
 
@@ -45,9 +44,9 @@ if __name__=='__main__':
     driver.get(url)
     driver.implicitly_wait(3)
 
-    res = pd.DataFrame(index=originLocation['Name'], columns=destinationLocation['Shuttle train'])
+    res = pd.DataFrame(index=originLocation['Name'], columns=destinationLocation['Name'])
     for i in range(len(originLocation)):
         for j in range(len(destinationLocation)):
-            res.iloc[i,j] = GetDistance(originLocation.iloc[i,3], destinationLocation.iloc[j, 2])
-            print(originLocation.iloc[i,3],destinationLocation.iloc[j,2], res.iloc[i,j])
-        res.to_csv('CountryToRailDistance.csv')
+            res.iloc[i,j] = GetDistance(originLocation.iloc[i,3], destinationLocation.iloc[j, 1])
+            print(originLocation.iloc[i,3],destinationLocation.iloc[j,1], res.iloc[i,j])
+        res.to_csv('CountryToLargerDistance.csv')
