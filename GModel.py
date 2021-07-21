@@ -10,7 +10,7 @@
 from gurobipy import *
 
 def Get_GuRoBi(Model_Name, Cost_Country_Stream, Cost_Country_Rail, Cost_Stream_Export, Cost_Rail_Export,
-               Cost_Export_Improt_Stream, Cost_Export_Improt_Rail, Cost_Country_Facility, Alpha,
+               Cost_Export_Import, Cost_Country_Facility, Alpha,
                Unit_Holding_Cost, Demand_China, Supply_Country, Last_Year_Inventory):
     # Parameters
     T = 1  # Do not change! period year
@@ -25,8 +25,17 @@ def Get_GuRoBi(Model_Name, Cost_Country_Stream, Cost_Country_Rail, Cost_Stream_E
     Gamma2 = 0
     Gamma3 = 5.6e-6  # Regression coefficients
 
+    Num_Country_Elevators = Cost_Country_Stream.shape[0]
+    Num_Stream_Elevators = Cost_Stream_Export.shape[0]
+    Num_Rail_Elevators = Cost_Rail_Export.shape[0]
+    Num_Export_Terminals = Cost_Export_Import.shape[0]
+    Num_Inport_Terminals = Cost_Export_Import.shape[1]
+
     # Model
     model = Model(Model_Name)
+
+    # Var
+    #X_Country_Stream =
 
 
 if __name__ =='__main__':
@@ -46,7 +55,7 @@ if __name__ =='__main__':
     Cost_Stream_Export = pd.read_csv('.\Data\CostByBarge.csv', index_col=0).to_numpy()
 
     # Export_Terminals to Import_China by Ocean shipment from barge @(e,i)
-    Cost_Export_Improt_Stream = pd.read_csv('.\Data\CostStreamToOcean.csv', index_col=0).to_numpy()
+    Cost_Export_Import_Stream = pd.read_csv('.\Data\CostStreamToOcean.csv', index_col=0)
 
     # Country_Elevator to Domestic Processing Facility @(P^D)
     Cost_Country_Facility = pd.read_csv('.\Data\CostToFacility.csv', index_col=0,
@@ -59,7 +68,8 @@ if __name__ =='__main__':
     Cost_Rail_Export = pd.read_csv('.\Data\CostByRail.csv', index_col=0).to_numpy()
 
     # Export_Terminals to Import_China by Ocean shipment from rail @(e,i)
-    Cost_Export_Improt_Rail = pd.read_csv('.\Data\CostRailToOcean.csv', index_col=0).to_numpy()
+    Cost_Export_Import_Rail = pd.read_csv('.\Data\CostRailToOcean.csv', index_col=0)
+    Cost_Export_Import = pd.concat([Cost_Export_Import_Rail, Cost_Export_Import_Stream]).to_numpy()  #merge export terminal together
 
     # elevators unit holding cost @h
     Unit_Holding_Cost = pd.read_csv('.\Data\CostToFacility.csv', index_col=0,
@@ -77,5 +87,5 @@ if __name__ =='__main__':
                          usecols=['Name', 'Ending']).T.to_numpy()[0]
 
     Get_GuRoBi(Model_Name, Cost_Country_Stream, Cost_Country_Rail, Cost_Stream_Export, Cost_Rail_Export,
-               Cost_Export_Improt_Stream, Cost_Export_Improt_Rail, Cost_Country_Facility, Alpha,
+               Cost_Export_Import, Cost_Country_Facility, Alpha,
                Unit_Holding_Cost, Demand_China, Supply_Country, Last_Year_Inventory)
