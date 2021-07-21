@@ -5,12 +5,12 @@
 # @Main    : Zheng@utk.edu
 # @File    : GModel.py
 # @Software: PyCharm
-# @Notes   : GUROBI code for the SYBModel
+# @Notes   : GUROBI code for the SYBModel V13
 
 from gurobipy import *
 
 def Get_GuRoBi(Model_Name, Cost_Country_Stream, Cost_Country_Rail, Cost_Stream_Export, Cost_Rail_Export,
-               Cost_Export_Import, Cost_Country_Facility, Alpha,
+               Cost_Export_Import_Stream, Cost_Export_Import_Rail, Cost_Country_Facility, Alpha,
                Unit_Holding_Cost, Demand_China, Supply_Country, Last_Year_Inventory):
     # Parameters
     T = 1  # Do not change! period year
@@ -28,15 +28,37 @@ def Get_GuRoBi(Model_Name, Cost_Country_Stream, Cost_Country_Rail, Cost_Stream_E
     Num_Country_Elevators = Cost_Country_Stream.shape[0]
     Num_Stream_Elevators = Cost_Stream_Export.shape[0]
     Num_Rail_Elevators = Cost_Rail_Export.shape[0]
-    Num_Export_Terminals = Cost_Export_Import.shape[0]
-    Num_Inport_Terminals = Cost_Export_Import.shape[1]
+    Num_Export_Terminals_ByStream = Cost_Export_Import_Stream.shape[1]
+    Num_Export_Terminals_ByRail = Cost_Export_Import_Rail.shape[1]
+    Tot_Export_Terminals = Num_Export_Terminals_ByStream + Num_Export_Terminals_ByRail
+    Num_Inport_Terminals = Cost_Export_Import_Stream.shape[1]
 
     # Model
     model = Model(Model_Name)
 
     # Var
-    #X_Country_Stream =
+    X_Country_Stream = model.addVars(Num_Country_Elevators, Num_Stream_Elevators, lb = 0)
+    X_Country_Rail = model.addVars(Num_Country_Elevators, Num_Rail_Elevators, lb=0)
+    X_Facility = model.addVars(Num_Country_Elevators, lb=0)
+    I_Country = model.addVars(Num_Country_Elevators, lb=0)
+    I_Stream = model.addVars(Num_Country_Elevators, lb=0)
+    I_Rail = model.addVars(Num_Country_Elevators, lb=0)
+    Y_Stream_Export = model.addVars(Num_Stream_Elevators, Num_Export_Terminals_ByStream, lb=0)
+    Y_Rail_Export = model.addVars(Num_Rail_Elevators, Num_Export_Terminals_ByRail, lb=0)
+    Z_Export_Import = model.addVars(Tot_Export_Terminals, Num_Inport_Terminals, lb=0)
+    Dp = model.addVar(vtype=GRB.CONTINUOUS, name='DomesticP')
+    Gp = model.addVar(vtype=GRB.CONTINUOUS, name='GlobalP')
+    L = model.addVar(T, vtype=GRB.BINARY, name='L-Climate')     # Slack Vars
+    F = model.addVar(T, vtype=GRB.BINARY, name='F-GOVPolicy')
 
+    # Constraints
+        # 2
+    for c in range(Num_Country_Elevators):
+        model.addConstr(Alpha * Last_Year_Inventory[c] + Supply_Country[c] - X_Facility[c] - I_Country[c]
+                        - quicksum(X_Country_Stream[c, s] for s in range(Num_Stream_Elevators))
+                        - quicksum(X_Country_Rail[c, r] for r in range(Num_Rail_Elevators)) == 0)
+
+        # 3
 
 if __name__ =='__main__':
     import pandas as pd
@@ -55,7 +77,7 @@ if __name__ =='__main__':
     Cost_Stream_Export = pd.read_csv('.\Data\CostByBarge.csv', index_col=0).to_numpy()
 
     # Export_Terminals to Import_China by Ocean shipment from barge @(e,i)
-    Cost_Export_Import_Stream = pd.read_csv('.\Data\CostStreamToOcean.csv', index_col=0)
+    Cost_Export_Import_Stream = pd.read_csv('.\Data\CostStreamToOcean.csv', index_col=0).to_numpy()
 
     # Country_Elevator to Domestic Processing Facility @(P^D)
     Cost_Country_Facility = pd.read_csv('.\Data\CostToFacility.csv', index_col=0,
@@ -68,8 +90,8 @@ if __name__ =='__main__':
     Cost_Rail_Export = pd.read_csv('.\Data\CostByRail.csv', index_col=0).to_numpy()
 
     # Export_Terminals to Import_China by Ocean shipment from rail @(e,i)
-    Cost_Export_Import_Rail = pd.read_csv('.\Data\CostRailToOcean.csv', index_col=0)
-    Cost_Export_Import = pd.concat([Cost_Export_Import_Rail, Cost_Export_Import_Stream]).to_numpy()  #merge export terminal together
+    Cost_Export_Import_Rail = pd.read_csv('.\Data\CostRailToOcean.csv', index_col=0).to_numpy()
+    #Cost_Export_Import = pd.concat([Cost_Export_Import_Rail, Cost_Export_Import_Stream]).to_numpy()  #merge export terminal together
 
     # elevators unit holding cost @h
     Unit_Holding_Cost = pd.read_csv('.\Data\CostToFacility.csv', index_col=0,
@@ -84,8 +106,8 @@ if __name__ =='__main__':
 
     # last year inventory for each country elevator @2019
     Last_Year_Inventory = pd.read_csv('.\Data\ProductionByCountry.csv', index_col=0,
-                         usecols=['Name', 'Ending']).T.to_numpy()[0]
+                         usecols=['Name', 'Ending']).to_numpy()
 
     Get_GuRoBi(Model_Name, Cost_Country_Stream, Cost_Country_Rail, Cost_Stream_Export, Cost_Rail_Export,
-               Cost_Export_Import, Cost_Country_Facility, Alpha,
+               Cost_Export_Import_Stream, Cost_Export_Import_Rail, Cost_Country_Facility, Alpha,
                Unit_Holding_Cost, Demand_China, Supply_Country, Last_Year_Inventory)
