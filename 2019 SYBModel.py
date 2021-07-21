@@ -8,6 +8,8 @@
 # @Notes   : An example of 2019
 
 import pandas as pd
+import numpy as np
+import SYBModel_V13 as GRB
 
 # function parameters
 Model_Name = "Soybean_V13_July-21-2021"
@@ -68,7 +70,7 @@ NumOfExport = Cost_Stream_Export.shape[1] if Cost_Stream_Export.shape[1] == Cost
 print(f'Exports: {NumOfExport}')
 print(f'Imports: {Cost_Export_Import.shape[1]}')
 
-Get_GuRoBi(Model_Name, Cost_Country_Stream, Cost_Country_Rail, Cost_Stream_Export, Cost_Rail_Export,
+GRB.Get_GuRoBi(Model_Name, Cost_Country_Stream, Cost_Country_Rail, Cost_Stream_Export, Cost_Rail_Export,
            Cost_Export_Import, Cost_Country_Facility, Alpha,
            Unit_Holding_Cost, Demand_China, Supply_Country, Inventory_Country_LastYear,
            Inventory_Stream_LastYear, Inventory_Rail_LastYear)
