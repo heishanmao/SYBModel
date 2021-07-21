@@ -3,7 +3,7 @@
 # @Time    : 19/07/2021 3:22 PM
 # @Author  : Scott
 # @Main    : Zheng@utk.edu
-# @File    : GModel.py
+# @File    : SYBModel_V13SYBModel_V13.py
 # @Software: PyCharm
 # @Notes   : GUROBI code for the SYBModel V13
 import numpy as np
