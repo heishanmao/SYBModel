@@ -57,7 +57,7 @@ if __name__=='__main__':
     for Technology in Technologies:
         ## import data
         # Country elevators and its allocated water basin
-        EleAndBasin = pd.read_csv('data10top_converted_waterbasin.csv', usecols=['Name','BasinName'])
+        EleAndBasin = pd.read_csv('data10top_converted_waterbasin.csv', usecols=['Name','BasinName','LAT','LON'])
         EleAndBasin['Production'] = 0
         EleAndBasin['Ending'] = 0
         EleAndBasin['EndingRate'] = 0
