@@ -26,7 +26,8 @@ def GetEleProduciton(EleAndBasinList, BName, BProdcution):
     NumOfEles = NumOfEles[NumOfEles.index==BName].values[0]
 
     #Production By Basin to ELevators
-    YeildByEles = BProdcution.iloc[0,1] * 1000000 
+    #print(type(BProdcution.iloc[0,1]))
+    YeildByEles = 1000000 * BProdcution.iloc[0,1]
     YeildByEle = YeildByEles / NumOfEles
 
     return NumOfEles, YeildByEles, round(YeildByEle, 2)
@@ -45,7 +46,7 @@ if __name__=='__main__':
 
     Year = 2020
     Technologies = ['_IRR_hi','_IRR_lo','_RFD_hi','_RFD_lo']
-    Technology = Technologies[3]
+    Technology = Technologies[0]
     Basins = EleAndBasin.BasinName.unique()
 
     EleAndBasin['Production'] = 0
