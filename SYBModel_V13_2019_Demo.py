@@ -6,7 +6,6 @@
 # @File    : SYBModel_V13_2019_Demo.py
 # @Software: PyCharm
 # @Notes   : An example of 2019
-
 import pandas as pd
 import numpy as np
 import SYBModel_V13 as GRB
