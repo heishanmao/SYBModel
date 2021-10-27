@@ -79,6 +79,9 @@ def Get_GuRoBi(Model_Name, Cost_Country_Stream, Cost_Country_Rail, Cost_Stream_E
         # 8
     model.addConstr(Global_Price - Gamma2 * Slack_Tariff - Gamma3 * quicksum(Z_Export_Import) == Gamma1)
 
+        # 9
+    #model.addConstrs(Alpha * Inventory_Country_LastYear[c] + Supply_Country[c] - 10000000 * X_Facility[c] >= 0 for c in range(Num_Country_Elevators))
+
     # Objective
     obj = LinExpr()
     obj += quicksum((Global_Price-Cost_Export_Import[e, i]) * Z_Export_Import[e, i] for e in range(Num_Export_Terminals)
@@ -104,6 +107,17 @@ def Get_GuRoBi(Model_Name, Cost_Country_Stream, Cost_Country_Rail, Cost_Stream_E
     model.params.NonConvex = 2
     model.optimize()
     model.write(Model_Name + '.lp')
+
+    # 查看单目标规划模型的目标函数值
+    print("Optimal Objective Value", model.objVal)
+    # 查看多目标规划模型的目标函数值
+    # for i in range(model.NumObj):
+    #     model.setParam(gurobipy.GRB.Param.ObjNumber, i)
+    #     print(f"Obj {i + 1} = {model.ObjNVal}")
+    # 查看变量取值，这个方法用的很少，请看第 4 部分案例
+    for var in model.getVars():
+        if var.X != 0:
+            print(f"{var.varName}: {round(var.X, 3)}")
 
 
 if __name__ =='__main__':
