@@ -1,4 +1,4 @@
-\ Model Soybean_V13_July-19-2021
+\ Model Soybean_V13_Oct-25-2021
 \ LP format - for model browsing. Use MPS format to capture full model detail.
 Maximize
   - 36.96 X_Country_Stream[0,0] - 21.79 X_Country_Stream[0,1]
@@ -1895,206 +1895,226 @@ Maximize
    - 19.29 X_Facility[217] - 5.25 X_Facility[218] - 27 X_Facility[219]
    - 15.405 X_Facility[220] - 23.94 X_Facility[221] - 6.03 X_Facility[222]
    - 14.31 X_Facility[223] - 6.075 X_Facility[224] - 10.47 X_Facility[225]
-   - 8.16 X_Facility[226] - 10 I_Country[0] - 10 I_Country[1]
-   - 10 I_Country[2] - 10 I_Country[3] - 10 I_Country[4] - 10 I_Country[5]
-   - 10 I_Country[6] - 10 I_Country[7] - 10 I_Country[8] - 10 I_Country[9]
-   - 10 I_Country[10] - 10 I_Country[11] - 10 I_Country[12]
-   - 10 I_Country[13] - 10 I_Country[14] - 10 I_Country[15]
-   - 10 I_Country[16] - 10 I_Country[17] - 10 I_Country[18]
-   - 10 I_Country[19] - 10 I_Country[20] - 10 I_Country[21]
-   - 10 I_Country[22] - 10 I_Country[23] - 10 I_Country[24]
-   - 10 I_Country[25] - 10 I_Country[26] - 10 I_Country[27]
-   - 10 I_Country[28] - 10 I_Country[29] - 10 I_Country[30]
-   - 10 I_Country[31] - 10 I_Country[32] - 10 I_Country[33]
-   - 10 I_Country[34] - 10 I_Country[35] - 10 I_Country[36]
-   - 10 I_Country[37] - 10 I_Country[38] - 10 I_Country[39]
-   - 10 I_Country[40] - 10 I_Country[41] - 10 I_Country[42]
-   - 10 I_Country[43] - 10 I_Country[44] - 10 I_Country[45]
-   - 10 I_Country[46] - 10 I_Country[47] - 10 I_Country[48]
-   - 10 I_Country[49] - 10 I_Country[50] - 10 I_Country[51]
-   - 10 I_Country[52] - 10 I_Country[53] - 10 I_Country[54]
-   - 10 I_Country[55] - 10 I_Country[56] - 10 I_Country[57]
-   - 10 I_Country[58] - 10 I_Country[59] - 10 I_Country[60]
-   - 10 I_Country[61] - 10 I_Country[62] - 10 I_Country[63]
-   - 10 I_Country[64] - 10 I_Country[65] - 10 I_Country[66]
-   - 10 I_Country[67] - 10 I_Country[68] - 10 I_Country[69]
-   - 10 I_Country[70] - 10 I_Country[71] - 10 I_Country[72]
-   - 10 I_Country[73] - 10 I_Country[74] - 10 I_Country[75]
-   - 10 I_Country[76] - 10 I_Country[77] - 10 I_Country[78]
-   - 10 I_Country[79] - 10 I_Country[80] - 10 I_Country[81]
-   - 10 I_Country[82] - 10 I_Country[83] - 10 I_Country[84]
-   - 10 I_Country[85] - 10 I_Country[86] - 10 I_Country[87]
-   - 10 I_Country[88] - 10 I_Country[89] - 10 I_Country[90]
-   - 10 I_Country[91] - 10 I_Country[92] - 10 I_Country[93]
-   - 10 I_Country[94] - 10 I_Country[95] - 10 I_Country[96]
-   - 10 I_Country[97] - 10 I_Country[98] - 10 I_Country[99]
-   - 10 I_Country[100] - 10 I_Country[101] - 10 I_Country[102]
-   - 10 I_Country[103] - 10 I_Country[104] - 10 I_Country[105]
-   - 10 I_Country[106] - 10 I_Country[107] - 10 I_Country[108]
-   - 10 I_Country[109] - 10 I_Country[110] - 10 I_Country[111]
-   - 10 I_Country[112] - 10 I_Country[113] - 10 I_Country[114]
-   - 10 I_Country[115] - 10 I_Country[116] - 10 I_Country[117]
-   - 10 I_Country[118] - 10 I_Country[119] - 10 I_Country[120]
-   - 10 I_Country[121] - 10 I_Country[122] - 10 I_Country[123]
-   - 10 I_Country[124] - 10 I_Country[125] - 10 I_Country[126]
-   - 10 I_Country[127] - 10 I_Country[128] - 10 I_Country[129]
-   - 10 I_Country[130] - 10 I_Country[131] - 10 I_Country[132]
-   - 10 I_Country[133] - 10 I_Country[134] - 10 I_Country[135]
-   - 10 I_Country[136] - 10 I_Country[137] - 10 I_Country[138]
-   - 10 I_Country[139] - 10 I_Country[140] - 10 I_Country[141]
-   - 10 I_Country[142] - 10 I_Country[143] - 10 I_Country[144]
-   - 10 I_Country[145] - 10 I_Country[146] - 10 I_Country[147]
-   - 10 I_Country[148] - 10 I_Country[149] - 10 I_Country[150]
-   - 10 I_Country[151] - 10 I_Country[152] - 10 I_Country[153]
-   - 10 I_Country[154] - 10 I_Country[155] - 10 I_Country[156]
-   - 10 I_Country[157] - 10 I_Country[158] - 10 I_Country[159]
-   - 10 I_Country[160] - 10 I_Country[161] - 10 I_Country[162]
-   - 10 I_Country[163] - 10 I_Country[164] - 10 I_Country[165]
-   - 10 I_Country[166] - 10 I_Country[167] - 10 I_Country[168]
-   - 10 I_Country[169] - 10 I_Country[170] - 10 I_Country[171]
-   - 10 I_Country[172] - 10 I_Country[173] - 10 I_Country[174]
-   - 10 I_Country[175] - 10 I_Country[176] - 10 I_Country[177]
-   - 10 I_Country[178] - 10 I_Country[179] - 10 I_Country[180]
-   - 10 I_Country[181] - 10 I_Country[182] - 10 I_Country[183]
-   - 10 I_Country[184] - 10 I_Country[185] - 10 I_Country[186]
-   - 10 I_Country[187] - 10 I_Country[188] - 10 I_Country[189]
-   - 10 I_Country[190] - 10 I_Country[191] - 10 I_Country[192]
-   - 10 I_Country[193] - 10 I_Country[194] - 10 I_Country[195]
-   - 10 I_Country[196] - 10 I_Country[197] - 10 I_Country[198]
-   - 10 I_Country[199] - 10 I_Country[200] - 10 I_Country[201]
-   - 10 I_Country[202] - 10 I_Country[203] - 10 I_Country[204]
-   - 10 I_Country[205] - 10 I_Country[206] - 10 I_Country[207]
-   - 10 I_Country[208] - 10 I_Country[209] - 10 I_Country[210]
-   - 10 I_Country[211] - 10 I_Country[212] - 10 I_Country[213]
-   - 10 I_Country[214] - 10 I_Country[215] - 10 I_Country[216]
-   - 10 I_Country[217] - 10 I_Country[218] - 10 I_Country[219]
-   - 10 I_Country[220] - 10 I_Country[221] - 10 I_Country[222]
-   - 10 I_Country[223] - 10 I_Country[224] - 10 I_Country[225]
-   - 10 I_Country[226] - 10 I_Stream[0] - 10 I_Stream[1] - 10 I_Stream[2]
-   - 10 I_Stream[3] - 10 I_Stream[4] - 10 I_Stream[5] - 10 I_Stream[6]
-   - 10 I_Stream[7] - 10 I_Stream[8] - 10 I_Stream[9] - 10 I_Stream[10]
-   - 10 I_Stream[11] - 10 I_Stream[12] - 10 I_Stream[13] - 10 I_Stream[14]
-   - 10 I_Stream[15] - 10 I_Stream[16] - 10 I_Stream[17] - 10 I_Stream[18]
-   - 10 I_Stream[19] - 10 I_Stream[20] - 10 I_Stream[21] - 10 I_Stream[22]
-   - 10 I_Stream[23] - 10 I_Stream[24] - 10 I_Stream[25] - 10 I_Stream[26]
-   - 10 I_Stream[27] - 10 I_Stream[28] - 10 I_Stream[29] - 10 I_Stream[30]
-   - 10 I_Stream[31] - 10 I_Stream[32] - 10 I_Stream[33] - 10 I_Stream[34]
-   - 10 I_Stream[35] - 10 I_Stream[36] - 10 I_Stream[37] - 10 I_Stream[38]
-   - 10 I_Stream[39] - 10 I_Stream[40] - 10 I_Stream[41] - 10 I_Stream[42]
-   - 10 I_Stream[43] - 10 I_Stream[44] - 10 I_Stream[45] - 10 I_Stream[46]
-   - 10 I_Stream[47] - 10 I_Stream[48] - 10 I_Stream[49] - 10 I_Stream[50]
-   - 10 I_Stream[51] - 10 I_Stream[52] - 10 I_Stream[53] - 10 I_Stream[54]
-   - 10 I_Stream[55] - 10 I_Stream[56] - 10 I_Stream[57] - 10 I_Stream[58]
-   - 10 I_Stream[59] - 10 I_Stream[60] - 10 I_Stream[61] - 10 I_Stream[62]
-   - 10 I_Stream[63] - 10 I_Stream[64] - 10 I_Stream[65] - 10 I_Stream[66]
-   - 10 I_Stream[67] - 10 I_Stream[68] - 10 I_Stream[69] - 10 I_Stream[70]
-   - 10 I_Stream[71] - 10 I_Stream[72] - 10 I_Stream[73] - 10 I_Stream[74]
-   - 10 I_Stream[75] - 10 I_Stream[76] - 10 I_Stream[77] - 10 I_Stream[78]
-   - 10 I_Stream[79] - 10 I_Stream[80] - 10 I_Stream[81] - 10 I_Stream[82]
-   - 10 I_Stream[83] - 10 I_Stream[84] - 10 I_Stream[85] - 10 I_Stream[86]
-   - 10 I_Stream[87] - 10 I_Stream[88] - 10 I_Stream[89] - 10 I_Stream[90]
-   - 10 I_Stream[91] - 10 I_Stream[92] - 10 I_Stream[93] - 10 I_Stream[94]
-   - 10 I_Stream[95] - 10 I_Stream[96] - 10 I_Stream[97] - 10 I_Stream[98]
-   - 10 I_Stream[99] - 10 I_Stream[100] - 10 I_Stream[101]
-   - 10 I_Stream[102] - 10 I_Stream[103] - 10 I_Stream[104]
-   - 10 I_Stream[105] - 10 I_Stream[106] - 10 I_Stream[107]
-   - 10 I_Stream[108] - 10 I_Stream[109] - 10 I_Stream[110]
-   - 10 I_Stream[111] - 10 I_Stream[112] - 10 I_Stream[113]
-   - 10 I_Stream[114] - 10 I_Stream[115] - 10 I_Stream[116]
-   - 10 I_Stream[117] - 10 I_Stream[118] - 10 I_Stream[119]
-   - 10 I_Stream[120] - 10 I_Stream[121] - 10 I_Stream[122]
-   - 10 I_Stream[123] - 10 I_Stream[124] - 10 I_Stream[125]
-   - 10 I_Stream[126] - 10 I_Stream[127] - 10 I_Stream[128]
-   - 10 I_Stream[129] - 10 I_Stream[130] - 10 I_Stream[131]
-   - 10 I_Stream[132] - 10 I_Stream[133] - 10 I_Stream[134]
-   - 10 I_Stream[135] - 10 I_Stream[136] - 10 I_Stream[137]
-   - 10 I_Stream[138] - 10 I_Stream[139] - 10 I_Stream[140]
-   - 10 I_Stream[141] - 10 I_Stream[142] - 10 I_Stream[143]
-   - 10 I_Stream[144] - 10 I_Stream[145] - 10 I_Stream[146]
-   - 10 I_Stream[147] - 10 I_Stream[148] - 10 I_Stream[149]
-   - 10 I_Stream[150] - 10 I_Stream[151] - 10 I_Stream[152]
-   - 10 I_Stream[153] - 10 I_Stream[154] - 10 I_Stream[155]
-   - 10 I_Stream[156] - 10 I_Stream[157] - 10 I_Stream[158]
-   - 10 I_Stream[159] - 10 I_Stream[160] - 10 I_Stream[161]
-   - 10 I_Stream[162] - 10 I_Stream[163] - 10 I_Stream[164]
-   - 10 I_Stream[165] - 10 I_Stream[166] - 10 I_Stream[167]
-   - 10 I_Stream[168] - 10 I_Stream[169] - 10 I_Stream[170]
-   - 10 I_Stream[171] - 10 I_Stream[172] - 10 I_Stream[173]
-   - 10 I_Stream[174] - 10 I_Stream[175] - 10 I_Stream[176]
-   - 10 I_Stream[177] - 10 I_Stream[178] - 10 I_Stream[179]
-   - 10 I_Stream[180] - 10 I_Stream[181] - 10 I_Stream[182]
-   - 10 I_Stream[183] - 10 I_Stream[184] - 10 I_Stream[185]
-   - 10 I_Stream[186] - 10 I_Stream[187] - 10 I_Stream[188]
-   - 10 I_Stream[189] - 10 I_Stream[190] - 10 I_Stream[191]
-   - 10 I_Stream[192] - 10 I_Stream[193] - 10 I_Stream[194]
-   - 10 I_Stream[195] - 10 I_Stream[196] - 10 I_Stream[197]
-   - 10 I_Stream[198] - 10 I_Stream[199] - 10 I_Stream[200]
-   - 10 I_Stream[201] - 10 I_Stream[202] - 10 I_Stream[203]
-   - 10 I_Stream[204] - 10 I_Stream[205] - 10 I_Stream[206]
-   - 10 I_Stream[207] - 10 I_Stream[208] - 10 I_Stream[209]
-   - 10 I_Stream[210] - 10 I_Stream[211] - 10 I_Stream[212]
-   - 10 I_Stream[213] - 10 I_Stream[214] - 10 I_Stream[215]
-   - 10 I_Stream[216] - 10 I_Stream[217] - 10 I_Stream[218]
-   - 10 I_Stream[219] - 10 I_Stream[220] - 10 I_Stream[221]
-   - 10 I_Stream[222] - 10 I_Stream[223] - 10 I_Stream[224]
-   - 10 I_Stream[225] - 10 I_Stream[226] - 10 I_Rail[0] - 10 I_Rail[1]
-   - 10 I_Rail[2] - 10 I_Rail[3] - 10 I_Rail[4] - 10 I_Rail[5]
-   - 10 I_Rail[6] - 10 I_Rail[7] - 10 I_Rail[8] - 10 I_Rail[9]
-   - 10 I_Rail[10] - 10 I_Rail[11] - 10 I_Rail[12] - 10 I_Rail[13]
-   - 10 I_Rail[14] - 10 I_Rail[15] - 10 I_Rail[16] - 10 I_Rail[17]
-   - 10 I_Rail[18] - 10 I_Rail[19] - 10 I_Rail[20] - 10 I_Rail[21]
-   - 10 I_Rail[22] - 10 I_Rail[23] - 10 I_Rail[24] - 10 I_Rail[25]
-   - 10 I_Rail[26] - 10 I_Rail[27] - 10 I_Rail[28] - 10 I_Rail[29]
-   - 10 I_Rail[30] - 10 I_Rail[31] - 10 I_Rail[32] - 10 I_Rail[33]
-   - 10 I_Rail[34] - 10 I_Rail[35] - 10 I_Rail[36] - 10 I_Rail[37]
-   - 10 I_Rail[38] - 10 I_Rail[39] - 10 I_Rail[40] - 10 I_Rail[41]
-   - 10 I_Rail[42] - 10 I_Rail[43] - 10 I_Rail[44] - 10 I_Rail[45]
-   - 10 I_Rail[46] - 10 I_Rail[47] - 10 I_Rail[48] - 10 I_Rail[49]
-   - 10 I_Rail[50] - 10 I_Rail[51] - 10 I_Rail[52] - 10 I_Rail[53]
-   - 10 I_Rail[54] - 10 I_Rail[55] - 10 I_Rail[56] - 10 I_Rail[57]
-   - 10 I_Rail[58] - 10 I_Rail[59] - 10 I_Rail[60] - 10 I_Rail[61]
-   - 10 I_Rail[62] - 10 I_Rail[63] - 10 I_Rail[64] - 10 I_Rail[65]
-   - 10 I_Rail[66] - 10 I_Rail[67] - 10 I_Rail[68] - 10 I_Rail[69]
-   - 10 I_Rail[70] - 10 I_Rail[71] - 10 I_Rail[72] - 10 I_Rail[73]
-   - 10 I_Rail[74] - 10 I_Rail[75] - 10 I_Rail[76] - 10 I_Rail[77]
-   - 10 I_Rail[78] - 10 I_Rail[79] - 10 I_Rail[80] - 10 I_Rail[81]
-   - 10 I_Rail[82] - 10 I_Rail[83] - 10 I_Rail[84] - 10 I_Rail[85]
-   - 10 I_Rail[86] - 10 I_Rail[87] - 10 I_Rail[88] - 10 I_Rail[89]
-   - 10 I_Rail[90] - 10 I_Rail[91] - 10 I_Rail[92] - 10 I_Rail[93]
-   - 10 I_Rail[94] - 10 I_Rail[95] - 10 I_Rail[96] - 10 I_Rail[97]
-   - 10 I_Rail[98] - 10 I_Rail[99] - 10 I_Rail[100] - 10 I_Rail[101]
-   - 10 I_Rail[102] - 10 I_Rail[103] - 10 I_Rail[104] - 10 I_Rail[105]
-   - 10 I_Rail[106] - 10 I_Rail[107] - 10 I_Rail[108] - 10 I_Rail[109]
-   - 10 I_Rail[110] - 10 I_Rail[111] - 10 I_Rail[112] - 10 I_Rail[113]
-   - 10 I_Rail[114] - 10 I_Rail[115] - 10 I_Rail[116] - 10 I_Rail[117]
-   - 10 I_Rail[118] - 10 I_Rail[119] - 10 I_Rail[120] - 10 I_Rail[121]
-   - 10 I_Rail[122] - 10 I_Rail[123] - 10 I_Rail[124] - 10 I_Rail[125]
-   - 10 I_Rail[126] - 10 I_Rail[127] - 10 I_Rail[128] - 10 I_Rail[129]
-   - 10 I_Rail[130] - 10 I_Rail[131] - 10 I_Rail[132] - 10 I_Rail[133]
-   - 10 I_Rail[134] - 10 I_Rail[135] - 10 I_Rail[136] - 10 I_Rail[137]
-   - 10 I_Rail[138] - 10 I_Rail[139] - 10 I_Rail[140] - 10 I_Rail[141]
-   - 10 I_Rail[142] - 10 I_Rail[143] - 10 I_Rail[144] - 10 I_Rail[145]
-   - 10 I_Rail[146] - 10 I_Rail[147] - 10 I_Rail[148] - 10 I_Rail[149]
-   - 10 I_Rail[150] - 10 I_Rail[151] - 10 I_Rail[152] - 10 I_Rail[153]
-   - 10 I_Rail[154] - 10 I_Rail[155] - 10 I_Rail[156] - 10 I_Rail[157]
-   - 10 I_Rail[158] - 10 I_Rail[159] - 10 I_Rail[160] - 10 I_Rail[161]
-   - 10 I_Rail[162] - 10 I_Rail[163] - 10 I_Rail[164] - 10 I_Rail[165]
-   - 10 I_Rail[166] - 10 I_Rail[167] - 10 I_Rail[168] - 10 I_Rail[169]
-   - 10 I_Rail[170] - 10 I_Rail[171] - 10 I_Rail[172] - 10 I_Rail[173]
-   - 10 I_Rail[174] - 10 I_Rail[175] - 10 I_Rail[176] - 10 I_Rail[177]
-   - 10 I_Rail[178] - 10 I_Rail[179] - 10 I_Rail[180] - 10 I_Rail[181]
-   - 10 I_Rail[182] - 10 I_Rail[183] - 10 I_Rail[184] - 10 I_Rail[185]
-   - 10 I_Rail[186] - 10 I_Rail[187] - 10 I_Rail[188] - 10 I_Rail[189]
-   - 10 I_Rail[190] - 10 I_Rail[191] - 10 I_Rail[192] - 10 I_Rail[193]
-   - 10 I_Rail[194] - 10 I_Rail[195] - 10 I_Rail[196] - 10 I_Rail[197]
-   - 10 I_Rail[198] - 10 I_Rail[199] - 10 I_Rail[200] - 10 I_Rail[201]
-   - 10 I_Rail[202] - 10 I_Rail[203] - 10 I_Rail[204] - 10 I_Rail[205]
-   - 10 I_Rail[206] - 10 I_Rail[207] - 10 I_Rail[208] - 10 I_Rail[209]
-   - 10 I_Rail[210] - 10 I_Rail[211] - 10 I_Rail[212] - 10 I_Rail[213]
-   - 10 I_Rail[214] - 10 I_Rail[215] - 10 I_Rail[216] - 10 I_Rail[217]
-   - 10 I_Rail[218] - 10 I_Rail[219] - 10 I_Rail[220] - 10 I_Rail[221]
-   - 10 I_Rail[222] - 10 I_Rail[223] - 10 I_Rail[224] - 10 I_Rail[225]
-   - 10 I_Rail[226] - 999 Y_Stream_Export[0,0] - 999 Y_Stream_Export[0,1]
+   - 8.16 X_Facility[226] - 1000 I_Country[0] - 1000 I_Country[1]
+   - 1000 I_Country[2] - 1000 I_Country[3] - 1000 I_Country[4]
+   - 1000 I_Country[5] - 1000 I_Country[6] - 1000 I_Country[7]
+   - 1000 I_Country[8] - 1000 I_Country[9] - 1000 I_Country[10]
+   - 1000 I_Country[11] - 1000 I_Country[12] - 1000 I_Country[13]
+   - 1000 I_Country[14] - 1000 I_Country[15] - 1000 I_Country[16]
+   - 1000 I_Country[17] - 1000 I_Country[18] - 1000 I_Country[19]
+   - 1000 I_Country[20] - 1000 I_Country[21] - 1000 I_Country[22]
+   - 1000 I_Country[23] - 1000 I_Country[24] - 1000 I_Country[25]
+   - 1000 I_Country[26] - 1000 I_Country[27] - 1000 I_Country[28]
+   - 1000 I_Country[29] - 1000 I_Country[30] - 1000 I_Country[31]
+   - 1000 I_Country[32] - 1000 I_Country[33] - 1000 I_Country[34]
+   - 1000 I_Country[35] - 1000 I_Country[36] - 1000 I_Country[37]
+   - 1000 I_Country[38] - 1000 I_Country[39] - 1000 I_Country[40]
+   - 1000 I_Country[41] - 1000 I_Country[42] - 1000 I_Country[43]
+   - 1000 I_Country[44] - 1000 I_Country[45] - 1000 I_Country[46]
+   - 1000 I_Country[47] - 1000 I_Country[48] - 1000 I_Country[49]
+   - 1000 I_Country[50] - 1000 I_Country[51] - 1000 I_Country[52]
+   - 1000 I_Country[53] - 1000 I_Country[54] - 1000 I_Country[55]
+   - 1000 I_Country[56] - 1000 I_Country[57] - 1000 I_Country[58]
+   - 1000 I_Country[59] - 1000 I_Country[60] - 1000 I_Country[61]
+   - 1000 I_Country[62] - 1000 I_Country[63] - 1000 I_Country[64]
+   - 1000 I_Country[65] - 1000 I_Country[66] - 1000 I_Country[67]
+   - 1000 I_Country[68] - 1000 I_Country[69] - 1000 I_Country[70]
+   - 1000 I_Country[71] - 1000 I_Country[72] - 1000 I_Country[73]
+   - 1000 I_Country[74] - 1000 I_Country[75] - 1000 I_Country[76]
+   - 1000 I_Country[77] - 1000 I_Country[78] - 1000 I_Country[79]
+   - 1000 I_Country[80] - 1000 I_Country[81] - 1000 I_Country[82]
+   - 1000 I_Country[83] - 1000 I_Country[84] - 1000 I_Country[85]
+   - 1000 I_Country[86] - 1000 I_Country[87] - 1000 I_Country[88]
+   - 1000 I_Country[89] - 1000 I_Country[90] - 1000 I_Country[91]
+   - 1000 I_Country[92] - 1000 I_Country[93] - 1000 I_Country[94]
+   - 1000 I_Country[95] - 1000 I_Country[96] - 1000 I_Country[97]
+   - 1000 I_Country[98] - 1000 I_Country[99] - 1000 I_Country[100]
+   - 1000 I_Country[101] - 1000 I_Country[102] - 1000 I_Country[103]
+   - 1000 I_Country[104] - 1000 I_Country[105] - 1000 I_Country[106]
+   - 1000 I_Country[107] - 1000 I_Country[108] - 1000 I_Country[109]
+   - 1000 I_Country[110] - 1000 I_Country[111] - 1000 I_Country[112]
+   - 1000 I_Country[113] - 1000 I_Country[114] - 1000 I_Country[115]
+   - 1000 I_Country[116] - 1000 I_Country[117] - 1000 I_Country[118]
+   - 1000 I_Country[119] - 1000 I_Country[120] - 1000 I_Country[121]
+   - 1000 I_Country[122] - 1000 I_Country[123] - 1000 I_Country[124]
+   - 1000 I_Country[125] - 1000 I_Country[126] - 1000 I_Country[127]
+   - 1000 I_Country[128] - 1000 I_Country[129] - 1000 I_Country[130]
+   - 1000 I_Country[131] - 1000 I_Country[132] - 1000 I_Country[133]
+   - 1000 I_Country[134] - 1000 I_Country[135] - 1000 I_Country[136]
+   - 1000 I_Country[137] - 1000 I_Country[138] - 1000 I_Country[139]
+   - 1000 I_Country[140] - 1000 I_Country[141] - 1000 I_Country[142]
+   - 1000 I_Country[143] - 1000 I_Country[144] - 1000 I_Country[145]
+   - 1000 I_Country[146] - 1000 I_Country[147] - 1000 I_Country[148]
+   - 1000 I_Country[149] - 1000 I_Country[150] - 1000 I_Country[151]
+   - 1000 I_Country[152] - 1000 I_Country[153] - 1000 I_Country[154]
+   - 1000 I_Country[155] - 1000 I_Country[156] - 1000 I_Country[157]
+   - 1000 I_Country[158] - 1000 I_Country[159] - 1000 I_Country[160]
+   - 1000 I_Country[161] - 1000 I_Country[162] - 1000 I_Country[163]
+   - 1000 I_Country[164] - 1000 I_Country[165] - 1000 I_Country[166]
+   - 1000 I_Country[167] - 1000 I_Country[168] - 1000 I_Country[169]
+   - 1000 I_Country[170] - 1000 I_Country[171] - 1000 I_Country[172]
+   - 1000 I_Country[173] - 1000 I_Country[174] - 1000 I_Country[175]
+   - 1000 I_Country[176] - 1000 I_Country[177] - 1000 I_Country[178]
+   - 1000 I_Country[179] - 1000 I_Country[180] - 1000 I_Country[181]
+   - 1000 I_Country[182] - 1000 I_Country[183] - 1000 I_Country[184]
+   - 1000 I_Country[185] - 1000 I_Country[186] - 1000 I_Country[187]
+   - 1000 I_Country[188] - 1000 I_Country[189] - 1000 I_Country[190]
+   - 1000 I_Country[191] - 1000 I_Country[192] - 1000 I_Country[193]
+   - 1000 I_Country[194] - 1000 I_Country[195] - 1000 I_Country[196]
+   - 1000 I_Country[197] - 1000 I_Country[198] - 1000 I_Country[199]
+   - 1000 I_Country[200] - 1000 I_Country[201] - 1000 I_Country[202]
+   - 1000 I_Country[203] - 1000 I_Country[204] - 1000 I_Country[205]
+   - 1000 I_Country[206] - 1000 I_Country[207] - 1000 I_Country[208]
+   - 1000 I_Country[209] - 1000 I_Country[210] - 1000 I_Country[211]
+   - 1000 I_Country[212] - 1000 I_Country[213] - 1000 I_Country[214]
+   - 1000 I_Country[215] - 1000 I_Country[216] - 1000 I_Country[217]
+   - 1000 I_Country[218] - 1000 I_Country[219] - 1000 I_Country[220]
+   - 1000 I_Country[221] - 1000 I_Country[222] - 1000 I_Country[223]
+   - 1000 I_Country[224] - 1000 I_Country[225] - 1000 I_Country[226]
+   - 1000 I_Stream[0] - 1000 I_Stream[1] - 1000 I_Stream[2]
+   - 1000 I_Stream[3] - 1000 I_Stream[4] - 1000 I_Stream[5]
+   - 1000 I_Stream[6] - 1000 I_Stream[7] - 1000 I_Stream[8]
+   - 1000 I_Stream[9] - 1000 I_Stream[10] - 1000 I_Stream[11]
+   - 1000 I_Stream[12] - 1000 I_Stream[13] - 1000 I_Stream[14]
+   - 1000 I_Stream[15] - 1000 I_Stream[16] - 1000 I_Stream[17]
+   - 1000 I_Stream[18] - 1000 I_Stream[19] - 1000 I_Stream[20]
+   - 1000 I_Stream[21] - 1000 I_Stream[22] - 1000 I_Stream[23]
+   - 1000 I_Stream[24] - 1000 I_Stream[25] - 1000 I_Stream[26]
+   - 1000 I_Stream[27] - 1000 I_Stream[28] - 1000 I_Stream[29]
+   - 1000 I_Stream[30] - 1000 I_Stream[31] - 1000 I_Stream[32]
+   - 1000 I_Stream[33] - 1000 I_Stream[34] - 1000 I_Stream[35]
+   - 1000 I_Stream[36] - 1000 I_Stream[37] - 1000 I_Stream[38]
+   - 1000 I_Stream[39] - 1000 I_Stream[40] - 1000 I_Stream[41]
+   - 1000 I_Stream[42] - 1000 I_Stream[43] - 1000 I_Stream[44]
+   - 1000 I_Stream[45] - 1000 I_Stream[46] - 1000 I_Stream[47]
+   - 1000 I_Stream[48] - 1000 I_Stream[49] - 1000 I_Stream[50]
+   - 1000 I_Stream[51] - 1000 I_Stream[52] - 1000 I_Stream[53]
+   - 1000 I_Stream[54] - 1000 I_Stream[55] - 1000 I_Stream[56]
+   - 1000 I_Stream[57] - 1000 I_Stream[58] - 1000 I_Stream[59]
+   - 1000 I_Stream[60] - 1000 I_Stream[61] - 1000 I_Stream[62]
+   - 1000 I_Stream[63] - 1000 I_Stream[64] - 1000 I_Stream[65]
+   - 1000 I_Stream[66] - 1000 I_Stream[67] - 1000 I_Stream[68]
+   - 1000 I_Stream[69] - 1000 I_Stream[70] - 1000 I_Stream[71]
+   - 1000 I_Stream[72] - 1000 I_Stream[73] - 1000 I_Stream[74]
+   - 1000 I_Stream[75] - 1000 I_Stream[76] - 1000 I_Stream[77]
+   - 1000 I_Stream[78] - 1000 I_Stream[79] - 1000 I_Stream[80]
+   - 1000 I_Stream[81] - 1000 I_Stream[82] - 1000 I_Stream[83]
+   - 1000 I_Stream[84] - 1000 I_Stream[85] - 1000 I_Stream[86]
+   - 1000 I_Stream[87] - 1000 I_Stream[88] - 1000 I_Stream[89]
+   - 1000 I_Stream[90] - 1000 I_Stream[91] - 1000 I_Stream[92]
+   - 1000 I_Stream[93] - 1000 I_Stream[94] - 1000 I_Stream[95]
+   - 1000 I_Stream[96] - 1000 I_Stream[97] - 1000 I_Stream[98]
+   - 1000 I_Stream[99] - 1000 I_Stream[100] - 1000 I_Stream[101]
+   - 1000 I_Stream[102] - 1000 I_Stream[103] - 1000 I_Stream[104]
+   - 1000 I_Stream[105] - 1000 I_Stream[106] - 1000 I_Stream[107]
+   - 1000 I_Stream[108] - 1000 I_Stream[109] - 1000 I_Stream[110]
+   - 1000 I_Stream[111] - 1000 I_Stream[112] - 1000 I_Stream[113]
+   - 1000 I_Stream[114] - 1000 I_Stream[115] - 1000 I_Stream[116]
+   - 1000 I_Stream[117] - 1000 I_Stream[118] - 1000 I_Stream[119]
+   - 1000 I_Stream[120] - 1000 I_Stream[121] - 1000 I_Stream[122]
+   - 1000 I_Stream[123] - 1000 I_Stream[124] - 1000 I_Stream[125]
+   - 1000 I_Stream[126] - 1000 I_Stream[127] - 1000 I_Stream[128]
+   - 1000 I_Stream[129] - 1000 I_Stream[130] - 1000 I_Stream[131]
+   - 1000 I_Stream[132] - 1000 I_Stream[133] - 1000 I_Stream[134]
+   - 1000 I_Stream[135] - 1000 I_Stream[136] - 1000 I_Stream[137]
+   - 1000 I_Stream[138] - 1000 I_Stream[139] - 1000 I_Stream[140]
+   - 1000 I_Stream[141] - 1000 I_Stream[142] - 1000 I_Stream[143]
+   - 1000 I_Stream[144] - 1000 I_Stream[145] - 1000 I_Stream[146]
+   - 1000 I_Stream[147] - 1000 I_Stream[148] - 1000 I_Stream[149]
+   - 1000 I_Stream[150] - 1000 I_Stream[151] - 1000 I_Stream[152]
+   - 1000 I_Stream[153] - 1000 I_Stream[154] - 1000 I_Stream[155]
+   - 1000 I_Stream[156] - 1000 I_Stream[157] - 1000 I_Stream[158]
+   - 1000 I_Stream[159] - 1000 I_Stream[160] - 1000 I_Stream[161]
+   - 1000 I_Stream[162] - 1000 I_Stream[163] - 1000 I_Stream[164]
+   - 1000 I_Stream[165] - 1000 I_Stream[166] - 1000 I_Stream[167]
+   - 1000 I_Stream[168] - 1000 I_Stream[169] - 1000 I_Stream[170]
+   - 1000 I_Stream[171] - 1000 I_Stream[172] - 1000 I_Stream[173]
+   - 1000 I_Stream[174] - 1000 I_Stream[175] - 1000 I_Stream[176]
+   - 1000 I_Stream[177] - 1000 I_Stream[178] - 1000 I_Stream[179]
+   - 1000 I_Stream[180] - 1000 I_Stream[181] - 1000 I_Stream[182]
+   - 1000 I_Stream[183] - 1000 I_Stream[184] - 1000 I_Stream[185]
+   - 1000 I_Stream[186] - 1000 I_Stream[187] - 1000 I_Stream[188]
+   - 1000 I_Stream[189] - 1000 I_Stream[190] - 1000 I_Stream[191]
+   - 1000 I_Stream[192] - 1000 I_Stream[193] - 1000 I_Stream[194]
+   - 1000 I_Stream[195] - 1000 I_Stream[196] - 1000 I_Stream[197]
+   - 1000 I_Stream[198] - 1000 I_Stream[199] - 1000 I_Stream[200]
+   - 1000 I_Stream[201] - 1000 I_Stream[202] - 1000 I_Stream[203]
+   - 1000 I_Stream[204] - 1000 I_Stream[205] - 1000 I_Stream[206]
+   - 1000 I_Stream[207] - 1000 I_Stream[208] - 1000 I_Stream[209]
+   - 1000 I_Stream[210] - 1000 I_Stream[211] - 1000 I_Stream[212]
+   - 1000 I_Stream[213] - 1000 I_Stream[214] - 1000 I_Stream[215]
+   - 1000 I_Stream[216] - 1000 I_Stream[217] - 1000 I_Stream[218]
+   - 1000 I_Stream[219] - 1000 I_Stream[220] - 1000 I_Stream[221]
+   - 1000 I_Stream[222] - 1000 I_Stream[223] - 1000 I_Stream[224]
+   - 1000 I_Stream[225] - 1000 I_Stream[226] - 1000 I_Rail[0]
+   - 1000 I_Rail[1] - 1000 I_Rail[2] - 1000 I_Rail[3] - 1000 I_Rail[4]
+   - 1000 I_Rail[5] - 1000 I_Rail[6] - 1000 I_Rail[7] - 1000 I_Rail[8]
+   - 1000 I_Rail[9] - 1000 I_Rail[10] - 1000 I_Rail[11] - 1000 I_Rail[12]
+   - 1000 I_Rail[13] - 1000 I_Rail[14] - 1000 I_Rail[15] - 1000 I_Rail[16]
+   - 1000 I_Rail[17] - 1000 I_Rail[18] - 1000 I_Rail[19] - 1000 I_Rail[20]
+   - 1000 I_Rail[21] - 1000 I_Rail[22] - 1000 I_Rail[23] - 1000 I_Rail[24]
+   - 1000 I_Rail[25] - 1000 I_Rail[26] - 1000 I_Rail[27] - 1000 I_Rail[28]
+   - 1000 I_Rail[29] - 1000 I_Rail[30] - 1000 I_Rail[31] - 1000 I_Rail[32]
+   - 1000 I_Rail[33] - 1000 I_Rail[34] - 1000 I_Rail[35] - 1000 I_Rail[36]
+   - 1000 I_Rail[37] - 1000 I_Rail[38] - 1000 I_Rail[39] - 1000 I_Rail[40]
+   - 1000 I_Rail[41] - 1000 I_Rail[42] - 1000 I_Rail[43] - 1000 I_Rail[44]
+   - 1000 I_Rail[45] - 1000 I_Rail[46] - 1000 I_Rail[47] - 1000 I_Rail[48]
+   - 1000 I_Rail[49] - 1000 I_Rail[50] - 1000 I_Rail[51] - 1000 I_Rail[52]
+   - 1000 I_Rail[53] - 1000 I_Rail[54] - 1000 I_Rail[55] - 1000 I_Rail[56]
+   - 1000 I_Rail[57] - 1000 I_Rail[58] - 1000 I_Rail[59] - 1000 I_Rail[60]
+   - 1000 I_Rail[61] - 1000 I_Rail[62] - 1000 I_Rail[63] - 1000 I_Rail[64]
+   - 1000 I_Rail[65] - 1000 I_Rail[66] - 1000 I_Rail[67] - 1000 I_Rail[68]
+   - 1000 I_Rail[69] - 1000 I_Rail[70] - 1000 I_Rail[71] - 1000 I_Rail[72]
+   - 1000 I_Rail[73] - 1000 I_Rail[74] - 1000 I_Rail[75] - 1000 I_Rail[76]
+   - 1000 I_Rail[77] - 1000 I_Rail[78] - 1000 I_Rail[79] - 1000 I_Rail[80]
+   - 1000 I_Rail[81] - 1000 I_Rail[82] - 1000 I_Rail[83] - 1000 I_Rail[84]
+   - 1000 I_Rail[85] - 1000 I_Rail[86] - 1000 I_Rail[87] - 1000 I_Rail[88]
+   - 1000 I_Rail[89] - 1000 I_Rail[90] - 1000 I_Rail[91] - 1000 I_Rail[92]
+   - 1000 I_Rail[93] - 1000 I_Rail[94] - 1000 I_Rail[95] - 1000 I_Rail[96]
+   - 1000 I_Rail[97] - 1000 I_Rail[98] - 1000 I_Rail[99] - 1000 I_Rail[100]
+   - 1000 I_Rail[101] - 1000 I_Rail[102] - 1000 I_Rail[103]
+   - 1000 I_Rail[104] - 1000 I_Rail[105] - 1000 I_Rail[106]
+   - 1000 I_Rail[107] - 1000 I_Rail[108] - 1000 I_Rail[109]
+   - 1000 I_Rail[110] - 1000 I_Rail[111] - 1000 I_Rail[112]
+   - 1000 I_Rail[113] - 1000 I_Rail[114] - 1000 I_Rail[115]
+   - 1000 I_Rail[116] - 1000 I_Rail[117] - 1000 I_Rail[118]
+   - 1000 I_Rail[119] - 1000 I_Rail[120] - 1000 I_Rail[121]
+   - 1000 I_Rail[122] - 1000 I_Rail[123] - 1000 I_Rail[124]
+   - 1000 I_Rail[125] - 1000 I_Rail[126] - 1000 I_Rail[127]
+   - 1000 I_Rail[128] - 1000 I_Rail[129] - 1000 I_Rail[130]
+   - 1000 I_Rail[131] - 1000 I_Rail[132] - 1000 I_Rail[133]
+   - 1000 I_Rail[134] - 1000 I_Rail[135] - 1000 I_Rail[136]
+   - 1000 I_Rail[137] - 1000 I_Rail[138] - 1000 I_Rail[139]
+   - 1000 I_Rail[140] - 1000 I_Rail[141] - 1000 I_Rail[142]
+   - 1000 I_Rail[143] - 1000 I_Rail[144] - 1000 I_Rail[145]
+   - 1000 I_Rail[146] - 1000 I_Rail[147] - 1000 I_Rail[148]
+   - 1000 I_Rail[149] - 1000 I_Rail[150] - 1000 I_Rail[151]
+   - 1000 I_Rail[152] - 1000 I_Rail[153] - 1000 I_Rail[154]
+   - 1000 I_Rail[155] - 1000 I_Rail[156] - 1000 I_Rail[157]
+   - 1000 I_Rail[158] - 1000 I_Rail[159] - 1000 I_Rail[160]
+   - 1000 I_Rail[161] - 1000 I_Rail[162] - 1000 I_Rail[163]
+   - 1000 I_Rail[164] - 1000 I_Rail[165] - 1000 I_Rail[166]
+   - 1000 I_Rail[167] - 1000 I_Rail[168] - 1000 I_Rail[169]
+   - 1000 I_Rail[170] - 1000 I_Rail[171] - 1000 I_Rail[172]
+   - 1000 I_Rail[173] - 1000 I_Rail[174] - 1000 I_Rail[175]
+   - 1000 I_Rail[176] - 1000 I_Rail[177] - 1000 I_Rail[178]
+   - 1000 I_Rail[179] - 1000 I_Rail[180] - 1000 I_Rail[181]
+   - 1000 I_Rail[182] - 1000 I_Rail[183] - 1000 I_Rail[184]
+   - 1000 I_Rail[185] - 1000 I_Rail[186] - 1000 I_Rail[187]
+   - 1000 I_Rail[188] - 1000 I_Rail[189] - 1000 I_Rail[190]
+   - 1000 I_Rail[191] - 1000 I_Rail[192] - 1000 I_Rail[193]
+   - 1000 I_Rail[194] - 1000 I_Rail[195] - 1000 I_Rail[196]
+   - 1000 I_Rail[197] - 1000 I_Rail[198] - 1000 I_Rail[199]
+   - 1000 I_Rail[200] - 1000 I_Rail[201] - 1000 I_Rail[202]
+   - 1000 I_Rail[203] - 1000 I_Rail[204] - 1000 I_Rail[205]
+   - 1000 I_Rail[206] - 1000 I_Rail[207] - 1000 I_Rail[208]
+   - 1000 I_Rail[209] - 1000 I_Rail[210] - 1000 I_Rail[211]
+   - 1000 I_Rail[212] - 1000 I_Rail[213] - 1000 I_Rail[214]
+   - 1000 I_Rail[215] - 1000 I_Rail[216] - 1000 I_Rail[217]
+   - 1000 I_Rail[218] - 1000 I_Rail[219] - 1000 I_Rail[220]
+   - 1000 I_Rail[221] - 1000 I_Rail[222] - 1000 I_Rail[223]
+   - 1000 I_Rail[224] - 1000 I_Rail[225] - 1000 I_Rail[226]
+   - 999 Y_Stream_Export[0,0] - 999 Y_Stream_Export[0,1]
    - 79.4 Y_Stream_Export[0,2] - 999 Y_Stream_Export[0,3]
    - 999 Y_Stream_Export[1,0] - 999 Y_Stream_Export[1,1]
    - 62.54 Y_Stream_Export[1,2] - 999 Y_Stream_Export[1,3]
@@ -2321,70 +2341,70 @@ Subject To
    - X_Country_Stream[0,8] - X_Country_Stream[0,9] - X_Country_Rail[0,0]
    - X_Country_Rail[0,1] - X_Country_Rail[0,2] - X_Country_Rail[0,3]
    - X_Country_Rail[0,4] - X_Country_Rail[0,5] - X_Facility[0]
-   - I_Country[0] = -426431.72
+   - I_Country[0] = -2493.64
  R1: - X_Country_Stream[1,0] - X_Country_Stream[1,1]
    - X_Country_Stream[1,2] - X_Country_Stream[1,3] - X_Country_Stream[1,4]
    - X_Country_Stream[1,5] - X_Country_Stream[1,6] - X_Country_Stream[1,7]
    - X_Country_Stream[1,8] - X_Country_Stream[1,9] - X_Country_Rail[1,0]
    - X_Country_Rail[1,1] - X_Country_Rail[1,2] - X_Country_Rail[1,3]
    - X_Country_Rail[1,4] - X_Country_Rail[1,5] - X_Facility[1]
-   - I_Country[1] = -426431.72
+   - I_Country[1] = -2493.64
  R2: - X_Country_Stream[2,0] - X_Country_Stream[2,1]
    - X_Country_Stream[2,2] - X_Country_Stream[2,3] - X_Country_Stream[2,4]
    - X_Country_Stream[2,5] - X_Country_Stream[2,6] - X_Country_Stream[2,7]
    - X_Country_Stream[2,8] - X_Country_Stream[2,9] - X_Country_Rail[2,0]
    - X_Country_Rail[2,1] - X_Country_Rail[2,2] - X_Country_Rail[2,3]
    - X_Country_Rail[2,4] - X_Country_Rail[2,5] - X_Facility[2]
-   - I_Country[2] = -426431.72
+   - I_Country[2] = -2493.64
  R3: - X_Country_Stream[3,0] - X_Country_Stream[3,1]
    - X_Country_Stream[3,2] - X_Country_Stream[3,3] - X_Country_Stream[3,4]
    - X_Country_Stream[3,5] - X_Country_Stream[3,6] - X_Country_Stream[3,7]
    - X_Country_Stream[3,8] - X_Country_Stream[3,9] - X_Country_Rail[3,0]
    - X_Country_Rail[3,1] - X_Country_Rail[3,2] - X_Country_Rail[3,3]
    - X_Country_Rail[3,4] - X_Country_Rail[3,5] - X_Facility[3]
-   - I_Country[3] = -426431.72
+   - I_Country[3] = -2493.64
  R4: - X_Country_Stream[4,0] - X_Country_Stream[4,1]
    - X_Country_Stream[4,2] - X_Country_Stream[4,3] - X_Country_Stream[4,4]
    - X_Country_Stream[4,5] - X_Country_Stream[4,6] - X_Country_Stream[4,7]
    - X_Country_Stream[4,8] - X_Country_Stream[4,9] - X_Country_Rail[4,0]
    - X_Country_Rail[4,1] - X_Country_Rail[4,2] - X_Country_Rail[4,3]
    - X_Country_Rail[4,4] - X_Country_Rail[4,5] - X_Facility[4]
-   - I_Country[4] = -426431.72
+   - I_Country[4] = -2493.64
  R5: - X_Country_Stream[5,0] - X_Country_Stream[5,1]
    - X_Country_Stream[5,2] - X_Country_Stream[5,3] - X_Country_Stream[5,4]
    - X_Country_Stream[5,5] - X_Country_Stream[5,6] - X_Country_Stream[5,7]
    - X_Country_Stream[5,8] - X_Country_Stream[5,9] - X_Country_Rail[5,0]
    - X_Country_Rail[5,1] - X_Country_Rail[5,2] - X_Country_Rail[5,3]
    - X_Country_Rail[5,4] - X_Country_Rail[5,5] - X_Facility[5]
-   - I_Country[5] = -426431.72
+   - I_Country[5] = -2493.64
  R6: - X_Country_Stream[6,0] - X_Country_Stream[6,1]
    - X_Country_Stream[6,2] - X_Country_Stream[6,3] - X_Country_Stream[6,4]
    - X_Country_Stream[6,5] - X_Country_Stream[6,6] - X_Country_Stream[6,7]
    - X_Country_Stream[6,8] - X_Country_Stream[6,9] - X_Country_Rail[6,0]
    - X_Country_Rail[6,1] - X_Country_Rail[6,2] - X_Country_Rail[6,3]
    - X_Country_Rail[6,4] - X_Country_Rail[6,5] - X_Facility[6]
-   - I_Country[6] = -426431.72
+   - I_Country[6] = -2493.64
  R7: - X_Country_Stream[7,0] - X_Country_Stream[7,1]
    - X_Country_Stream[7,2] - X_Country_Stream[7,3] - X_Country_Stream[7,4]
    - X_Country_Stream[7,5] - X_Country_Stream[7,6] - X_Country_Stream[7,7]
    - X_Country_Stream[7,8] - X_Country_Stream[7,9] - X_Country_Rail[7,0]
    - X_Country_Rail[7,1] - X_Country_Rail[7,2] - X_Country_Rail[7,3]
    - X_Country_Rail[7,4] - X_Country_Rail[7,5] - X_Facility[7]
-   - I_Country[7] = -426431.72
+   - I_Country[7] = -6271.97
  R8: - X_Country_Stream[8,0] - X_Country_Stream[8,1]
    - X_Country_Stream[8,2] - X_Country_Stream[8,3] - X_Country_Stream[8,4]
    - X_Country_Stream[8,5] - X_Country_Stream[8,6] - X_Country_Stream[8,7]
    - X_Country_Stream[8,8] - X_Country_Stream[8,9] - X_Country_Rail[8,0]
    - X_Country_Rail[8,1] - X_Country_Rail[8,2] - X_Country_Rail[8,3]
    - X_Country_Rail[8,4] - X_Country_Rail[8,5] - X_Facility[8]
-   - I_Country[8] = -426431.72
+   - I_Country[8] = -2493.64
  R9: - X_Country_Stream[9,0] - X_Country_Stream[9,1]
    - X_Country_Stream[9,2] - X_Country_Stream[9,3] - X_Country_Stream[9,4]
    - X_Country_Stream[9,5] - X_Country_Stream[9,6] - X_Country_Stream[9,7]
    - X_Country_Stream[9,8] - X_Country_Stream[9,9] - X_Country_Rail[9,0]
    - X_Country_Rail[9,1] - X_Country_Rail[9,2] - X_Country_Rail[9,3]
    - X_Country_Rail[9,4] - X_Country_Rail[9,5] - X_Facility[9]
-   - I_Country[9] = -426431.72
+   - I_Country[9] = -2493.64
  R10: - X_Country_Stream[10,0] - X_Country_Stream[10,1]
    - X_Country_Stream[10,2] - X_Country_Stream[10,3]
    - X_Country_Stream[10,4] - X_Country_Stream[10,5]
@@ -2392,7 +2412,7 @@ Subject To
    - X_Country_Stream[10,8] - X_Country_Stream[10,9] - X_Country_Rail[10,0]
    - X_Country_Rail[10,1] - X_Country_Rail[10,2] - X_Country_Rail[10,3]
    - X_Country_Rail[10,4] - X_Country_Rail[10,5] - X_Facility[10]
-   - I_Country[10] = -426431.72
+   - I_Country[10] = -2493.64
  R11: - X_Country_Stream[11,0] - X_Country_Stream[11,1]
    - X_Country_Stream[11,2] - X_Country_Stream[11,3]
    - X_Country_Stream[11,4] - X_Country_Stream[11,5]
@@ -2400,7 +2420,7 @@ Subject To
    - X_Country_Stream[11,8] - X_Country_Stream[11,9] - X_Country_Rail[11,0]
    - X_Country_Rail[11,1] - X_Country_Rail[11,2] - X_Country_Rail[11,3]
    - X_Country_Rail[11,4] - X_Country_Rail[11,5] - X_Facility[11]
-   - I_Country[11] = -426431.72
+   - I_Country[11] = -2493.64
  R12: - X_Country_Stream[12,0] - X_Country_Stream[12,1]
    - X_Country_Stream[12,2] - X_Country_Stream[12,3]
    - X_Country_Stream[12,4] - X_Country_Stream[12,5]
@@ -2408,7 +2428,7 @@ Subject To
    - X_Country_Stream[12,8] - X_Country_Stream[12,9] - X_Country_Rail[12,0]
    - X_Country_Rail[12,1] - X_Country_Rail[12,2] - X_Country_Rail[12,3]
    - X_Country_Rail[12,4] - X_Country_Rail[12,5] - X_Facility[12]
-   - I_Country[12] = -426431.72
+   - I_Country[12] = -2493.64
  R13: - X_Country_Stream[13,0] - X_Country_Stream[13,1]
    - X_Country_Stream[13,2] - X_Country_Stream[13,3]
    - X_Country_Stream[13,4] - X_Country_Stream[13,5]
@@ -2416,7 +2436,7 @@ Subject To
    - X_Country_Stream[13,8] - X_Country_Stream[13,9] - X_Country_Rail[13,0]
    - X_Country_Rail[13,1] - X_Country_Rail[13,2] - X_Country_Rail[13,3]
    - X_Country_Rail[13,4] - X_Country_Rail[13,5] - X_Facility[13]
-   - I_Country[13] = -426431.72
+   - I_Country[13] = -2493.64
  R14: - X_Country_Stream[14,0] - X_Country_Stream[14,1]
    - X_Country_Stream[14,2] - X_Country_Stream[14,3]
    - X_Country_Stream[14,4] - X_Country_Stream[14,5]
@@ -2424,7 +2444,7 @@ Subject To
    - X_Country_Stream[14,8] - X_Country_Stream[14,9] - X_Country_Rail[14,0]
    - X_Country_Rail[14,1] - X_Country_Rail[14,2] - X_Country_Rail[14,3]
    - X_Country_Rail[14,4] - X_Country_Rail[14,5] - X_Facility[14]
-   - I_Country[14] = -426431.72
+   - I_Country[14] = -2493.64
  R15: - X_Country_Stream[15,0] - X_Country_Stream[15,1]
    - X_Country_Stream[15,2] - X_Country_Stream[15,3]
    - X_Country_Stream[15,4] - X_Country_Stream[15,5]
@@ -2432,7 +2452,7 @@ Subject To
    - X_Country_Stream[15,8] - X_Country_Stream[15,9] - X_Country_Rail[15,0]
    - X_Country_Rail[15,1] - X_Country_Rail[15,2] - X_Country_Rail[15,3]
    - X_Country_Rail[15,4] - X_Country_Rail[15,5] - X_Facility[15]
-   - I_Country[15] = -426431.72
+   - I_Country[15] = -2493.64
  R16: - X_Country_Stream[16,0] - X_Country_Stream[16,1]
    - X_Country_Stream[16,2] - X_Country_Stream[16,3]
    - X_Country_Stream[16,4] - X_Country_Stream[16,5]
@@ -2440,7 +2460,7 @@ Subject To
    - X_Country_Stream[16,8] - X_Country_Stream[16,9] - X_Country_Rail[16,0]
    - X_Country_Rail[16,1] - X_Country_Rail[16,2] - X_Country_Rail[16,3]
    - X_Country_Rail[16,4] - X_Country_Rail[16,5] - X_Facility[16]
-   - I_Country[16] = -426431.72
+   - I_Country[16] = -2493.64
  R17: - X_Country_Stream[17,0] - X_Country_Stream[17,1]
    - X_Country_Stream[17,2] - X_Country_Stream[17,3]
    - X_Country_Stream[17,4] - X_Country_Stream[17,5]
@@ -2448,7 +2468,7 @@ Subject To
    - X_Country_Stream[17,8] - X_Country_Stream[17,9] - X_Country_Rail[17,0]
    - X_Country_Rail[17,1] - X_Country_Rail[17,2] - X_Country_Rail[17,3]
    - X_Country_Rail[17,4] - X_Country_Rail[17,5] - X_Facility[17]
-   - I_Country[17] = -426431.72
+   - I_Country[17] = -2493.64
  R18: - X_Country_Stream[18,0] - X_Country_Stream[18,1]
    - X_Country_Stream[18,2] - X_Country_Stream[18,3]
    - X_Country_Stream[18,4] - X_Country_Stream[18,5]
@@ -2456,7 +2476,7 @@ Subject To
    - X_Country_Stream[18,8] - X_Country_Stream[18,9] - X_Country_Rail[18,0]
    - X_Country_Rail[18,1] - X_Country_Rail[18,2] - X_Country_Rail[18,3]
    - X_Country_Rail[18,4] - X_Country_Rail[18,5] - X_Facility[18]
-   - I_Country[18] = -426431.72
+   - I_Country[18] = -2493.64
  R19: - X_Country_Stream[19,0] - X_Country_Stream[19,1]
    - X_Country_Stream[19,2] - X_Country_Stream[19,3]
    - X_Country_Stream[19,4] - X_Country_Stream[19,5]
@@ -2464,7 +2484,7 @@ Subject To
    - X_Country_Stream[19,8] - X_Country_Stream[19,9] - X_Country_Rail[19,0]
    - X_Country_Rail[19,1] - X_Country_Rail[19,2] - X_Country_Rail[19,3]
    - X_Country_Rail[19,4] - X_Country_Rail[19,5] - X_Facility[19]
-   - I_Country[19] = -426431.72
+   - I_Country[19] = -2493.64
  R20: - X_Country_Stream[20,0] - X_Country_Stream[20,1]
    - X_Country_Stream[20,2] - X_Country_Stream[20,3]
    - X_Country_Stream[20,4] - X_Country_Stream[20,5]
@@ -2472,7 +2492,7 @@ Subject To
    - X_Country_Stream[20,8] - X_Country_Stream[20,9] - X_Country_Rail[20,0]
    - X_Country_Rail[20,1] - X_Country_Rail[20,2] - X_Country_Rail[20,3]
    - X_Country_Rail[20,4] - X_Country_Rail[20,5] - X_Facility[20]
-   - I_Country[20] = -426431.72
+   - I_Country[20] = -6271.97
  R21: - X_Country_Stream[21,0] - X_Country_Stream[21,1]
    - X_Country_Stream[21,2] - X_Country_Stream[21,3]
    - X_Country_Stream[21,4] - X_Country_Stream[21,5]
@@ -2480,7 +2500,7 @@ Subject To
    - X_Country_Stream[21,8] - X_Country_Stream[21,9] - X_Country_Rail[21,0]
    - X_Country_Rail[21,1] - X_Country_Rail[21,2] - X_Country_Rail[21,3]
    - X_Country_Rail[21,4] - X_Country_Rail[21,5] - X_Facility[21]
-   - I_Country[21] = -426431.72
+   - I_Country[21] = -2493.64
  R22: - X_Country_Stream[22,0] - X_Country_Stream[22,1]
    - X_Country_Stream[22,2] - X_Country_Stream[22,3]
    - X_Country_Stream[22,4] - X_Country_Stream[22,5]
@@ -2488,7 +2508,7 @@ Subject To
    - X_Country_Stream[22,8] - X_Country_Stream[22,9] - X_Country_Rail[22,0]
    - X_Country_Rail[22,1] - X_Country_Rail[22,2] - X_Country_Rail[22,3]
    - X_Country_Rail[22,4] - X_Country_Rail[22,5] - X_Facility[22]
-   - I_Country[22] = -426431.72
+   - I_Country[22] = -2493.64
  R23: - X_Country_Stream[23,0] - X_Country_Stream[23,1]
    - X_Country_Stream[23,2] - X_Country_Stream[23,3]
    - X_Country_Stream[23,4] - X_Country_Stream[23,5]
@@ -2496,7 +2516,7 @@ Subject To
    - X_Country_Stream[23,8] - X_Country_Stream[23,9] - X_Country_Rail[23,0]
    - X_Country_Rail[23,1] - X_Country_Rail[23,2] - X_Country_Rail[23,3]
    - X_Country_Rail[23,4] - X_Country_Rail[23,5] - X_Facility[23]
-   - I_Country[23] = -426431.72
+   - I_Country[23] = -2493.64
  R24: - X_Country_Stream[24,0] - X_Country_Stream[24,1]
    - X_Country_Stream[24,2] - X_Country_Stream[24,3]
    - X_Country_Stream[24,4] - X_Country_Stream[24,5]
@@ -2504,7 +2524,7 @@ Subject To
    - X_Country_Stream[24,8] - X_Country_Stream[24,9] - X_Country_Rail[24,0]
    - X_Country_Rail[24,1] - X_Country_Rail[24,2] - X_Country_Rail[24,3]
    - X_Country_Rail[24,4] - X_Country_Rail[24,5] - X_Facility[24]
-   - I_Country[24] = -426431.72
+   - I_Country[24] = -2493.64
  R25: - X_Country_Stream[25,0] - X_Country_Stream[25,1]
    - X_Country_Stream[25,2] - X_Country_Stream[25,3]
    - X_Country_Stream[25,4] - X_Country_Stream[25,5]
@@ -2512,7 +2532,7 @@ Subject To
    - X_Country_Stream[25,8] - X_Country_Stream[25,9] - X_Country_Rail[25,0]
    - X_Country_Rail[25,1] - X_Country_Rail[25,2] - X_Country_Rail[25,3]
    - X_Country_Rail[25,4] - X_Country_Rail[25,5] - X_Facility[25]
-   - I_Country[25] = -426431.72
+   - I_Country[25] = -2493.64
  R26: - X_Country_Stream[26,0] - X_Country_Stream[26,1]
    - X_Country_Stream[26,2] - X_Country_Stream[26,3]
    - X_Country_Stream[26,4] - X_Country_Stream[26,5]
@@ -2520,7 +2540,7 @@ Subject To
    - X_Country_Stream[26,8] - X_Country_Stream[26,9] - X_Country_Rail[26,0]
    - X_Country_Rail[26,1] - X_Country_Rail[26,2] - X_Country_Rail[26,3]
    - X_Country_Rail[26,4] - X_Country_Rail[26,5] - X_Facility[26]
-   - I_Country[26] = -426431.72
+   - I_Country[26] = -2493.64
  R27: - X_Country_Stream[27,0] - X_Country_Stream[27,1]
    - X_Country_Stream[27,2] - X_Country_Stream[27,3]
    - X_Country_Stream[27,4] - X_Country_Stream[27,5]
@@ -2528,7 +2548,7 @@ Subject To
    - X_Country_Stream[27,8] - X_Country_Stream[27,9] - X_Country_Rail[27,0]
    - X_Country_Rail[27,1] - X_Country_Rail[27,2] - X_Country_Rail[27,3]
    - X_Country_Rail[27,4] - X_Country_Rail[27,5] - X_Facility[27]
-   - I_Country[27] = -426431.72
+   - I_Country[27] = -2493.64
  R28: - X_Country_Stream[28,0] - X_Country_Stream[28,1]
    - X_Country_Stream[28,2] - X_Country_Stream[28,3]
    - X_Country_Stream[28,4] - X_Country_Stream[28,5]
@@ -2536,7 +2556,7 @@ Subject To
    - X_Country_Stream[28,8] - X_Country_Stream[28,9] - X_Country_Rail[28,0]
    - X_Country_Rail[28,1] - X_Country_Rail[28,2] - X_Country_Rail[28,3]
    - X_Country_Rail[28,4] - X_Country_Rail[28,5] - X_Facility[28]
-   - I_Country[28] = -426431.72
+   - I_Country[28] = -2493.64
  R29: - X_Country_Stream[29,0] - X_Country_Stream[29,1]
    - X_Country_Stream[29,2] - X_Country_Stream[29,3]
    - X_Country_Stream[29,4] - X_Country_Stream[29,5]
@@ -2544,7 +2564,7 @@ Subject To
    - X_Country_Stream[29,8] - X_Country_Stream[29,9] - X_Country_Rail[29,0]
    - X_Country_Rail[29,1] - X_Country_Rail[29,2] - X_Country_Rail[29,3]
    - X_Country_Rail[29,4] - X_Country_Rail[29,5] - X_Facility[29]
-   - I_Country[29] = -426431.72
+   - I_Country[29] = -2493.64
  R30: - X_Country_Stream[30,0] - X_Country_Stream[30,1]
    - X_Country_Stream[30,2] - X_Country_Stream[30,3]
    - X_Country_Stream[30,4] - X_Country_Stream[30,5]
@@ -2552,7 +2572,7 @@ Subject To
    - X_Country_Stream[30,8] - X_Country_Stream[30,9] - X_Country_Rail[30,0]
    - X_Country_Rail[30,1] - X_Country_Rail[30,2] - X_Country_Rail[30,3]
    - X_Country_Rail[30,4] - X_Country_Rail[30,5] - X_Facility[30]
-   - I_Country[30] = -426431.72
+   - I_Country[30] = -2493.64
  R31: - X_Country_Stream[31,0] - X_Country_Stream[31,1]
    - X_Country_Stream[31,2] - X_Country_Stream[31,3]
    - X_Country_Stream[31,4] - X_Country_Stream[31,5]
@@ -2560,7 +2580,7 @@ Subject To
    - X_Country_Stream[31,8] - X_Country_Stream[31,9] - X_Country_Rail[31,0]
    - X_Country_Rail[31,1] - X_Country_Rail[31,2] - X_Country_Rail[31,3]
    - X_Country_Rail[31,4] - X_Country_Rail[31,5] - X_Facility[31]
-   - I_Country[31] = -426431.72
+   - I_Country[31] = -2493.64
  R32: - X_Country_Stream[32,0] - X_Country_Stream[32,1]
    - X_Country_Stream[32,2] - X_Country_Stream[32,3]
    - X_Country_Stream[32,4] - X_Country_Stream[32,5]
@@ -2568,7 +2588,7 @@ Subject To
    - X_Country_Stream[32,8] - X_Country_Stream[32,9] - X_Country_Rail[32,0]
    - X_Country_Rail[32,1] - X_Country_Rail[32,2] - X_Country_Rail[32,3]
    - X_Country_Rail[32,4] - X_Country_Rail[32,5] - X_Facility[32]
-   - I_Country[32] = -426431.72
+   - I_Country[32] = -2493.64
  R33: - X_Country_Stream[33,0] - X_Country_Stream[33,1]
    - X_Country_Stream[33,2] - X_Country_Stream[33,3]
    - X_Country_Stream[33,4] - X_Country_Stream[33,5]
@@ -2576,7 +2596,7 @@ Subject To
    - X_Country_Stream[33,8] - X_Country_Stream[33,9] - X_Country_Rail[33,0]
    - X_Country_Rail[33,1] - X_Country_Rail[33,2] - X_Country_Rail[33,3]
    - X_Country_Rail[33,4] - X_Country_Rail[33,5] - X_Facility[33]
-   - I_Country[33] = -426431.72
+   - I_Country[33] = -6271.97
  R34: - X_Country_Stream[34,0] - X_Country_Stream[34,1]
    - X_Country_Stream[34,2] - X_Country_Stream[34,3]
    - X_Country_Stream[34,4] - X_Country_Stream[34,5]
@@ -2584,7 +2604,7 @@ Subject To
    - X_Country_Stream[34,8] - X_Country_Stream[34,9] - X_Country_Rail[34,0]
    - X_Country_Rail[34,1] - X_Country_Rail[34,2] - X_Country_Rail[34,3]
    - X_Country_Rail[34,4] - X_Country_Rail[34,5] - X_Facility[34]
-   - I_Country[34] = -426431.72
+   - I_Country[34] = -2493.64
  R35: - X_Country_Stream[35,0] - X_Country_Stream[35,1]
    - X_Country_Stream[35,2] - X_Country_Stream[35,3]
    - X_Country_Stream[35,4] - X_Country_Stream[35,5]
@@ -2592,7 +2612,7 @@ Subject To
    - X_Country_Stream[35,8] - X_Country_Stream[35,9] - X_Country_Rail[35,0]
    - X_Country_Rail[35,1] - X_Country_Rail[35,2] - X_Country_Rail[35,3]
    - X_Country_Rail[35,4] - X_Country_Rail[35,5] - X_Facility[35]
-   - I_Country[35] = -426431.72
+   - I_Country[35] = -2493.64
  R36: - X_Country_Stream[36,0] - X_Country_Stream[36,1]
    - X_Country_Stream[36,2] - X_Country_Stream[36,3]
    - X_Country_Stream[36,4] - X_Country_Stream[36,5]
@@ -2600,7 +2620,7 @@ Subject To
    - X_Country_Stream[36,8] - X_Country_Stream[36,9] - X_Country_Rail[36,0]
    - X_Country_Rail[36,1] - X_Country_Rail[36,2] - X_Country_Rail[36,3]
    - X_Country_Rail[36,4] - X_Country_Rail[36,5] - X_Facility[36]
-   - I_Country[36] = -426431.72
+   - I_Country[36] = -2493.64
  R37: - X_Country_Stream[37,0] - X_Country_Stream[37,1]
    - X_Country_Stream[37,2] - X_Country_Stream[37,3]
    - X_Country_Stream[37,4] - X_Country_Stream[37,5]
@@ -2608,7 +2628,7 @@ Subject To
    - X_Country_Stream[37,8] - X_Country_Stream[37,9] - X_Country_Rail[37,0]
    - X_Country_Rail[37,1] - X_Country_Rail[37,2] - X_Country_Rail[37,3]
    - X_Country_Rail[37,4] - X_Country_Rail[37,5] - X_Facility[37]
-   - I_Country[37] = -426431.72
+   - I_Country[37] = -2493.64
  R38: - X_Country_Stream[38,0] - X_Country_Stream[38,1]
    - X_Country_Stream[38,2] - X_Country_Stream[38,3]
    - X_Country_Stream[38,4] - X_Country_Stream[38,5]
@@ -2616,7 +2636,7 @@ Subject To
    - X_Country_Stream[38,8] - X_Country_Stream[38,9] - X_Country_Rail[38,0]
    - X_Country_Rail[38,1] - X_Country_Rail[38,2] - X_Country_Rail[38,3]
    - X_Country_Rail[38,4] - X_Country_Rail[38,5] - X_Facility[38]
-   - I_Country[38] = -426431.72
+   - I_Country[38] = -2493.64
  R39: - X_Country_Stream[39,0] - X_Country_Stream[39,1]
    - X_Country_Stream[39,2] - X_Country_Stream[39,3]
    - X_Country_Stream[39,4] - X_Country_Stream[39,5]
@@ -2624,7 +2644,7 @@ Subject To
    - X_Country_Stream[39,8] - X_Country_Stream[39,9] - X_Country_Rail[39,0]
    - X_Country_Rail[39,1] - X_Country_Rail[39,2] - X_Country_Rail[39,3]
    - X_Country_Rail[39,4] - X_Country_Rail[39,5] - X_Facility[39]
-   - I_Country[39] = -426431.72
+   - I_Country[39] = -2493.64
  R40: - X_Country_Stream[40,0] - X_Country_Stream[40,1]
    - X_Country_Stream[40,2] - X_Country_Stream[40,3]
    - X_Country_Stream[40,4] - X_Country_Stream[40,5]
@@ -2632,7 +2652,7 @@ Subject To
    - X_Country_Stream[40,8] - X_Country_Stream[40,9] - X_Country_Rail[40,0]
    - X_Country_Rail[40,1] - X_Country_Rail[40,2] - X_Country_Rail[40,3]
    - X_Country_Rail[40,4] - X_Country_Rail[40,5] - X_Facility[40]
-   - I_Country[40] = -426431.72
+   - I_Country[40] = -2493.64
  R41: - X_Country_Stream[41,0] - X_Country_Stream[41,1]
    - X_Country_Stream[41,2] - X_Country_Stream[41,3]
    - X_Country_Stream[41,4] - X_Country_Stream[41,5]
@@ -2640,7 +2660,7 @@ Subject To
    - X_Country_Stream[41,8] - X_Country_Stream[41,9] - X_Country_Rail[41,0]
    - X_Country_Rail[41,1] - X_Country_Rail[41,2] - X_Country_Rail[41,3]
    - X_Country_Rail[41,4] - X_Country_Rail[41,5] - X_Facility[41]
-   - I_Country[41] = -426431.72
+   - I_Country[41] = -2493.64
  R42: - X_Country_Stream[42,0] - X_Country_Stream[42,1]
    - X_Country_Stream[42,2] - X_Country_Stream[42,3]
    - X_Country_Stream[42,4] - X_Country_Stream[42,5]
@@ -2648,7 +2668,7 @@ Subject To
    - X_Country_Stream[42,8] - X_Country_Stream[42,9] - X_Country_Rail[42,0]
    - X_Country_Rail[42,1] - X_Country_Rail[42,2] - X_Country_Rail[42,3]
    - X_Country_Rail[42,4] - X_Country_Rail[42,5] - X_Facility[42]
-   - I_Country[42] = -426431.72
+   - I_Country[42] = -2493.64
  R43: - X_Country_Stream[43,0] - X_Country_Stream[43,1]
    - X_Country_Stream[43,2] - X_Country_Stream[43,3]
    - X_Country_Stream[43,4] - X_Country_Stream[43,5]
@@ -2656,7 +2676,7 @@ Subject To
    - X_Country_Stream[43,8] - X_Country_Stream[43,9] - X_Country_Rail[43,0]
    - X_Country_Rail[43,1] - X_Country_Rail[43,2] - X_Country_Rail[43,3]
    - X_Country_Rail[43,4] - X_Country_Rail[43,5] - X_Facility[43]
-   - I_Country[43] = -426431.72
+   - I_Country[43] = -2493.64
  R44: - X_Country_Stream[44,0] - X_Country_Stream[44,1]
    - X_Country_Stream[44,2] - X_Country_Stream[44,3]
    - X_Country_Stream[44,4] - X_Country_Stream[44,5]
@@ -2664,7 +2684,7 @@ Subject To
    - X_Country_Stream[44,8] - X_Country_Stream[44,9] - X_Country_Rail[44,0]
    - X_Country_Rail[44,1] - X_Country_Rail[44,2] - X_Country_Rail[44,3]
    - X_Country_Rail[44,4] - X_Country_Rail[44,5] - X_Facility[44]
-   - I_Country[44] = -426431.72
+   - I_Country[44] = -2493.64
  R45: - X_Country_Stream[45,0] - X_Country_Stream[45,1]
    - X_Country_Stream[45,2] - X_Country_Stream[45,3]
    - X_Country_Stream[45,4] - X_Country_Stream[45,5]
@@ -2672,7 +2692,7 @@ Subject To
    - X_Country_Stream[45,8] - X_Country_Stream[45,9] - X_Country_Rail[45,0]
    - X_Country_Rail[45,1] - X_Country_Rail[45,2] - X_Country_Rail[45,3]
    - X_Country_Rail[45,4] - X_Country_Rail[45,5] - X_Facility[45]
-   - I_Country[45] = -426431.72
+   - I_Country[45] = -2493.64
  R46: - X_Country_Stream[46,0] - X_Country_Stream[46,1]
    - X_Country_Stream[46,2] - X_Country_Stream[46,3]
    - X_Country_Stream[46,4] - X_Country_Stream[46,5]
@@ -2680,7 +2700,7 @@ Subject To
    - X_Country_Stream[46,8] - X_Country_Stream[46,9] - X_Country_Rail[46,0]
    - X_Country_Rail[46,1] - X_Country_Rail[46,2] - X_Country_Rail[46,3]
    - X_Country_Rail[46,4] - X_Country_Rail[46,5] - X_Facility[46]
-   - I_Country[46] = -426431.72
+   - I_Country[46] = -6271.97
  R47: - X_Country_Stream[47,0] - X_Country_Stream[47,1]
    - X_Country_Stream[47,2] - X_Country_Stream[47,3]
    - X_Country_Stream[47,4] - X_Country_Stream[47,5]
@@ -2688,7 +2708,7 @@ Subject To
    - X_Country_Stream[47,8] - X_Country_Stream[47,9] - X_Country_Rail[47,0]
    - X_Country_Rail[47,1] - X_Country_Rail[47,2] - X_Country_Rail[47,3]
    - X_Country_Rail[47,4] - X_Country_Rail[47,5] - X_Facility[47]
-   - I_Country[47] = -426431.72
+   - I_Country[47] = -6271.97
  R48: - X_Country_Stream[48,0] - X_Country_Stream[48,1]
    - X_Country_Stream[48,2] - X_Country_Stream[48,3]
    - X_Country_Stream[48,4] - X_Country_Stream[48,5]
@@ -2696,7 +2716,7 @@ Subject To
    - X_Country_Stream[48,8] - X_Country_Stream[48,9] - X_Country_Rail[48,0]
    - X_Country_Rail[48,1] - X_Country_Rail[48,2] - X_Country_Rail[48,3]
    - X_Country_Rail[48,4] - X_Country_Rail[48,5] - X_Facility[48]
-   - I_Country[48] = -426431.72
+   - I_Country[48] = -2493.64
  R49: - X_Country_Stream[49,0] - X_Country_Stream[49,1]
    - X_Country_Stream[49,2] - X_Country_Stream[49,3]
    - X_Country_Stream[49,4] - X_Country_Stream[49,5]
@@ -2704,7 +2724,7 @@ Subject To
    - X_Country_Stream[49,8] - X_Country_Stream[49,9] - X_Country_Rail[49,0]
    - X_Country_Rail[49,1] - X_Country_Rail[49,2] - X_Country_Rail[49,3]
    - X_Country_Rail[49,4] - X_Country_Rail[49,5] - X_Facility[49]
-   - I_Country[49] = -426431.72
+   - I_Country[49] = -2493.64
  R50: - X_Country_Stream[50,0] - X_Country_Stream[50,1]
    - X_Country_Stream[50,2] - X_Country_Stream[50,3]
    - X_Country_Stream[50,4] - X_Country_Stream[50,5]
@@ -2712,7 +2732,7 @@ Subject To
    - X_Country_Stream[50,8] - X_Country_Stream[50,9] - X_Country_Rail[50,0]
    - X_Country_Rail[50,1] - X_Country_Rail[50,2] - X_Country_Rail[50,3]
    - X_Country_Rail[50,4] - X_Country_Rail[50,5] - X_Facility[50]
-   - I_Country[50] = -426431.72
+   - I_Country[50] = -2493.64
  R51: - X_Country_Stream[51,0] - X_Country_Stream[51,1]
    - X_Country_Stream[51,2] - X_Country_Stream[51,3]
    - X_Country_Stream[51,4] - X_Country_Stream[51,5]
@@ -2720,7 +2740,7 @@ Subject To
    - X_Country_Stream[51,8] - X_Country_Stream[51,9] - X_Country_Rail[51,0]
    - X_Country_Rail[51,1] - X_Country_Rail[51,2] - X_Country_Rail[51,3]
    - X_Country_Rail[51,4] - X_Country_Rail[51,5] - X_Facility[51]
-   - I_Country[51] = -426431.72
+   - I_Country[51] = -2493.64
  R52: - X_Country_Stream[52,0] - X_Country_Stream[52,1]
    - X_Country_Stream[52,2] - X_Country_Stream[52,3]
    - X_Country_Stream[52,4] - X_Country_Stream[52,5]
@@ -2728,7 +2748,7 @@ Subject To
    - X_Country_Stream[52,8] - X_Country_Stream[52,9] - X_Country_Rail[52,0]
    - X_Country_Rail[52,1] - X_Country_Rail[52,2] - X_Country_Rail[52,3]
    - X_Country_Rail[52,4] - X_Country_Rail[52,5] - X_Facility[52]
-   - I_Country[52] = -426431.72
+   - I_Country[52] = -2493.64
  R53: - X_Country_Stream[53,0] - X_Country_Stream[53,1]
    - X_Country_Stream[53,2] - X_Country_Stream[53,3]
    - X_Country_Stream[53,4] - X_Country_Stream[53,5]
@@ -2736,7 +2756,7 @@ Subject To
    - X_Country_Stream[53,8] - X_Country_Stream[53,9] - X_Country_Rail[53,0]
    - X_Country_Rail[53,1] - X_Country_Rail[53,2] - X_Country_Rail[53,3]
    - X_Country_Rail[53,4] - X_Country_Rail[53,5] - X_Facility[53]
-   - I_Country[53] = -426431.72
+   - I_Country[53] = -2493.64
  R54: - X_Country_Stream[54,0] - X_Country_Stream[54,1]
    - X_Country_Stream[54,2] - X_Country_Stream[54,3]
    - X_Country_Stream[54,4] - X_Country_Stream[54,5]
@@ -2744,7 +2764,7 @@ Subject To
    - X_Country_Stream[54,8] - X_Country_Stream[54,9] - X_Country_Rail[54,0]
    - X_Country_Rail[54,1] - X_Country_Rail[54,2] - X_Country_Rail[54,3]
    - X_Country_Rail[54,4] - X_Country_Rail[54,5] - X_Facility[54]
-   - I_Country[54] = -426431.72
+   - I_Country[54] = -2493.64
  R55: - X_Country_Stream[55,0] - X_Country_Stream[55,1]
    - X_Country_Stream[55,2] - X_Country_Stream[55,3]
    - X_Country_Stream[55,4] - X_Country_Stream[55,5]
@@ -2752,7 +2772,7 @@ Subject To
    - X_Country_Stream[55,8] - X_Country_Stream[55,9] - X_Country_Rail[55,0]
    - X_Country_Rail[55,1] - X_Country_Rail[55,2] - X_Country_Rail[55,3]
    - X_Country_Rail[55,4] - X_Country_Rail[55,5] - X_Facility[55]
-   - I_Country[55] = -426431.72
+   - I_Country[55] = -2493.64
  R56: - X_Country_Stream[56,0] - X_Country_Stream[56,1]
    - X_Country_Stream[56,2] - X_Country_Stream[56,3]
    - X_Country_Stream[56,4] - X_Country_Stream[56,5]
@@ -2760,7 +2780,7 @@ Subject To
    - X_Country_Stream[56,8] - X_Country_Stream[56,9] - X_Country_Rail[56,0]
    - X_Country_Rail[56,1] - X_Country_Rail[56,2] - X_Country_Rail[56,3]
    - X_Country_Rail[56,4] - X_Country_Rail[56,5] - X_Facility[56]
-   - I_Country[56] = -426431.72
+   - I_Country[56] = -2493.64
  R57: - X_Country_Stream[57,0] - X_Country_Stream[57,1]
    - X_Country_Stream[57,2] - X_Country_Stream[57,3]
    - X_Country_Stream[57,4] - X_Country_Stream[57,5]
@@ -2768,7 +2788,7 @@ Subject To
    - X_Country_Stream[57,8] - X_Country_Stream[57,9] - X_Country_Rail[57,0]
    - X_Country_Rail[57,1] - X_Country_Rail[57,2] - X_Country_Rail[57,3]
    - X_Country_Rail[57,4] - X_Country_Rail[57,5] - X_Facility[57]
-   - I_Country[57] = -426431.72
+   - I_Country[57] = -2493.64
  R58: - X_Country_Stream[58,0] - X_Country_Stream[58,1]
    - X_Country_Stream[58,2] - X_Country_Stream[58,3]
    - X_Country_Stream[58,4] - X_Country_Stream[58,5]
@@ -2776,7 +2796,7 @@ Subject To
    - X_Country_Stream[58,8] - X_Country_Stream[58,9] - X_Country_Rail[58,0]
    - X_Country_Rail[58,1] - X_Country_Rail[58,2] - X_Country_Rail[58,3]
    - X_Country_Rail[58,4] - X_Country_Rail[58,5] - X_Facility[58]
-   - I_Country[58] = -426431.72
+   - I_Country[58] = -2493.64
  R59: - X_Country_Stream[59,0] - X_Country_Stream[59,1]
    - X_Country_Stream[59,2] - X_Country_Stream[59,3]
    - X_Country_Stream[59,4] - X_Country_Stream[59,5]
@@ -2784,7 +2804,7 @@ Subject To
    - X_Country_Stream[59,8] - X_Country_Stream[59,9] - X_Country_Rail[59,0]
    - X_Country_Rail[59,1] - X_Country_Rail[59,2] - X_Country_Rail[59,3]
    - X_Country_Rail[59,4] - X_Country_Rail[59,5] - X_Facility[59]
-   - I_Country[59] = -426431.72
+   - I_Country[59] = -2493.64
  R60: - X_Country_Stream[60,0] - X_Country_Stream[60,1]
    - X_Country_Stream[60,2] - X_Country_Stream[60,3]
    - X_Country_Stream[60,4] - X_Country_Stream[60,5]
@@ -2792,7 +2812,7 @@ Subject To
    - X_Country_Stream[60,8] - X_Country_Stream[60,9] - X_Country_Rail[60,0]
    - X_Country_Rail[60,1] - X_Country_Rail[60,2] - X_Country_Rail[60,3]
    - X_Country_Rail[60,4] - X_Country_Rail[60,5] - X_Facility[60]
-   - I_Country[60] = -426431.72
+   - I_Country[60] = -2493.64
  R61: - X_Country_Stream[61,0] - X_Country_Stream[61,1]
    - X_Country_Stream[61,2] - X_Country_Stream[61,3]
    - X_Country_Stream[61,4] - X_Country_Stream[61,5]
@@ -2800,7 +2820,7 @@ Subject To
    - X_Country_Stream[61,8] - X_Country_Stream[61,9] - X_Country_Rail[61,0]
    - X_Country_Rail[61,1] - X_Country_Rail[61,2] - X_Country_Rail[61,3]
    - X_Country_Rail[61,4] - X_Country_Rail[61,5] - X_Facility[61]
-   - I_Country[61] = -426431.72
+   - I_Country[61] = -2493.64
  R62: - X_Country_Stream[62,0] - X_Country_Stream[62,1]
    - X_Country_Stream[62,2] - X_Country_Stream[62,3]
    - X_Country_Stream[62,4] - X_Country_Stream[62,5]
@@ -2808,7 +2828,7 @@ Subject To
    - X_Country_Stream[62,8] - X_Country_Stream[62,9] - X_Country_Rail[62,0]
    - X_Country_Rail[62,1] - X_Country_Rail[62,2] - X_Country_Rail[62,3]
    - X_Country_Rail[62,4] - X_Country_Rail[62,5] - X_Facility[62]
-   - I_Country[62] = -426431.72
+   - I_Country[62] = -2493.64
  R63: - X_Country_Stream[63,0] - X_Country_Stream[63,1]
    - X_Country_Stream[63,2] - X_Country_Stream[63,3]
    - X_Country_Stream[63,4] - X_Country_Stream[63,5]
@@ -2816,7 +2836,7 @@ Subject To
    - X_Country_Stream[63,8] - X_Country_Stream[63,9] - X_Country_Rail[63,0]
    - X_Country_Rail[63,1] - X_Country_Rail[63,2] - X_Country_Rail[63,3]
    - X_Country_Rail[63,4] - X_Country_Rail[63,5] - X_Facility[63]
-   - I_Country[63] = -426431.72
+   - I_Country[63] = -2493.64
  R64: - X_Country_Stream[64,0] - X_Country_Stream[64,1]
    - X_Country_Stream[64,2] - X_Country_Stream[64,3]
    - X_Country_Stream[64,4] - X_Country_Stream[64,5]
@@ -2824,7 +2844,7 @@ Subject To
    - X_Country_Stream[64,8] - X_Country_Stream[64,9] - X_Country_Rail[64,0]
    - X_Country_Rail[64,1] - X_Country_Rail[64,2] - X_Country_Rail[64,3]
    - X_Country_Rail[64,4] - X_Country_Rail[64,5] - X_Facility[64]
-   - I_Country[64] = -426431.72
+   - I_Country[64] = -2493.64
  R65: - X_Country_Stream[65,0] - X_Country_Stream[65,1]
    - X_Country_Stream[65,2] - X_Country_Stream[65,3]
    - X_Country_Stream[65,4] - X_Country_Stream[65,5]
@@ -2832,7 +2852,7 @@ Subject To
    - X_Country_Stream[65,8] - X_Country_Stream[65,9] - X_Country_Rail[65,0]
    - X_Country_Rail[65,1] - X_Country_Rail[65,2] - X_Country_Rail[65,3]
    - X_Country_Rail[65,4] - X_Country_Rail[65,5] - X_Facility[65]
-   - I_Country[65] = -426431.72
+   - I_Country[65] = -2493.64
  R66: - X_Country_Stream[66,0] - X_Country_Stream[66,1]
    - X_Country_Stream[66,2] - X_Country_Stream[66,3]
    - X_Country_Stream[66,4] - X_Country_Stream[66,5]
@@ -2840,7 +2860,7 @@ Subject To
    - X_Country_Stream[66,8] - X_Country_Stream[66,9] - X_Country_Rail[66,0]
    - X_Country_Rail[66,1] - X_Country_Rail[66,2] - X_Country_Rail[66,3]
    - X_Country_Rail[66,4] - X_Country_Rail[66,5] - X_Facility[66]
-   - I_Country[66] = -426431.72
+   - I_Country[66] = -2493.64
  R67: - X_Country_Stream[67,0] - X_Country_Stream[67,1]
    - X_Country_Stream[67,2] - X_Country_Stream[67,3]
    - X_Country_Stream[67,4] - X_Country_Stream[67,5]
@@ -2848,7 +2868,7 @@ Subject To
    - X_Country_Stream[67,8] - X_Country_Stream[67,9] - X_Country_Rail[67,0]
    - X_Country_Rail[67,1] - X_Country_Rail[67,2] - X_Country_Rail[67,3]
    - X_Country_Rail[67,4] - X_Country_Rail[67,5] - X_Facility[67]
-   - I_Country[67] = -426431.72
+   - I_Country[67] = -2493.64
  R68: - X_Country_Stream[68,0] - X_Country_Stream[68,1]
    - X_Country_Stream[68,2] - X_Country_Stream[68,3]
    - X_Country_Stream[68,4] - X_Country_Stream[68,5]
@@ -2856,7 +2876,7 @@ Subject To
    - X_Country_Stream[68,8] - X_Country_Stream[68,9] - X_Country_Rail[68,0]
    - X_Country_Rail[68,1] - X_Country_Rail[68,2] - X_Country_Rail[68,3]
    - X_Country_Rail[68,4] - X_Country_Rail[68,5] - X_Facility[68]
-   - I_Country[68] = -426431.72
+   - I_Country[68] = -2493.64
  R69: - X_Country_Stream[69,0] - X_Country_Stream[69,1]
    - X_Country_Stream[69,2] - X_Country_Stream[69,3]
    - X_Country_Stream[69,4] - X_Country_Stream[69,5]
@@ -2864,7 +2884,7 @@ Subject To
    - X_Country_Stream[69,8] - X_Country_Stream[69,9] - X_Country_Rail[69,0]
    - X_Country_Rail[69,1] - X_Country_Rail[69,2] - X_Country_Rail[69,3]
    - X_Country_Rail[69,4] - X_Country_Rail[69,5] - X_Facility[69]
-   - I_Country[69] = -426431.72
+   - I_Country[69] = -2493.64
  R70: - X_Country_Stream[70,0] - X_Country_Stream[70,1]
    - X_Country_Stream[70,2] - X_Country_Stream[70,3]
    - X_Country_Stream[70,4] - X_Country_Stream[70,5]
@@ -2872,7 +2892,7 @@ Subject To
    - X_Country_Stream[70,8] - X_Country_Stream[70,9] - X_Country_Rail[70,0]
    - X_Country_Rail[70,1] - X_Country_Rail[70,2] - X_Country_Rail[70,3]
    - X_Country_Rail[70,4] - X_Country_Rail[70,5] - X_Facility[70]
-   - I_Country[70] = -426431.72
+   - I_Country[70] = -2493.64
  R71: - X_Country_Stream[71,0] - X_Country_Stream[71,1]
    - X_Country_Stream[71,2] - X_Country_Stream[71,3]
    - X_Country_Stream[71,4] - X_Country_Stream[71,5]
@@ -2880,7 +2900,7 @@ Subject To
    - X_Country_Stream[71,8] - X_Country_Stream[71,9] - X_Country_Rail[71,0]
    - X_Country_Rail[71,1] - X_Country_Rail[71,2] - X_Country_Rail[71,3]
    - X_Country_Rail[71,4] - X_Country_Rail[71,5] - X_Facility[71]
-   - I_Country[71] = -426431.72
+   - I_Country[71] = -2493.64
  R72: - X_Country_Stream[72,0] - X_Country_Stream[72,1]
    - X_Country_Stream[72,2] - X_Country_Stream[72,3]
    - X_Country_Stream[72,4] - X_Country_Stream[72,5]
@@ -2888,7 +2908,7 @@ Subject To
    - X_Country_Stream[72,8] - X_Country_Stream[72,9] - X_Country_Rail[72,0]
    - X_Country_Rail[72,1] - X_Country_Rail[72,2] - X_Country_Rail[72,3]
    - X_Country_Rail[72,4] - X_Country_Rail[72,5] - X_Facility[72]
-   - I_Country[72] = -426431.72
+   - I_Country[72] = -2493.64
  R73: - X_Country_Stream[73,0] - X_Country_Stream[73,1]
    - X_Country_Stream[73,2] - X_Country_Stream[73,3]
    - X_Country_Stream[73,4] - X_Country_Stream[73,5]
@@ -2896,7 +2916,7 @@ Subject To
    - X_Country_Stream[73,8] - X_Country_Stream[73,9] - X_Country_Rail[73,0]
    - X_Country_Rail[73,1] - X_Country_Rail[73,2] - X_Country_Rail[73,3]
    - X_Country_Rail[73,4] - X_Country_Rail[73,5] - X_Facility[73]
-   - I_Country[73] = -426431.72
+   - I_Country[73] = -2493.64
  R74: - X_Country_Stream[74,0] - X_Country_Stream[74,1]
    - X_Country_Stream[74,2] - X_Country_Stream[74,3]
    - X_Country_Stream[74,4] - X_Country_Stream[74,5]
@@ -2904,7 +2924,7 @@ Subject To
    - X_Country_Stream[74,8] - X_Country_Stream[74,9] - X_Country_Rail[74,0]
    - X_Country_Rail[74,1] - X_Country_Rail[74,2] - X_Country_Rail[74,3]
    - X_Country_Rail[74,4] - X_Country_Rail[74,5] - X_Facility[74]
-   - I_Country[74] = -426431.72
+   - I_Country[74] = -2493.64
  R75: - X_Country_Stream[75,0] - X_Country_Stream[75,1]
    - X_Country_Stream[75,2] - X_Country_Stream[75,3]
    - X_Country_Stream[75,4] - X_Country_Stream[75,5]
@@ -2912,7 +2932,7 @@ Subject To
    - X_Country_Stream[75,8] - X_Country_Stream[75,9] - X_Country_Rail[75,0]
    - X_Country_Rail[75,1] - X_Country_Rail[75,2] - X_Country_Rail[75,3]
    - X_Country_Rail[75,4] - X_Country_Rail[75,5] - X_Facility[75]
-   - I_Country[75] = -426431.72
+   - I_Country[75] = -2493.64
  R76: - X_Country_Stream[76,0] - X_Country_Stream[76,1]
    - X_Country_Stream[76,2] - X_Country_Stream[76,3]
    - X_Country_Stream[76,4] - X_Country_Stream[76,5]
@@ -2920,7 +2940,7 @@ Subject To
    - X_Country_Stream[76,8] - X_Country_Stream[76,9] - X_Country_Rail[76,0]
    - X_Country_Rail[76,1] - X_Country_Rail[76,2] - X_Country_Rail[76,3]
    - X_Country_Rail[76,4] - X_Country_Rail[76,5] - X_Facility[76]
-   - I_Country[76] = -426431.72
+   - I_Country[76] = -2493.64
  R77: - X_Country_Stream[77,0] - X_Country_Stream[77,1]
    - X_Country_Stream[77,2] - X_Country_Stream[77,3]
    - X_Country_Stream[77,4] - X_Country_Stream[77,5]
@@ -2928,7 +2948,7 @@ Subject To
    - X_Country_Stream[77,8] - X_Country_Stream[77,9] - X_Country_Rail[77,0]
    - X_Country_Rail[77,1] - X_Country_Rail[77,2] - X_Country_Rail[77,3]
    - X_Country_Rail[77,4] - X_Country_Rail[77,5] - X_Facility[77]
-   - I_Country[77] = -426431.72
+   - I_Country[77] = -2493.64
  R78: - X_Country_Stream[78,0] - X_Country_Stream[78,1]
    - X_Country_Stream[78,2] - X_Country_Stream[78,3]
    - X_Country_Stream[78,4] - X_Country_Stream[78,5]
@@ -2936,7 +2956,7 @@ Subject To
    - X_Country_Stream[78,8] - X_Country_Stream[78,9] - X_Country_Rail[78,0]
    - X_Country_Rail[78,1] - X_Country_Rail[78,2] - X_Country_Rail[78,3]
    - X_Country_Rail[78,4] - X_Country_Rail[78,5] - X_Facility[78]
-   - I_Country[78] = -426431.72
+   - I_Country[78] = -2493.64
  R79: - X_Country_Stream[79,0] - X_Country_Stream[79,1]
    - X_Country_Stream[79,2] - X_Country_Stream[79,3]
    - X_Country_Stream[79,4] - X_Country_Stream[79,5]
@@ -2944,7 +2964,7 @@ Subject To
    - X_Country_Stream[79,8] - X_Country_Stream[79,9] - X_Country_Rail[79,0]
    - X_Country_Rail[79,1] - X_Country_Rail[79,2] - X_Country_Rail[79,3]
    - X_Country_Rail[79,4] - X_Country_Rail[79,5] - X_Facility[79]
-   - I_Country[79] = -426431.72
+   - I_Country[79] = -2493.64
  R80: - X_Country_Stream[80,0] - X_Country_Stream[80,1]
    - X_Country_Stream[80,2] - X_Country_Stream[80,3]
    - X_Country_Stream[80,4] - X_Country_Stream[80,5]
@@ -2952,7 +2972,7 @@ Subject To
    - X_Country_Stream[80,8] - X_Country_Stream[80,9] - X_Country_Rail[80,0]
    - X_Country_Rail[80,1] - X_Country_Rail[80,2] - X_Country_Rail[80,3]
    - X_Country_Rail[80,4] - X_Country_Rail[80,5] - X_Facility[80]
-   - I_Country[80] = -426431.72
+   - I_Country[80] = -2493.64
  R81: - X_Country_Stream[81,0] - X_Country_Stream[81,1]
    - X_Country_Stream[81,2] - X_Country_Stream[81,3]
    - X_Country_Stream[81,4] - X_Country_Stream[81,5]
@@ -2960,7 +2980,7 @@ Subject To
    - X_Country_Stream[81,8] - X_Country_Stream[81,9] - X_Country_Rail[81,0]
    - X_Country_Rail[81,1] - X_Country_Rail[81,2] - X_Country_Rail[81,3]
    - X_Country_Rail[81,4] - X_Country_Rail[81,5] - X_Facility[81]
-   - I_Country[81] = -426431.72
+   - I_Country[81] = -30844
  R82: - X_Country_Stream[82,0] - X_Country_Stream[82,1]
    - X_Country_Stream[82,2] - X_Country_Stream[82,3]
    - X_Country_Stream[82,4] - X_Country_Stream[82,5]
@@ -2968,7 +2988,7 @@ Subject To
    - X_Country_Stream[82,8] - X_Country_Stream[82,9] - X_Country_Rail[82,0]
    - X_Country_Rail[82,1] - X_Country_Rail[82,2] - X_Country_Rail[82,3]
    - X_Country_Rail[82,4] - X_Country_Rail[82,5] - X_Facility[82]
-   - I_Country[82] = -426431.72
+   - I_Country[82] = -963.66
  R83: - X_Country_Stream[83,0] - X_Country_Stream[83,1]
    - X_Country_Stream[83,2] - X_Country_Stream[83,3]
    - X_Country_Stream[83,4] - X_Country_Stream[83,5]
@@ -2976,7 +2996,7 @@ Subject To
    - X_Country_Stream[83,8] - X_Country_Stream[83,9] - X_Country_Rail[83,0]
    - X_Country_Rail[83,1] - X_Country_Rail[83,2] - X_Country_Rail[83,3]
    - X_Country_Rail[83,4] - X_Country_Rail[83,5] - X_Facility[83]
-   - I_Country[83] = -426431.72
+   - I_Country[83] = -2493.64
  R84: - X_Country_Stream[84,0] - X_Country_Stream[84,1]
    - X_Country_Stream[84,2] - X_Country_Stream[84,3]
    - X_Country_Stream[84,4] - X_Country_Stream[84,5]
@@ -2984,7 +3004,7 @@ Subject To
    - X_Country_Stream[84,8] - X_Country_Stream[84,9] - X_Country_Rail[84,0]
    - X_Country_Rail[84,1] - X_Country_Rail[84,2] - X_Country_Rail[84,3]
    - X_Country_Rail[84,4] - X_Country_Rail[84,5] - X_Facility[84]
-   - I_Country[84] = -426431.72
+   - I_Country[84] = -2493.64
  R85: - X_Country_Stream[85,0] - X_Country_Stream[85,1]
    - X_Country_Stream[85,2] - X_Country_Stream[85,3]
    - X_Country_Stream[85,4] - X_Country_Stream[85,5]
@@ -2992,7 +3012,7 @@ Subject To
    - X_Country_Stream[85,8] - X_Country_Stream[85,9] - X_Country_Rail[85,0]
    - X_Country_Rail[85,1] - X_Country_Rail[85,2] - X_Country_Rail[85,3]
    - X_Country_Rail[85,4] - X_Country_Rail[85,5] - X_Facility[85]
-   - I_Country[85] = -426431.72
+   - I_Country[85] = -2493.64
  R86: - X_Country_Stream[86,0] - X_Country_Stream[86,1]
    - X_Country_Stream[86,2] - X_Country_Stream[86,3]
    - X_Country_Stream[86,4] - X_Country_Stream[86,5]
@@ -3000,7 +3020,7 @@ Subject To
    - X_Country_Stream[86,8] - X_Country_Stream[86,9] - X_Country_Rail[86,0]
    - X_Country_Rail[86,1] - X_Country_Rail[86,2] - X_Country_Rail[86,3]
    - X_Country_Rail[86,4] - X_Country_Rail[86,5] - X_Facility[86]
-   - I_Country[86] = -426431.72
+   - I_Country[86] = -2493.64
  R87: - X_Country_Stream[87,0] - X_Country_Stream[87,1]
    - X_Country_Stream[87,2] - X_Country_Stream[87,3]
    - X_Country_Stream[87,4] - X_Country_Stream[87,5]
@@ -3008,7 +3028,7 @@ Subject To
    - X_Country_Stream[87,8] - X_Country_Stream[87,9] - X_Country_Rail[87,0]
    - X_Country_Rail[87,1] - X_Country_Rail[87,2] - X_Country_Rail[87,3]
    - X_Country_Rail[87,4] - X_Country_Rail[87,5] - X_Facility[87]
-   - I_Country[87] = -426431.72
+   - I_Country[87] = -2493.64
  R88: - X_Country_Stream[88,0] - X_Country_Stream[88,1]
    - X_Country_Stream[88,2] - X_Country_Stream[88,3]
    - X_Country_Stream[88,4] - X_Country_Stream[88,5]
@@ -3016,7 +3036,7 @@ Subject To
    - X_Country_Stream[88,8] - X_Country_Stream[88,9] - X_Country_Rail[88,0]
    - X_Country_Rail[88,1] - X_Country_Rail[88,2] - X_Country_Rail[88,3]
    - X_Country_Rail[88,4] - X_Country_Rail[88,5] - X_Facility[88]
-   - I_Country[88] = -426431.72
+   - I_Country[88] = -963.66
  R89: - X_Country_Stream[89,0] - X_Country_Stream[89,1]
    - X_Country_Stream[89,2] - X_Country_Stream[89,3]
    - X_Country_Stream[89,4] - X_Country_Stream[89,5]
@@ -3024,7 +3044,7 @@ Subject To
    - X_Country_Stream[89,8] - X_Country_Stream[89,9] - X_Country_Rail[89,0]
    - X_Country_Rail[89,1] - X_Country_Rail[89,2] - X_Country_Rail[89,3]
    - X_Country_Rail[89,4] - X_Country_Rail[89,5] - X_Facility[89]
-   - I_Country[89] = -426431.72
+   - I_Country[89] = -963.66
  R90: - X_Country_Stream[90,0] - X_Country_Stream[90,1]
    - X_Country_Stream[90,2] - X_Country_Stream[90,3]
    - X_Country_Stream[90,4] - X_Country_Stream[90,5]
@@ -3032,7 +3052,7 @@ Subject To
    - X_Country_Stream[90,8] - X_Country_Stream[90,9] - X_Country_Rail[90,0]
    - X_Country_Rail[90,1] - X_Country_Rail[90,2] - X_Country_Rail[90,3]
    - X_Country_Rail[90,4] - X_Country_Rail[90,5] - X_Facility[90]
-   - I_Country[90] = -426431.72
+   - I_Country[90] = -2493.64
  R91: - X_Country_Stream[91,0] - X_Country_Stream[91,1]
    - X_Country_Stream[91,2] - X_Country_Stream[91,3]
    - X_Country_Stream[91,4] - X_Country_Stream[91,5]
@@ -3040,7 +3060,7 @@ Subject To
    - X_Country_Stream[91,8] - X_Country_Stream[91,9] - X_Country_Rail[91,0]
    - X_Country_Rail[91,1] - X_Country_Rail[91,2] - X_Country_Rail[91,3]
    - X_Country_Rail[91,4] - X_Country_Rail[91,5] - X_Facility[91]
-   - I_Country[91] = -426431.72
+   - I_Country[91] = -2493.64
  R92: - X_Country_Stream[92,0] - X_Country_Stream[92,1]
    - X_Country_Stream[92,2] - X_Country_Stream[92,3]
    - X_Country_Stream[92,4] - X_Country_Stream[92,5]
@@ -3048,7 +3068,7 @@ Subject To
    - X_Country_Stream[92,8] - X_Country_Stream[92,9] - X_Country_Rail[92,0]
    - X_Country_Rail[92,1] - X_Country_Rail[92,2] - X_Country_Rail[92,3]
    - X_Country_Rail[92,4] - X_Country_Rail[92,5] - X_Facility[92]
-   - I_Country[92] = -426431.72
+   - I_Country[92] = -963.66
  R93: - X_Country_Stream[93,0] - X_Country_Stream[93,1]
    - X_Country_Stream[93,2] - X_Country_Stream[93,3]
    - X_Country_Stream[93,4] - X_Country_Stream[93,5]
@@ -3056,7 +3076,7 @@ Subject To
    - X_Country_Stream[93,8] - X_Country_Stream[93,9] - X_Country_Rail[93,0]
    - X_Country_Rail[93,1] - X_Country_Rail[93,2] - X_Country_Rail[93,3]
    - X_Country_Rail[93,4] - X_Country_Rail[93,5] - X_Facility[93]
-   - I_Country[93] = -426431.72
+   - I_Country[93] = -2493.64
  R94: - X_Country_Stream[94,0] - X_Country_Stream[94,1]
    - X_Country_Stream[94,2] - X_Country_Stream[94,3]
    - X_Country_Stream[94,4] - X_Country_Stream[94,5]
@@ -3064,7 +3084,7 @@ Subject To
    - X_Country_Stream[94,8] - X_Country_Stream[94,9] - X_Country_Rail[94,0]
    - X_Country_Rail[94,1] - X_Country_Rail[94,2] - X_Country_Rail[94,3]
    - X_Country_Rail[94,4] - X_Country_Rail[94,5] - X_Facility[94]
-   - I_Country[94] = -426431.72
+   - I_Country[94] = -2493.64
  R95: - X_Country_Stream[95,0] - X_Country_Stream[95,1]
    - X_Country_Stream[95,2] - X_Country_Stream[95,3]
    - X_Country_Stream[95,4] - X_Country_Stream[95,5]
@@ -3072,7 +3092,7 @@ Subject To
    - X_Country_Stream[95,8] - X_Country_Stream[95,9] - X_Country_Rail[95,0]
    - X_Country_Rail[95,1] - X_Country_Rail[95,2] - X_Country_Rail[95,3]
    - X_Country_Rail[95,4] - X_Country_Rail[95,5] - X_Facility[95]
-   - I_Country[95] = -426431.72
+   - I_Country[95] = -2493.64
  R96: - X_Country_Stream[96,0] - X_Country_Stream[96,1]
    - X_Country_Stream[96,2] - X_Country_Stream[96,3]
    - X_Country_Stream[96,4] - X_Country_Stream[96,5]
@@ -3080,7 +3100,7 @@ Subject To
    - X_Country_Stream[96,8] - X_Country_Stream[96,9] - X_Country_Rail[96,0]
    - X_Country_Rail[96,1] - X_Country_Rail[96,2] - X_Country_Rail[96,3]
    - X_Country_Rail[96,4] - X_Country_Rail[96,5] - X_Facility[96]
-   - I_Country[96] = -426431.72
+   - I_Country[96] = -963.66
  R97: - X_Country_Stream[97,0] - X_Country_Stream[97,1]
    - X_Country_Stream[97,2] - X_Country_Stream[97,3]
    - X_Country_Stream[97,4] - X_Country_Stream[97,5]
@@ -3088,7 +3108,7 @@ Subject To
    - X_Country_Stream[97,8] - X_Country_Stream[97,9] - X_Country_Rail[97,0]
    - X_Country_Rail[97,1] - X_Country_Rail[97,2] - X_Country_Rail[97,3]
    - X_Country_Rail[97,4] - X_Country_Rail[97,5] - X_Facility[97]
-   - I_Country[97] = -426431.72
+   - I_Country[97] = -963.66
  R98: - X_Country_Stream[98,0] - X_Country_Stream[98,1]
    - X_Country_Stream[98,2] - X_Country_Stream[98,3]
    - X_Country_Stream[98,4] - X_Country_Stream[98,5]
@@ -3096,7 +3116,7 @@ Subject To
    - X_Country_Stream[98,8] - X_Country_Stream[98,9] - X_Country_Rail[98,0]
    - X_Country_Rail[98,1] - X_Country_Rail[98,2] - X_Country_Rail[98,3]
    - X_Country_Rail[98,4] - X_Country_Rail[98,5] - X_Facility[98]
-   - I_Country[98] = -426431.72
+   - I_Country[98] = -2493.64
  R99: - X_Country_Stream[99,0] - X_Country_Stream[99,1]
    - X_Country_Stream[99,2] - X_Country_Stream[99,3]
    - X_Country_Stream[99,4] - X_Country_Stream[99,5]
@@ -3104,7 +3124,7 @@ Subject To
    - X_Country_Stream[99,8] - X_Country_Stream[99,9] - X_Country_Rail[99,0]
    - X_Country_Rail[99,1] - X_Country_Rail[99,2] - X_Country_Rail[99,3]
    - X_Country_Rail[99,4] - X_Country_Rail[99,5] - X_Facility[99]
-   - I_Country[99] = -426431.72
+   - I_Country[99] = -2493.64
  R100: - X_Country_Stream[100,0] - X_Country_Stream[100,1]
    - X_Country_Stream[100,2] - X_Country_Stream[100,3]
    - X_Country_Stream[100,4] - X_Country_Stream[100,5]
@@ -3112,7 +3132,7 @@ Subject To
    - X_Country_Stream[100,8] - X_Country_Stream[100,9]
    - X_Country_Rail[100,0] - X_Country_Rail[100,1] - X_Country_Rail[100,2]
    - X_Country_Rail[100,3] - X_Country_Rail[100,4] - X_Country_Rail[100,5]
-   - X_Facility[100] - I_Country[100] = -426431.72
+   - X_Facility[100] - I_Country[100] = -2493.64
  R101: - X_Country_Stream[101,0] - X_Country_Stream[101,1]
    - X_Country_Stream[101,2] - X_Country_Stream[101,3]
    - X_Country_Stream[101,4] - X_Country_Stream[101,5]
@@ -3120,7 +3140,7 @@ Subject To
    - X_Country_Stream[101,8] - X_Country_Stream[101,9]
    - X_Country_Rail[101,0] - X_Country_Rail[101,1] - X_Country_Rail[101,2]
    - X_Country_Rail[101,3] - X_Country_Rail[101,4] - X_Country_Rail[101,5]
-   - X_Facility[101] - I_Country[101] = -426431.72
+   - X_Facility[101] - I_Country[101] = -2493.64
  R102: - X_Country_Stream[102,0] - X_Country_Stream[102,1]
    - X_Country_Stream[102,2] - X_Country_Stream[102,3]
    - X_Country_Stream[102,4] - X_Country_Stream[102,5]
@@ -3128,7 +3148,7 @@ Subject To
    - X_Country_Stream[102,8] - X_Country_Stream[102,9]
    - X_Country_Rail[102,0] - X_Country_Rail[102,1] - X_Country_Rail[102,2]
    - X_Country_Rail[102,3] - X_Country_Rail[102,4] - X_Country_Rail[102,5]
-   - X_Facility[102] - I_Country[102] = -426431.72
+   - X_Facility[102] - I_Country[102] = -2493.64
  R103: - X_Country_Stream[103,0] - X_Country_Stream[103,1]
    - X_Country_Stream[103,2] - X_Country_Stream[103,3]
    - X_Country_Stream[103,4] - X_Country_Stream[103,5]
@@ -3136,7 +3156,7 @@ Subject To
    - X_Country_Stream[103,8] - X_Country_Stream[103,9]
    - X_Country_Rail[103,0] - X_Country_Rail[103,1] - X_Country_Rail[103,2]
    - X_Country_Rail[103,3] - X_Country_Rail[103,4] - X_Country_Rail[103,5]
-   - X_Facility[103] - I_Country[103] = -426431.72
+   - X_Facility[103] - I_Country[103] = -2493.64
  R104: - X_Country_Stream[104,0] - X_Country_Stream[104,1]
    - X_Country_Stream[104,2] - X_Country_Stream[104,3]
    - X_Country_Stream[104,4] - X_Country_Stream[104,5]
@@ -3144,7 +3164,7 @@ Subject To
    - X_Country_Stream[104,8] - X_Country_Stream[104,9]
    - X_Country_Rail[104,0] - X_Country_Rail[104,1] - X_Country_Rail[104,2]
    - X_Country_Rail[104,3] - X_Country_Rail[104,4] - X_Country_Rail[104,5]
-   - X_Facility[104] - I_Country[104] = -426431.72
+   - X_Facility[104] - I_Country[104] = -963.66
  R105: - X_Country_Stream[105,0] - X_Country_Stream[105,1]
    - X_Country_Stream[105,2] - X_Country_Stream[105,3]
    - X_Country_Stream[105,4] - X_Country_Stream[105,5]
@@ -3152,7 +3172,7 @@ Subject To
    - X_Country_Stream[105,8] - X_Country_Stream[105,9]
    - X_Country_Rail[105,0] - X_Country_Rail[105,1] - X_Country_Rail[105,2]
    - X_Country_Rail[105,3] - X_Country_Rail[105,4] - X_Country_Rail[105,5]
-   - X_Facility[105] - I_Country[105] = -426431.72
+   - X_Facility[105] - I_Country[105] = -963.66
  R106: - X_Country_Stream[106,0] - X_Country_Stream[106,1]
    - X_Country_Stream[106,2] - X_Country_Stream[106,3]
    - X_Country_Stream[106,4] - X_Country_Stream[106,5]
@@ -3160,7 +3180,7 @@ Subject To
    - X_Country_Stream[106,8] - X_Country_Stream[106,9]
    - X_Country_Rail[106,0] - X_Country_Rail[106,1] - X_Country_Rail[106,2]
    - X_Country_Rail[106,3] - X_Country_Rail[106,4] - X_Country_Rail[106,5]
-   - X_Facility[106] - I_Country[106] = -426431.72
+   - X_Facility[106] - I_Country[106] = -2493.64
  R107: - X_Country_Stream[107,0] - X_Country_Stream[107,1]
    - X_Country_Stream[107,2] - X_Country_Stream[107,3]
    - X_Country_Stream[107,4] - X_Country_Stream[107,5]
@@ -3168,7 +3188,7 @@ Subject To
    - X_Country_Stream[107,8] - X_Country_Stream[107,9]
    - X_Country_Rail[107,0] - X_Country_Rail[107,1] - X_Country_Rail[107,2]
    - X_Country_Rail[107,3] - X_Country_Rail[107,4] - X_Country_Rail[107,5]
-   - X_Facility[107] - I_Country[107] = -426431.72
+   - X_Facility[107] - I_Country[107] = -2493.64
  R108: - X_Country_Stream[108,0] - X_Country_Stream[108,1]
    - X_Country_Stream[108,2] - X_Country_Stream[108,3]
    - X_Country_Stream[108,4] - X_Country_Stream[108,5]
@@ -3176,7 +3196,7 @@ Subject To
    - X_Country_Stream[108,8] - X_Country_Stream[108,9]
    - X_Country_Rail[108,0] - X_Country_Rail[108,1] - X_Country_Rail[108,2]
    - X_Country_Rail[108,3] - X_Country_Rail[108,4] - X_Country_Rail[108,5]
-   - X_Facility[108] - I_Country[108] = -426431.72
+   - X_Facility[108] - I_Country[108] = -963.66
  R109: - X_Country_Stream[109,0] - X_Country_Stream[109,1]
    - X_Country_Stream[109,2] - X_Country_Stream[109,3]
    - X_Country_Stream[109,4] - X_Country_Stream[109,5]
@@ -3184,7 +3204,7 @@ Subject To
    - X_Country_Stream[109,8] - X_Country_Stream[109,9]
    - X_Country_Rail[109,0] - X_Country_Rail[109,1] - X_Country_Rail[109,2]
    - X_Country_Rail[109,3] - X_Country_Rail[109,4] - X_Country_Rail[109,5]
-   - X_Facility[109] - I_Country[109] = -426431.72
+   - X_Facility[109] - I_Country[109] = -2493.64
  R110: - X_Country_Stream[110,0] - X_Country_Stream[110,1]
    - X_Country_Stream[110,2] - X_Country_Stream[110,3]
    - X_Country_Stream[110,4] - X_Country_Stream[110,5]
@@ -3192,7 +3212,7 @@ Subject To
    - X_Country_Stream[110,8] - X_Country_Stream[110,9]
    - X_Country_Rail[110,0] - X_Country_Rail[110,1] - X_Country_Rail[110,2]
    - X_Country_Rail[110,3] - X_Country_Rail[110,4] - X_Country_Rail[110,5]
-   - X_Facility[110] - I_Country[110] = -426431.72
+   - X_Facility[110] - I_Country[110] = -2493.64
  R111: - X_Country_Stream[111,0] - X_Country_Stream[111,1]
    - X_Country_Stream[111,2] - X_Country_Stream[111,3]
    - X_Country_Stream[111,4] - X_Country_Stream[111,5]
@@ -3200,7 +3220,7 @@ Subject To
    - X_Country_Stream[111,8] - X_Country_Stream[111,9]
    - X_Country_Rail[111,0] - X_Country_Rail[111,1] - X_Country_Rail[111,2]
    - X_Country_Rail[111,3] - X_Country_Rail[111,4] - X_Country_Rail[111,5]
-   - X_Facility[111] - I_Country[111] = -426431.72
+   - X_Facility[111] - I_Country[111] = -2493.64
  R112: - X_Country_Stream[112,0] - X_Country_Stream[112,1]
    - X_Country_Stream[112,2] - X_Country_Stream[112,3]
    - X_Country_Stream[112,4] - X_Country_Stream[112,5]
@@ -3208,7 +3228,7 @@ Subject To
    - X_Country_Stream[112,8] - X_Country_Stream[112,9]
    - X_Country_Rail[112,0] - X_Country_Rail[112,1] - X_Country_Rail[112,2]
    - X_Country_Rail[112,3] - X_Country_Rail[112,4] - X_Country_Rail[112,5]
-   - X_Facility[112] - I_Country[112] = -426431.72
+   - X_Facility[112] - I_Country[112] = -6271.97
  R113: - X_Country_Stream[113,0] - X_Country_Stream[113,1]
    - X_Country_Stream[113,2] - X_Country_Stream[113,3]
    - X_Country_Stream[113,4] - X_Country_Stream[113,5]
@@ -3216,7 +3236,7 @@ Subject To
    - X_Country_Stream[113,8] - X_Country_Stream[113,9]
    - X_Country_Rail[113,0] - X_Country_Rail[113,1] - X_Country_Rail[113,2]
    - X_Country_Rail[113,3] - X_Country_Rail[113,4] - X_Country_Rail[113,5]
-   - X_Facility[113] - I_Country[113] = -426431.72
+   - X_Facility[113] - I_Country[113] = -6271.97
  R114: - X_Country_Stream[114,0] - X_Country_Stream[114,1]
    - X_Country_Stream[114,2] - X_Country_Stream[114,3]
    - X_Country_Stream[114,4] - X_Country_Stream[114,5]
@@ -3224,7 +3244,7 @@ Subject To
    - X_Country_Stream[114,8] - X_Country_Stream[114,9]
    - X_Country_Rail[114,0] - X_Country_Rail[114,1] - X_Country_Rail[114,2]
    - X_Country_Rail[114,3] - X_Country_Rail[114,4] - X_Country_Rail[114,5]
-   - X_Facility[114] - I_Country[114] = -426431.72
+   - X_Facility[114] - I_Country[114] = -30844
  R115: - X_Country_Stream[115,0] - X_Country_Stream[115,1]
    - X_Country_Stream[115,2] - X_Country_Stream[115,3]
    - X_Country_Stream[115,4] - X_Country_Stream[115,5]
@@ -3232,7 +3252,7 @@ Subject To
    - X_Country_Stream[115,8] - X_Country_Stream[115,9]
    - X_Country_Rail[115,0] - X_Country_Rail[115,1] - X_Country_Rail[115,2]
    - X_Country_Rail[115,3] - X_Country_Rail[115,4] - X_Country_Rail[115,5]
-   - X_Facility[115] - I_Country[115] = -426431.72
+   - X_Facility[115] - I_Country[115] = -30844
  R116: - X_Country_Stream[116,0] - X_Country_Stream[116,1]
    - X_Country_Stream[116,2] - X_Country_Stream[116,3]
    - X_Country_Stream[116,4] - X_Country_Stream[116,5]
@@ -3240,7 +3260,7 @@ Subject To
    - X_Country_Stream[116,8] - X_Country_Stream[116,9]
    - X_Country_Rail[116,0] - X_Country_Rail[116,1] - X_Country_Rail[116,2]
    - X_Country_Rail[116,3] - X_Country_Rail[116,4] - X_Country_Rail[116,5]
-   - X_Facility[116] - I_Country[116] = -426431.72
+   - X_Facility[116] - I_Country[116] = -30844
  R117: - X_Country_Stream[117,0] - X_Country_Stream[117,1]
    - X_Country_Stream[117,2] - X_Country_Stream[117,3]
    - X_Country_Stream[117,4] - X_Country_Stream[117,5]
@@ -3248,7 +3268,7 @@ Subject To
    - X_Country_Stream[117,8] - X_Country_Stream[117,9]
    - X_Country_Rail[117,0] - X_Country_Rail[117,1] - X_Country_Rail[117,2]
    - X_Country_Rail[117,3] - X_Country_Rail[117,4] - X_Country_Rail[117,5]
-   - X_Facility[117] - I_Country[117] = -426431.72
+   - X_Facility[117] - I_Country[117] = -30844
  R118: - X_Country_Stream[118,0] - X_Country_Stream[118,1]
    - X_Country_Stream[118,2] - X_Country_Stream[118,3]
    - X_Country_Stream[118,4] - X_Country_Stream[118,5]
@@ -3256,7 +3276,7 @@ Subject To
    - X_Country_Stream[118,8] - X_Country_Stream[118,9]
    - X_Country_Rail[118,0] - X_Country_Rail[118,1] - X_Country_Rail[118,2]
    - X_Country_Rail[118,3] - X_Country_Rail[118,4] - X_Country_Rail[118,5]
-   - X_Facility[118] - I_Country[118] = -426431.72
+   - X_Facility[118] - I_Country[118] = -30844
  R119: - X_Country_Stream[119,0] - X_Country_Stream[119,1]
    - X_Country_Stream[119,2] - X_Country_Stream[119,3]
    - X_Country_Stream[119,4] - X_Country_Stream[119,5]
@@ -3264,7 +3284,7 @@ Subject To
    - X_Country_Stream[119,8] - X_Country_Stream[119,9]
    - X_Country_Rail[119,0] - X_Country_Rail[119,1] - X_Country_Rail[119,2]
    - X_Country_Rail[119,3] - X_Country_Rail[119,4] - X_Country_Rail[119,5]
-   - X_Facility[119] - I_Country[119] = -426431.72
+   - X_Facility[119] - I_Country[119] = -30844
  R120: - X_Country_Stream[120,0] - X_Country_Stream[120,1]
    - X_Country_Stream[120,2] - X_Country_Stream[120,3]
    - X_Country_Stream[120,4] - X_Country_Stream[120,5]
@@ -3272,7 +3292,7 @@ Subject To
    - X_Country_Stream[120,8] - X_Country_Stream[120,9]
    - X_Country_Rail[120,0] - X_Country_Rail[120,1] - X_Country_Rail[120,2]
    - X_Country_Rail[120,3] - X_Country_Rail[120,4] - X_Country_Rail[120,5]
-   - X_Facility[120] - I_Country[120] = -426431.72
+   - X_Facility[120] - I_Country[120] = -30844
  R121: - X_Country_Stream[121,0] - X_Country_Stream[121,1]
    - X_Country_Stream[121,2] - X_Country_Stream[121,3]
    - X_Country_Stream[121,4] - X_Country_Stream[121,5]
@@ -3280,7 +3300,7 @@ Subject To
    - X_Country_Stream[121,8] - X_Country_Stream[121,9]
    - X_Country_Rail[121,0] - X_Country_Rail[121,1] - X_Country_Rail[121,2]
    - X_Country_Rail[121,3] - X_Country_Rail[121,4] - X_Country_Rail[121,5]
-   - X_Facility[121] - I_Country[121] = -426431.72
+   - X_Facility[121] - I_Country[121] = -30844
  R122: - X_Country_Stream[122,0] - X_Country_Stream[122,1]
    - X_Country_Stream[122,2] - X_Country_Stream[122,3]
    - X_Country_Stream[122,4] - X_Country_Stream[122,5]
@@ -3288,7 +3308,7 @@ Subject To
    - X_Country_Stream[122,8] - X_Country_Stream[122,9]
    - X_Country_Rail[122,0] - X_Country_Rail[122,1] - X_Country_Rail[122,2]
    - X_Country_Rail[122,3] - X_Country_Rail[122,4] - X_Country_Rail[122,5]
-   - X_Facility[122] - I_Country[122] = -426431.72
+   - X_Facility[122] - I_Country[122] = -30844
  R123: - X_Country_Stream[123,0] - X_Country_Stream[123,1]
    - X_Country_Stream[123,2] - X_Country_Stream[123,3]
    - X_Country_Stream[123,4] - X_Country_Stream[123,5]
@@ -3296,7 +3316,7 @@ Subject To
    - X_Country_Stream[123,8] - X_Country_Stream[123,9]
    - X_Country_Rail[123,0] - X_Country_Rail[123,1] - X_Country_Rail[123,2]
    - X_Country_Rail[123,3] - X_Country_Rail[123,4] - X_Country_Rail[123,5]
-   - X_Facility[123] - I_Country[123] = -426431.72
+   - X_Facility[123] - I_Country[123] = -30844
  R124: - X_Country_Stream[124,0] - X_Country_Stream[124,1]
    - X_Country_Stream[124,2] - X_Country_Stream[124,3]
    - X_Country_Stream[124,4] - X_Country_Stream[124,5]
@@ -3304,7 +3324,7 @@ Subject To
    - X_Country_Stream[124,8] - X_Country_Stream[124,9]
    - X_Country_Rail[124,0] - X_Country_Rail[124,1] - X_Country_Rail[124,2]
    - X_Country_Rail[124,3] - X_Country_Rail[124,4] - X_Country_Rail[124,5]
-   - X_Facility[124] - I_Country[124] = -426431.72
+   - X_Facility[124] - I_Country[124] = -30844
  R125: - X_Country_Stream[125,0] - X_Country_Stream[125,1]
    - X_Country_Stream[125,2] - X_Country_Stream[125,3]
    - X_Country_Stream[125,4] - X_Country_Stream[125,5]
@@ -3312,7 +3332,7 @@ Subject To
    - X_Country_Stream[125,8] - X_Country_Stream[125,9]
    - X_Country_Rail[125,0] - X_Country_Rail[125,1] - X_Country_Rail[125,2]
    - X_Country_Rail[125,3] - X_Country_Rail[125,4] - X_Country_Rail[125,5]
-   - X_Facility[125] - I_Country[125] = -426431.72
+   - X_Facility[125] - I_Country[125] = -30844
  R126: - X_Country_Stream[126,0] - X_Country_Stream[126,1]
    - X_Country_Stream[126,2] - X_Country_Stream[126,3]
    - X_Country_Stream[126,4] - X_Country_Stream[126,5]
@@ -3320,7 +3340,7 @@ Subject To
    - X_Country_Stream[126,8] - X_Country_Stream[126,9]
    - X_Country_Rail[126,0] - X_Country_Rail[126,1] - X_Country_Rail[126,2]
    - X_Country_Rail[126,3] - X_Country_Rail[126,4] - X_Country_Rail[126,5]
-   - X_Facility[126] - I_Country[126] = -426431.72
+   - X_Facility[126] - I_Country[126] = -30844
  R127: - X_Country_Stream[127,0] - X_Country_Stream[127,1]
    - X_Country_Stream[127,2] - X_Country_Stream[127,3]
    - X_Country_Stream[127,4] - X_Country_Stream[127,5]
@@ -3328,7 +3348,7 @@ Subject To
    - X_Country_Stream[127,8] - X_Country_Stream[127,9]
    - X_Country_Rail[127,0] - X_Country_Rail[127,1] - X_Country_Rail[127,2]
    - X_Country_Rail[127,3] - X_Country_Rail[127,4] - X_Country_Rail[127,5]
-   - X_Facility[127] - I_Country[127] = -426431.72
+   - X_Facility[127] - I_Country[127] = -30844
  R128: - X_Country_Stream[128,0] - X_Country_Stream[128,1]
    - X_Country_Stream[128,2] - X_Country_Stream[128,3]
    - X_Country_Stream[128,4] - X_Country_Stream[128,5]
@@ -3336,7 +3356,7 @@ Subject To
    - X_Country_Stream[128,8] - X_Country_Stream[128,9]
    - X_Country_Rail[128,0] - X_Country_Rail[128,1] - X_Country_Rail[128,2]
    - X_Country_Rail[128,3] - X_Country_Rail[128,4] - X_Country_Rail[128,5]
-   - X_Facility[128] - I_Country[128] = -426431.72
+   - X_Facility[128] - I_Country[128] = -30844
  R129: - X_Country_Stream[129,0] - X_Country_Stream[129,1]
    - X_Country_Stream[129,2] - X_Country_Stream[129,3]
    - X_Country_Stream[129,4] - X_Country_Stream[129,5]
@@ -3344,7 +3364,7 @@ Subject To
    - X_Country_Stream[129,8] - X_Country_Stream[129,9]
    - X_Country_Rail[129,0] - X_Country_Rail[129,1] - X_Country_Rail[129,2]
    - X_Country_Rail[129,3] - X_Country_Rail[129,4] - X_Country_Rail[129,5]
-   - X_Facility[129] - I_Country[129] = -426431.72
+   - X_Facility[129] - I_Country[129] = -30844
  R130: - X_Country_Stream[130,0] - X_Country_Stream[130,1]
    - X_Country_Stream[130,2] - X_Country_Stream[130,3]
    - X_Country_Stream[130,4] - X_Country_Stream[130,5]
@@ -3352,7 +3372,7 @@ Subject To
    - X_Country_Stream[130,8] - X_Country_Stream[130,9]
    - X_Country_Rail[130,0] - X_Country_Rail[130,1] - X_Country_Rail[130,2]
    - X_Country_Rail[130,3] - X_Country_Rail[130,4] - X_Country_Rail[130,5]
-   - X_Facility[130] - I_Country[130] = -426431.72
+   - X_Facility[130] - I_Country[130] = -30844
  R131: - X_Country_Stream[131,0] - X_Country_Stream[131,1]
    - X_Country_Stream[131,2] - X_Country_Stream[131,3]
    - X_Country_Stream[131,4] - X_Country_Stream[131,5]
@@ -3360,7 +3380,7 @@ Subject To
    - X_Country_Stream[131,8] - X_Country_Stream[131,9]
    - X_Country_Rail[131,0] - X_Country_Rail[131,1] - X_Country_Rail[131,2]
    - X_Country_Rail[131,3] - X_Country_Rail[131,4] - X_Country_Rail[131,5]
-   - X_Facility[131] - I_Country[131] = -426431.72
+   - X_Facility[131] - I_Country[131] = -30844
  R132: - X_Country_Stream[132,0] - X_Country_Stream[132,1]
    - X_Country_Stream[132,2] - X_Country_Stream[132,3]
    - X_Country_Stream[132,4] - X_Country_Stream[132,5]
@@ -3368,7 +3388,7 @@ Subject To
    - X_Country_Stream[132,8] - X_Country_Stream[132,9]
    - X_Country_Rail[132,0] - X_Country_Rail[132,1] - X_Country_Rail[132,2]
    - X_Country_Rail[132,3] - X_Country_Rail[132,4] - X_Country_Rail[132,5]
-   - X_Facility[132] - I_Country[132] = -426431.72
+   - X_Facility[132] - I_Country[132] = -11007.5
  R133: - X_Country_Stream[133,0] - X_Country_Stream[133,1]
    - X_Country_Stream[133,2] - X_Country_Stream[133,3]
    - X_Country_Stream[133,4] - X_Country_Stream[133,5]
@@ -3376,7 +3396,7 @@ Subject To
    - X_Country_Stream[133,8] - X_Country_Stream[133,9]
    - X_Country_Rail[133,0] - X_Country_Rail[133,1] - X_Country_Rail[133,2]
    - X_Country_Rail[133,3] - X_Country_Rail[133,4] - X_Country_Rail[133,5]
-   - X_Facility[133] - I_Country[133] = -426431.72
+   - X_Facility[133] - I_Country[133] = -6271.97
  R134: - X_Country_Stream[134,0] - X_Country_Stream[134,1]
    - X_Country_Stream[134,2] - X_Country_Stream[134,3]
    - X_Country_Stream[134,4] - X_Country_Stream[134,5]
@@ -3384,7 +3404,7 @@ Subject To
    - X_Country_Stream[134,8] - X_Country_Stream[134,9]
    - X_Country_Rail[134,0] - X_Country_Rail[134,1] - X_Country_Rail[134,2]
    - X_Country_Rail[134,3] - X_Country_Rail[134,4] - X_Country_Rail[134,5]
-   - X_Facility[134] - I_Country[134] = -426431.72
+   - X_Facility[134] - I_Country[134] = -6271.97
  R135: - X_Country_Stream[135,0] - X_Country_Stream[135,1]
    - X_Country_Stream[135,2] - X_Country_Stream[135,3]
    - X_Country_Stream[135,4] - X_Country_Stream[135,5]
@@ -3392,7 +3412,7 @@ Subject To
    - X_Country_Stream[135,8] - X_Country_Stream[135,9]
    - X_Country_Rail[135,0] - X_Country_Rail[135,1] - X_Country_Rail[135,2]
    - X_Country_Rail[135,3] - X_Country_Rail[135,4] - X_Country_Rail[135,5]
-   - X_Facility[135] - I_Country[135] = -426431.72
+   - X_Facility[135] - I_Country[135] = -11007.5
  R136: - X_Country_Stream[136,0] - X_Country_Stream[136,1]
    - X_Country_Stream[136,2] - X_Country_Stream[136,3]
    - X_Country_Stream[136,4] - X_Country_Stream[136,5]
@@ -3400,7 +3420,7 @@ Subject To
    - X_Country_Stream[136,8] - X_Country_Stream[136,9]
    - X_Country_Rail[136,0] - X_Country_Rail[136,1] - X_Country_Rail[136,2]
    - X_Country_Rail[136,3] - X_Country_Rail[136,4] - X_Country_Rail[136,5]
-   - X_Facility[136] - I_Country[136] = -426431.72
+   - X_Facility[136] - I_Country[136] = -11007.5
  R137: - X_Country_Stream[137,0] - X_Country_Stream[137,1]
    - X_Country_Stream[137,2] - X_Country_Stream[137,3]
    - X_Country_Stream[137,4] - X_Country_Stream[137,5]
@@ -3408,7 +3428,7 @@ Subject To
    - X_Country_Stream[137,8] - X_Country_Stream[137,9]
    - X_Country_Rail[137,0] - X_Country_Rail[137,1] - X_Country_Rail[137,2]
    - X_Country_Rail[137,3] - X_Country_Rail[137,4] - X_Country_Rail[137,5]
-   - X_Facility[137] - I_Country[137] = -426431.72
+   - X_Facility[137] - I_Country[137] = -11007.5
  R138: - X_Country_Stream[138,0] - X_Country_Stream[138,1]
    - X_Country_Stream[138,2] - X_Country_Stream[138,3]
    - X_Country_Stream[138,4] - X_Country_Stream[138,5]
@@ -3416,7 +3436,7 @@ Subject To
    - X_Country_Stream[138,8] - X_Country_Stream[138,9]
    - X_Country_Rail[138,0] - X_Country_Rail[138,1] - X_Country_Rail[138,2]
    - X_Country_Rail[138,3] - X_Country_Rail[138,4] - X_Country_Rail[138,5]
-   - X_Facility[138] - I_Country[138] = -426431.72
+   - X_Facility[138] - I_Country[138] = -11007.5
  R139: - X_Country_Stream[139,0] - X_Country_Stream[139,1]
    - X_Country_Stream[139,2] - X_Country_Stream[139,3]
    - X_Country_Stream[139,4] - X_Country_Stream[139,5]
@@ -3424,7 +3444,7 @@ Subject To
    - X_Country_Stream[139,8] - X_Country_Stream[139,9]
    - X_Country_Rail[139,0] - X_Country_Rail[139,1] - X_Country_Rail[139,2]
    - X_Country_Rail[139,3] - X_Country_Rail[139,4] - X_Country_Rail[139,5]
-   - X_Facility[139] - I_Country[139] = -426431.72
+   - X_Facility[139] - I_Country[139] = -11007.5
  R140: - X_Country_Stream[140,0] - X_Country_Stream[140,1]
    - X_Country_Stream[140,2] - X_Country_Stream[140,3]
    - X_Country_Stream[140,4] - X_Country_Stream[140,5]
@@ -3432,7 +3452,7 @@ Subject To
    - X_Country_Stream[140,8] - X_Country_Stream[140,9]
    - X_Country_Rail[140,0] - X_Country_Rail[140,1] - X_Country_Rail[140,2]
    - X_Country_Rail[140,3] - X_Country_Rail[140,4] - X_Country_Rail[140,5]
-   - X_Facility[140] - I_Country[140] = -426431.72
+   - X_Facility[140] - I_Country[140] = -6271.97
  R141: - X_Country_Stream[141,0] - X_Country_Stream[141,1]
    - X_Country_Stream[141,2] - X_Country_Stream[141,3]
    - X_Country_Stream[141,4] - X_Country_Stream[141,5]
@@ -3440,7 +3460,7 @@ Subject To
    - X_Country_Stream[141,8] - X_Country_Stream[141,9]
    - X_Country_Rail[141,0] - X_Country_Rail[141,1] - X_Country_Rail[141,2]
    - X_Country_Rail[141,3] - X_Country_Rail[141,4] - X_Country_Rail[141,5]
-   - X_Facility[141] - I_Country[141] = -426431.72
+   - X_Facility[141] - I_Country[141] = -11007.5
  R142: - X_Country_Stream[142,0] - X_Country_Stream[142,1]
    - X_Country_Stream[142,2] - X_Country_Stream[142,3]
    - X_Country_Stream[142,4] - X_Country_Stream[142,5]
@@ -3448,7 +3468,7 @@ Subject To
    - X_Country_Stream[142,8] - X_Country_Stream[142,9]
    - X_Country_Rail[142,0] - X_Country_Rail[142,1] - X_Country_Rail[142,2]
    - X_Country_Rail[142,3] - X_Country_Rail[142,4] - X_Country_Rail[142,5]
-   - X_Facility[142] - I_Country[142] = -426431.72
+   - X_Facility[142] - I_Country[142] = -11007.5
  R143: - X_Country_Stream[143,0] - X_Country_Stream[143,1]
    - X_Country_Stream[143,2] - X_Country_Stream[143,3]
    - X_Country_Stream[143,4] - X_Country_Stream[143,5]
@@ -3456,7 +3476,7 @@ Subject To
    - X_Country_Stream[143,8] - X_Country_Stream[143,9]
    - X_Country_Rail[143,0] - X_Country_Rail[143,1] - X_Country_Rail[143,2]
    - X_Country_Rail[143,3] - X_Country_Rail[143,4] - X_Country_Rail[143,5]
-   - X_Facility[143] - I_Country[143] = -426431.72
+   - X_Facility[143] - I_Country[143] = -14642.81
  R144: - X_Country_Stream[144,0] - X_Country_Stream[144,1]
    - X_Country_Stream[144,2] - X_Country_Stream[144,3]
    - X_Country_Stream[144,4] - X_Country_Stream[144,5]
@@ -3464,7 +3484,7 @@ Subject To
    - X_Country_Stream[144,8] - X_Country_Stream[144,9]
    - X_Country_Rail[144,0] - X_Country_Rail[144,1] - X_Country_Rail[144,2]
    - X_Country_Rail[144,3] - X_Country_Rail[144,4] - X_Country_Rail[144,5]
-   - X_Facility[144] - I_Country[144] = -426431.72
+   - X_Facility[144] - I_Country[144] = -30844
  R145: - X_Country_Stream[145,0] - X_Country_Stream[145,1]
    - X_Country_Stream[145,2] - X_Country_Stream[145,3]
    - X_Country_Stream[145,4] - X_Country_Stream[145,5]
@@ -3472,7 +3492,7 @@ Subject To
    - X_Country_Stream[145,8] - X_Country_Stream[145,9]
    - X_Country_Rail[145,0] - X_Country_Rail[145,1] - X_Country_Rail[145,2]
    - X_Country_Rail[145,3] - X_Country_Rail[145,4] - X_Country_Rail[145,5]
-   - X_Facility[145] - I_Country[145] = -426431.72
+   - X_Facility[145] - I_Country[145] = -30844
  R146: - X_Country_Stream[146,0] - X_Country_Stream[146,1]
    - X_Country_Stream[146,2] - X_Country_Stream[146,3]
    - X_Country_Stream[146,4] - X_Country_Stream[146,5]
@@ -3480,7 +3500,7 @@ Subject To
    - X_Country_Stream[146,8] - X_Country_Stream[146,9]
    - X_Country_Rail[146,0] - X_Country_Rail[146,1] - X_Country_Rail[146,2]
    - X_Country_Rail[146,3] - X_Country_Rail[146,4] - X_Country_Rail[146,5]
-   - X_Facility[146] - I_Country[146] = -426431.72
+   - X_Facility[146] - I_Country[146] = -30844
  R147: - X_Country_Stream[147,0] - X_Country_Stream[147,1]
    - X_Country_Stream[147,2] - X_Country_Stream[147,3]
    - X_Country_Stream[147,4] - X_Country_Stream[147,5]
@@ -3488,7 +3508,7 @@ Subject To
    - X_Country_Stream[147,8] - X_Country_Stream[147,9]
    - X_Country_Rail[147,0] - X_Country_Rail[147,1] - X_Country_Rail[147,2]
    - X_Country_Rail[147,3] - X_Country_Rail[147,4] - X_Country_Rail[147,5]
-   - X_Facility[147] - I_Country[147] = -426431.72
+   - X_Facility[147] - I_Country[147] = -30844
  R148: - X_Country_Stream[148,0] - X_Country_Stream[148,1]
    - X_Country_Stream[148,2] - X_Country_Stream[148,3]
    - X_Country_Stream[148,4] - X_Country_Stream[148,5]
@@ -3496,7 +3516,7 @@ Subject To
    - X_Country_Stream[148,8] - X_Country_Stream[148,9]
    - X_Country_Rail[148,0] - X_Country_Rail[148,1] - X_Country_Rail[148,2]
    - X_Country_Rail[148,3] - X_Country_Rail[148,4] - X_Country_Rail[148,5]
-   - X_Facility[148] - I_Country[148] = -426431.72
+   - X_Facility[148] - I_Country[148] = -2493.64
  R149: - X_Country_Stream[149,0] - X_Country_Stream[149,1]
    - X_Country_Stream[149,2] - X_Country_Stream[149,3]
    - X_Country_Stream[149,4] - X_Country_Stream[149,5]
@@ -3504,7 +3524,7 @@ Subject To
    - X_Country_Stream[149,8] - X_Country_Stream[149,9]
    - X_Country_Rail[149,0] - X_Country_Rail[149,1] - X_Country_Rail[149,2]
    - X_Country_Rail[149,3] - X_Country_Rail[149,4] - X_Country_Rail[149,5]
-   - X_Facility[149] - I_Country[149] = -426431.72
+   - X_Facility[149] - I_Country[149] = -30844
  R150: - X_Country_Stream[150,0] - X_Country_Stream[150,1]
    - X_Country_Stream[150,2] - X_Country_Stream[150,3]
    - X_Country_Stream[150,4] - X_Country_Stream[150,5]
@@ -3512,7 +3532,7 @@ Subject To
    - X_Country_Stream[150,8] - X_Country_Stream[150,9]
    - X_Country_Rail[150,0] - X_Country_Rail[150,1] - X_Country_Rail[150,2]
    - X_Country_Rail[150,3] - X_Country_Rail[150,4] - X_Country_Rail[150,5]
-   - X_Facility[150] - I_Country[150] = -426431.72
+   - X_Facility[150] - I_Country[150] = -2493.64
  R151: - X_Country_Stream[151,0] - X_Country_Stream[151,1]
    - X_Country_Stream[151,2] - X_Country_Stream[151,3]
    - X_Country_Stream[151,4] - X_Country_Stream[151,5]
@@ -3520,7 +3540,7 @@ Subject To
    - X_Country_Stream[151,8] - X_Country_Stream[151,9]
    - X_Country_Rail[151,0] - X_Country_Rail[151,1] - X_Country_Rail[151,2]
    - X_Country_Rail[151,3] - X_Country_Rail[151,4] - X_Country_Rail[151,5]
-   - X_Facility[151] - I_Country[151] = -426431.72
+   - X_Facility[151] - I_Country[151] = -30844
  R152: - X_Country_Stream[152,0] - X_Country_Stream[152,1]
    - X_Country_Stream[152,2] - X_Country_Stream[152,3]
    - X_Country_Stream[152,4] - X_Country_Stream[152,5]
@@ -3528,7 +3548,7 @@ Subject To
    - X_Country_Stream[152,8] - X_Country_Stream[152,9]
    - X_Country_Rail[152,0] - X_Country_Rail[152,1] - X_Country_Rail[152,2]
    - X_Country_Rail[152,3] - X_Country_Rail[152,4] - X_Country_Rail[152,5]
-   - X_Facility[152] - I_Country[152] = -426431.72
+   - X_Facility[152] - I_Country[152] = -30844
  R153: - X_Country_Stream[153,0] - X_Country_Stream[153,1]
    - X_Country_Stream[153,2] - X_Country_Stream[153,3]
    - X_Country_Stream[153,4] - X_Country_Stream[153,5]
@@ -3536,7 +3556,7 @@ Subject To
    - X_Country_Stream[153,8] - X_Country_Stream[153,9]
    - X_Country_Rail[153,0] - X_Country_Rail[153,1] - X_Country_Rail[153,2]
    - X_Country_Rail[153,3] - X_Country_Rail[153,4] - X_Country_Rail[153,5]
-   - X_Facility[153] - I_Country[153] = -426431.72
+   - X_Facility[153] - I_Country[153] = -30844
  R154: - X_Country_Stream[154,0] - X_Country_Stream[154,1]
    - X_Country_Stream[154,2] - X_Country_Stream[154,3]
    - X_Country_Stream[154,4] - X_Country_Stream[154,5]
@@ -3544,7 +3564,7 @@ Subject To
    - X_Country_Stream[154,8] - X_Country_Stream[154,9]
    - X_Country_Rail[154,0] - X_Country_Rail[154,1] - X_Country_Rail[154,2]
    - X_Country_Rail[154,3] - X_Country_Rail[154,4] - X_Country_Rail[154,5]
-   - X_Facility[154] - I_Country[154] = -426431.72
+   - X_Facility[154] - I_Country[154] = -30844
  R155: - X_Country_Stream[155,0] - X_Country_Stream[155,1]
    - X_Country_Stream[155,2] - X_Country_Stream[155,3]
    - X_Country_Stream[155,4] - X_Country_Stream[155,5]
@@ -3552,7 +3572,7 @@ Subject To
    - X_Country_Stream[155,8] - X_Country_Stream[155,9]
    - X_Country_Rail[155,0] - X_Country_Rail[155,1] - X_Country_Rail[155,2]
    - X_Country_Rail[155,3] - X_Country_Rail[155,4] - X_Country_Rail[155,5]
-   - X_Facility[155] - I_Country[155] = -426431.72
+   - X_Facility[155] - I_Country[155] = -30844
  R156: - X_Country_Stream[156,0] - X_Country_Stream[156,1]
    - X_Country_Stream[156,2] - X_Country_Stream[156,3]
    - X_Country_Stream[156,4] - X_Country_Stream[156,5]
@@ -3560,7 +3580,7 @@ Subject To
    - X_Country_Stream[156,8] - X_Country_Stream[156,9]
    - X_Country_Rail[156,0] - X_Country_Rail[156,1] - X_Country_Rail[156,2]
    - X_Country_Rail[156,3] - X_Country_Rail[156,4] - X_Country_Rail[156,5]
-   - X_Facility[156] - I_Country[156] = -426431.72
+   - X_Facility[156] - I_Country[156] = -30844
  R157: - X_Country_Stream[157,0] - X_Country_Stream[157,1]
    - X_Country_Stream[157,2] - X_Country_Stream[157,3]
    - X_Country_Stream[157,4] - X_Country_Stream[157,5]
@@ -3568,7 +3588,7 @@ Subject To
    - X_Country_Stream[157,8] - X_Country_Stream[157,9]
    - X_Country_Rail[157,0] - X_Country_Rail[157,1] - X_Country_Rail[157,2]
    - X_Country_Rail[157,3] - X_Country_Rail[157,4] - X_Country_Rail[157,5]
-   - X_Facility[157] - I_Country[157] = -426431.72
+   - X_Facility[157] - I_Country[157] = -2493.64
  R158: - X_Country_Stream[158,0] - X_Country_Stream[158,1]
    - X_Country_Stream[158,2] - X_Country_Stream[158,3]
    - X_Country_Stream[158,4] - X_Country_Stream[158,5]
@@ -3576,7 +3596,7 @@ Subject To
    - X_Country_Stream[158,8] - X_Country_Stream[158,9]
    - X_Country_Rail[158,0] - X_Country_Rail[158,1] - X_Country_Rail[158,2]
    - X_Country_Rail[158,3] - X_Country_Rail[158,4] - X_Country_Rail[158,5]
-   - X_Facility[158] - I_Country[158] = -426431.72
+   - X_Facility[158] - I_Country[158] = -14642.81
  R159: - X_Country_Stream[159,0] - X_Country_Stream[159,1]
    - X_Country_Stream[159,2] - X_Country_Stream[159,3]
    - X_Country_Stream[159,4] - X_Country_Stream[159,5]
@@ -3584,7 +3604,7 @@ Subject To
    - X_Country_Stream[159,8] - X_Country_Stream[159,9]
    - X_Country_Rail[159,0] - X_Country_Rail[159,1] - X_Country_Rail[159,2]
    - X_Country_Rail[159,3] - X_Country_Rail[159,4] - X_Country_Rail[159,5]
-   - X_Facility[159] - I_Country[159] = -426431.72
+   - X_Facility[159] - I_Country[159] = -2493.64
  R160: - X_Country_Stream[160,0] - X_Country_Stream[160,1]
    - X_Country_Stream[160,2] - X_Country_Stream[160,3]
    - X_Country_Stream[160,4] - X_Country_Stream[160,5]
@@ -3592,7 +3612,7 @@ Subject To
    - X_Country_Stream[160,8] - X_Country_Stream[160,9]
    - X_Country_Rail[160,0] - X_Country_Rail[160,1] - X_Country_Rail[160,2]
    - X_Country_Rail[160,3] - X_Country_Rail[160,4] - X_Country_Rail[160,5]
-   - X_Facility[160] - I_Country[160] = -426431.72
+   - X_Facility[160] - I_Country[160] = -2493.64
  R161: - X_Country_Stream[161,0] - X_Country_Stream[161,1]
    - X_Country_Stream[161,2] - X_Country_Stream[161,3]
    - X_Country_Stream[161,4] - X_Country_Stream[161,5]
@@ -3600,7 +3620,7 @@ Subject To
    - X_Country_Stream[161,8] - X_Country_Stream[161,9]
    - X_Country_Rail[161,0] - X_Country_Rail[161,1] - X_Country_Rail[161,2]
    - X_Country_Rail[161,3] - X_Country_Rail[161,4] - X_Country_Rail[161,5]
-   - X_Facility[161] - I_Country[161] = -426431.72
+   - X_Facility[161] - I_Country[161] = -30844
  R162: - X_Country_Stream[162,0] - X_Country_Stream[162,1]
    - X_Country_Stream[162,2] - X_Country_Stream[162,3]
    - X_Country_Stream[162,4] - X_Country_Stream[162,5]
@@ -3608,7 +3628,7 @@ Subject To
    - X_Country_Stream[162,8] - X_Country_Stream[162,9]
    - X_Country_Rail[162,0] - X_Country_Rail[162,1] - X_Country_Rail[162,2]
    - X_Country_Rail[162,3] - X_Country_Rail[162,4] - X_Country_Rail[162,5]
-   - X_Facility[162] - I_Country[162] = -426431.72
+   - X_Facility[162] - I_Country[162] = -963.66
  R163: - X_Country_Stream[163,0] - X_Country_Stream[163,1]
    - X_Country_Stream[163,2] - X_Country_Stream[163,3]
    - X_Country_Stream[163,4] - X_Country_Stream[163,5]
@@ -3616,7 +3636,7 @@ Subject To
    - X_Country_Stream[163,8] - X_Country_Stream[163,9]
    - X_Country_Rail[163,0] - X_Country_Rail[163,1] - X_Country_Rail[163,2]
    - X_Country_Rail[163,3] - X_Country_Rail[163,4] - X_Country_Rail[163,5]
-   - X_Facility[163] - I_Country[163] = -426431.72
+   - X_Facility[163] - I_Country[163] = -963.66
  R164: - X_Country_Stream[164,0] - X_Country_Stream[164,1]
    - X_Country_Stream[164,2] - X_Country_Stream[164,3]
    - X_Country_Stream[164,4] - X_Country_Stream[164,5]
@@ -3624,7 +3644,7 @@ Subject To
    - X_Country_Stream[164,8] - X_Country_Stream[164,9]
    - X_Country_Rail[164,0] - X_Country_Rail[164,1] - X_Country_Rail[164,2]
    - X_Country_Rail[164,3] - X_Country_Rail[164,4] - X_Country_Rail[164,5]
-   - X_Facility[164] - I_Country[164] = -426431.72
+   - X_Facility[164] - I_Country[164] = -963.66
  R165: - X_Country_Stream[165,0] - X_Country_Stream[165,1]
    - X_Country_Stream[165,2] - X_Country_Stream[165,3]
    - X_Country_Stream[165,4] - X_Country_Stream[165,5]
@@ -3632,7 +3652,7 @@ Subject To
    - X_Country_Stream[165,8] - X_Country_Stream[165,9]
    - X_Country_Rail[165,0] - X_Country_Rail[165,1] - X_Country_Rail[165,2]
    - X_Country_Rail[165,3] - X_Country_Rail[165,4] - X_Country_Rail[165,5]
-   - X_Facility[165] - I_Country[165] = -426431.72
+   - X_Facility[165] - I_Country[165] = -963.66
  R166: - X_Country_Stream[166,0] - X_Country_Stream[166,1]
    - X_Country_Stream[166,2] - X_Country_Stream[166,3]
    - X_Country_Stream[166,4] - X_Country_Stream[166,5]
@@ -3640,7 +3660,7 @@ Subject To
    - X_Country_Stream[166,8] - X_Country_Stream[166,9]
    - X_Country_Rail[166,0] - X_Country_Rail[166,1] - X_Country_Rail[166,2]
    - X_Country_Rail[166,3] - X_Country_Rail[166,4] - X_Country_Rail[166,5]
-   - X_Facility[166] - I_Country[166] = -426431.72
+   - X_Facility[166] - I_Country[166] = -963.66
  R167: - X_Country_Stream[167,0] - X_Country_Stream[167,1]
    - X_Country_Stream[167,2] - X_Country_Stream[167,3]
    - X_Country_Stream[167,4] - X_Country_Stream[167,5]
@@ -3648,7 +3668,7 @@ Subject To
    - X_Country_Stream[167,8] - X_Country_Stream[167,9]
    - X_Country_Rail[167,0] - X_Country_Rail[167,1] - X_Country_Rail[167,2]
    - X_Country_Rail[167,3] - X_Country_Rail[167,4] - X_Country_Rail[167,5]
-   - X_Facility[167] - I_Country[167] = -426431.72
+   - X_Facility[167] - I_Country[167] = -963.66
  R168: - X_Country_Stream[168,0] - X_Country_Stream[168,1]
    - X_Country_Stream[168,2] - X_Country_Stream[168,3]
    - X_Country_Stream[168,4] - X_Country_Stream[168,5]
@@ -3656,7 +3676,7 @@ Subject To
    - X_Country_Stream[168,8] - X_Country_Stream[168,9]
    - X_Country_Rail[168,0] - X_Country_Rail[168,1] - X_Country_Rail[168,2]
    - X_Country_Rail[168,3] - X_Country_Rail[168,4] - X_Country_Rail[168,5]
-   - X_Facility[168] - I_Country[168] = -426431.72
+   - X_Facility[168] - I_Country[168] = -963.66
  R169: - X_Country_Stream[169,0] - X_Country_Stream[169,1]
    - X_Country_Stream[169,2] - X_Country_Stream[169,3]
    - X_Country_Stream[169,4] - X_Country_Stream[169,5]
@@ -3664,7 +3684,7 @@ Subject To
    - X_Country_Stream[169,8] - X_Country_Stream[169,9]
    - X_Country_Rail[169,0] - X_Country_Rail[169,1] - X_Country_Rail[169,2]
    - X_Country_Rail[169,3] - X_Country_Rail[169,4] - X_Country_Rail[169,5]
-   - X_Facility[169] - I_Country[169] = -426431.72
+   - X_Facility[169] - I_Country[169] = -30844
  R170: - X_Country_Stream[170,0] - X_Country_Stream[170,1]
    - X_Country_Stream[170,2] - X_Country_Stream[170,3]
    - X_Country_Stream[170,4] - X_Country_Stream[170,5]
@@ -3672,7 +3692,7 @@ Subject To
    - X_Country_Stream[170,8] - X_Country_Stream[170,9]
    - X_Country_Rail[170,0] - X_Country_Rail[170,1] - X_Country_Rail[170,2]
    - X_Country_Rail[170,3] - X_Country_Rail[170,4] - X_Country_Rail[170,5]
-   - X_Facility[170] - I_Country[170] = -426431.72
+   - X_Facility[170] - I_Country[170] = -963.66
  R171: - X_Country_Stream[171,0] - X_Country_Stream[171,1]
    - X_Country_Stream[171,2] - X_Country_Stream[171,3]
    - X_Country_Stream[171,4] - X_Country_Stream[171,5]
@@ -3680,7 +3700,7 @@ Subject To
    - X_Country_Stream[171,8] - X_Country_Stream[171,9]
    - X_Country_Rail[171,0] - X_Country_Rail[171,1] - X_Country_Rail[171,2]
    - X_Country_Rail[171,3] - X_Country_Rail[171,4] - X_Country_Rail[171,5]
-   - X_Facility[171] - I_Country[171] = -426431.72
+   - X_Facility[171] - I_Country[171] = -963.66
  R172: - X_Country_Stream[172,0] - X_Country_Stream[172,1]
    - X_Country_Stream[172,2] - X_Country_Stream[172,3]
    - X_Country_Stream[172,4] - X_Country_Stream[172,5]
@@ -3688,7 +3708,7 @@ Subject To
    - X_Country_Stream[172,8] - X_Country_Stream[172,9]
    - X_Country_Rail[172,0] - X_Country_Rail[172,1] - X_Country_Rail[172,2]
    - X_Country_Rail[172,3] - X_Country_Rail[172,4] - X_Country_Rail[172,5]
-   - X_Facility[172] - I_Country[172] = -426431.72
+   - X_Facility[172] - I_Country[172] = -30844
  R173: - X_Country_Stream[173,0] - X_Country_Stream[173,1]
    - X_Country_Stream[173,2] - X_Country_Stream[173,3]
    - X_Country_Stream[173,4] - X_Country_Stream[173,5]
@@ -3696,7 +3716,7 @@ Subject To
    - X_Country_Stream[173,8] - X_Country_Stream[173,9]
    - X_Country_Rail[173,0] - X_Country_Rail[173,1] - X_Country_Rail[173,2]
    - X_Country_Rail[173,3] - X_Country_Rail[173,4] - X_Country_Rail[173,5]
-   - X_Facility[173] - I_Country[173] = -426431.72
+   - X_Facility[173] - I_Country[173] = -30844
  R174: - X_Country_Stream[174,0] - X_Country_Stream[174,1]
    - X_Country_Stream[174,2] - X_Country_Stream[174,3]
    - X_Country_Stream[174,4] - X_Country_Stream[174,5]
@@ -3704,7 +3724,7 @@ Subject To
    - X_Country_Stream[174,8] - X_Country_Stream[174,9]
    - X_Country_Rail[174,0] - X_Country_Rail[174,1] - X_Country_Rail[174,2]
    - X_Country_Rail[174,3] - X_Country_Rail[174,4] - X_Country_Rail[174,5]
-   - X_Facility[174] - I_Country[174] = -426431.72
+   - X_Facility[174] - I_Country[174] = -30844
  R175: - X_Country_Stream[175,0] - X_Country_Stream[175,1]
    - X_Country_Stream[175,2] - X_Country_Stream[175,3]
    - X_Country_Stream[175,4] - X_Country_Stream[175,5]
@@ -3712,7 +3732,7 @@ Subject To
    - X_Country_Stream[175,8] - X_Country_Stream[175,9]
    - X_Country_Rail[175,0] - X_Country_Rail[175,1] - X_Country_Rail[175,2]
    - X_Country_Rail[175,3] - X_Country_Rail[175,4] - X_Country_Rail[175,5]
-   - X_Facility[175] - I_Country[175] = -426431.72
+   - X_Facility[175] - I_Country[175] = -963.66
  R176: - X_Country_Stream[176,0] - X_Country_Stream[176,1]
    - X_Country_Stream[176,2] - X_Country_Stream[176,3]
    - X_Country_Stream[176,4] - X_Country_Stream[176,5]
@@ -3720,7 +3740,7 @@ Subject To
    - X_Country_Stream[176,8] - X_Country_Stream[176,9]
    - X_Country_Rail[176,0] - X_Country_Rail[176,1] - X_Country_Rail[176,2]
    - X_Country_Rail[176,3] - X_Country_Rail[176,4] - X_Country_Rail[176,5]
-   - X_Facility[176] - I_Country[176] = -426431.72
+   - X_Facility[176] - I_Country[176] = -963.66
  R177: - X_Country_Stream[177,0] - X_Country_Stream[177,1]
    - X_Country_Stream[177,2] - X_Country_Stream[177,3]
    - X_Country_Stream[177,4] - X_Country_Stream[177,5]
@@ -3728,7 +3748,7 @@ Subject To
    - X_Country_Stream[177,8] - X_Country_Stream[177,9]
    - X_Country_Rail[177,0] - X_Country_Rail[177,1] - X_Country_Rail[177,2]
    - X_Country_Rail[177,3] - X_Country_Rail[177,4] - X_Country_Rail[177,5]
-   - X_Facility[177] - I_Country[177] = -426431.72
+   - X_Facility[177] - I_Country[177] = -30844
  R178: - X_Country_Stream[178,0] - X_Country_Stream[178,1]
    - X_Country_Stream[178,2] - X_Country_Stream[178,3]
    - X_Country_Stream[178,4] - X_Country_Stream[178,5]
@@ -3736,7 +3756,7 @@ Subject To
    - X_Country_Stream[178,8] - X_Country_Stream[178,9]
    - X_Country_Rail[178,0] - X_Country_Rail[178,1] - X_Country_Rail[178,2]
    - X_Country_Rail[178,3] - X_Country_Rail[178,4] - X_Country_Rail[178,5]
-   - X_Facility[178] - I_Country[178] = -426431.72
+   - X_Facility[178] - I_Country[178] = -963.66
  R179: - X_Country_Stream[179,0] - X_Country_Stream[179,1]
    - X_Country_Stream[179,2] - X_Country_Stream[179,3]
    - X_Country_Stream[179,4] - X_Country_Stream[179,5]
@@ -3744,7 +3764,7 @@ Subject To
    - X_Country_Stream[179,8] - X_Country_Stream[179,9]
    - X_Country_Rail[179,0] - X_Country_Rail[179,1] - X_Country_Rail[179,2]
    - X_Country_Rail[179,3] - X_Country_Rail[179,4] - X_Country_Rail[179,5]
-   - X_Facility[179] - I_Country[179] = -426431.72
+   - X_Facility[179] - I_Country[179] = -963.66
  R180: - X_Country_Stream[180,0] - X_Country_Stream[180,1]
    - X_Country_Stream[180,2] - X_Country_Stream[180,3]
    - X_Country_Stream[180,4] - X_Country_Stream[180,5]
@@ -3752,7 +3772,7 @@ Subject To
    - X_Country_Stream[180,8] - X_Country_Stream[180,9]
    - X_Country_Rail[180,0] - X_Country_Rail[180,1] - X_Country_Rail[180,2]
    - X_Country_Rail[180,3] - X_Country_Rail[180,4] - X_Country_Rail[180,5]
-   - X_Facility[180] - I_Country[180] = -426431.72
+   - X_Facility[180] - I_Country[180] = -963.66
  R181: - X_Country_Stream[181,0] - X_Country_Stream[181,1]
    - X_Country_Stream[181,2] - X_Country_Stream[181,3]
    - X_Country_Stream[181,4] - X_Country_Stream[181,5]
@@ -3760,7 +3780,7 @@ Subject To
    - X_Country_Stream[181,8] - X_Country_Stream[181,9]
    - X_Country_Rail[181,0] - X_Country_Rail[181,1] - X_Country_Rail[181,2]
    - X_Country_Rail[181,3] - X_Country_Rail[181,4] - X_Country_Rail[181,5]
-   - X_Facility[181] - I_Country[181] = -426431.72
+   - X_Facility[181] - I_Country[181] = -963.66
  R182: - X_Country_Stream[182,0] - X_Country_Stream[182,1]
    - X_Country_Stream[182,2] - X_Country_Stream[182,3]
    - X_Country_Stream[182,4] - X_Country_Stream[182,5]
@@ -3768,7 +3788,7 @@ Subject To
    - X_Country_Stream[182,8] - X_Country_Stream[182,9]
    - X_Country_Rail[182,0] - X_Country_Rail[182,1] - X_Country_Rail[182,2]
    - X_Country_Rail[182,3] - X_Country_Rail[182,4] - X_Country_Rail[182,5]
-   - X_Facility[182] - I_Country[182] = -426431.72
+   - X_Facility[182] - I_Country[182] = -30844
  R183: - X_Country_Stream[183,0] - X_Country_Stream[183,1]
    - X_Country_Stream[183,2] - X_Country_Stream[183,3]
    - X_Country_Stream[183,4] - X_Country_Stream[183,5]
@@ -3776,7 +3796,7 @@ Subject To
    - X_Country_Stream[183,8] - X_Country_Stream[183,9]
    - X_Country_Rail[183,0] - X_Country_Rail[183,1] - X_Country_Rail[183,2]
    - X_Country_Rail[183,3] - X_Country_Rail[183,4] - X_Country_Rail[183,5]
-   - X_Facility[183] - I_Country[183] = -426431.72
+   - X_Facility[183] - I_Country[183] = -963.66
  R184: - X_Country_Stream[184,0] - X_Country_Stream[184,1]
    - X_Country_Stream[184,2] - X_Country_Stream[184,3]
    - X_Country_Stream[184,4] - X_Country_Stream[184,5]
@@ -3784,7 +3804,7 @@ Subject To
    - X_Country_Stream[184,8] - X_Country_Stream[184,9]
    - X_Country_Rail[184,0] - X_Country_Rail[184,1] - X_Country_Rail[184,2]
    - X_Country_Rail[184,3] - X_Country_Rail[184,4] - X_Country_Rail[184,5]
-   - X_Facility[184] - I_Country[184] = -426431.72
+   - X_Facility[184] - I_Country[184] = -30844
  R185: - X_Country_Stream[185,0] - X_Country_Stream[185,1]
    - X_Country_Stream[185,2] - X_Country_Stream[185,3]
    - X_Country_Stream[185,4] - X_Country_Stream[185,5]
@@ -3792,7 +3812,7 @@ Subject To
    - X_Country_Stream[185,8] - X_Country_Stream[185,9]
    - X_Country_Rail[185,0] - X_Country_Rail[185,1] - X_Country_Rail[185,2]
    - X_Country_Rail[185,3] - X_Country_Rail[185,4] - X_Country_Rail[185,5]
-   - X_Facility[185] - I_Country[185] = -426431.72
+   - X_Facility[185] - I_Country[185] = -30844
  R186: - X_Country_Stream[186,0] - X_Country_Stream[186,1]
    - X_Country_Stream[186,2] - X_Country_Stream[186,3]
    - X_Country_Stream[186,4] - X_Country_Stream[186,5]
@@ -3800,7 +3820,7 @@ Subject To
    - X_Country_Stream[186,8] - X_Country_Stream[186,9]
    - X_Country_Rail[186,0] - X_Country_Rail[186,1] - X_Country_Rail[186,2]
    - X_Country_Rail[186,3] - X_Country_Rail[186,4] - X_Country_Rail[186,5]
-   - X_Facility[186] - I_Country[186] = -426431.72
+   - X_Facility[186] - I_Country[186] = -30844
  R187: - X_Country_Stream[187,0] - X_Country_Stream[187,1]
    - X_Country_Stream[187,2] - X_Country_Stream[187,3]
    - X_Country_Stream[187,4] - X_Country_Stream[187,5]
@@ -3808,7 +3828,7 @@ Subject To
    - X_Country_Stream[187,8] - X_Country_Stream[187,9]
    - X_Country_Rail[187,0] - X_Country_Rail[187,1] - X_Country_Rail[187,2]
    - X_Country_Rail[187,3] - X_Country_Rail[187,4] - X_Country_Rail[187,5]
-   - X_Facility[187] - I_Country[187] = -426431.72
+   - X_Facility[187] - I_Country[187] = -14642.81
  R188: - X_Country_Stream[188,0] - X_Country_Stream[188,1]
    - X_Country_Stream[188,2] - X_Country_Stream[188,3]
    - X_Country_Stream[188,4] - X_Country_Stream[188,5]
@@ -3816,7 +3836,7 @@ Subject To
    - X_Country_Stream[188,8] - X_Country_Stream[188,9]
    - X_Country_Rail[188,0] - X_Country_Rail[188,1] - X_Country_Rail[188,2]
    - X_Country_Rail[188,3] - X_Country_Rail[188,4] - X_Country_Rail[188,5]
-   - X_Facility[188] - I_Country[188] = -426431.72
+   - X_Facility[188] - I_Country[188] = -14642.81
  R189: - X_Country_Stream[189,0] - X_Country_Stream[189,1]
    - X_Country_Stream[189,2] - X_Country_Stream[189,3]
    - X_Country_Stream[189,4] - X_Country_Stream[189,5]
@@ -3824,7 +3844,7 @@ Subject To
    - X_Country_Stream[189,8] - X_Country_Stream[189,9]
    - X_Country_Rail[189,0] - X_Country_Rail[189,1] - X_Country_Rail[189,2]
    - X_Country_Rail[189,3] - X_Country_Rail[189,4] - X_Country_Rail[189,5]
-   - X_Facility[189] - I_Country[189] = -426431.72
+   - X_Facility[189] - I_Country[189] = -14642.81
  R190: - X_Country_Stream[190,0] - X_Country_Stream[190,1]
    - X_Country_Stream[190,2] - X_Country_Stream[190,3]
    - X_Country_Stream[190,4] - X_Country_Stream[190,5]
@@ -3832,7 +3852,7 @@ Subject To
    - X_Country_Stream[190,8] - X_Country_Stream[190,9]
    - X_Country_Rail[190,0] - X_Country_Rail[190,1] - X_Country_Rail[190,2]
    - X_Country_Rail[190,3] - X_Country_Rail[190,4] - X_Country_Rail[190,5]
-   - X_Facility[190] - I_Country[190] = -426431.72
+   - X_Facility[190] - I_Country[190] = -30844
  R191: - X_Country_Stream[191,0] - X_Country_Stream[191,1]
    - X_Country_Stream[191,2] - X_Country_Stream[191,3]
    - X_Country_Stream[191,4] - X_Country_Stream[191,5]
@@ -3840,7 +3860,7 @@ Subject To
    - X_Country_Stream[191,8] - X_Country_Stream[191,9]
    - X_Country_Rail[191,0] - X_Country_Rail[191,1] - X_Country_Rail[191,2]
    - X_Country_Rail[191,3] - X_Country_Rail[191,4] - X_Country_Rail[191,5]
-   - X_Facility[191] - I_Country[191] = -426431.72
+   - X_Facility[191] - I_Country[191] = -14642.81
  R192: - X_Country_Stream[192,0] - X_Country_Stream[192,1]
    - X_Country_Stream[192,2] - X_Country_Stream[192,3]
    - X_Country_Stream[192,4] - X_Country_Stream[192,5]
@@ -3848,7 +3868,7 @@ Subject To
    - X_Country_Stream[192,8] - X_Country_Stream[192,9]
    - X_Country_Rail[192,0] - X_Country_Rail[192,1] - X_Country_Rail[192,2]
    - X_Country_Rail[192,3] - X_Country_Rail[192,4] - X_Country_Rail[192,5]
-   - X_Facility[192] - I_Country[192] = -426431.72
+   - X_Facility[192] - I_Country[192] = -30844
  R193: - X_Country_Stream[193,0] - X_Country_Stream[193,1]
    - X_Country_Stream[193,2] - X_Country_Stream[193,3]
    - X_Country_Stream[193,4] - X_Country_Stream[193,5]
@@ -3856,7 +3876,7 @@ Subject To
    - X_Country_Stream[193,8] - X_Country_Stream[193,9]
    - X_Country_Rail[193,0] - X_Country_Rail[193,1] - X_Country_Rail[193,2]
    - X_Country_Rail[193,3] - X_Country_Rail[193,4] - X_Country_Rail[193,5]
-   - X_Facility[193] - I_Country[193] = -426431.72
+   - X_Facility[193] - I_Country[193] = -30844
  R194: - X_Country_Stream[194,0] - X_Country_Stream[194,1]
    - X_Country_Stream[194,2] - X_Country_Stream[194,3]
    - X_Country_Stream[194,4] - X_Country_Stream[194,5]
@@ -3864,7 +3884,7 @@ Subject To
    - X_Country_Stream[194,8] - X_Country_Stream[194,9]
    - X_Country_Rail[194,0] - X_Country_Rail[194,1] - X_Country_Rail[194,2]
    - X_Country_Rail[194,3] - X_Country_Rail[194,4] - X_Country_Rail[194,5]
-   - X_Facility[194] - I_Country[194] = -426431.72
+   - X_Facility[194] - I_Country[194] = -14642.81
  R195: - X_Country_Stream[195,0] - X_Country_Stream[195,1]
    - X_Country_Stream[195,2] - X_Country_Stream[195,3]
    - X_Country_Stream[195,4] - X_Country_Stream[195,5]
@@ -3872,7 +3892,7 @@ Subject To
    - X_Country_Stream[195,8] - X_Country_Stream[195,9]
    - X_Country_Rail[195,0] - X_Country_Rail[195,1] - X_Country_Rail[195,2]
    - X_Country_Rail[195,3] - X_Country_Rail[195,4] - X_Country_Rail[195,5]
-   - X_Facility[195] - I_Country[195] = -426431.72
+   - X_Facility[195] - I_Country[195] = -14642.81
  R196: - X_Country_Stream[196,0] - X_Country_Stream[196,1]
    - X_Country_Stream[196,2] - X_Country_Stream[196,3]
    - X_Country_Stream[196,4] - X_Country_Stream[196,5]
@@ -3880,7 +3900,7 @@ Subject To
    - X_Country_Stream[196,8] - X_Country_Stream[196,9]
    - X_Country_Rail[196,0] - X_Country_Rail[196,1] - X_Country_Rail[196,2]
    - X_Country_Rail[196,3] - X_Country_Rail[196,4] - X_Country_Rail[196,5]
-   - X_Facility[196] - I_Country[196] = -426431.72
+   - X_Facility[196] - I_Country[196] = -14642.81
  R197: - X_Country_Stream[197,0] - X_Country_Stream[197,1]
    - X_Country_Stream[197,2] - X_Country_Stream[197,3]
    - X_Country_Stream[197,4] - X_Country_Stream[197,5]
@@ -3888,7 +3908,7 @@ Subject To
    - X_Country_Stream[197,8] - X_Country_Stream[197,9]
    - X_Country_Rail[197,0] - X_Country_Rail[197,1] - X_Country_Rail[197,2]
    - X_Country_Rail[197,3] - X_Country_Rail[197,4] - X_Country_Rail[197,5]
-   - X_Facility[197] - I_Country[197] = -426431.72
+   - X_Facility[197] - I_Country[197] = -14642.81
  R198: - X_Country_Stream[198,0] - X_Country_Stream[198,1]
    - X_Country_Stream[198,2] - X_Country_Stream[198,3]
    - X_Country_Stream[198,4] - X_Country_Stream[198,5]
@@ -3896,7 +3916,7 @@ Subject To
    - X_Country_Stream[198,8] - X_Country_Stream[198,9]
    - X_Country_Rail[198,0] - X_Country_Rail[198,1] - X_Country_Rail[198,2]
    - X_Country_Rail[198,3] - X_Country_Rail[198,4] - X_Country_Rail[198,5]
-   - X_Facility[198] - I_Country[198] = -426431.72
+   - X_Facility[198] - I_Country[198] = -30844
  R199: - X_Country_Stream[199,0] - X_Country_Stream[199,1]
    - X_Country_Stream[199,2] - X_Country_Stream[199,3]
    - X_Country_Stream[199,4] - X_Country_Stream[199,5]
@@ -3904,7 +3924,7 @@ Subject To
    - X_Country_Stream[199,8] - X_Country_Stream[199,9]
    - X_Country_Rail[199,0] - X_Country_Rail[199,1] - X_Country_Rail[199,2]
    - X_Country_Rail[199,3] - X_Country_Rail[199,4] - X_Country_Rail[199,5]
-   - X_Facility[199] - I_Country[199] = -426431.72
+   - X_Facility[199] - I_Country[199] = -14642.81
  R200: - X_Country_Stream[200,0] - X_Country_Stream[200,1]
    - X_Country_Stream[200,2] - X_Country_Stream[200,3]
    - X_Country_Stream[200,4] - X_Country_Stream[200,5]
@@ -3912,7 +3932,7 @@ Subject To
    - X_Country_Stream[200,8] - X_Country_Stream[200,9]
    - X_Country_Rail[200,0] - X_Country_Rail[200,1] - X_Country_Rail[200,2]
    - X_Country_Rail[200,3] - X_Country_Rail[200,4] - X_Country_Rail[200,5]
-   - X_Facility[200] - I_Country[200] = -426431.72
+   - X_Facility[200] - I_Country[200] = -30844
  R201: - X_Country_Stream[201,0] - X_Country_Stream[201,1]
    - X_Country_Stream[201,2] - X_Country_Stream[201,3]
    - X_Country_Stream[201,4] - X_Country_Stream[201,5]
@@ -3920,7 +3940,7 @@ Subject To
    - X_Country_Stream[201,8] - X_Country_Stream[201,9]
    - X_Country_Rail[201,0] - X_Country_Rail[201,1] - X_Country_Rail[201,2]
    - X_Country_Rail[201,3] - X_Country_Rail[201,4] - X_Country_Rail[201,5]
-   - X_Facility[201] - I_Country[201] = -426431.72
+   - X_Facility[201] - I_Country[201] = -14642.81
  R202: - X_Country_Stream[202,0] - X_Country_Stream[202,1]
    - X_Country_Stream[202,2] - X_Country_Stream[202,3]
    - X_Country_Stream[202,4] - X_Country_Stream[202,5]
@@ -3928,7 +3948,7 @@ Subject To
    - X_Country_Stream[202,8] - X_Country_Stream[202,9]
    - X_Country_Rail[202,0] - X_Country_Rail[202,1] - X_Country_Rail[202,2]
    - X_Country_Rail[202,3] - X_Country_Rail[202,4] - X_Country_Rail[202,5]
-   - X_Facility[202] - I_Country[202] = -426431.72
+   - X_Facility[202] - I_Country[202] = -14642.81
  R203: - X_Country_Stream[203,0] - X_Country_Stream[203,1]
    - X_Country_Stream[203,2] - X_Country_Stream[203,3]
    - X_Country_Stream[203,4] - X_Country_Stream[203,5]
@@ -3936,7 +3956,7 @@ Subject To
    - X_Country_Stream[203,8] - X_Country_Stream[203,9]
    - X_Country_Rail[203,0] - X_Country_Rail[203,1] - X_Country_Rail[203,2]
    - X_Country_Rail[203,3] - X_Country_Rail[203,4] - X_Country_Rail[203,5]
-   - X_Facility[203] - I_Country[203] = -426431.72
+   - X_Facility[203] - I_Country[203] = -30844
  R204: - X_Country_Stream[204,0] - X_Country_Stream[204,1]
    - X_Country_Stream[204,2] - X_Country_Stream[204,3]
    - X_Country_Stream[204,4] - X_Country_Stream[204,5]
@@ -3944,7 +3964,7 @@ Subject To
    - X_Country_Stream[204,8] - X_Country_Stream[204,9]
    - X_Country_Rail[204,0] - X_Country_Rail[204,1] - X_Country_Rail[204,2]
    - X_Country_Rail[204,3] - X_Country_Rail[204,4] - X_Country_Rail[204,5]
-   - X_Facility[204] - I_Country[204] = -426431.72
+   - X_Facility[204] - I_Country[204] = -14642.81
  R205: - X_Country_Stream[205,0] - X_Country_Stream[205,1]
    - X_Country_Stream[205,2] - X_Country_Stream[205,3]
    - X_Country_Stream[205,4] - X_Country_Stream[205,5]
@@ -3952,7 +3972,7 @@ Subject To
    - X_Country_Stream[205,8] - X_Country_Stream[205,9]
    - X_Country_Rail[205,0] - X_Country_Rail[205,1] - X_Country_Rail[205,2]
    - X_Country_Rail[205,3] - X_Country_Rail[205,4] - X_Country_Rail[205,5]
-   - X_Facility[205] - I_Country[205] = -426431.72
+   - X_Facility[205] - I_Country[205] = -30844
  R206: - X_Country_Stream[206,0] - X_Country_Stream[206,1]
    - X_Country_Stream[206,2] - X_Country_Stream[206,3]
    - X_Country_Stream[206,4] - X_Country_Stream[206,5]
@@ -3960,7 +3980,7 @@ Subject To
    - X_Country_Stream[206,8] - X_Country_Stream[206,9]
    - X_Country_Rail[206,0] - X_Country_Rail[206,1] - X_Country_Rail[206,2]
    - X_Country_Rail[206,3] - X_Country_Rail[206,4] - X_Country_Rail[206,5]
-   - X_Facility[206] - I_Country[206] = -426431.72
+   - X_Facility[206] - I_Country[206] = -14642.81
  R207: - X_Country_Stream[207,0] - X_Country_Stream[207,1]
    - X_Country_Stream[207,2] - X_Country_Stream[207,3]
    - X_Country_Stream[207,4] - X_Country_Stream[207,5]
@@ -3968,7 +3988,7 @@ Subject To
    - X_Country_Stream[207,8] - X_Country_Stream[207,9]
    - X_Country_Rail[207,0] - X_Country_Rail[207,1] - X_Country_Rail[207,2]
    - X_Country_Rail[207,3] - X_Country_Rail[207,4] - X_Country_Rail[207,5]
-   - X_Facility[207] - I_Country[207] = -426431.72
+   - X_Facility[207] - I_Country[207] = -30844
  R208: - X_Country_Stream[208,0] - X_Country_Stream[208,1]
    - X_Country_Stream[208,2] - X_Country_Stream[208,3]
    - X_Country_Stream[208,4] - X_Country_Stream[208,5]
@@ -3976,7 +3996,7 @@ Subject To
    - X_Country_Stream[208,8] - X_Country_Stream[208,9]
    - X_Country_Rail[208,0] - X_Country_Rail[208,1] - X_Country_Rail[208,2]
    - X_Country_Rail[208,3] - X_Country_Rail[208,4] - X_Country_Rail[208,5]
-   - X_Facility[208] - I_Country[208] = -426431.72
+   - X_Facility[208] - I_Country[208] = -14642.81
  R209: - X_Country_Stream[209,0] - X_Country_Stream[209,1]
    - X_Country_Stream[209,2] - X_Country_Stream[209,3]
    - X_Country_Stream[209,4] - X_Country_Stream[209,5]
@@ -3984,7 +4004,7 @@ Subject To
    - X_Country_Stream[209,8] - X_Country_Stream[209,9]
    - X_Country_Rail[209,0] - X_Country_Rail[209,1] - X_Country_Rail[209,2]
    - X_Country_Rail[209,3] - X_Country_Rail[209,4] - X_Country_Rail[209,5]
-   - X_Facility[209] - I_Country[209] = -426431.72
+   - X_Facility[209] - I_Country[209] = -14642.81
  R210: - X_Country_Stream[210,0] - X_Country_Stream[210,1]
    - X_Country_Stream[210,2] - X_Country_Stream[210,3]
    - X_Country_Stream[210,4] - X_Country_Stream[210,5]
@@ -3992,7 +4012,7 @@ Subject To
    - X_Country_Stream[210,8] - X_Country_Stream[210,9]
    - X_Country_Rail[210,0] - X_Country_Rail[210,1] - X_Country_Rail[210,2]
    - X_Country_Rail[210,3] - X_Country_Rail[210,4] - X_Country_Rail[210,5]
-   - X_Facility[210] - I_Country[210] = -426431.72
+   - X_Facility[210] - I_Country[210] = -14642.81
  R211: - X_Country_Stream[211,0] - X_Country_Stream[211,1]
    - X_Country_Stream[211,2] - X_Country_Stream[211,3]
    - X_Country_Stream[211,4] - X_Country_Stream[211,5]
@@ -4000,7 +4020,7 @@ Subject To
    - X_Country_Stream[211,8] - X_Country_Stream[211,9]
    - X_Country_Rail[211,0] - X_Country_Rail[211,1] - X_Country_Rail[211,2]
    - X_Country_Rail[211,3] - X_Country_Rail[211,4] - X_Country_Rail[211,5]
-   - X_Facility[211] - I_Country[211] = -426431.72
+   - X_Facility[211] - I_Country[211] = -14642.81
  R212: - X_Country_Stream[212,0] - X_Country_Stream[212,1]
    - X_Country_Stream[212,2] - X_Country_Stream[212,3]
    - X_Country_Stream[212,4] - X_Country_Stream[212,5]
@@ -4008,7 +4028,7 @@ Subject To
    - X_Country_Stream[212,8] - X_Country_Stream[212,9]
    - X_Country_Rail[212,0] - X_Country_Rail[212,1] - X_Country_Rail[212,2]
    - X_Country_Rail[212,3] - X_Country_Rail[212,4] - X_Country_Rail[212,5]
-   - X_Facility[212] - I_Country[212] = -426431.72
+   - X_Facility[212] - I_Country[212] = -14642.81
  R213: - X_Country_Stream[213,0] - X_Country_Stream[213,1]
    - X_Country_Stream[213,2] - X_Country_Stream[213,3]
    - X_Country_Stream[213,4] - X_Country_Stream[213,5]
@@ -4016,7 +4036,7 @@ Subject To
    - X_Country_Stream[213,8] - X_Country_Stream[213,9]
    - X_Country_Rail[213,0] - X_Country_Rail[213,1] - X_Country_Rail[213,2]
    - X_Country_Rail[213,3] - X_Country_Rail[213,4] - X_Country_Rail[213,5]
-   - X_Facility[213] - I_Country[213] = -426431.72
+   - X_Facility[213] - I_Country[213] = -14642.81
  R214: - X_Country_Stream[214,0] - X_Country_Stream[214,1]
    - X_Country_Stream[214,2] - X_Country_Stream[214,3]
    - X_Country_Stream[214,4] - X_Country_Stream[214,5]
@@ -4024,7 +4044,7 @@ Subject To
    - X_Country_Stream[214,8] - X_Country_Stream[214,9]
    - X_Country_Rail[214,0] - X_Country_Rail[214,1] - X_Country_Rail[214,2]
    - X_Country_Rail[214,3] - X_Country_Rail[214,4] - X_Country_Rail[214,5]
-   - X_Facility[214] - I_Country[214] = -426431.72
+   - X_Facility[214] - I_Country[214] = -30844
  R215: - X_Country_Stream[215,0] - X_Country_Stream[215,1]
    - X_Country_Stream[215,2] - X_Country_Stream[215,3]
    - X_Country_Stream[215,4] - X_Country_Stream[215,5]
@@ -4032,7 +4052,7 @@ Subject To
    - X_Country_Stream[215,8] - X_Country_Stream[215,9]
    - X_Country_Rail[215,0] - X_Country_Rail[215,1] - X_Country_Rail[215,2]
    - X_Country_Rail[215,3] - X_Country_Rail[215,4] - X_Country_Rail[215,5]
-   - X_Facility[215] - I_Country[215] = -426431.72
+   - X_Facility[215] - I_Country[215] = -14642.81
  R216: - X_Country_Stream[216,0] - X_Country_Stream[216,1]
    - X_Country_Stream[216,2] - X_Country_Stream[216,3]
    - X_Country_Stream[216,4] - X_Country_Stream[216,5]
@@ -4040,7 +4060,7 @@ Subject To
    - X_Country_Stream[216,8] - X_Country_Stream[216,9]
    - X_Country_Rail[216,0] - X_Country_Rail[216,1] - X_Country_Rail[216,2]
    - X_Country_Rail[216,3] - X_Country_Rail[216,4] - X_Country_Rail[216,5]
-   - X_Facility[216] - I_Country[216] = -426431.72
+   - X_Facility[216] - I_Country[216] = -14642.81
  R217: - X_Country_Stream[217,0] - X_Country_Stream[217,1]
    - X_Country_Stream[217,2] - X_Country_Stream[217,3]
    - X_Country_Stream[217,4] - X_Country_Stream[217,5]
@@ -4048,7 +4068,7 @@ Subject To
    - X_Country_Stream[217,8] - X_Country_Stream[217,9]
    - X_Country_Rail[217,0] - X_Country_Rail[217,1] - X_Country_Rail[217,2]
    - X_Country_Rail[217,3] - X_Country_Rail[217,4] - X_Country_Rail[217,5]
-   - X_Facility[217] - I_Country[217] = -426431.72
+   - X_Facility[217] - I_Country[217] = -14642.81
  R218: - X_Country_Stream[218,0] - X_Country_Stream[218,1]
    - X_Country_Stream[218,2] - X_Country_Stream[218,3]
    - X_Country_Stream[218,4] - X_Country_Stream[218,5]
@@ -4056,7 +4076,7 @@ Subject To
    - X_Country_Stream[218,8] - X_Country_Stream[218,9]
    - X_Country_Rail[218,0] - X_Country_Rail[218,1] - X_Country_Rail[218,2]
    - X_Country_Rail[218,3] - X_Country_Rail[218,4] - X_Country_Rail[218,5]
-   - X_Facility[218] - I_Country[218] = -426431.72
+   - X_Facility[218] - I_Country[218] = -30844
  R219: - X_Country_Stream[219,0] - X_Country_Stream[219,1]
    - X_Country_Stream[219,2] - X_Country_Stream[219,3]
    - X_Country_Stream[219,4] - X_Country_Stream[219,5]
@@ -4064,7 +4084,7 @@ Subject To
    - X_Country_Stream[219,8] - X_Country_Stream[219,9]
    - X_Country_Rail[219,0] - X_Country_Rail[219,1] - X_Country_Rail[219,2]
    - X_Country_Rail[219,3] - X_Country_Rail[219,4] - X_Country_Rail[219,5]
-   - X_Facility[219] - I_Country[219] = -426431.72
+   - X_Facility[219] - I_Country[219] = -14642.81
  R220: - X_Country_Stream[220,0] - X_Country_Stream[220,1]
    - X_Country_Stream[220,2] - X_Country_Stream[220,3]
    - X_Country_Stream[220,4] - X_Country_Stream[220,5]
@@ -4072,7 +4092,7 @@ Subject To
    - X_Country_Stream[220,8] - X_Country_Stream[220,9]
    - X_Country_Rail[220,0] - X_Country_Rail[220,1] - X_Country_Rail[220,2]
    - X_Country_Rail[220,3] - X_Country_Rail[220,4] - X_Country_Rail[220,5]
-   - X_Facility[220] - I_Country[220] = -426431.72
+   - X_Facility[220] - I_Country[220] = -14642.81
  R221: - X_Country_Stream[221,0] - X_Country_Stream[221,1]
    - X_Country_Stream[221,2] - X_Country_Stream[221,3]
    - X_Country_Stream[221,4] - X_Country_Stream[221,5]
@@ -4080,7 +4100,7 @@ Subject To
    - X_Country_Stream[221,8] - X_Country_Stream[221,9]
    - X_Country_Rail[221,0] - X_Country_Rail[221,1] - X_Country_Rail[221,2]
    - X_Country_Rail[221,3] - X_Country_Rail[221,4] - X_Country_Rail[221,5]
-   - X_Facility[221] - I_Country[221] = -426431.72
+   - X_Facility[221] - I_Country[221] = -30844
  R222: - X_Country_Stream[222,0] - X_Country_Stream[222,1]
    - X_Country_Stream[222,2] - X_Country_Stream[222,3]
    - X_Country_Stream[222,4] - X_Country_Stream[222,5]
@@ -4088,7 +4108,7 @@ Subject To
    - X_Country_Stream[222,8] - X_Country_Stream[222,9]
    - X_Country_Rail[222,0] - X_Country_Rail[222,1] - X_Country_Rail[222,2]
    - X_Country_Rail[222,3] - X_Country_Rail[222,4] - X_Country_Rail[222,5]
-   - X_Facility[222] - I_Country[222] = -426431.72
+   - X_Facility[222] - I_Country[222] = -30844
  R223: - X_Country_Stream[223,0] - X_Country_Stream[223,1]
    - X_Country_Stream[223,2] - X_Country_Stream[223,3]
    - X_Country_Stream[223,4] - X_Country_Stream[223,5]
@@ -4096,7 +4116,7 @@ Subject To
    - X_Country_Stream[223,8] - X_Country_Stream[223,9]
    - X_Country_Rail[223,0] - X_Country_Rail[223,1] - X_Country_Rail[223,2]
    - X_Country_Rail[223,3] - X_Country_Rail[223,4] - X_Country_Rail[223,5]
-   - X_Facility[223] - I_Country[223] = -426431.72
+   - X_Facility[223] - I_Country[223] = -2493.64
  R224: - X_Country_Stream[224,0] - X_Country_Stream[224,1]
    - X_Country_Stream[224,2] - X_Country_Stream[224,3]
    - X_Country_Stream[224,4] - X_Country_Stream[224,5]
@@ -4104,7 +4124,7 @@ Subject To
    - X_Country_Stream[224,8] - X_Country_Stream[224,9]
    - X_Country_Rail[224,0] - X_Country_Rail[224,1] - X_Country_Rail[224,2]
    - X_Country_Rail[224,3] - X_Country_Rail[224,4] - X_Country_Rail[224,5]
-   - X_Facility[224] - I_Country[224] = -426431.72
+   - X_Facility[224] - I_Country[224] = -30844
  R225: - X_Country_Stream[225,0] - X_Country_Stream[225,1]
    - X_Country_Stream[225,2] - X_Country_Stream[225,3]
    - X_Country_Stream[225,4] - X_Country_Stream[225,5]
@@ -4112,7 +4132,7 @@ Subject To
    - X_Country_Stream[225,8] - X_Country_Stream[225,9]
    - X_Country_Rail[225,0] - X_Country_Rail[225,1] - X_Country_Rail[225,2]
    - X_Country_Rail[225,3] - X_Country_Rail[225,4] - X_Country_Rail[225,5]
-   - X_Facility[225] - I_Country[225] = -426431.72
+   - X_Facility[225] - I_Country[225] = -30844
  R226: - X_Country_Stream[226,0] - X_Country_Stream[226,1]
    - X_Country_Stream[226,2] - X_Country_Stream[226,3]
    - X_Country_Stream[226,4] - X_Country_Stream[226,5]
@@ -4120,7 +4140,7 @@ Subject To
    - X_Country_Stream[226,8] - X_Country_Stream[226,9]
    - X_Country_Rail[226,0] - X_Country_Rail[226,1] - X_Country_Rail[226,2]
    - X_Country_Rail[226,3] - X_Country_Rail[226,4] - X_Country_Rail[226,5]
-   - X_Facility[226] - I_Country[226] = -426431.72
+   - X_Facility[226] - I_Country[226] = -30844
  R227: X_Country_Stream[0,0] + X_Country_Stream[1,0]
    + X_Country_Stream[2,0] + X_Country_Stream[3,0] + X_Country_Stream[4,0]
    + X_Country_Stream[5,0] + X_Country_Stream[6,0] + X_Country_Stream[7,0]
@@ -5755,7 +5775,7 @@ Subject To
    + Y_Rail_Export[5,3] - Z_Export_Import[3,0] - Z_Export_Import[3,1] = 0
  R247: Z_Export_Import[0,0] + Z_Export_Import[0,1] + Z_Export_Import[1,0]
    + Z_Export_Import[1,1] + Z_Export_Import[2,0] + Z_Export_Import[2,1]
-   + Z_Export_Import[3,0] + Z_Export_Import[3,1] <= 8.8e+07
+   + Z_Export_Import[3,0] + Z_Export_Import[3,1] <= 8e+06
  R248: 4.43476 I_Country[0] + 4.43476 I_Country[1] + 4.43476 I_Country[2]
    + 4.43476 I_Country[3] + 4.43476 I_Country[4] + 4.43476 I_Country[5]
    + 4.43476 I_Country[6] + 4.43476 I_Country[7] + 4.43476 I_Country[8]
@@ -5858,7 +5878,7 @@ Subject To
    - 5.6e-06 Z_Export_Import[1,0] - 5.6e-06 Z_Export_Import[1,1]
    - 5.6e-06 Z_Export_Import[2,0] - 5.6e-06 Z_Export_Import[2,1]
    - 5.6e-06 Z_Export_Import[3,0] - 5.6e-06 Z_Export_Import[3,1]
-   + Global_Price = 117.09
+   + Global_Price = 300.09
 Bounds
  Slack_Climate = 1
  Slack_Tariff = 1
