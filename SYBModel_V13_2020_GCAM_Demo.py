@@ -11,9 +11,9 @@ import numpy as np
 import SYBModel_V13 as GRB
 
 # function parameters
-Model_Name = "Soybean_V13_July-21-2021"
-Year = 2019
-Alpha = 0.99
+Model_Name = "Soybean_V13_Oct-25-2021"
+Year = 2020
+Alpha = 0.01  # Ending stock rate
 
 # @Datasets
 # Country_Elevator to Stream_Elevator by Trucks  @(c, s)
@@ -39,10 +39,10 @@ Cost_Country_Facility = pd.read_csv('.\Data\CostToFacility.csv', index_col=0,
 Unit_Holding_Cost = 10
 
 # Supply of each Country elevator
-Supply_Country = pd.read_csv('.\Data\ProductionByCountry.csv', index_col=0,
-                             usecols=['Name', 'Production']).T.to_numpy()[0]
+#Supply_Country = pd.read_csv('.\Data\ProductionByCountry.csv', index_col=0, usecols=['Name', 'Production']).T.to_numpy()[0]
+Supply_Country = pd.read_csv('.\GCAM_Data\Outputs\ProductionByCountry_2020_IRR_lo.csv', index_col=0, usecols=['Name', 'Production']).T.to_numpy()[0]
 
-# China demand at year 2019
+# China demand at year 2020
 Demand_China = 88e6
 
 # last year inventory for each elevator @2019
@@ -73,3 +73,22 @@ GRB.Get_GuRoBi(Model_Name, Cost_Country_Stream, Cost_Country_Rail, Cost_Stream_E
            Cost_Export_Import, Cost_Country_Facility, Alpha,
            Unit_Holding_Cost, Demand_China, Supply_Country, Inventory_Country_LastYear,
            Inventory_Stream_LastYear, Inventory_Rail_LastYear)
+
+##adding coordinate for each loctaion
+CountryEleLoc = pd.read_csv('.\GCAM_Data\Outputs\ProductionByCountry_2020_IRR_lo.csv', usecols=['Name', 'LAT','LON'])
+RiverEleLoc = pd.read_csv(".\Scripts\LargerRiverElevators.csv", usecols=['Name','X','Y'])
+ShuttleEleLoc = pd.read_csv(".\Scripts\Shuttle tarins and ports.csv", usecols=['Name','X','Y'])
+Exports = pd.read_csv(".\Scripts\ExportTerminals.csv", usecols=['Name','X','Y'])
+
+
+## plot
+import matplotlib.pyplot as plt
+
+Y = CountryEleLoc['LAT'].to_numpy()
+X = CountryEleLoc['LON'].to_numpy()
+plt.scatter(X, Y)
+plt.scatter(RiverEleLoc['X'].to_numpy(),RiverEleLoc['Y'].to_numpy())
+plt.scatter(ShuttleEleLoc['X'].to_numpy(),ShuttleEleLoc['Y'].to_numpy())
+plt.scatter(Exports['X'].to_numpy(),Exports['Y'].to_numpy())
+
+plt.show()
