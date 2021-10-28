@@ -8,6 +8,7 @@
 # @Notes   : GUROBI code for the SYBModel V13
 import numpy as np
 from gurobipy import *
+import pandas as pd
 
 def Get_GuRoBi(Model_Name, Cost_Country_Stream, Cost_Country_Rail, Cost_Stream_Export, Cost_Rail_Export,
                Cost_Export_Import, Cost_Country_Facility, Alpha, Unit_Holding_Cost, Demand_China,
@@ -37,8 +38,8 @@ def Get_GuRoBi(Model_Name, Cost_Country_Stream, Cost_Country_Rail, Cost_Stream_E
     X_Country_Rail = model.addVars(Num_Country_Elevators, Num_Rail_Elevators, lb=0, name='X_Country_Rail')
     X_Facility = model.addVars(Num_Country_Elevators, lb=0, name='X_Facility')
     I_Country = model.addVars(Num_Country_Elevators, lb=0, name='I_Country')
-    I_Stream = model.addVars(Num_Country_Elevators, lb=0, name='I_Stream')
-    I_Rail = model.addVars(Num_Country_Elevators, lb=0, name='I_Rail')
+    I_Stream = model.addVars(Num_Stream_Elevators, lb=0, name='I_Stream')
+    I_Rail = model.addVars(Num_Rail_Elevators, lb=0, name='I_Rail')
     Y_Stream_Export = model.addVars(Num_Stream_Elevators, Num_Export_Terminals, lb=0, name='Y_Stream_Export')
     Y_Rail_Export = model.addVars(Num_Rail_Elevators, Num_Export_Terminals, lb=0, name='Y_Rail_Export')
     Z_Export_Import = model.addVars(Num_Export_Terminals, Num_Import_Terminals, lb=0 , name='Z_Export_Import')
@@ -80,7 +81,8 @@ def Get_GuRoBi(Model_Name, Cost_Country_Stream, Cost_Country_Rail, Cost_Stream_E
     model.addConstr(Global_Price - Gamma2 * Slack_Tariff - Gamma3 * quicksum(Z_Export_Import) == Gamma1)
 
         # 9
-    #model.addConstrs(Alpha * Inventory_Country_LastYear[c] + Supply_Country[c] - 10000000 * X_Facility[c] >= 0 for c in range(Num_Country_Elevators))
+    model.addConstr(Global_Price - Domestic_Price >= 0)
+    model.addConstrs(Alpha * Inventory_Country_LastYear[c] + Supply_Country[c] - 40 * X_Facility[c] >= 0 for c in range(Num_Country_Elevators))
 
     # Objective
     obj = LinExpr()
@@ -119,6 +121,44 @@ def Get_GuRoBi(Model_Name, Cost_Country_Stream, Cost_Country_Rail, Cost_Stream_E
         if var.X != 0:
             print(f"{var.varName}: {round(var.X, 3)}")
 
+    # Create DataFrame of all results
+    Matrix_X_Country_Stream = [[X_Country_Stream[a, b].X for a in range(Num_Country_Elevators)] for b in range(Num_Stream_Elevators)]
+    Matrix_X_Country_Stream = pd.DataFrame(Matrix_X_Country_Stream).T
+    Matrix_X_Country_Stream = Matrix_X_Country_Stream.add_prefix('ToRiver_')
+    Matrix_X_Country_Rail = [[X_Country_Rail[a, b].X for a in range(Num_Country_Elevators)] for b in range(Num_Rail_Elevators)]
+    Matrix_X_Country_Rail= pd.DataFrame(Matrix_X_Country_Rail).T
+    Matrix_X_Country_Rail = Matrix_X_Country_Rail.add_prefix('ToRail_')
+    Matrix_X_Facility = [X_Facility[a].X for a in range(Num_Country_Elevators)]
+    Matrix_X_Facility= pd.Series(Matrix_X_Facility, name='X_Facility')
+
+    Matrix_I_Country = [I_Country[a].X for a in range(Num_Country_Elevators)]
+    Matrix_I_Country= pd.Series(Matrix_I_Country, name='I_Country')
+    Matrix_I_Stream = [I_Stream[a].X for a in range(Num_Stream_Elevators)]
+    Matrix_I_Stream= pd.Series(Matrix_I_Stream, name='I_Stream')
+    Matrix_I_Rail = [I_Rail[a].X for a in range(Num_Rail_Elevators)]
+    Matrix_I_Rail= pd.Series(Matrix_I_Rail, name='I_Rail')
+    #Matrix_I = pd.DataFrame(list(zip(Matrix_X_Facility, Matrix_I_Country, Matrix_I_Stream, Matrix_I_Rail)), columns=['X_Facility','I_Country', 'I_Stream', 'I_Rail'])
+
+    Matrix_Y_Stream_Export = [[Y_Stream_Export[a, b].X for a in range(Num_Stream_Elevators)] for b in range(Num_Export_Terminals)]
+    Matrix_Y_Stream_Export= pd.DataFrame(Matrix_Y_Stream_Export).T
+    Matrix_Y_Rail_Export = [[Y_Rail_Export[a, b].X for a in range(Num_Rail_Elevators)] for b in range(Num_Export_Terminals)]
+    Matrix_Y_Rail_Export= pd.DataFrame(Matrix_Y_Rail_Export).T
+
+    Matrix_Z_Export_Import = [[Z_Export_Import[a, b].X for a in range(Num_Export_Terminals)] for b in range(Num_Import_Terminals)]
+    Matrix_Z_Export_Import= pd.DataFrame(Matrix_Z_Export_Import).T.add_prefix('Import_')
+
+    # write to file
+    Results_Country = pd.concat([Matrix_X_Country_Stream, Matrix_X_Country_Rail, Matrix_X_Facility, Matrix_I_Country], axis=1)
+    Results_River = pd.concat([Matrix_Y_Stream_Export.add_prefix('RiverToExport_'), Matrix_I_Stream], axis=1)
+    Results_Rail = pd.concat([Matrix_Y_Rail_Export.add_prefix('RailToExport_'), Matrix_I_Rail], axis=1)
+
+    Results_Country.to_csv('.\Outputs\ResultsOfCountryElevators.csv')
+    Results_River.to_csv('.\Outputs\ResultsOfRiverElevators.csv')
+    Results_Rail.to_csv('.\Outputs\ResultsOfRailElevators.csv')
+    Matrix_Z_Export_Import.to_csv('.\Outputs\ResultsOfExports.csv')
+
+    return Matrix_X_Country_Stream, Matrix_X_Country_Rail, Matrix_X_Facility, Matrix_I_Country, Matrix_I_Stream, Matrix_I_Rail, \
+           Matrix_Y_Stream_Export, Matrix_Y_Rail_Export, Matrix_Z_Export_Import, Domestic_Price, Global_Price
 
 if __name__ =='__main__':
     import numpy as np
