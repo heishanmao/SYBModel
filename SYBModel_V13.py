@@ -147,11 +147,18 @@ def Get_GuRoBi(Model_Name, Cost_Country_Stream, Cost_Country_Rail, Cost_Stream_E
     Matrix_Z_Export_Import = [[Z_Export_Import[a, b].X for a in range(Num_Export_Terminals)] for b in range(Num_Import_Terminals)]
     Matrix_Z_Export_Import= pd.DataFrame(Matrix_Z_Export_Import).T.add_prefix('Import_')
 
+    # write to file
     Results_Country = pd.concat([Matrix_X_Country_Stream, Matrix_X_Country_Rail, Matrix_X_Facility, Matrix_I_Country], axis=1)
     Results_River = pd.concat([Matrix_Y_Stream_Export.add_prefix('RiverToExport_'), Matrix_I_Stream], axis=1)
     Results_Rail = pd.concat([Matrix_Y_Rail_Export.add_prefix('RailToExport_'), Matrix_I_Rail], axis=1)
 
-    return Results_Country, Results_River, Results_Rail, Matrix_Z_Export_Import, Domestic_Price, Global_Price
+    Results_Country.to_csv('.\Outputs\ResultsOfCountryElevators.csv')
+    Results_River.to_csv('.\Outputs\ResultsOfRiverElevators.csv')
+    Results_Rail.to_csv('.\Outputs\ResultsOfRailElevators.csv')
+    Matrix_Z_Export_Import.to_csv('.\Outputs\ResultsOfExports.csv')
+
+    return Matrix_X_Country_Stream, Matrix_X_Country_Rail, Matrix_X_Facility, Matrix_I_Country, Matrix_I_Stream, Matrix_I_Rail, \
+           Matrix_Y_Stream_Export, Matrix_Y_Rail_Export, Matrix_Z_Export_Import, Domestic_Price, Global_Price
 
 if __name__ =='__main__':
     import numpy as np
