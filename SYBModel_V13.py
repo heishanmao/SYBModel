@@ -108,7 +108,7 @@ def Get_GuRoBi(Model_Name, Cost_Country_Stream, Cost_Country_Rail, Cost_Stream_E
     model.update()
     model.params.NonConvex = 2
     model.optimize()
-    model.write(Model_Name + '.lp')
+    #model.write(Model_Name + '.lp')
 
     # 查看单目标规划模型的目标函数值
     print("Optimal Objective Value", model.objVal)
