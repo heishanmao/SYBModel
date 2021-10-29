@@ -71,6 +71,6 @@ def ResultsFigure(CountryToStream, CountryToRail, StreamToExport, RailToExport, 
 
     plt.legend()
     # plt.rcParams["figure.figsize"] = (100, 50)
+    plt.xlabel("LONGITUDE")  # x轴上的名字
+    plt.ylabel("LATITUDE")  # y轴上的名字
     plt.show()
-
-    a=1
