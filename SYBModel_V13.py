@@ -82,7 +82,7 @@ def Get_GuRoBi(Model_Name, Cost_Country_Stream, Cost_Country_Rail, Cost_Stream_E
 
         # 9
     model.addConstr(Global_Price - Domestic_Price >= 0)
-    model.addConstrs(Alpha * Inventory_Country_LastYear[c] + Supply_Country[c] - 40 * X_Facility[c] >= 0 for c in range(Num_Country_Elevators))
+    model.addConstrs(Alpha * Inventory_Country_LastYear[c] + Supply_Country[c] - 10 * X_Facility[c] >= 0 for c in range(Num_Country_Elevators))
 
     # Objective
     obj = LinExpr()
@@ -158,7 +158,7 @@ def Get_GuRoBi(Model_Name, Cost_Country_Stream, Cost_Country_Rail, Cost_Stream_E
     Matrix_Z_Export_Import.to_csv('.\Outputs\ResultsOfExports.csv')
 
     return Matrix_X_Country_Stream, Matrix_X_Country_Rail, Matrix_X_Facility, Matrix_I_Country, Matrix_I_Stream, Matrix_I_Rail, \
-           Matrix_Y_Stream_Export, Matrix_Y_Rail_Export, Matrix_Z_Export_Import, Domestic_Price, Global_Price
+           Matrix_Y_Stream_Export, Matrix_Y_Rail_Export, Matrix_Z_Export_Import, Domestic_Price.X, Global_Price.X, Matrix_Z_Export_Import.sum().sum()
 
 if __name__ =='__main__':
     import numpy as np

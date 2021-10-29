@@ -15,7 +15,7 @@ def Coords(data, index):
     Y = data.iloc[index, 2].to_numpy()
     return np.vstack((X,Y)).T
 
-def ResultsFigure(CountryToStream, CountryToRail, StreamToExport, RailToExport, ExportToImport, Domestic_Price, Global_Price):
+def ResultsFigure(CountryToStream, CountryToRail, StreamToExport, RailToExport, ExportToImport, Domestic_Price, Global_Price, Total_Supply_Country, Total_Exported):
     ##adding coordinate for each loctaion
     LocCountryEle = pd.read_csv('.\GCAM_Data\Outputs\ProductionByCountry_2020_IRR_lo.csv', usecols=['Name', 'LON', 'LAT'])
     LocRiverEle= pd.read_csv(".\Scripts\LargerRiverElevators.csv", usecols=['Name','X','Y'])
@@ -44,6 +44,7 @@ def ResultsFigure(CountryToStream, CountryToRail, StreamToExport, RailToExport, 
     plt.figure(dpi=600)
 
     parameters = {'axes.labelsize': 25,
+                  'axes.titlesize': 30,
                   'xtick.labelsize': 25,
                   'ytick.labelsize': 25,
                   'legend.fontsize': 20,
@@ -71,6 +72,9 @@ def ResultsFigure(CountryToStream, CountryToRail, StreamToExport, RailToExport, 
 
     plt.legend()
     # plt.rcParams["figure.figsize"] = (100, 50)
-    plt.xlabel("LONGITUDE")  # x轴上的名字
-    plt.ylabel("LATITUDE")  # y轴上的名字
+    plt.xlabel("LONGITUDE")
+    plt.ylabel("LATITUDE")
+    #plt.title(r'$p^D:$'+str(round(Domestic_Price,2)) + ' $p^G:$'+ str(round(Global_Price,2)) + ' Supply:'+ str(int(Total_Supply_Country)) + ' Exported:' + str(int(Total_Exported)))
+    Exported_Rate = round((Total_Exported / Total_Supply_Country) * 100, 2)
+    plt.title(r'$p^D:$'+str(round(Domestic_Price,2)) + ' $p^G:$'+ str(round(Global_Price,2)) + ' Exported: '+ str(Exported_Rate)+'%')
     plt.show()
