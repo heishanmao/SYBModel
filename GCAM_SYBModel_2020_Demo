@@ -3,9 +3,10 @@
 # @Time    : 21/07/2021 3:50 PM
 # @Author  : Scott
 # @Main    : Zheng@utk.edu
-# @File    : SYBModel_V13_2019_Demo.py
+# @File    : GCAM_SYBModel_2020_Demo.py
 # @Software: PyCharm
-# @Notes   : An example of 2019
+# @Notes   : Based on the 2020 GCAM output dataset and update cost files.
+           # Solving by SYBModel_V13.py
 import pandas as pd
 import numpy as np
 import SYBModel_V13 as GRB
