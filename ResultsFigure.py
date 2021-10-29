@@ -42,24 +42,35 @@ def ResultsFigure(CountryToStream, CountryToRail, StreamToExport, RailToExport, 
 
     ## plot
     plt.figure(dpi=600)
+
+    parameters = {'axes.labelsize': 25,
+                  'xtick.labelsize': 25,
+                  'ytick.labelsize': 25,
+                  'legend.fontsize': 20,
+                  }
+    plt.rcParams.update(parameters)
+    plt.figure(figsize=(13, 10))
+
     for i in range(len(S_Country_River)):
-        plt.plot([S_Country_River[i][0],E_Country_River[i][0]], [S_Country_River[i][1],E_Country_River[i][1]], color='red',linestyle='-')
+        plt.plot([S_Country_River[i][0],E_Country_River[i][0]], [S_Country_River[i][1],E_Country_River[i][1]], color='#97CE68',linestyle='-')
 
     for i in range(len(S_Country_Rail)):
-        plt.plot([S_Country_Rail[i][0], E_Country_Rail[i][0]], [S_Country_Rail[i][1], E_Country_Rail[i][1]], color='blue',linestyle='-')
+        plt.plot([S_Country_Rail[i][0], E_Country_Rail[i][0]], [S_Country_Rail[i][1], E_Country_Rail[i][1]], color='#b2c000',linestyle='-')
 
     for i in range(len(S_River_Export)):
-        plt.plot([S_River_Export[i][0], E_River_Export[i][0]], [S_River_Export[i][1], E_River_Export[i][1]], color='red')
+        plt.plot([S_River_Export[i][0], E_River_Export[i][0]], [S_River_Export[i][1], E_River_Export[i][1]], color='#d52b15',linewidth=4)
         #plt.annotate(r'1112', xy=(E_River_Export[i][0], E_River_Export[i][1]), textcoords='offset points')
 
     for i in range(len(S_Rail_Export)):
-        plt.plot([S_Rail_Export[i][0], E_Rail_Export[i][0]], [S_Rail_Export[i][1], E_Rail_Export[i][1]], color='blue')
+        plt.plot([S_Rail_Export[i][0], E_Rail_Export[i][0]], [S_Rail_Export[i][1], E_Rail_Export[i][1]], color='#2a93d4',linewidth=2)
 
-    plt.scatter(LocCountryEle['LON'].to_numpy(), LocCountryEle['LAT'].to_numpy(), label='Country Elevators')
-    plt.scatter(LocRiverEle['X'].to_numpy(),LocRiverEle['Y'].to_numpy(), label='River Elevators')
-    plt.scatter(LocShuttleEle['X'].to_numpy(),LocShuttleEle['Y'].to_numpy(), label='Rail Elevators')
-    plt.scatter(LocExports['X'].to_numpy(),LocExports['Y'].to_numpy(), label='Export Terminals')
+    plt.scatter(LocCountryEle['LON'].to_numpy(), LocCountryEle['LAT'].to_numpy(), label='Country Elevators', color='#b2de81',s=80)
+    plt.scatter(LocRiverEle['X'].to_numpy(),LocRiverEle['Y'].to_numpy(), label='River Elevators', color='#d52b15', s=100)
+    plt.scatter(LocShuttleEle['X'].to_numpy(),LocShuttleEle['Y'].to_numpy(), label='Rail Elevators', color='#2a93d4', s=100)
+    plt.scatter(LocExports['X'].to_numpy(),LocExports['Y'].to_numpy(), label='Export Terminals', color='#feb545', s=120)
 
     plt.legend()
-    plt.rcParams["figure.figsize"] = (100, 50)
+    # plt.rcParams["figure.figsize"] = (100, 50)
     plt.show()
+
+    a=1
