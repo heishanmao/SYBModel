@@ -3,9 +3,9 @@
 # @Time    : 21/07/2021 3:50 PM
 # @Author  : Scott
 # @Main    : Zheng@utk.edu
-# @File    : SYBModel_V13_2019_Demo.py
+# @File    : 2019_Small_Demo.py
 # @Software: PyCharm
-# @Notes   : An example of 2019
+# @Notes   : An example of 2019. Based on SYBModel V13
 import pandas as pd
 import numpy as np
 import SYBModel_V13 as GRB
