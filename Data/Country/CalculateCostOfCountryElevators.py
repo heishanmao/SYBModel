@@ -25,10 +25,10 @@ OMax = distanceCountry_RiverByTruck['min_val'].max()
 OMin = distanceCountry_RiverByTruck['min_val'].min()
 
 ## a test part
-Cost = []
-for i in range(len(distanceCountry_RiverByTruck['min_val'])):
-    Cost.append(NormalizateData(distanceCountry_RiverByTruck['min_val'].iloc[i], 3, 18, OMax, OMin))  ## new distribuation range of the cost
-Cost
+# Cost = []
+# for i in range(len(distanceCountry_RiverByTruck['min_val'])):
+#     Cost.append(NormalizateData(distanceCountry_RiverByTruck['min_val'].iloc[i], 3, 18, OMax, OMin))  ## new distribuation range of the cost
+# Cost
 
 ## 1. write truck's cost to facility and Holding Cost of Country Elevators to file
 CostToFacility = distanceCountry_RiverByTruck['min_val'].copy()
