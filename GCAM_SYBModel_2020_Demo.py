@@ -3,7 +3,7 @@
 # @Time    : 21/07/2021 3:50 PM
 # @Author  : Scott
 # @Main    : Zheng@utk.edu
-# @File    : GCAM_SYBModel_2020_Demo.py
+# @File    : GCAM_SYBModel_2020_Demo.py.py
 # @Software: PyCharm
 # @Notes   : Based on the 2020 GCAM output dataset and update cost files.
            # Solving by SYBModel_V13.py
@@ -19,26 +19,26 @@ Alpha = 0.99  # Inventory deterioration rate per year
 
 # @Datasets
 # Country_Elevator to Stream_Elevator by Trucks  @(c, s)
-Cost_Country_Stream = pd.read_csv('.\Data\CostToStreamByTruck.csv', index_col=0).to_numpy()
+Cost_Country_Stream = pd.read_csv('.\Data\Cost\CostToStreamByTruck.csv', index_col=0).to_numpy()
 
 # Country_Elevator to Rail_Elevator by Trucks  @(c, r)
-Cost_Country_Rail = pd.read_csv('.\Data\CostToRailByTruck.csv', index_col=0).to_numpy()
+Cost_Country_Rail = pd.read_csv('.\Data\Cost\CostToRailByTruck.csv', index_col=0).to_numpy()
 
 # Stream_Elevator to Export_Terminals by Barges @(s, e)
-Cost_Stream_Export = pd.read_csv('.\Data\CostStreamToExport.csv', index_col=0).to_numpy()
+Cost_Stream_Export = pd.read_csv('.\Data\Cost\CostStreamToExport.csv', index_col=0).to_numpy()
 
 # Rail_Elevator to Export_Terminals by Rail @(r, e)
-Cost_Rail_Export = pd.read_csv('.\Data\CostRaiToExport.csv', index_col=0).to_numpy()
+Cost_Rail_Export = pd.read_csv('.\Data\Cost\CostRaiToExport.csv', index_col=0).to_numpy()
 
 # Export_Terminals to Import_China by Ocean shipment from barge @(e,i)
-Cost_Export_Import = pd.read_csv('.\Data\CostExportToOcean.csv', index_col=0).to_numpy()
+Cost_Export_Import = pd.read_csv('.\Data\Cost\CostExportToImport.csv', index_col=0).to_numpy()
 
 # Country_Elevator to Domestic Processing Facility @(P^D)
-Cost_Country_Facility = pd.read_csv('.\Data\CostToFacility.csv', index_col=0,
+Cost_Country_Facility = pd.read_csv('.\Data\Cost\CostToFacility.csv', index_col=0,
                                     usecols=['Name', 'Facility']).T.to_numpy()[0]
 
 # elevators unit holding cost @h
-Unit_Holding_Cost = 1000
+Unit_Holding_Cost = 100
 
 # Supply of each Country elevator
 #Supply_Country = pd.read_csv('.\Data\ProductionByCountry.csv', index_col=0, usecols=['Name', 'Production']).T.to_numpy()[0]
