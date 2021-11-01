@@ -12,29 +12,52 @@ import numpy as np
 import SYBModel_V13 as GRB
 import ResultsFigure as FIG
 
+import os
+root = os.path.abspath('.')  # 'D:\\OneDrive - University of Tennessee\\Scripts\\SYBModel'
+
 # function parameters
 Model_Name = "Soybean_V13_Oct-27-2021"
 Year = 2020
 Alpha = 0.99  # Inventory deterioration rate per year
 
-# @Datasets
+# Scenario 0 --- Manually generate Cost files
+# # Country_Elevator to Stream_Elevator by Trucks  @(c, s)
+# Cost_Country_Stream = pd.read_csv(root + '\Data\CostToStreamByTruck.csv', index_col=0).to_numpy()
+#
+# # Country_Elevator to Rail_Elevator by Trucks  @(c, r)
+# Cost_Country_Rail = pd.read_csv(root + '\Data\CostToRailByTruck.csv', index_col=0).to_numpy()
+#
+# # Stream_Elevator to Export_Terminals by Barges @(s, e)
+# Cost_Stream_Export = pd.read_csv(root + '\Data\CostStreamToExport.csv', index_col=0).to_numpy()
+#
+# # Rail_Elevator to Export_Terminals by Rail @(r, e)
+# Cost_Rail_Export = pd.read_csv(root + '\Data\CostRaiToExport.csv', index_col=0).to_numpy()
+#
+# # Export_Terminals to Import_China by Ocean shipment from barge @(e,i)
+# Cost_Export_Import = pd.read_csv(root + '\Data\CostExportToOcean.csv', index_col=0).to_numpy()
+#
+# # Country_Elevator to Domestic Processing Facility @(P^D)
+# Cost_Country_Facility = pd.read_csv(root + '\Data\CostToFacility.csv', index_col=0,
+#                                     usecols=['Name', 'Facility']).T.to_numpy()[0]
+
+# @Datasets normal Scenarios
 # Country_Elevator to Stream_Elevator by Trucks  @(c, s)
-Cost_Country_Stream = pd.read_csv('.\Data\Cost\CostToStreamByTruck.csv', index_col=0).to_numpy()
+Cost_Country_Stream = pd.read_csv(root + '\Data\Cost\CostToStreamByTruck.csv', index_col=0).to_numpy()
 
 # Country_Elevator to Rail_Elevator by Trucks  @(c, r)
-Cost_Country_Rail = pd.read_csv('.\Data\Cost\CostToRailByTruck.csv', index_col=0).to_numpy()
+Cost_Country_Rail = pd.read_csv(root + '\Data\Cost\CostToRailByTruck.csv', index_col=0).to_numpy()
 
 # Stream_Elevator to Export_Terminals by Barges @(s, e)
-Cost_Stream_Export = pd.read_csv('.\Data\Cost\CostStreamToExport.csv', index_col=0).to_numpy()
+Cost_Stream_Export = pd.read_csv(root + '\Data\Cost\CostStreamToExport.csv', index_col=0).to_numpy()
 
 # Rail_Elevator to Export_Terminals by Rail @(r, e)
-Cost_Rail_Export = pd.read_csv('.\Data\Cost\CostRaiToExport.csv', index_col=0).to_numpy()
+Cost_Rail_Export = pd.read_csv(root + '\Data\Cost\CostRaiToExport.csv', index_col=0).to_numpy()
 
 # Export_Terminals to Import_China by Ocean shipment from barge @(e,i)
-Cost_Export_Import = pd.read_csv('.\Data\Cost\CostExportToImport.csv', index_col=0).to_numpy()
+Cost_Export_Import = pd.read_csv(root + '\Data\Cost\CostExportToImport.csv', index_col=0).to_numpy()
 
 # Country_Elevator to Domestic Processing Facility @(P^D)
-Cost_Country_Facility = pd.read_csv('.\Data\Cost\CostToFacility.csv', index_col=0,
+Cost_Country_Facility = pd.read_csv(root + '\Data\Cost\CostToFacility.csv', index_col=0,
                                     usecols=['Name', 'Facility']).T.to_numpy()[0]
 
 # elevators unit holding cost @h
@@ -42,7 +65,7 @@ Unit_Holding_Cost = 100
 
 # Supply of each Country elevator
 #Supply_Country = pd.read_csv('.\Data\ProductionByCountry.csv', index_col=0, usecols=['Name', 'Production']).T.to_numpy()[0]
-Supply_Country = pd.read_csv('.\GCAM_Data\Outputs\ProductionByCountry_2020_IRR_hi.csv', index_col=0, usecols=['Name', 'Production']).T.to_numpy()[0]
+Supply_Country = pd.read_csv(root + '\GCAM_Data\Outputs\ProductionByCountry_2020_IRR_hi.csv', index_col=0, usecols=['Name', 'Production']).T.to_numpy()[0]
 
 # China demand at year 2020
 Demand_China = 88e6
