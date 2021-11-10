@@ -8,11 +8,13 @@
 # @Notes   : Update the function to calculate costs of truck by distance
 # @Inputs  : 'CountryToLargerDistance.csv'
 #            'CountryToRailDistance.csv'
-# @Outputs : Cost files
+# @Outputs : '../Data/Cost/CostToStreamByTruck.csv'
+# @Outputs : '../Data/Cost/CountryToRailDistance.csv'
+# @Outputs : '../Data/Cost/CostToFacility.csv'
 
 import pandas as pd
-import numpy as np
 import time
+import random
 
 import os
 path = os.path.abspath('..')
@@ -47,8 +49,10 @@ localtime = time.asctime(time.localtime(time.time()))
 print(localtime + '  Successfully write out to CostToRailByTruck.csv')
 
 ## Truck to its facility
-CostToFacility = CostToRiver.min(axis=1)
+CostToFacility = pd.concat([CostToRiver.min(axis=1),CostToRail.min(axis=1)], axis=1).mean(axis=1)  # rate base both River and Rail
+CostToFacility = CostToFacility.map(lambda x: random.uniform(0.55, 1.55)*x) # randomly range
 CostToFacility.name = 'Facility'
+    # write to csv file
 CostToFacility.to_csv(pathOut + 'CostToFacility.csv')
 localtime = time.asctime(time.localtime(time.time()))
 print(localtime + '  Successfully write out to CostToFacility.csv')
