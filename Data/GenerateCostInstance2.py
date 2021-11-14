@@ -12,7 +12,7 @@ import sys
 
 sys.path.append('./Country/')
 import FunCalCostOfCountry2
-## CalCostOfCountry(pathIn, pathOut, LimitFacility, LimitCountryToRiver, LimitCountryToRail):
+## CalCostOfCountry2(pathIn, pathOut):
 FunCalCostOfCountry2.CalCostOfCountry(path+'\\Country\\', path+'\\Cost\\')
 
 # sys.path.append('./River&Rail/')
@@ -20,11 +20,11 @@ FunCalCostOfCountry2.CalCostOfCountry(path+'\\Country\\', path+'\\Cost\\')
 # ## CalCostOfRiverRail(pathIn, pathOut, LimitRiver, LimitRail):
 # FunCalCostOfRiverRail.CalCostOfRiverRail(path+'\\River&Rail\\', path+'\\Cost\\', [40,50], [40,50])
 #
-# sys.path.append('./Export/')
-# import FunCalCostOfExport
-# ## CalCostOfExport(pathIn, pathOut, LimitExport)
-# FunCalCostOfExport.CalCostOfExport(path+'\\Export\\', path+'\\Cost\\', [45,55])
-#
+sys.path.append('./Export/')
+import FunCalCostOfExport2
+## CalCostOfExport2(pathIn, pathOut)
+FunCalCostOfExport2.CalCostOfExport(path+'\\Export\\', path+'\\Cost\\')
+
 
 
 
