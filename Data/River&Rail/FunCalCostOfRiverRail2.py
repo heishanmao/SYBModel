@@ -65,7 +65,7 @@ localtime = time.asctime(time.localtime(time.time()))
 print(localtime + '  Successfully write out to CostStreamToExport.csv')
 
 ## Calculate Rail Rates
-Base = 1.5 * BargeCost.iloc[:,0].mean()
+Base = BargeCost.iloc[:,0].mean()
 Rail_Export_Distance = pd.read_csv(pathIn + 'DistanceRailToPorts.csv', index_col=0)
 RailCost = pd.DataFrame().reindex_like(Rail_Export_Distance)
 RailCost.iloc[:,0] = Base / Rail_Export_Distance.iloc[:,0].mean() * Rail_Export_Distance.iloc[:,0]
