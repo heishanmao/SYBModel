@@ -64,42 +64,15 @@ BargeCost.to_csv(pathOut + 'CostStreamToExport.csv')
 localtime = time.asctime(time.localtime(time.time()))
 print(localtime + '  Successfully write out to CostStreamToExport.csv')
 
+## Calculate Rail Rates
+Base = 1.5 * BargeCost.iloc[:,0].mean()
+Rail_Export_Distance = pd.read_csv(pathIn + 'DistanceRailToPorts.csv', index_col=0)
+RailCost = pd.DataFrame().reindex_like(Rail_Export_Distance)
+RailCost.iloc[:,0] = Base / Rail_Export_Distance.iloc[:,0].mean() * Rail_Export_Distance.iloc[:,0]
+for col in range(1,Rail_Export_Distance.shape[1]):
+    RailCost.iloc[:, col] = RailCost.iloc[:, 0] / Rail_Export_Distance.iloc[:, 0] * Rail_Export_Distance.iloc[:, col]
+    # output Rail Rate
+RailCost.to_csv(pathOut + 'CostRaiToExport.csv')
+localtime = time.asctime(time.localtime(time.time()))
+print(localtime + '  Successfully write out to CostRaiToExport.csv')
 
-
-
-
-a1=1
-
-def CalCostOfRiverRail(pathIn, pathOut, LimitRiver, LimitRail):
-    River_Export_Distance = pd.read_csv(pathIn + 'DistanceRiverToPorts.csv', index_col=0)
-    River_Export_Distance['min_val'] = River_Export_Distance.min(axis=1)
-    Rail_Export_Distance = pd.read_csv(pathIn + 'DistanceRailToPorts.csv', index_col=0)
-    Rail_Export_Distance['min_val'] = Rail_Export_Distance.min(axis=1)
-    OMax_River = River_Export_Distance['min_val'].max()
-    OMin_River = River_Export_Distance['min_val'].min()
-    OMax_Rail = Rail_Export_Distance['min_val'].max()
-    OMin_Rail = Rail_Export_Distance['min_val'].min()
-
-    def NormalizateData(OriginData, NMin, NMax, OMax, OMin):
-        N = NMin + ((NMax - NMin) / (OMax - OMin)) * (OriginData - OMin)
-        return ("%.2f" % N)
-
-    ## 1. write Cost from River to Exports
-    Cost_River_Export = River_Export_Distance.copy()
-    Cost_River_Export = Cost_River_Export.drop('min_val', axis=1)
-    for i in range(Cost_River_Export.shape[0]):
-        for j in range(Cost_River_Export.shape[1]):
-            Cost_River_Export.iloc[i, j] = NormalizateData(Cost_River_Export.iloc[i, j], LimitRiver[0], LimitRiver[1], OMax_River, OMin_River)
-    Cost_River_Export.to_csv(pathOut + 'CostStreamToExport.csv')
-    localtime = time.asctime(time.localtime(time.time()))
-    print(localtime + '  Successfully write out to CostStreamToExport.csv')
-
-    ## 2. write Cost from Rail to Exports
-    Cost_Rail_Export = Rail_Export_Distance.copy()
-    Cost_Rail_Export = Cost_Rail_Export.drop('min_val', axis=1)
-    for i in range(Cost_Rail_Export.shape[0]):
-        for j in range(Cost_Rail_Export.shape[1]):
-            Cost_Rail_Export.iloc[i, j] = NormalizateData(Cost_Rail_Export.iloc[i, j], LimitRail[0], LimitRail[1], OMax_Rail, OMin_Rail)
-    Cost_Rail_Export.to_csv(pathOut + 'CostRaiToExport.csv')
-    localtime = time.asctime(time.localtime(time.time()))
-    print(localtime + '  Successfully write out to CostRaiToExport.csv')
