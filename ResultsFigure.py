@@ -5,10 +5,11 @@
 # @Main    : Zheng@utk.edu
 # @File    : ResultsFigure.py
 # @Software: PyCharm
-# @Notes   :Plot the results figs with matplotlib
+# @Notes   :Plot the results figs with matplotlib and GeoPandas
 import matplotlib.pyplot as plt
 import pandas as pd
 import numpy as np
+import geopandas as gpd
 
 def Coords(data, index):
     X = data.iloc[index, 1].to_numpy()
@@ -41,8 +42,8 @@ def ResultsFigure(CountryToStream, CountryToRail, StreamToExport, RailToExport, 
     E_Rail_Export = Coords(LocExports, Y_Rail_Export)
 
     ## plot
-    plt.figure(dpi=600)
-
+        # setting
+    fig = plt.figure(dpi=300,figsize=(18, 9))
     parameters = {'axes.labelsize': 25,
                   'axes.titlesize': 30,
                   'xtick.labelsize': 25,
@@ -50,8 +51,8 @@ def ResultsFigure(CountryToStream, CountryToRail, StreamToExport, RailToExport, 
                   'legend.fontsize': 20,
                   }
     plt.rcParams.update(parameters)
-    plt.figure(figsize=(13, 10))
 
+        # plotting
     for i in range(len(S_Country_River)):
         plt.plot([S_Country_River[i][0],E_Country_River[i][0]], [S_Country_River[i][1],E_Country_River[i][1]], color='#97CE68',linestyle='-')
 
@@ -70,6 +71,17 @@ def ResultsFigure(CountryToStream, CountryToRail, StreamToExport, RailToExport, 
     plt.scatter(LocShuttleEle['X'].to_numpy(),LocShuttleEle['Y'].to_numpy(), label='Rail Elevators', color='#2a93d4', s=100)
     plt.scatter(LocExports['X'].to_numpy(),LocExports['Y'].to_numpy(), label='Export Terminals', color='#feb545', s=120)
 
+    ## mapping layer
+    ax = fig.gca()
+    USA = gpd.read_file('./Shapefiles/cb_2018_us_state_20m.shp')
+    # States = USA.STUSPS.tolist()
+    Outside = ['AK', 'HI', 'PR']
+    States = [state for state in USA.STUSPS.tolist() if state not in Outside]
+    # USA.plot()
+    USA[USA['STUSPS'].isin(States)].boundary.plot(ax=ax, color='gray', zorder=-1)
+
+
+    ## fig setting
     plt.legend()
     # plt.rcParams["figure.figsize"] = (100, 50)
     plt.xlabel("LONGITUDE")
@@ -77,4 +89,6 @@ def ResultsFigure(CountryToStream, CountryToRail, StreamToExport, RailToExport, 
     #plt.title(r'$p^D:$'+str(round(Domestic_Price,2)) + ' $p^G:$'+ str(round(Global_Price,2)) + ' Supply:'+ str(int(Total_Supply_Country)) + ' Exported:' + str(int(Total_Exported)))
     Exported_Rate = round((Total_Exported / Total_Supply_Country) * 100, 2)
     plt.title(r'$p^D:$'+str(round(Domestic_Price,2)) + ' $p^G:$'+ str(round(Global_Price,2)) + ' Exported: '+ str(Exported_Rate)+'%')
+
+    # ax.set_axis_off()  #hide the axis
     plt.show()
