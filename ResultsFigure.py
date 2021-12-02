@@ -54,22 +54,26 @@ def ResultsFigure(CountryToStream, CountryToRail, StreamToExport, RailToExport, 
 
         # plotting
     for i in range(len(S_Country_River)):
-        plt.plot([S_Country_River[i][0],E_Country_River[i][0]], [S_Country_River[i][1],E_Country_River[i][1]], color='#97CE68',linestyle='-')
+        plt.plot([S_Country_River[i][0],E_Country_River[i][0]], [S_Country_River[i][1],E_Country_River[i][1]], color='#F05E1C',linestyle='-')
 
     for i in range(len(S_Country_Rail)):
-        plt.plot([S_Country_Rail[i][0], E_Country_Rail[i][0]], [S_Country_Rail[i][1], E_Country_Rail[i][1]], color='#b2c000',linestyle='-')
+        plt.plot([S_Country_Rail[i][0], E_Country_Rail[i][0]], [S_Country_Rail[i][1], E_Country_Rail[i][1]], color='#FFB11B',linestyle='-')
 
     for i in range(len(S_River_Export)):
-        plt.plot([S_River_Export[i][0], E_River_Export[i][0]], [S_River_Export[i][1], E_River_Export[i][1]], color='#d52b15',linewidth=4)
+        plt.plot([S_River_Export[i][0], E_River_Export[i][0]], [S_River_Export[i][1], E_River_Export[i][1]], color='#F05E1C',linewidth=2)
         #plt.annotate(r'1112', xy=(E_River_Export[i][0], E_River_Export[i][1]), textcoords='offset points')
 
     for i in range(len(S_Rail_Export)):
-        plt.plot([S_Rail_Export[i][0], E_Rail_Export[i][0]], [S_Rail_Export[i][1], E_Rail_Export[i][1]], color='#2a93d4',linewidth=2)
+        plt.plot([S_Rail_Export[i][0], E_Rail_Export[i][0]], [S_Rail_Export[i][1], E_Rail_Export[i][1]], color='#FFB11B',linewidth=2)
 
-    plt.scatter(LocCountryEle['LON'].to_numpy(), LocCountryEle['LAT'].to_numpy(), label='Country Elevators', color='#b2de81',s=80)
-    plt.scatter(LocRiverEle['X'].to_numpy(),LocRiverEle['Y'].to_numpy(), label='River Elevators', color='#d52b15', s=100)
-    plt.scatter(LocShuttleEle['X'].to_numpy(),LocShuttleEle['Y'].to_numpy(), label='Rail Elevators', color='#2a93d4', s=100)
-    plt.scatter(LocExports['X'].to_numpy(),LocExports['Y'].to_numpy(), label='Export Terminals', color='#feb545', s=120)
+    plt.scatter(LocCountryEle['LON'].to_numpy(), LocCountryEle['LAT'].to_numpy(), label='Country Elevators', color='#7bb207',s=30, zorder=5)
+    plt.scatter(LocRiverEle['X'].to_numpy(),LocRiverEle['Y'].to_numpy(), label='River Elevators', color='#F05E1C', s=50, zorder=5)
+    plt.scatter(LocShuttleEle['X'].to_numpy(),LocShuttleEle['Y'].to_numpy(), label='Rail Elevators', color='#FFB11B', s=50, zorder=5)
+    plt.scatter(LocExports['X'].to_numpy(),LocExports['Y'].to_numpy(), label='Export Terminals', color='#006284', s=80, zorder=5)
+
+    # # annotation
+    # for e in range(LocExports.shape[0]):
+    #     plt.text(LocExports.iloc[e,1]-5, LocExports.iloc[e,2]-2, LocExports.iloc[e,0], size=20)
 
     ## mapping layer
     ax = fig.gca()
@@ -78,7 +82,7 @@ def ResultsFigure(CountryToStream, CountryToRail, StreamToExport, RailToExport, 
     Outside = ['AK', 'HI', 'PR']
     States = [state for state in USA.STUSPS.tolist() if state not in Outside]
     # USA.plot()
-    USA[USA['STUSPS'].isin(States)].boundary.plot(ax=ax, color='gray', zorder=-1)
+    USA[USA['STUSPS'].isin(States)].boundary.plot(ax=ax, color='#828282', zorder=-1)
 
 
     ## fig setting
