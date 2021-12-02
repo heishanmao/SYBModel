@@ -10,13 +10,20 @@ import matplotlib.pyplot as plt
 import pandas as pd
 import numpy as np
 import geopandas as gpd
+import matplotlib as mpl
 
 def Coords(data, index):
     X = data.iloc[index, 1].to_numpy()
     Y = data.iloc[index, 2].to_numpy()
     return np.vstack((X,Y)).T
 
-def ResultsFigure(CountryToStream, CountryToRail, StreamToExport, RailToExport, ExportToImport, Domestic_Price, Global_Price, Total_Supply_Country, Total_Exported):
+def num2color(values, cmap):
+    """number to color"""
+    norm = mpl.colors.Normalize(vmin=np.min(values), vmax=np.max(values))
+    cmap = mpl.cm.get_cmap(cmap)
+    return [cmap(norm(val)) for val in values]
+
+def ResultsFigure(CountryToStream, CountryToRail, StreamToExport, RailToExport, ExportToImport, Domestic_Price, Global_Price, Supply_Country, Total_Exported):
     ##adding coordinate for each loctaion
     LocCountryEle = pd.read_csv('.\GCAM_Data\Outputs\ProductionByCountry_2020_IRR_lo.csv', usecols=['Name', 'LON', 'LAT'])
     LocRiverEle= pd.read_csv(".\Scripts\LargerRiverElevators.csv", usecols=['Name','X','Y'])
@@ -66,7 +73,11 @@ def ResultsFigure(CountryToStream, CountryToRail, StreamToExport, RailToExport, 
     for i in range(len(S_Rail_Export)):
         plt.plot([S_Rail_Export[i][0], E_Rail_Export[i][0]], [S_Rail_Export[i][1], E_Rail_Export[i][1]], color='#FFB11B',linewidth=2)
 
+    # color based on production
+    colors = num2color(Supply_Country, "Greens")
+
     plt.scatter(LocCountryEle['LON'].to_numpy(), LocCountryEle['LAT'].to_numpy(), label='Country Elevators', color='#7bb207',s=30, zorder=5)
+    #plt.scatter(LocCountryEle['LON'].to_numpy(), LocCountryEle['LAT'].to_numpy(), label='Country Elevators', color=colors,s=30, zorder=5)
     plt.scatter(LocRiverEle['X'].to_numpy(),LocRiverEle['Y'].to_numpy(), label='River Elevators', color='#F05E1C', s=50, zorder=5)
     plt.scatter(LocShuttleEle['X'].to_numpy(),LocShuttleEle['Y'].to_numpy(), label='Rail Elevators', color='#FFB11B', s=50, zorder=5)
     plt.scatter(LocExports['X'].to_numpy(),LocExports['Y'].to_numpy(), label='Export Terminals', color='#006284', s=80, zorder=5)
@@ -91,7 +102,7 @@ def ResultsFigure(CountryToStream, CountryToRail, StreamToExport, RailToExport, 
     plt.xlabel("LONGITUDE")
     plt.ylabel("LATITUDE")
     #plt.title(r'$p^D:$'+str(round(Domestic_Price,2)) + ' $p^G:$'+ str(round(Global_Price,2)) + ' Supply:'+ str(int(Total_Supply_Country)) + ' Exported:' + str(int(Total_Exported)))
-    Exported_Rate = round((Total_Exported / Total_Supply_Country) * 100, 2)
+    Exported_Rate = round((Total_Exported / sum(Supply_Country)) * 100, 2)
     plt.title(r'$p^D:$'+str(round(Domestic_Price,2)) + ' $p^G:$'+ str(round(Global_Price,2)) + ' Exported: '+ str(Exported_Rate)+'%')
 
     # ax.set_axis_off()  #hide the axis

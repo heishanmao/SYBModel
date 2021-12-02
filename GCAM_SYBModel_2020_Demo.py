@@ -103,4 +103,4 @@ RailToExport, ExportToImport, Domestic_Price, Global_Price, Total_Exported = GRB
                                                                             Demand_China, Supply_Country,
                                                                             Inventory_Country_LastYear, Inventory_Stream_LastYear, Inventory_Rail_LastYear)
 ## Figure
-FIG.ResultsFigure(CountryToStream, CountryToRail, StreamToExport, RailToExport, ExportToImport, Domestic_Price, Global_Price, sum(Supply_Country), Total_Exported)
+FIG.ResultsFigure(CountryToStream, CountryToRail, StreamToExport, RailToExport, ExportToImport, Domestic_Price, Global_Price, Supply_Country, Total_Exported)
