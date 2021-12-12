@@ -18,27 +18,27 @@ def random_list(length):
         random_list.append(random.random()/10)
     return random_list
 
-# Get each produciton by basinName, year, and technology
-def GetBasinProduction(BName, BProduction):
-    #  find the production by the basin name
-    ProducutonByScens = BProduction.loc[BName,['Scenario',BYear, 'Units']]
-    # find the production by technology
-    ScenarioName = BName+BTechnology
-    
-    return ProducutonByScens.loc[ProducutonByScens['Scenario'] == ScenarioName,:]
-
-#assignment basin produciton to each eleavator
-    # calculate number of elevators in the single basin
-def GetEleProduciton(EleAndBasinList, BName, BProdcution):
-    NumOfEles = EleAndBasinList['BasinName'].value_counts()
-    NumOfEles = NumOfEles[NumOfEles.index==BName].values[0]
-
-    #print(BProdcution)
-    #Production By Basin to ELevators
-    YeildByEles = BProdcution.iloc[0,1] * 1000000 
-    YeildByEle = YeildByEles / NumOfEles
-
-    return NumOfEles, YeildByEles, round(YeildByEle, 2)
+# # Get each produciton by basinName, year, and technology
+# def GetBasinProduction(BName, BProduction):
+#     #  find the production by the basin name
+#     ProducutonByScens = BProduction.loc[BName,['Scenario',BYear, 'Units']]
+#     # find the production by technology
+#     ScenarioName = BName+BTechnology
+#
+#     return ProducutonByScens.loc[ProducutonByScens['Scenario'] == ScenarioName,:]
+#
+# #assignment basin produciton to each eleavator
+#     # calculate number of elevators in the single basin
+# def GetEleProduciton(EleAndBasinList, BName, BProdcution):
+#     NumOfEles = EleAndBasinList['BasinName'].value_counts()
+#     NumOfEles = NumOfEles[NumOfEles.index==BName].values[0]
+#
+#     #print(BProdcution)
+#     #Production By Basin to ELevators
+#     YeildByEles = BProdcution.iloc[0,1] * 1000000
+#     YeildByEle = YeildByEles / NumOfEles
+#
+#     return NumOfEles, YeildByEles, round(YeildByEle, 2)
 
 
 if __name__=='__main__':
