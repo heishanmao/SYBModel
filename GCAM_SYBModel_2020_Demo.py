@@ -9,14 +9,14 @@
            # Solving by SYBModel_V13.py
 import pandas as pd
 import numpy as np
-import SYBModel_V13 as GRB
+import SYBModel_V14 as GRB
 import ResultsFigure as FIG
 
 import os
 root = os.path.abspath('.')  # 'D:\\OneDrive - University of Tennessee\\Scripts\\SYBModel'
 
 # function parameters
-Model_Name = "Soybean_V13_Oct-27-2021"
+Model_Name = "Soybean_V14_Oct-27-2021"
 Year = 2020
 Alpha = 0.99  # Inventory deterioration rate per year
 
@@ -57,15 +57,14 @@ Cost_Rail_Export = pd.read_csv(root + '\Data\Cost\CostRaiToExport.csv', index_co
 Cost_Export_Import = pd.read_csv(root + '\Data\Cost\CostExportToImport.csv', index_col=0).to_numpy()
 
 # Country_Elevator to Domestic Processing Facility @(P^D)
-Cost_Country_Facility = pd.read_csv(root + '\Data\Cost\CostToFacility.csv', index_col=0,
-                                    usecols=['Name', 'Facility']).T.to_numpy()[0]
+Cost_Country_Facility = pd.read_csv(root + '\Data\Cost\CostToFacility.csv', index_col=0, usecols=['Name', 'Facility']).T.to_numpy()[0]
 
 # elevators unit holding cost @h
 Unit_Holding_Cost = 100
 
 # Supply of each Country elevator
 #Supply_Country = pd.read_csv('.\Data\ProductionByCountry.csv', index_col=0, usecols=['Name', 'Production']).T.to_numpy()[0]
-Supply_Country = pd.read_csv(root + '\GCAM_Data\Outputs\ProductionByCountry_2020_IRR_hi.csv', index_col=0, usecols=['Name', 'Production']).T.to_numpy()[0]
+Yield_Country = pd.read_csv(root + '\GCAM_Data\Outputs\ProductionByCountry.csv', index_col=0, usecols=['Name', 'Yield_IRR_hi', 'Yield_IRR_lo', 'Yield_RFD_hi', 'Yield_RFD_lo', 'PlantingArea']).to_numpy()
 
 # China demand at year 2020
 Demand_China = 88e6
@@ -80,7 +79,7 @@ Inventory_Rail_LastYear = np.zeros(Cost_Rail_Export.shape[0])
 ## model input summary
 print(f'Model Name: {Model_Name}')
 NumOfCountry = Cost_Country_Stream.shape[0] if Cost_Country_Stream.shape[0] == Cost_Country_Rail.shape[0] == \
-                                               Cost_Country_Facility.shape[0] == Supply_Country.shape[0] == \
+                                               Cost_Country_Facility.shape[0] == Yield_Country.shape[0] == \
                                                Inventory_Country_LastYear.shape[0] else 0
 print(f'Country Elevators: {NumOfCountry}')
 NumOfStream = Cost_Country_Stream.shape[1] if Cost_Country_Stream.shape[1] == Cost_Stream_Export.shape[0] \
@@ -100,7 +99,7 @@ RailToExport, ExportToImport, Domestic_Price, Global_Price, Total_Exported = GRB
                                                                             Cost_Country_Rail, Cost_Stream_Export,
                                                                             Cost_Rail_Export, Cost_Export_Import,
                                                                             Cost_Country_Facility, Alpha, Unit_Holding_Cost,
-                                                                            Demand_China, Supply_Country,
+                                                                            Demand_China, Yield_Country,
                                                                             Inventory_Country_LastYear, Inventory_Stream_LastYear, Inventory_Rail_LastYear)
 ## Figure
-FIG.ResultsFigure(CountryToStream, CountryToRail, StreamToExport, RailToExport, ExportToImport, Domestic_Price, Global_Price, Supply_Country, Total_Exported)
+FIG.ResultsFigure(CountryToStream, CountryToRail, StreamToExport, RailToExport, ExportToImport, Domestic_Price, Global_Price, Yield_Country, Total_Exported)
