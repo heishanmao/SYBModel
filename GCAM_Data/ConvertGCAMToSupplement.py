@@ -18,29 +18,6 @@ def random_list(length):
         random_list.append(random.random()/10)
     return random_list
 
-# # Get each produciton by basinName, year, and technology
-# def GetBasinProduction(BName, BProduction):
-#     #  find the production by the basin name
-#     ProducutonByScens = BProduction.loc[BName,['Scenario',BYear, 'Units']]
-#     # find the production by technology
-#     ScenarioName = BName+BTechnology
-#
-#     return ProducutonByScens.loc[ProducutonByScens['Scenario'] == ScenarioName,:]
-#
-# #assignment basin produciton to each eleavator
-#     # calculate number of elevators in the single basin
-# def GetEleProduciton(EleAndBasinList, BName, BProdcution):
-#     NumOfEles = EleAndBasinList['BasinName'].value_counts()
-#     NumOfEles = NumOfEles[NumOfEles.index==BName].values[0]
-#
-#     #print(BProdcution)
-#     #Production By Basin to ELevators
-#     YeildByEles = BProdcution.iloc[0,1] * 1000000
-#     YeildByEle = YeildByEles / NumOfEles
-#
-#     return NumOfEles, YeildByEles, round(YeildByEle, 2)
-
-
 if __name__=='__main__':
     Year = '2020'
     Technologies = ['IRR', 'RFD']
@@ -48,9 +25,9 @@ if __name__=='__main__':
 
     # Reading data
     # Production
-    ProductByBasin = pd.read_csv('GCAM outputs_20210910.csv', usecols=['subregion', 'management', 'level', Year])  #unit: Mt
+    ProductByBasin = pd.read_csv('GCAM outputs_20210910.csv', usecols=['subregion', 'management', 'level', Year])  #unit: 10*6 t
     ProductByBasin['Reg_Areas'] = pd.read_csv('Oilcrop_LandleafArea.csv', usecols=[Year])                          #unit:  1000 km2
-    ProductByBasin['Reg_Yield'] = ProductByBasin.apply(lambda x: x['2020'] / x['Reg_Areas'], axis=1)               #unit: Mt/1000 km2
+    ProductByBasin['Reg_Yield'] = ProductByBasin.apply(lambda x: x['2020'] / x['Reg_Areas'], axis=1)               #unit: 10*6 t/1000 km2
     ProductByBasin['Tol_Areas'] = pd.read_csv('Oilcrop_TotalArea.csv', usecols=[Year])                             #unit: 1000 km2
 
     # data = pd.read_csv('data10top_converted_waterbasin.csv')
@@ -66,7 +43,7 @@ if __name__=='__main__':
     CountryElevators['Ending'] = 0
     CountryElevators['EndingRate'] = 0
     CountryElevators['PlantingArea'] = 0
-    CountryElevators['Yield Unit'] = 'Mt/1000 km2'
+    CountryElevators['Yield Unit'] = 't/km2'
 
     #Basins = CountryElevators['BasinName'].unique()
     # Basins['#Country'] = CountryElevators['BasinName'].value_counts()
@@ -78,14 +55,14 @@ if __name__=='__main__':
         for technology in Technologies:
             for level in Levels:
                 RegionYield = data.loc[(data['management'] == technology) & (data['level'] == level)]['Reg_Yield']
-                EleYield = RegionYield / basin[1]['Numbers']
+                EleYield = 1000 * RegionYield / basin[1]['Numbers'] # unit to t/km2
                 # Region Yield allocated to each Country elevator based on water basins
                 CountryElevators.loc[CountryElevators['BasinName']==basin[0], 'Yield_' + technology + '_' + level] = EleYield.to_list() * basin[1]['Numbers']
 
         # Total areas to each Country Elevator
-        Tol_Areas = data.loc[(data['management'] == technology) & (data['level'] == level)]['Tol_Areas']
-        EleArea = Tol_Areas / basin[1]['Numbers']
-        CountryElevators.loc[CountryElevators['BasinName'] == basin[0], 'PlantingArea'] = EleArea.to_list() * basin[1]['Numbers']
+        Tol_Areas = data.loc[(data['management'] == technology) & (data['level'] == level)]['Tol_Areas']  # unit 10^3 km2
+        EleArea = 1000 * Tol_Areas / basin[1]['Numbers']
+        CountryElevators.loc[CountryElevators['BasinName'] == basin[0], 'PlantingArea'] = EleArea.to_list() * basin[1]['Numbers']  # unit km2
 
     CountryElevators['EndingRate'] = random_list(CountryElevators.shape[0])
     CountryElevators['Ending'] = round(1000 * CountryElevators['EndingRate'], 2)
