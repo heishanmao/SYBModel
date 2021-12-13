@@ -65,20 +65,27 @@ if __name__=='__main__':
     CountryElevators['Yield_RFD_lo'] = 0
     CountryElevators['Ending'] = 0
     CountryElevators['EndingRate'] = 0
+    CountryElevators['PlantingArea'] = 0
     CountryElevators['Yield Unit'] = 'Mt/1000 km2'
 
     #Basins = CountryElevators['BasinName'].unique()
     # Basins['#Country'] = CountryElevators['BasinName'].value_counts()
     Basins = CountryElevators['BasinName'].value_counts().to_frame( name='Numbers')
-    for basin in Basins.itertuples():
+    for basin in Basins.iterrows():
         data = ProductByBasin[ProductByBasin['subregion'] == basin[0]]
-        print(basin[0])
+        # print(basin[0]) # subRegion
+        # print(basin[1]['Numbers'])  # number of elevators in the subRegion
         for technology in Technologies:
             for level in Levels:
                 RegionYield = data.loc[(data['management'] == technology) & (data['level'] == level)]['Reg_Yield']
-                EleYield = RegionYield / basin[1]
+                EleYield = RegionYield / basin[1]['Numbers']
                 # Region Yield allocated to each Country elevator based on water basins
-                CountryElevators.loc[CountryElevators['BasinName']==basin[0], 'Yield_' + technology + '_' + level] = EleYield.to_list()*basin[1]
+                CountryElevators.loc[CountryElevators['BasinName']==basin[0], 'Yield_' + technology + '_' + level] = EleYield.to_list() * basin[1]['Numbers']
+
+        # Total areas to each Country Elevator
+        Tol_Areas = data.loc[(data['management'] == technology) & (data['level'] == level)]['Tol_Areas']
+        EleArea = Tol_Areas / basin[1]['Numbers']
+        CountryElevators.loc[CountryElevators['BasinName'] == basin[0], 'PlantingArea'] = EleArea.to_list() * basin[1]['Numbers']
 
     CountryElevators['EndingRate'] = random_list(CountryElevators.shape[0])
     CountryElevators['Ending'] = round(1000 * CountryElevators['EndingRate'], 2)
