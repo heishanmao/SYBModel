@@ -60,7 +60,7 @@ Cost_Export_Import = pd.read_csv(root + '\Data\Cost\CostExportToImport.csv', ind
 Cost_Country_Facility = pd.read_csv(root + '\Data\Cost\CostToFacility.csv', index_col=0, usecols=['Name', 'Facility']).T.to_numpy()[0]
 
 # elevators unit holding cost @h
-Unit_Holding_Cost = 100
+Unit_Holding_Cost = 5
 
 # Supply of each Country elevator
 #Supply_Country = pd.read_csv('.\Data\ProductionByCountry.csv', index_col=0, usecols=['Name', 'Production']).T.to_numpy()[0]

@@ -25,7 +25,7 @@ def num2color(values, cmap):
 
 def ResultsFigure(CountryToStream, CountryToRail, StreamToExport, RailToExport, ExportToImport, Domestic_Price, Global_Price, Supply_Country, Total_Exported):
     ##adding coordinate for each loctaion
-    LocCountryEle = pd.read_csv('.\GCAM_Data\Outputs\ProductionByCountry_2020_IRR_lo.csv', usecols=['Name', 'LON', 'LAT'])
+    LocCountryEle = pd.read_csv('.\GCAM_Data\Outputs\ProductionByCountry.csv', usecols=['Name', 'LON', 'LAT'])
     LocRiverEle= pd.read_csv(".\Scripts\LargerRiverElevators.csv", usecols=['Name','X','Y'])
     LocShuttleEle = pd.read_csv(".\Scripts\Shuttle tarins and ports.csv", usecols=['Name','X','Y'])
     LocExports = pd.read_csv(".\Scripts\ExportTerminals.csv", usecols=['Name','X','Y'])
@@ -102,8 +102,8 @@ def ResultsFigure(CountryToStream, CountryToRail, StreamToExport, RailToExport, 
     plt.xlabel("LONGITUDE")
     plt.ylabel("LATITUDE")
     #plt.title(r'$p^D:$'+str(round(Domestic_Price,2)) + ' $p^G:$'+ str(round(Global_Price,2)) + ' Supply:'+ str(int(Total_Supply_Country)) + ' Exported:' + str(int(Total_Exported)))
-    Exported_Rate = round((Total_Exported / sum(Supply_Country)) * 100, 2)
-    plt.title(r'$p^D:$'+str(round(Domestic_Price,2)) + ' $p^G:$'+ str(round(Global_Price,2)) + ' Exported: '+ str(Exported_Rate)+'%')
+    # Exported_Rate = round((Total_Exported / sum(Supply_Country)) * 100, 2)
+    # plt.title(r'$p^D:$'+str(round(Domestic_Price,2)) + ' $p^G:$'+ str(round(Global_Price,2)) + ' Exported: '+ str(Exported_Rate)+'%')
 
     # ax.set_axis_off()  #hide the axis
     plt.show()

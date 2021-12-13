@@ -78,7 +78,7 @@ def Get_GuRoBi(Model_Name, Cost_Country_Stream, Cost_Country_Rail, Cost_Stream_E
     for e in range(Num_Export_Terminals):
         model.addConstr(quicksum(Y_Stream_Export[s, e] for s in range(Num_Stream_Elevators))
                         + quicksum(Y_Rail_Export[r, e] for r in range(Num_Rail_Elevators))
-                        - quicksum(Z_Export_Import[e, i] for i in range(Num_Import_Terminals)) == 0)
+                        - quicksum(Z_Export_Import[e, i] for i in range(Num_Import_Terminals)) >= 0)  # here should be >= instead of <= . Dr. Jin is totally wrong!!
 
         # 6
     model.addConstr(quicksum(Z_Export_Import[e,i] for e in range(Num_Export_Terminals)
@@ -118,7 +118,7 @@ def Get_GuRoBi(Model_Name, Cost_Country_Stream, Cost_Country_Rail, Cost_Stream_E
     model.update()
     model.params.NonConvex = 2
     model.optimize()
-    #model.write(Model_Name + '.lp')
+    # model.write(Model_Name + '.lp')
 
     # 查看单目标规划模型的目标函数值
     print("Optimal Objective Value", model.objVal)
