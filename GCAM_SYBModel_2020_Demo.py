@@ -60,7 +60,7 @@ Cost_Export_Import = pd.read_csv(root + '\Data\Cost\CostExportToImport.csv', ind
 Cost_Country_Facility = pd.read_csv(root + '\Data\Cost\CostToFacility.csv', index_col=0, usecols=['Name', 'Facility']).T.to_numpy()[0]
 
 # elevators unit holding cost @h
-Unit_Holding_Cost = 5
+Unit_Holding_Cost = 20
 
 # Supply of each Country elevator
 #Supply_Country = pd.read_csv('.\Data\ProductionByCountry.csv', index_col=0, usecols=['Name', 'Production']).T.to_numpy()[0]
@@ -95,11 +95,11 @@ print(f'Imports: {Cost_Export_Import.shape[1]}')
 
 ## Solving by GUROBI Model --SYBModel_V13.py
 CountryToStream, CountryToRail, CountryToFacility, CountryInventory, StreamInventory, RailInventory, StreamToExport, \
-RailToExport, ExportToImport, Domestic_Price, Global_Price, Total_Exported = GRB.Get_GuRoBi(Model_Name,Cost_Country_Stream,
+RailToExport, ExportToImport, Domestic_Price, Global_Price, Supply_Country, Total_Exported = GRB.Get_GuRoBi(Model_Name,Cost_Country_Stream,
                                                                             Cost_Country_Rail, Cost_Stream_Export,
                                                                             Cost_Rail_Export, Cost_Export_Import,
                                                                             Cost_Country_Facility, Alpha, Unit_Holding_Cost,
                                                                             Demand_China, Yield_Country,
                                                                             Inventory_Country_LastYear, Inventory_Stream_LastYear, Inventory_Rail_LastYear)
 ## Figure
-FIG.ResultsFigure(CountryToStream, CountryToRail, StreamToExport, RailToExport, ExportToImport, Domestic_Price, Global_Price, Yield_Country, Total_Exported)
+FIG.ResultsFigure(CountryToStream, CountryToRail, StreamToExport, RailToExport, ExportToImport, Domestic_Price, Global_Price, Supply_Country, Total_Exported)

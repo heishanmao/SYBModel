@@ -102,8 +102,8 @@ def ResultsFigure(CountryToStream, CountryToRail, StreamToExport, RailToExport, 
     plt.xlabel("LONGITUDE")
     plt.ylabel("LATITUDE")
     #plt.title(r'$p^D:$'+str(round(Domestic_Price,2)) + ' $p^G:$'+ str(round(Global_Price,2)) + ' Supply:'+ str(int(Total_Supply_Country)) + ' Exported:' + str(int(Total_Exported)))
-    # Exported_Rate = round((Total_Exported / sum(Supply_Country)) * 100, 2)
-    # plt.title(r'$p^D:$'+str(round(Domestic_Price,2)) + ' $p^G:$'+ str(round(Global_Price,2)) + ' Exported: '+ str(Exported_Rate)+'%')
+    Exported_Rate = round((Total_Exported / sum(Supply_Country)) * 100, 2)
+    plt.title(r'$p^D:$'+str(round(Domestic_Price,2)) + ' $p^G:$'+ str(round(Global_Price,2)) + ' Exported: '+ str(Exported_Rate)+'%')
 
     # ax.set_axis_off()  #hide the axis
     plt.show()

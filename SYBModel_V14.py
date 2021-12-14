@@ -34,6 +34,9 @@ def Get_GuRoBi(Model_Name, Cost_Country_Stream, Cost_Country_Rail, Cost_Stream_E
     model = Model(Model_Name)
 
     # Var
+    Framer_Decision = model.addVars(Num_Country_Elevators, 4, vtype=GRB.CONTINUOUS, ub=1, name='Framer_Decision')     # 4 Farmer decisions
+    # Framer_Decision = model.addVars(Num_Country_Elevators, 4, vtype=GRB.CONTINUOUS, lb=0.0, ub=1.0, name='Framer_Decision')     # 4 Farmer decisions
+    Supply_Country = model.addVars(Num_Country_Elevators, vtype=GRB.CONTINUOUS, name='Supplyment')
     X_Country_Stream = model.addVars(Num_Country_Elevators, Num_Stream_Elevators, lb=0, name='X_Country_Stream')
     X_Country_Rail = model.addVars(Num_Country_Elevators, Num_Rail_Elevators, lb=0, name='X_Country_Rail')
     X_Facility = model.addVars(Num_Country_Elevators, lb=0, name='X_Facility')
@@ -47,17 +50,17 @@ def Get_GuRoBi(Model_Name, Cost_Country_Stream, Cost_Country_Rail, Cost_Stream_E
     Global_Price = model.addVar(vtype=GRB.CONTINUOUS, name='Global_Price')
     Slack_Climate = model.addVar(1, vtype=GRB.BINARY, name='Slack_Climate')     # Slack Vars
     Slack_Tariff = model.addVar(1, vtype=GRB.BINARY, name='Slack_Tariff')
-    # Farmer decisions
-    Framer_Decision = model.addVars(Num_Country_Elevators, 4, vtype=GRB.CONTINUOUS, name='Framer_Decision')
-    Supply_Country = model.addVars(Num_Country_Elevators, vtype=GRB.CONTINUOUS, name='Supplyment')
 
     # Constraints
         # 1 Farmer Decisions
     for c in range(Num_Country_Elevators):
-        model.addConstr((Yield_Country[c,0]*Framer_Decision[c,0]+Yield_Country[c,1]*Framer_Decision[c,1]+Yield_Country[c,2]*Framer_Decision[c,2]+
-        Yield_Country[c, 3] * Framer_Decision[c, 3])*Yield_Country[c, 4] - Supply_Country[c] == 0)
+        # model.addConstr((Yield_Country[c,0]*Framer_Decision[c,0]+Yield_Country[c,1]*Framer_Decision[c,1]+Yield_Country[c,2]*Framer_Decision[c,2]+
+        # Yield_Country[c,3]*Framer_Decision[c,3])*Yield_Country[c,4] - Supply_Country[c] == 0)
+        model.addConstr(Yield_Country[c,4]*(quicksum(Yield_Country[c,d] * Framer_Decision[c,d] for d in range(4))) - Supply_Country[c] ==0)
 
-        model.addConstr(quicksum(Framer_Decision[c,d] for d in range(4)) == 1 )
+        # model.addConstr(Framer_Decision[c,0] + Framer_Decision[c,1] + Framer_Decision[c,2] + Framer_Decision[c,3] <= 1)
+        # model.addConstr( Framer_Decision[c,1] + Framer_Decision[c,2] + Framer_Decision[c,3] <= 1)
+        model.addConstr(quicksum(Framer_Decision[c,d] for d in range(4)) <=1)
 
         # 2
     for c in range(Num_Country_Elevators):
@@ -132,6 +135,8 @@ def Get_GuRoBi(Model_Name, Cost_Country_Stream, Cost_Country_Rail, Cost_Stream_E
             print(f"{var.varName}: {round(var.X, 3)}")
 
     # Create DataFrame of all results
+    Matrix_Framer_Decision = [[Framer_Decision[a,b].X for a in range(Num_Country_Elevators)] for b in range(4)]
+    Matrix_Framer_Decision = pd.DataFrame(Matrix_Framer_Decision).T
     Matrix_X_Country_Stream = [[X_Country_Stream[a, b].X for a in range(Num_Country_Elevators)] for b in range(Num_Stream_Elevators)]
     Matrix_X_Country_Stream = pd.DataFrame(Matrix_X_Country_Stream).T
     Matrix_X_Country_Stream = Matrix_X_Country_Stream.add_prefix('ToRiver_')
@@ -154,6 +159,7 @@ def Get_GuRoBi(Model_Name, Cost_Country_Stream, Cost_Country_Rail, Cost_Stream_E
     Matrix_Y_Rail_Export = [[Y_Rail_Export[a, b].X for a in range(Num_Rail_Elevators)] for b in range(Num_Export_Terminals)]
     Matrix_Y_Rail_Export= pd.DataFrame(Matrix_Y_Rail_Export).T
 
+    Matrix_Supply_Country = [Supply_Country[a].X for a in range(Num_Country_Elevators)]
     Matrix_Z_Export_Import = [[Z_Export_Import[a, b].X for a in range(Num_Export_Terminals)] for b in range(Num_Import_Terminals)]
     Matrix_Z_Export_Import= pd.DataFrame(Matrix_Z_Export_Import).T.add_prefix('Import_')
 
@@ -162,13 +168,15 @@ def Get_GuRoBi(Model_Name, Cost_Country_Stream, Cost_Country_Rail, Cost_Stream_E
     Results_River = pd.concat([Matrix_Y_Stream_Export.add_prefix('RiverToExport_'), Matrix_I_Stream], axis=1)
     Results_Rail = pd.concat([Matrix_Y_Rail_Export.add_prefix('RailToExport_'), Matrix_I_Rail], axis=1)
 
+    Matrix_Framer_Decision.to_csv('.\Outputs\ResultsOfFramerDecision.csv')
     Results_Country.to_csv('.\Outputs\ResultsOfCountryElevators.csv')
     Results_River.to_csv('.\Outputs\ResultsOfRiverElevators.csv')
     Results_Rail.to_csv('.\Outputs\ResultsOfRailElevators.csv')
     Matrix_Z_Export_Import.to_csv('.\Outputs\ResultsOfExports.csv')
 
     return Matrix_X_Country_Stream, Matrix_X_Country_Rail, Matrix_X_Facility, Matrix_I_Country, Matrix_I_Stream, Matrix_I_Rail, \
-           Matrix_Y_Stream_Export, Matrix_Y_Rail_Export, Matrix_Z_Export_Import, Domestic_Price.X, Global_Price.X, Matrix_Z_Export_Import.sum().sum()
+           Matrix_Y_Stream_Export, Matrix_Y_Rail_Export, Matrix_Z_Export_Import, Domestic_Price.X, Global_Price.X, Matrix_Supply_Country, \
+           Matrix_Z_Export_Import.sum().sum()
 
 if __name__ =='__main__':
     import numpy as np
