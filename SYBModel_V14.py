@@ -168,11 +168,11 @@ def Get_GuRoBi(Model_Name, Cost_Country_Stream, Cost_Country_Rail, Cost_Stream_E
     Results_River = pd.concat([Matrix_Y_Stream_Export.add_prefix('RiverToExport_'), Matrix_I_Stream], axis=1)
     Results_Rail = pd.concat([Matrix_Y_Rail_Export.add_prefix('RailToExport_'), Matrix_I_Rail], axis=1)
 
-    Matrix_Framer_Decision.to_csv('.\Outputs\ResultsOfFramerDecision.csv')
-    Results_Country.to_csv('.\Outputs\ResultsOfCountryElevators.csv')
-    Results_River.to_csv('.\Outputs\ResultsOfRiverElevators.csv')
-    Results_Rail.to_csv('.\Outputs\ResultsOfRailElevators.csv')
-    Matrix_Z_Export_Import.to_csv('.\Outputs\ResultsOfExports.csv')
+    Matrix_Framer_Decision.to_csv('.\Outputs\/1_ResultsOfFramerDecision.csv')
+    Results_Country.to_csv('.\Outputs\/2_ResultsOfCountryElevators.csv')
+    Results_River.to_csv('.\Outputs\/3_ResultsOfRiverElevators.csv')
+    Results_Rail.to_csv('.\Outputs\/4_ResultsOfRailElevators.csv')
+    Matrix_Z_Export_Import.to_csv('.\Outputs\/5_ResultsOfExports.csv')
 
     return Matrix_X_Country_Stream, Matrix_X_Country_Rail, Matrix_X_Facility, Matrix_I_Country, Matrix_I_Stream, Matrix_I_Rail, \
            Matrix_Y_Stream_Export, Matrix_Y_Rail_Export, Matrix_Z_Export_Import, Domestic_Price.X, Global_Price.X, Matrix_Supply_Country, \
