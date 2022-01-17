@@ -68,7 +68,7 @@ if __name__=='__main__':
     CountryElevators['Ending'] = round(1000 * CountryElevators['EndingRate'], 2)
 
     # CountryElevators.to_csv('Outputs\ProductionByCountry_' + str(Year) +'.csv', index=False)
-    CountryElevators.to_csv('Outputs\ProductionByCountry.csv', index=False)
+    CountryElevators.to_csv('Outputs\ProductionByCountry1.0.csv', index=False)
 
     ## Production Scenarios
     Scenarios = [0.2, 0.5, 0.8, 1.2, 1.5, 3.0]  # increase or decrease percentage
