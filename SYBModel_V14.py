@@ -176,7 +176,7 @@ def Get_GuRoBi(Model_Name, Cost_Country_Stream, Cost_Country_Rail, Cost_Stream_E
 
     return Matrix_X_Country_Stream, Matrix_X_Country_Rail, Matrix_X_Facility, Matrix_I_Country, Matrix_I_Stream, Matrix_I_Rail, \
            Matrix_Y_Stream_Export, Matrix_Y_Rail_Export, Matrix_Z_Export_Import, Domestic_Price.X, Global_Price.X, Matrix_Supply_Country, \
-           Matrix_Z_Export_Import.sum().sum()
+           Matrix_Z_Export_Import.sum().sum(), model.objVal
 
 if __name__ =='__main__':
     import numpy as np

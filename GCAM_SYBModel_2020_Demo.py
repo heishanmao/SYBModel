@@ -95,7 +95,7 @@ print(f'Imports: {Cost_Export_Import.shape[1]}')
 
 ## Solving by GUROBI Model --SYBModel_V13.py
 CountryToStream, CountryToRail, CountryToFacility, CountryInventory, StreamInventory, RailInventory, StreamToExport, \
-RailToExport, ExportToImport, Domestic_Price, Global_Price, Supply_Country, Total_Exported = GRB.Get_GuRoBi(Model_Name,Cost_Country_Stream,
+RailToExport, ExportToImport, Domestic_Price, Global_Price, Supply_Country, Total_Exported, ObjVal= GRB.Get_GuRoBi(Model_Name,Cost_Country_Stream,
                                                                             Cost_Country_Rail, Cost_Stream_Export,
                                                                             Cost_Rail_Export, Cost_Export_Import,
                                                                             Cost_Country_Facility, Alpha, Unit_Holding_Cost,
