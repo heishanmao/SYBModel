@@ -70,6 +70,17 @@ if __name__=='__main__':
     # CountryElevators.to_csv('Outputs\ProductionByCountry_' + str(Year) +'.csv', index=False)
     CountryElevators.to_csv('Outputs\ProductionByCountry.csv', index=False)
 
+    ## Production Scenarios
+    Scenarios = [0.2, 0.5, 0.8, 1.2, 1.5, 3.0]  # increase or decrease percentage
+    for index, s in enumerate(Scenarios):
+        name = 'ProductionByCountry' + str(s)
+        newData = CountryElevators.copy()
+        newData['Yield_IRR_hi'] = newData['Yield_IRR_hi'].apply(lambda x:x*s)
+        newData['Yield_IRR_lo'] = newData['Yield_IRR_lo'].apply(lambda x:x*s)
+        newData['Yield_RFD_hi'] = newData['Yield_RFD_hi'].apply(lambda x:x*s)
+        newData['Yield_RFD_lo'] = newData['Yield_RFD_lo'].apply(lambda x:x*s)
+        newData.to_csv('Outputs\\'+ name +'.csv', index=False)
+
 
 
 
