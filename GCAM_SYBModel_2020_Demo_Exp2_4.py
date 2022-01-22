@@ -92,8 +92,8 @@ for index, r in enumerate(Rates):
     ExpRES.loc[r, 'Demand'] = Demand_China
     ExpRES.loc[r, 'Supply'] = sum(Supply_Country)
     ExpRES.loc[r, 'Export'] = Total_Exported
-    ExpRES.loc[r, 'Supply/Demand'] = round(sum(Supply_Country) / Demand_China,2)
-    ExpRES.loc[r, 'Export/Demand'] = round(Total_Exported / Demand_China, 2)
+    ExpRES.loc[r, 'Supply/Demand'] = round(sum(Supply_Country) / Demand_China, 4)
+    ExpRES.loc[r, 'Export/Demand'] = round(Total_Exported / Demand_China, 4)
     ExpRES.loc[r, 'Export/Supply'] = round(Total_Exported / sum(Supply_Country),4)
     ExpRES.loc[r, 'ObjVal'] = ObjVal
 

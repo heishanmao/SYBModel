@@ -90,8 +90,8 @@ for index, s in enumerate(Scenarios):
     ExpRES.loc[s, 'Demand'] = Demand_China
     ExpRES.loc[s, 'Supply'] = sum(Supply_Country)
     ExpRES.loc[s, 'Export'] = Total_Exported
-    ExpRES.loc[s, 'Supply/Demand'] = round(sum(Supply_Country) / Demand_China,2)
-    ExpRES.loc[s, 'Export/Demand'] = round(Total_Exported / Demand_China, 2)
+    ExpRES.loc[s, 'Supply/Demand'] = round(sum(Supply_Country) / Demand_China,4)
+    ExpRES.loc[s, 'Export/Demand'] = round(Total_Exported / Demand_China, 4)
     ExpRES.loc[s, 'Export/Supply'] = round(Total_Exported / sum(Supply_Country),4)
     ExpRES.loc[s, 'ObjVal'] = ObjVal
 
