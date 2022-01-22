@@ -20,7 +20,7 @@ Model_Name = "Soybean_V14_Oct-27-2021"
 Year = 2020
 Alpha = 0.99  # Inventory deterioration rate per year
 
-Rates = [0.5, 0.8, 1.2, 1.5, 2.0, 3.0]  #Rail Rates Changed
+Rates = [0.5, 0.8, 1.2, 1.0, 1.5, 2.0, 3.0]  #Rail Rates Changed
 ExpRES = pd.DataFrame()
 for index, r in enumerate(Rates):
     # @Datasets normal Scenarios
