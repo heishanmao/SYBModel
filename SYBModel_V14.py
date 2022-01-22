@@ -60,7 +60,7 @@ def Get_GuRoBi(Model_Name, Cost_Country_Stream, Cost_Country_Rail, Cost_Stream_E
 
         # model.addConstr(Framer_Decision[c,0] + Framer_Decision[c,1] + Framer_Decision[c,2] + Framer_Decision[c,3] <= 1)
         # model.addConstr( Framer_Decision[c,1] + Framer_Decision[c,2] + Framer_Decision[c,3] <= 1)
-        model.addConstr(quicksum(Framer_Decision[c,d] for d in range(4)) <=1)
+        model.addConstr(quicksum(Framer_Decision[c,d] for d in range(4)) ==1)
 
         # 2
     for c in range(Num_Country_Elevators):
