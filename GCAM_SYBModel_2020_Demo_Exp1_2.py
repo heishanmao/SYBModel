@@ -50,7 +50,7 @@ for index, s in enumerate(Scenarios):
     Yield_Country = pd.read_csv(root + '\GCAM_Data\Outputs\\'+ name +'.csv', index_col=0, usecols=['Name', 'Yield_IRR_hi', 'Yield_IRR_lo', 'Yield_RFD_hi', 'Yield_RFD_lo', 'PlantingArea']).to_numpy()
 
     # China demand at year 2020
-    Demand_China = 88e4
+    Demand_China = 88e6*1.2
 
     # last year inventory for each elevator @2019
     # Inventory_Country_LastYear = pd.read_csv('.\Data\ProductionByCountry.csv', index_col=0,
@@ -95,4 +95,4 @@ for index, s in enumerate(Scenarios):
     ExpRES.loc[s, 'Export/Supply'] = round(Total_Exported / sum(Supply_Country),4)
     ExpRES.loc[s, 'ObjVal'] = ObjVal
 
-ExpRES.to_csv(root+'\Exp\exp2_88e4.csv')
+ExpRES.to_csv(root+'\Exp\Exp1_2_88e6_1.2.csv')
