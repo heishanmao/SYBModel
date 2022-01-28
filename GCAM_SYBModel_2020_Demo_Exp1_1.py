@@ -43,6 +43,7 @@ Cost_Country_Facility = pd.read_csv(root + '\Data\Cost\CostToFacility.csv', inde
 # elevators unit holding cost @h
 Unit_Holding_Cost = 20
 
+ExpName = 'Exp3_88e7'
 Scenarios = [0.2, 0.5, 0.8, 1.0, 1.2, 1.5, 3.0]
 #Scenarios = [1.0]
 ExpRES = pd.DataFrame()
@@ -52,7 +53,7 @@ for index, s in enumerate(Scenarios):
     Yield_Country = pd.read_csv(root + '\GCAM_Data\Outputs\\'+ name +'.csv', index_col=0, usecols=['Name', 'Yield_IRR_hi', 'Yield_IRR_lo', 'Yield_RFD_hi', 'Yield_RFD_lo', 'PlantingArea']).to_numpy()
 
     # China demand at year 2020
-    Demand_China = 88e5
+    Demand_China = 88e7
 
     # last year inventory for each elevator @2019
     # Inventory_Country_LastYear = pd.read_csv('.\Data\ProductionByCountry.csv', index_col=0,
@@ -87,7 +88,7 @@ for index, s in enumerate(Scenarios):
                                                                                 Demand_China, Yield_Country,
                                                                                 Inventory_Country_LastYear, Inventory_Stream_LastYear, Inventory_Rail_LastYear)
     ## Logistics Figure
-    PLR.LogisticsFigure(CountryToStream, CountryToRail, StreamToExport, RailToExport, ExportToImport, Domestic_Price, Global_Price, Supply_Country, Total_Exported, name)
+    PLR.LogisticsFigure(CountryToStream, CountryToRail, StreamToExport, RailToExport, ExportToImport, Domestic_Price, Global_Price, Supply_Country, Total_Exported, name, ExpName)
 
     ## Model outputs
     ExpRES.loc[s, 'Demand'] = Demand_China
@@ -98,7 +99,6 @@ for index, s in enumerate(Scenarios):
     ExpRES.loc[s, 'Export/Supply'] = round(Total_Exported / sum(Supply_Country),4)
     ExpRES.loc[s, 'ObjVal'] = ObjVal
 
-fileName = 'Exp1_1_88e6'
-ExpRES.to_csv(root+'\Exp\/'+ fileName + '.csv')
+ExpRES.to_csv(root+'\Exp\/'+ ExpName + '.csv')
 ## PlotExpsResults
-PMO.PlotModelsRes(fileName)
+PMO.PlotModelsRes(ExpName)

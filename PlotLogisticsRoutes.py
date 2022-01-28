@@ -25,7 +25,7 @@ def num2color(values, cmap):
     cmap = mpl.cm.get_cmap(cmap)
     return [cmap(norm(val)) for val in values]
 
-def LogisticsFigure(CountryToStream, CountryToRail, StreamToExport, RailToExport, ExportToImport, Domestic_Price, Global_Price, Supply_Country, Total_Exported, FileName):
+def LogisticsFigure(CountryToStream, CountryToRail, StreamToExport, RailToExport, ExportToImport, Domestic_Price, Global_Price, Supply_Country, Total_Exported, FileName, ExpName):
     ##adding coordinate for each loctaion
     LocCountryEle = pd.read_csv('.\GCAM_Data\Outputs\ProductionByCountry1.0.csv', usecols=['Name', 'LON', 'LAT'])
     LocRiverEle= pd.read_csv(".\Scripts\LargerRiverElevators.csv", usecols=['Name','X','Y'])
@@ -52,11 +52,11 @@ def LogisticsFigure(CountryToStream, CountryToRail, StreamToExport, RailToExport
 
     ## plot
         # setting
-    fig = plt.figure(dpi=300,figsize=(18, 9))
-    parameters = {'axes.labelsize': 25,
-                  'axes.titlesize': 30,
-                  'xtick.labelsize': 25,
-                  'ytick.labelsize': 25,
+    fig = plt.figure(dpi=300,figsize=(13,8))
+    parameters = {'axes.labelsize': 20,
+                  'axes.titlesize': 20,
+                  'xtick.labelsize': 20,
+                  'ytick.labelsize': 20,
                   'legend.fontsize': 20,
                   }
     plt.rcParams.update(parameters)
@@ -99,14 +99,15 @@ def LogisticsFigure(CountryToStream, CountryToRail, StreamToExport, RailToExport
 
 
     ## fig setting
-    plt.legend()
-    # plt.rcParams["figure.figsize"] = (100, 50)
-    plt.xlabel("LONGITUDE")
-    plt.ylabel("LATITUDE")
-    #plt.title(r'$p^D:$'+str(round(Domestic_Price,2)) + ' $p^G:$'+ str(round(Global_Price,2)) + ' Supply:'+ str(int(Total_Supply_Country)) + ' Exported:' + str(int(Total_Exported)))
+    plt.legend(loc='lower left', markerscale=1.2)
+    #plt.rcParams["figure.figsize"] = (80, 40)
+    # plt.xlabel("LONGITUDE")
+    # plt.ylabel("LATITUDE")
+    # plt.title(r'$p^D:$'+str(round(Domestic_Price,2)) + ' $p^G:$'+ str(round(Global_Price,2)) + ' Supply:'+ str(int(Total_Supply_Country)) + ' Exported:' + str(int(Total_Exported)))
     Exported_Rate = round((Total_Exported / sum(Supply_Country)) * 100, 2)
-    plt.title(r'$p^D:$'+str(round(Domestic_Price,2)) + ' $p^G:$'+ str(round(Global_Price,2)) + ' Exported: '+ str(Exported_Rate)+'%')
+    #plt.title(r'$p^D:$'+str(round(Domestic_Price,2)) + ' $p^G:$'+ str(round(Global_Price,2)) + ' Exported: '+ str(Exported_Rate)+'%')
+    plt.title(r'Export:'+format(Total_Exported,'.2e')+' Supply:'+ format(sum(Supply_Country),'.2e')+' Export/Supply: '+ str(Exported_Rate)+'%')
 
-    # ax.set_axis_off()  #hide the axis
-    plt.savefig(root + '\Exp\/' + FileName + '.png', dpi=300)
+    ax.set_axis_off()  #hide the axis
+    plt.savefig(root + '\Exp\/' + ExpName+'_'+FileName + '.png', dpi=300)
     plt.show()
