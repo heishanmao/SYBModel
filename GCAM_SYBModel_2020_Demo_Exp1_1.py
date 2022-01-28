@@ -10,7 +10,8 @@
 import pandas as pd
 import numpy as np
 import SYBModel_V14 as GRB
-import ResultsFigure as FIG
+import PlotLogisticsRoutes as PLR
+import PlotModelOutput as PMO
 
 import os
 root = os.path.abspath('.')  # 'D:\\OneDrive - University of Tennessee\\Scripts\\SYBModel'
@@ -43,6 +44,7 @@ Cost_Country_Facility = pd.read_csv(root + '\Data\Cost\CostToFacility.csv', inde
 Unit_Holding_Cost = 20
 
 Scenarios = [0.2, 0.5, 0.8, 1.0, 1.2, 1.5, 3.0]
+#Scenarios = [1.0]
 ExpRES = pd.DataFrame()
 for index, s in enumerate(Scenarios):
     name = 'ProductionByCountry' + str(s)
@@ -50,7 +52,7 @@ for index, s in enumerate(Scenarios):
     Yield_Country = pd.read_csv(root + '\GCAM_Data\Outputs\\'+ name +'.csv', index_col=0, usecols=['Name', 'Yield_IRR_hi', 'Yield_IRR_lo', 'Yield_RFD_hi', 'Yield_RFD_lo', 'PlantingArea']).to_numpy()
 
     # China demand at year 2020
-    Demand_China = 88e6
+    Demand_China = 88e5
 
     # last year inventory for each elevator @2019
     # Inventory_Country_LastYear = pd.read_csv('.\Data\ProductionByCountry.csv', index_col=0,
@@ -84,9 +86,10 @@ for index, s in enumerate(Scenarios):
                                                                                 Cost_Country_Facility, Alpha, Unit_Holding_Cost,
                                                                                 Demand_China, Yield_Country,
                                                                                 Inventory_Country_LastYear, Inventory_Stream_LastYear, Inventory_Rail_LastYear)
-    ## Figure
-    #FIG.ResultsFigure(CountryToStream, CountryToRail, StreamToExport, RailToExport, ExportToImport, Domestic_Price, Global_Price, Supply_Country, Total_Exported)
+    ## Logistics Figure
+    PLR.LogisticsFigure(CountryToStream, CountryToRail, StreamToExport, RailToExport, ExportToImport, Domestic_Price, Global_Price, Supply_Country, Total_Exported, name)
 
+    ## Model outputs
     ExpRES.loc[s, 'Demand'] = Demand_China
     ExpRES.loc[s, 'Supply'] = sum(Supply_Country)
     ExpRES.loc[s, 'Export'] = Total_Exported
@@ -95,4 +98,7 @@ for index, s in enumerate(Scenarios):
     ExpRES.loc[s, 'Export/Supply'] = round(Total_Exported / sum(Supply_Country),4)
     ExpRES.loc[s, 'ObjVal'] = ObjVal
 
-ExpRES.to_csv(root+'\Exp\Exp1_1_88e6.csv')
+fileName = 'Exp1_1_88e6'
+ExpRES.to_csv(root+'\Exp\/'+ fileName + '.csv')
+## PlotExpsResults
+PMO.PlotModelsRes(fileName)

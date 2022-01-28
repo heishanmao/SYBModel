@@ -3,7 +3,7 @@
 # @Time    : 27/10/2021 8:07 PM
 # @Author  : Scott
 # @Main    : Zheng@utk.edu
-# @File    : ResultsFigure.py
+# @File    : PlotLogisticsRoutes.py
 # @Software: PyCharm
 # @Notes   :Plot the results figs with matplotlib and GeoPandas
 import matplotlib.pyplot as plt
@@ -11,6 +11,8 @@ import pandas as pd
 import numpy as np
 import geopandas as gpd
 import matplotlib as mpl
+import os
+root = os.path.abspath('.')  # 'D:\\OneDrive - University of Tennessee\\Scripts\\SYBModel'
 
 def Coords(data, index):
     X = data.iloc[index, 1].to_numpy()
@@ -23,7 +25,7 @@ def num2color(values, cmap):
     cmap = mpl.cm.get_cmap(cmap)
     return [cmap(norm(val)) for val in values]
 
-def ResultsFigure(CountryToStream, CountryToRail, StreamToExport, RailToExport, ExportToImport, Domestic_Price, Global_Price, Supply_Country, Total_Exported):
+def LogisticsFigure(CountryToStream, CountryToRail, StreamToExport, RailToExport, ExportToImport, Domestic_Price, Global_Price, Supply_Country, Total_Exported, FileName):
     ##adding coordinate for each loctaion
     LocCountryEle = pd.read_csv('.\GCAM_Data\Outputs\ProductionByCountry1.0.csv', usecols=['Name', 'LON', 'LAT'])
     LocRiverEle= pd.read_csv(".\Scripts\LargerRiverElevators.csv", usecols=['Name','X','Y'])
@@ -106,4 +108,5 @@ def ResultsFigure(CountryToStream, CountryToRail, StreamToExport, RailToExport, 
     plt.title(r'$p^D:$'+str(round(Domestic_Price,2)) + ' $p^G:$'+ str(round(Global_Price,2)) + ' Exported: '+ str(Exported_Rate)+'%')
 
     # ax.set_axis_off()  #hide the axis
+    plt.savefig(root + '\Exp\/' + FileName + '.png', dpi=300)
     plt.show()
