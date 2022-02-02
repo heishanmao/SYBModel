@@ -130,9 +130,12 @@ def Get_GuRoBi(Model_Name, Cost_Country_Stream, Cost_Country_Rail, Cost_Stream_E
     #     model.setParam(gurobipy.GRB.Param.ObjNumber, i)
     #     print(f"Obj {i + 1} = {model.ObjNVal}")
     # 查看变量取值，这个方法用的很少，请看第 4 部分案例
+    #aaa = model.getVarByName('X_Country_Stream')
     for var in model.getVars():
         if var.X != 0:
-            print(f"{var.varName}: {round(var.X, 3)}")
+            print('{0} : {1:.3f}'.format(var.varName, var.X))
+            print('Objective coefficient of variable: {0:.2f}'.format(var.obj))
+
 
     # Create DataFrame of all results
     Matrix_Framer_Decision = [[Framer_Decision[a,b].X for a in range(Num_Country_Elevators)] for b in range(4)]
@@ -173,6 +176,23 @@ def Get_GuRoBi(Model_Name, Cost_Country_Stream, Cost_Country_Rail, Cost_Stream_E
     Results_River.to_csv('.\Outputs\/3_ResultsOfRiverElevators.csv')
     Results_Rail.to_csv('.\Outputs\/4_ResultsOfRailElevators.csv')
     Matrix_Z_Export_Import.to_csv('.\Outputs\/5_ResultsOfExports.csv')
+
+    ## model running time
+    print('Running time: {0:.2f}s'.format(model.Runtime))
+
+    ## dual problem
+    #Obj sensitivity informantion
+    #print(model.getAttr("Pi", model.getConstrs())) 'Only available for continuous problem'
+    # fixed = model.fixed() # Create the fixed model associated with a MIP model.
+    # fixed.optimize()
+    #constrs = model.getConstrs() # a list of all linear constraints
+    #for i in range(model.getAttr(GRB.Attr.NumConstrs)):
+        #print('{0} RHS is {1}'.format(constrs[i].ConstrName, constrs[i].RHS))
+        #print(constrs[i].getAttr(GRB.Attr.ConstrName))
+        #print(constrs[i].getAttr(GRB.Attr.RHS))
+        #print(constrs[i].SARHSLow)
+        #rint(c[i].getAttr(GRB.Attr.Pi))
+        #dualArray.append(c[i].getAttr(GRB.Attr.Pi))
 
     return Matrix_X_Country_Stream, Matrix_X_Country_Rail, Matrix_X_Facility, Matrix_I_Country, Matrix_I_Stream, Matrix_I_Rail, \
            Matrix_Y_Stream_Export, Matrix_Y_Rail_Export, Matrix_Z_Export_Import, Domestic_Price.X, Global_Price.X, Matrix_Supply_Country, \
