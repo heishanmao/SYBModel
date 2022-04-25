@@ -14,7 +14,7 @@ class _China_Demand():
         self.data = pd.read_excel(self.path, index_col=0)
         self.year = year
 
-        self.demand = self._demand_tariff(self.year)
+        self.quantity, self.tariff = self._demand_tariff(self.year)
 
     def _demand_tariff(self, year):
         # unit 1e4 ton
@@ -35,4 +35,5 @@ class _China_Demand():
 
 if __name__ == '__main__':
 
-    demand = _China_Demand(2022)
+    China = _China_Demand(2022)
+    print(China.quantity, China.tariff)
