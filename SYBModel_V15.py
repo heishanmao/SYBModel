@@ -13,7 +13,6 @@ import numpy as np
 import os
 import matplotlib.pyplot as plt
 import geopandas as gpd  # read shapefile for map layer
-import geopandas as gpd  # read shapefile for map layer
 
 class SYBModel():
 
@@ -49,6 +48,19 @@ class SYBModel():
 
         # plot
         self._plot_logistic_routes()
+
+    def _mkdir(self, path):
+        folder = os.path.exists(path)
+
+        if not folder:  # 判断是否存在文件夹如果不存在则创建为文件夹
+            os.makedirs(path)  # makedirs 创建文件时如果路径不存在会创建这个路径
+            print
+            "---  new folder...  ---"
+            print
+            "---  OK  ---"
+        else:
+            print
+            "---  There is this folder!  ---"
 
     def _load_cost(self):
         # @Datasets normal Scenarios
@@ -370,22 +382,10 @@ class SYBModel():
         plt.savefig(self.path + self.model_name + '.png', dpi=300)
         plt.show()
 
-    def _mkdir(self, path):
-        folder = os.path.exists(path)
-
-        if not folder:  # 判断是否存在文件夹如果不存在则创建为文件夹
-            os.makedirs(path)  # makedirs 创建文件时如果路径不存在会创建这个路径
-            print
-            "---  new folder...  ---"
-            print
-            "---  OK  ---"
-        else:
-            print
-            "---  There is this folder!  ---"
 
 if __name__ =='__main__':
 
     scenario = "Soybean_V13_test"
     year = 2020
-    ## Solving by GUROBI Model --SYBModel_V13.py
+    ## Solving by GUROBI Model
     Model = SYBModel(scenario, year)
