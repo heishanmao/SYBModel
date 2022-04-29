@@ -8,9 +8,10 @@
 # @Notes   :
 import pandas as pd
 
-class _China_Demand():
+class China_Demand():
     def __init__(self, year):
-        self.path = '../GCAM_full/China_Demand_022022.xlsx'
+        self.root = 'D:/OneDrive - University of Tennessee/Scripts/SYBModel'
+        self.path = self.root + '/GCAM_full/China_Demand_022022.xlsx'
         self.data = pd.read_excel(self.path, index_col=0)
         self.year = year
 
@@ -35,5 +36,5 @@ class _China_Demand():
 
 if __name__ == '__main__':
 
-    China = _China_Demand(2022)
+    China = China_Demand(2022)
     print(China.quantity, China.tariff)

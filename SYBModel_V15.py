@@ -127,7 +127,7 @@ class SYBModel():
 
         print(f'Imports: {self.Cost_Export_Import.shape[1]}')
 
-    def _build_model(self):
+    def _build_model(self, lp_to_file=False):
         model = Model(self.model_name)
         self.Num_Country_Elevators = self.Cost_Country_Stream.shape[0]
         self.Num_Stream_Elevators = self.Cost_Stream_Export.shape[0]
@@ -136,8 +136,8 @@ class SYBModel():
         self.Num_Import_Terminals = self.Cost_Export_Import.shape[1]
 
         ## Variables
-        self.Framer_Decision = model.addVars(self.Num_Country_Elevators, 4, vtype=GRB.CONTINUOUS, ub=1,name='Framer_Decision')  # 4 Farmer decisions
-        # Framer_Decision = model.addVars(self.Num_Country_Elevators, 4, vtype=GRB.CONTINUOUS, lb=0.0, ub=1.0, name='Framer_Decision')     # 4 Farmer decisions
+        #self.Framer_Decision = model.addVars(self.Num_Country_Elevators, 4, vtype=GRB.CONTINUOUS, ub=1,name='Framer_Decision')  # 4 Farmer decisions
+        self.Framer_Decision = model.addVars(self.Num_Country_Elevators, 4, vtype=GRB.CONTINUOUS, lb=0.0, ub=1.0, name='Framer_Decision')     # 4 Farmer decisions
         self.Supply_Country = model.addVars(self.Num_Country_Elevators, vtype=GRB.CONTINUOUS, name='Supplyment')
         self.X_Country_Stream = model.addVars(self.Num_Country_Elevators, self.Num_Stream_Elevators, lb=0, name='X_Country_Stream')
         self.X_Country_Rail = model.addVars(self.Num_Country_Elevators, self.Num_Rail_Elevators, lb=0, name='X_Country_Rail')
@@ -197,8 +197,7 @@ class SYBModel():
 
         # 9
         model.addConstr(self.Global_Price - self.Domestic_Price >= 0)
-        model.addConstrs(self.Alpha * self.Inventory_Country_LastYear[c] + self.Supply_Country[c] - 10 * self.X_Facility[c] >= 0 for c in
-                         range(self.Num_Country_Elevators))
+        model.addConstrs(self.Alpha * self.Inventory_Country_LastYear[c] + self.Supply_Country[c] - 10 * self.X_Facility[c] >= 0 for c in range(self.Num_Country_Elevators))
 
         # Objective
         obj = LinExpr()
@@ -226,6 +225,8 @@ class SYBModel():
         model.update()
         model.params.NonConvex = 2
         model.optimize()
+        if lp_to_file == True:
+            model.write(self.model_name + '-' + str(self.year) + '.lp')
         # model.write(Model_Name + '.lp')
 
         # # 查看单目标规划模型的目标函数值
@@ -245,39 +246,39 @@ class SYBModel():
 
     def _model_outputs(self):
         # Create DataFrame of all results
-        self.Matrix_Framer_Decision = [[self.Framer_Decision[a, b].X for a in range(self.Num_Country_Elevators)] for b in range(4)]
+        self.Matrix_Framer_Decision = [[self.Framer_Decision[a, b].x for a in range(self.Num_Country_Elevators)] for b in range(4)]
         self.Matrix_Framer_Decision = pd.DataFrame(self.Matrix_Framer_Decision).T
         
-        self.Matrix_X_Country_Stream = [[self.X_Country_Stream[a, b].X for a in range(self.Num_Country_Elevators)] for b in range(self.Num_Stream_Elevators)]
+        self.Matrix_X_Country_Stream = [[self.X_Country_Stream[a, b].x for a in range(self.Num_Country_Elevators)] for b in range(self.Num_Stream_Elevators)]
         self.Matrix_X_Country_Stream = pd.DataFrame(self.Matrix_X_Country_Stream).T
         self.Matrix_X_Country_Stream = self.Matrix_X_Country_Stream.add_prefix('ToRiver_')
         
-        self.Matrix_X_Country_Rail = [[self.X_Country_Rail[a, b].X for a in range(self.Num_Country_Elevators)] for b in range(self.Num_Rail_Elevators)]
+        self.Matrix_X_Country_Rail = [[self.X_Country_Rail[a, b].x for a in range(self.Num_Country_Elevators)] for b in range(self.Num_Rail_Elevators)]
         self.Matrix_X_Country_Rail = pd.DataFrame(self.Matrix_X_Country_Rail).T
         self.Matrix_X_Country_Rail = self.Matrix_X_Country_Rail.add_prefix('ToRail_')
         
-        self.Matrix_X_Facility = [self.X_Facility[a].X for a in range(self.Num_Country_Elevators)]
+        self.Matrix_X_Facility = [self.X_Facility[a].x for a in range(self.Num_Country_Elevators)]
         self.Matrix_X_Facility = pd.Series(self.Matrix_X_Facility, name='X_Facility')
 
-        self.Matrix_I_Country = [self.I_Country[a].X for a in range(self.Num_Country_Elevators)]
+        self.Matrix_I_Country = [self.I_Country[a].x for a in range(self.Num_Country_Elevators)]
         self.Matrix_I_Country = pd.Series(self.Matrix_I_Country, name='I_Country')
         
-        self.Matrix_I_Stream = [self.I_Stream[a].X for a in range(self.Num_Stream_Elevators)]
+        self.Matrix_I_Stream = [self.I_Stream[a].x for a in range(self.Num_Stream_Elevators)]
         self.Matrix_I_Stream = pd.Series(self.Matrix_I_Stream, name='I_Stream')
        
-        self.Matrix_I_Rail = [self.I_Rail[a].X for a in range(self.Num_Rail_Elevators)]
+        self.Matrix_I_Rail = [self.I_Rail[a].x for a in range(self.Num_Rail_Elevators)]
         self.Matrix_I_Rail = pd.Series(self.Matrix_I_Rail, name='I_Rail')
         # Matrix_I = pd.DataFrame(list(zip(self.Matrix_X_Facility, self.Matrix_I_Country, self.Matrix_I_Stream, self.Matrix_I_Rail)), columns=['X_Facility','I_Country', 'I_Stream', 'I_Rail'])
 
-        self.Matrix_Y_Stream_Export = [[self.Y_Stream_Export[a, b].X for a in range(self.Num_Stream_Elevators)] for b in range(self.Num_Export_Terminals)]
+        self.Matrix_Y_Stream_Export = [[self.Y_Stream_Export[a, b].x for a in range(self.Num_Stream_Elevators)] for b in range(self.Num_Export_Terminals)]
         self.Matrix_Y_Stream_Export = pd.DataFrame(self.Matrix_Y_Stream_Export).T
 
-        self.Matrix_Y_Rail_Export = [[self.Y_Rail_Export[a, b].X for a in range(self.Num_Rail_Elevators)] for b in range(self.Num_Export_Terminals)]
+        self.Matrix_Y_Rail_Export = [[self.Y_Rail_Export[a, b].x for a in range(self.Num_Rail_Elevators)] for b in range(self.Num_Export_Terminals)]
         self.Matrix_Y_Rail_Export = pd.DataFrame(self.Matrix_Y_Rail_Export).T
 
-        self.Matrix_Supply_Country = [self.Supply_Country[a].X for a in range(self.Num_Country_Elevators)]
+        self.Matrix_Supply_Country = [self.Supply_Country[a].x for a in range(self.Num_Country_Elevators)]
 
-        self.Matrix_Z_Export_Import = [[self.Z_Export_Import[a, b].X for a in range(self.Num_Export_Terminals)] for b in range(self.Num_Import_Terminals)]
+        self.Matrix_Z_Export_Import = [[self.Z_Export_Import[a, b].x for a in range(self.Num_Export_Terminals)] for b in range(self.Num_Import_Terminals)]
         self.Matrix_Z_Export_Import = pd.DataFrame(self.Matrix_Z_Export_Import).T.add_prefix('Import_')
         
     def _write_to_files(self):
