@@ -37,6 +37,7 @@ class GCAM_SYB():
         self.barge_rate = kwargs['barge_rate']
         self.rail_rate = kwargs['rail_rate']
         self.ocean_rate = kwargs['ocean_rate']
+        self.scenario_text = str(self.truck_rate) + '_' + str(self.barge_rate) + '_' + str(self.rail_rate) + '_' + str(self.ocean_rate)
 
         # # Dom_P =  200   # Domestic Soybean price
         # self.Beta1 = 315.948
@@ -285,11 +286,11 @@ class GCAM_SYB():
         self.Results_River = pd.concat([self.Matrix_Y_Stream_Export.add_prefix('RiverToExport_')], axis=1)
         self.Results_Rail = pd.concat([self.Matrix_Y_Rail_Export.add_prefix('RailToExport_')], axis=1)
 
-        self.Matrix_Framer_Decision.to_csv(self.path + '1_ResultsOfFramerDecision.csv')
-        self.Results_Country.to_csv(self.path + '2_ResultsOfCountryElevators.csv')
-        self.Results_River.to_csv(self.path + '3_ResultsOfRiverElevators.csv')
-        self.Results_Rail.to_csv(self.path + '4_ResultsOfRailElevators.csv')
-        self.Matrix_Z_Export_Import.to_csv(self.path + '5_ResultsOfExports.csv')
+        self.Matrix_Framer_Decision.to_csv(self.path + '1_ResultsOfFramerDecision_' + self.scenario_text + '.csv')
+        self.Results_Country.to_csv(self.path + '2_ResultsOfCountryElevators_' + self.scenario_text + '.csv')
+        self.Results_River.to_csv(self.path + '3_ResultsOfRiverElevators_' + self.scenario_text + '.csv')
+        self.Results_Rail.to_csv(self.path + '4_ResultsOfRailElevators_' + self.scenario_text + '.csv')
+        self.Matrix_Z_Export_Import.to_csv(self.path + '5_ResultsOfExports_' + self.scenario_text + '.csv')
 
     def _plot_logistic_routes(self):
         def Coords(data, index):
@@ -382,7 +383,7 @@ class GCAM_SYB():
         #ax.set_axis_off()  # hide the axis
 
         plt.savefig(self.path + '/' + str(self.year) + '_' + self.model_name + '.png', dpi=300)
-        plt.savefig(self.path + '/' + str(self.year) + '_' + self.model_name + '.pdf', dpi=600, bbox_inches="tight")
+        plt.savefig(self.path + '/' + str(self.year) + '_' + self.model_name + '_' + self.scenario_text + '.pdf', dpi=600, bbox_inches="tight")
         plt.show()
 
 if __name__ == '__main__':
