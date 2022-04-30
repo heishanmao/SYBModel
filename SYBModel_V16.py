@@ -266,7 +266,7 @@ class GCAM_SYB():
         self.Quantity_Z_Export_Import = self.Matrix_Z_Export_Import.sum().sum()
 
         ## cost & obj
-        self.OBJ = self.model.getObjective().getValue()
+        self.OBJ_vaules = self.model.getObjective().getValue()
         cost_farmer = LinExpr()
         cost_farmer += quicksum(self.Cost_Country_Facility[c] * self.X_Facility[c] for c in range(self.Num_Country_Elevators))
         cost_farmer += quicksum(self.Cost_Country_Stream[c, s] * self.X_Country_Stream[c, s] for c in range(self.Num_Country_Elevators) for s in range(self.Num_Stream_Elevators))
@@ -375,7 +375,7 @@ class GCAM_SYB():
         # plt.ylabel("LATITUDE")
         plt.title('Total Production: {:.2e}  Total China Demand: {:.2e}'.format(self.total_production, self.china_demand))
 
-        textstr = 'Total Cost: {:.2e}\nFarmer Cost: {:.2e}\nBarge Cost: {:.2e}\nRail Cost: {:.2e}\nOcean Cost: {:.2e}'.format(self.OBJ, self.total_farmer, self.total_barge, self.total_rail, self.total_ocaen)
+        textstr = 'Total Cost: {:.2e}\nFarmer Cost: {:.2e}\nBarge Cost: {:.2e}\nRail Cost: {:.2e}\nOcean Cost: {:.2e}'.format(self.OBJ_vaules, self.total_farmer, self.total_barge, self.total_rail, self.total_ocaen)
         plt.text(-65, 27, textstr, fontsize=16, verticalalignment='center',horizontalalignment='right', bbox=dict(facecolor='white', edgecolor='#d6d6d6', boxstyle='round', alpha=0.75))
 
         #plt.text(-75, 30, 'Total Barge Cost:: {:.2e}  Total Shuttle Cost: {:.2e} Total Ocean Cost: {:.2e}'.format(self.total_barge, self.total_rail, self.total_ocaen), fontsize=15)
