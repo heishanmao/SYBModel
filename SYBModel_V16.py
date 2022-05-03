@@ -385,6 +385,7 @@ class GCAM_SYB():
         plt.savefig(self.path + '/' + str(self.year) + '_' + self.model_name + '.png', dpi=300)
         plt.savefig(self.path + '/' + str(self.year) + '_' + self.model_name + '_' + self.scenario_text + '.pdf', dpi=600, bbox_inches="tight")
         plt.show()
+        plt.close()
 
 if __name__ == '__main__':
 
