@@ -10,7 +10,7 @@
 import pandas as pd
 import numpy as np
 import SYBModel_V14 as GRB
-import ResultsFigure as FIG
+import Exp3_logistic_plot as FIG
 
 import os
 root = os.path.abspath('.')  # 'D:\\OneDrive - University of Tennessee\\Scripts\\SYBModel'
