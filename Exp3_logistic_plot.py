@@ -14,10 +14,10 @@ import matplotlib as mpl
 import os
 import seaborn as sns
 sns.set(font_scale = 2)
-
+from matplotlib.gridspec import GridSpec
 
 class logistic_plot():
-    def __init__(self, scenario, year, rate):
+    def __init__(self, ax, scenario, year, rate, leg, legs=False):
         self.root = os.path.abspath('.')  # get the current directory 'D:\\OneDrive - University of Tennessee\\Scripts\\SYBModel'
 
         self._get_data(scenario, year, rate)
@@ -25,7 +25,7 @@ class logistic_plot():
         self._load_loc()
         self._load_routes(scenario, year, rate)
 
-        self._get_routes(scenario, year, rate)
+        self._get_routes(ax, scenario, year, leg, legs)
 
     def _get_data(self,scenario, year, rate):
         self.data = pd.read_csv(self.root + '\Exps\\{}\\all_rates_{}.csv'.format(scenario,year)).query('Rates == @rate')
@@ -56,7 +56,7 @@ class logistic_plot():
 
         self.Matrix_Z_Export_Import =pd.read_csv(self.root + '\Exps\{}\\{}\\'.format(scenario, year, rate) + '5_ResultsOfExports_{}.csv'.format(rate), index_col=0)
 
-    def _get_routes(self,scenario, year, rate):
+    def _get_routes(self, ax, scenario, year, leg, legs):
 
         def Coords(data, index):
             X = data.iloc[index, 1].to_numpy()
@@ -82,7 +82,7 @@ class logistic_plot():
         E_Rail_Export = Coords(self.LocExports, Y_Rail_Export)
 
         ## plot setting
-        fig, ax = plt.subplots(1, figsize=(16, 14))
+        #fig, ax = plt.subplots(1, figsize=(16, 14))
         # self.fig, self.ax = plt.subplots()
         # parameters = {'axes.labelsize': 20,
         #               'axes.titlesize': 20,
@@ -109,22 +109,22 @@ class logistic_plot():
             ax.plot([S_Rail_Export[i][0], E_Rail_Export[i][0]], [S_Rail_Export[i][1], E_Rail_Export[i][1]],
                      color='#FFB11B', linewidth=2)
 
-        ax.scatter(self.LocCountryEle['LON'].to_numpy(), self.LocCountryEle['LAT'].to_numpy(), label='Country Elevators', color='#7bb207',
+        ax.scatter(self.LocCountryEle['LON'].to_numpy(), self.LocCountryEle['LAT'].to_numpy(), label='Country elevators', color='#7bb207',
                     s=30, zorder=5)
-        ax.scatter(self.LocRiverEle['X'].to_numpy(), self.LocRiverEle['Y'].to_numpy(), label='River Elevators', color='#F05E1C', s=50,
+        ax.scatter(self.LocRiverEle['X'].to_numpy(), self.LocRiverEle['Y'].to_numpy(), label='River elevators', color='#F05E1C', s=50,
                     zorder=5)
-        ax.scatter(self.LocShuttleEle['X'].to_numpy(), self.LocShuttleEle['Y'].to_numpy(), label='Rail Elevators', color='#FFB11B', s=50,
+        ax.scatter(self.LocShuttleEle['X'].to_numpy(), self.LocShuttleEle['Y'].to_numpy(), label='Shuttle elevators', color='#FFB11B', s=50,
                     zorder=5)
-        ax.scatter(self.LocExports['X'].to_numpy(), self.LocExports['Y'].to_numpy(), label='Export Terminals', color='#006284', s=80,
+        ax.scatter(self.LocExports['X'].to_numpy(), self.LocExports['Y'].to_numpy(), label='Export terminals', color='#006284', s=80,
                     zorder=5)
 
         for i in range(self.Matrix_Z_Export_Import.shape[0]):
             if self.LocExports.iloc[i, 1] <= -95:
                 ax.annotate(self.LocExports.iloc[i, 0], xy=(self.LocExports.iloc[i, 1], self.LocExports.iloc[i, 2]),
-                             xytext=(self.LocExports.iloc[i, 1] - 4, self.LocExports.iloc[i, 2] - 1.3), fontsize=16)
+                             xytext=(self.LocExports.iloc[i, 1] - 4, self.LocExports.iloc[i, 2] - 1.3), fontsize=30)
             else:
                 ax.annotate(self.LocExports.iloc[i, 0], xy=(self.LocExports.iloc[i, 1], self.LocExports.iloc[i, 2]),
-                             xytext=(self.LocExports.iloc[i, 1] - 1, self.LocExports.iloc[i, 2] - 1.3), fontsize=16)
+                             xytext=(self.LocExports.iloc[i, 1] - 1, self.LocExports.iloc[i, 2] - 1.3), fontsize=30)
 
 
         ## mapping base layer
@@ -136,31 +136,73 @@ class logistic_plot():
         USA[USA['STUSPS'].isin(States)].boundary.plot(ax=ax, color='#828282', zorder=-1)
 
         ## fig setting
-        ax.legend(loc='lower left', markerscale=1, facecolor='#faf8ed',fontsize=20)
+        if legs == True:
+            ax.legend(loc='lower left', markerscale=2, facecolor='#faf8ed',fontsize=35, bbox_to_anchor=(1.01, 0.2),  labelcolor='#2a4652', edgecolor='#faf8ed')
+            ax.text(-128, 35, '{}               \n\nTotal production: {:.2e}\nChina demand: {:.2e}'.format(str(year)+'-'+str(scenario),self.total_production, self.china_demand),
+                    fontsize=45, color='#2a4652',
+                    horizontalalignment='right',
+                    verticalalignment='center')
         # plt.xlabel("LONGITUDE")
         # plt.ylabel("LATITUDE")
-        plt.title('Total Production: {:.2e}  Total China Demand: {:.2e}'.format(self.total_production, self.china_demand))
+        #ax.set_title('{} Total Production: {:.2e}  Total China Demand: {:.2e}'.format(leg, self.total_production, self.china_demand))
 
-        textstr = 'Total Cost: {:.2e}\nFarmer Cost: {:.2e}\nBarge Cost: {:.2e}\nRail Cost: {:.2e}\nOcean Cost: {:.2e}'.format(
-            self.OBJ_vaules, self.total_farmer, self.total_barge, self.total_rail, self.total_ocaen)
-        plt.text(-65, 27, textstr, fontsize=20, verticalalignment='center', horizontalalignment='right',
-                 bbox=dict(facecolor='#faf8ed', edgecolor='#d6d6d6', boxstyle='round', alpha=0.8))
+        textstr = '\nTotal Costs: {:.2e}\nTruck Costs: {:.2e}\nBarge Costs: {:.2e}\nRail Costs: {:.2e}\nOcean Costs: {:.2e}'.format(self.OBJ_vaules, self.total_farmer, self.total_barge, self.total_rail, self.total_ocaen)
+        ax.text(-107, 28, textstr, fontsize=38, verticalalignment='center', horizontalalignment='right', color='#2a4652')
+        #ax.text(-126, 24, textstr, fontsize=38, verticalalignment='center', horizontalalignment='right', color='#2a4652',
+                 #bbox=dict(facecolor='#faf8ed', edgecolor='#d6d6d6', boxstyle='round', alpha=0.8))
+        #ax.annotate(textstr, xy=(-126, 24), color='#2a4652')
+        ax.annotate('{}'.format(leg), xy=(-75, 27), color='#2a4652', fontsize=80)
 
-        #ax.set_axis_off()  # hide the axis
+        ax.set_axis_off()  # hide the axis
         ax.grid(False)
-        ax.get_xaxis().set_visible(False)
-        ax.get_yaxis().set_visible(False)
+        # ax.get_xaxis().set_visible(False)
+        # ax.get_yaxis().set_visible(False)
         ax.set_facecolor('#faf8ed')
-        fig.show()
+        #fig.show()
         #plt.savefig(self.path + '/' + str(self.year) + '_' + self.model_name + '_' + self.scenario_text + '.pdf', dpi=600, bbox_inches="tight")
-        fig.savefig(self.root + '/Figs/{}_{}_{}.pdf'.format(scenario, year, rate) , bbox_inches="tight")
+        #fig.savefig(self.root + '/Figs/{}_{}_{}.pdf'.format(scenario, year, leg) , bbox_inches="tight")
         #plt.close()
 
 if __name__ == '__main__':
-    scenario = 'SSP3'
-    year = '2050'
-    Rates = ['0.5_1_1_1', '1_1_1_1', '1_5_1_1', '1_1_5_1', '1_1_1_5', '1_1_1_10']
+    SMALL_SIZE = 38
+    MEDIUM_SIZE = 38
+    BIGGER_SIZE = 38
 
-    for rate in Rates:
-        logistic_plot(scenario, year, rate)
+    plt.rc('font', size=SMALL_SIZE)  # controls default text sizes
+    plt.rc('axes', titlesize=SMALL_SIZE)  # fontsize of the axes title
+    plt.rc('axes', labelsize=MEDIUM_SIZE)  # fontsize of the x and y labels
+    plt.rc('xtick', labelsize=SMALL_SIZE)  # fontsize of the tick labels
+    plt.rc('ytick', labelsize=SMALL_SIZE)  # fontsize of the tick labels
+    plt.rc('legend', fontsize=SMALL_SIZE)  # legend fontsize
+    plt.rc('figure', titlesize=BIGGER_SIZE)  # fontsize of the figure title
+
+    scenario = 'SSP2'
+    year = '2030'
+    Rates = ['1_1_1_1', '1_10_1_1', '1_1_0.5_1', '1_1_1_10', '10_1_1_1']
+    Legs = ['S0', 'S1', 'S2', 'S3', 'S4']
+
+    fig = plt.figure(figsize=(36, 32), facecolor='#faf8ed')
+    #fig.tight_layout()
+    gs = GridSpec(3, 2, hspace=0, wspace=0)
+    gs.update(left=0, right=1, bottom=0, top=1)
+
+    ax = plt.subplot(gs[0, 0])
+    logistic_plot(ax, scenario, year, Rates[1], Legs[1])
+
+    ax = plt.subplot(gs[0, 1])
+    logistic_plot(ax, scenario, year, Rates[2], Legs[2])
+
+    ax = plt.subplot(gs[1, :])
+    logistic_plot(ax, scenario, year, Rates[0], Legs[0], True)
+
+    ax = plt.subplot(gs[2, 0])
+    logistic_plot(ax, scenario, year, Rates[3], Legs[3])
+
+    ax = plt.subplot(gs[2, 1])
+    logistic_plot(ax, scenario, year, Rates[4], Legs[4])
+
+    fig.show()
+    fig.savefig('./Figs/Fig_network.pdf', dpi=600, bbox_inches="tight")
+    # for index, rate in enumerate(Rates):
+    #     logistic_plot(ax, scenario, year, rate, Legs[index])
 

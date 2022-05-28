@@ -2,3 +2,11 @@
 *.pyc
 
 __pycache__/
+
+.idea/
+
+Exps/SSP2/1990/
+
+Exps/SSP2/2005/
+
+Exps/SSP2/2010/
