@@ -24,11 +24,8 @@ class GCAM_SYB():
         self.root = os.path.abspath('.')  # 'D:\\OneDrive - University of Tennessee\\Scripts\\SYBModel'
         self.model_name = model_name
         self.year = year
-        # self.Alpha = 0.99   # Inventory alpha
         self.china_demand = china_demand
         self.tax = tax
-        # self.global_price = global_price
-        # self.domestic_price = domestic_price
         self.holding_cost = 50  # $/ton
         self.IRR_lo = kwargs['IRR_lo']
         self.IRR_hi = kwargs['IRR_hi']
@@ -39,16 +36,6 @@ class GCAM_SYB():
         self.rail_rate = kwargs['rail_rate']
         self.ocean_rate = kwargs['ocean_rate']
         self.scenario_text = str(self.truck_rate) + '_' + str(self.barge_rate) + '_' + str(self.rail_rate) + '_' + str(self.ocean_rate)
-
-        # # Dom_P =  200   # Domestic Soybean price
-        # self.Beta1 = 315.948
-        # self.Beta2 = 0
-        # self.Beta3 = -4.43476  # Regression coefficients
-        #
-        # # Glo_P =  400   # Global Soybean price
-        # self.Gamma1 = 117.09
-        # self.Gamma2 = 0
-        # self.Gamma3 = 5.6e-6  # Regression coefficients
 
         # build model
         self._load_cost(self.truck_rate, self.barge_rate, self.rail_rate, self.ocean_rate)
@@ -113,9 +100,14 @@ class GCAM_SYB():
         self.Yield_Country = pd.read_csv(self.input_path, index_col=0, usecols=['Name', 'Yield_IRR_hi', 'Yield_IRR_lo', 'Yield_RFD_hi', 'Yield_RFD_lo', 'PlantingArea(km2)']).to_numpy()
 
         # China demand at year 2020
-        self.Demand_China = self.china_demand
-        self.Demand_ROW = 0.8 * self.Demand_China
-        self.tau = 60.621 # 1.65 *36.74 /tou
+        if self.tax:
+            self.Demand_China = self.china_demand * 0.5
+            self.Demand_ROW = 0.8 * self.Demand_China * 1.2
+        else:
+            self.Demand_China = self.china_demand
+            self.Demand_ROW = 0.8 * self.Demand_China
+
+        self.tau = 60.621       # 1.65 * 36.74 /tou
 
         # self.Inventory_Country_LastYear = np.zeros(self.Cost_Country_Stream.shape[0])
         self.Inventory_Country = pd.read_csv(self.input_path, usecols=['Ending']).to_numpy()
@@ -216,11 +208,13 @@ class GCAM_SYB():
 
         profit = LinExpr()
         profit += (quicksum((self.Supply_Country[c] - self.Inventory_Country[c]) / self.Inventory_Country[c] for c in range(self.Num_Country_Elevators)) * 180.87 + 2.97) * quicksum(self.X_Facility[c] for c in range(self.Num_Country_Elevators))
-        if self.tax:
-            profit += (-0.019 * self.Demand_China**2 + 2478 * 1e5 * self.Demand_China)/2
-        else:
-            profit += -0.019 * self.Demand_China ** 2 + 2478 * 1e5 * self.Demand_China
-        profit += -0.029 * self.Demand_ROW**2 + 1594.667 * 1e5 * self.Demand_ROW
+        # if self.tax:
+        #     profit += (-0.019 * self.Demand_China**2 + 2478 * 1e5 * self.Demand_China) * 5
+        #     profit += (-0.029 * self.Demand_ROW ** 2 + 1594.667 * 1e5 * self.Demand_ROW) * 0.8
+        # else:
+        profit += -0.019 * self.Demand_China ** 2 + 2478 * 1e5 * self.Demand_China
+        profit += -0.029 * self.Demand_ROW ** 2 + 1594.667 * 1e5 * self.Demand_ROW
+
         profit += self.tau * quicksum(self.Supply_Country[c] for c in range(self.Num_Country_Elevators))
 
         #obj = LinExpr()
@@ -408,8 +402,11 @@ if __name__ == '__main__':
     scenario = "SSP1"
     year = 2020
 
-    Op_cost = OperationCost(year)
-    china = China_Demand(year)
+    #root = 'D:/OneDrive - University of Tennessee/Scripts/SYBModel'
+    root = './'
+
+    Op_cost = OperationCost(year, root)
+    china = China_Demand(year, root)
 
     ## Solving by GUROBI Model
     instacne = GCAM_SYB(scenario, year, china.quantity*10,

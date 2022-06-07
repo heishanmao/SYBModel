@@ -13,8 +13,8 @@ from sklearn import linear_model
 import os
 
 class OperationCost:
-    def __init__(self, year):
-        self.root = 'D:/OneDrive - University of Tennessee/Scripts/SYBModel'
+    def __init__(self, year, root):
+        self.root = root
         self.input_path = self.root + '/GCAM_full/USDA_cost_data.csv'
         self.year = year
         self.data = pd.read_csv(self.input_path, header=7)

@@ -9,8 +9,8 @@
 import pandas as pd
 
 class China_Demand():
-    def __init__(self, year):
-        self.root = 'D:/OneDrive - University of Tennessee/Scripts/SYBModel'
+    def __init__(self, year, root):
+        self.root = root
         self.path = self.root + '/GCAM_full/China_Demand_022022.xlsx'
         self.data = pd.read_excel(self.path, index_col=0)
         self.year = year
