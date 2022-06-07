@@ -19,13 +19,14 @@ from gurobipy import *
 # sns.set_theme()
 
 class GCAM_SYB():
-    def __init__(self, model_name, year, china_demand, figs, **kwargs):
+    def __init__(self, model_name, year, china_demand, figs, tax, **kwargs):
         # Parameters
         self.root = os.path.abspath('.')  # 'D:\\OneDrive - University of Tennessee\\Scripts\\SYBModel'
         self.model_name = model_name
         self.year = year
         # self.Alpha = 0.99   # Inventory alpha
         self.china_demand = china_demand
+        self.tax = tax
         # self.global_price = global_price
         # self.domestic_price = domestic_price
         self.holding_cost = 50  # $/ton
@@ -215,7 +216,10 @@ class GCAM_SYB():
 
         profit = LinExpr()
         profit += (quicksum((self.Supply_Country[c] - self.Inventory_Country[c]) / self.Inventory_Country[c] for c in range(self.Num_Country_Elevators)) * 180.87 + 2.97) * quicksum(self.X_Facility[c] for c in range(self.Num_Country_Elevators))
-        profit += -0.019 * self.Demand_China**2 + 2478 * 1e5 * self.Demand_China
+        if self.tax:
+            profit += (-0.019 * self.Demand_China**2 + 2478 * 1e5 * self.Demand_China)/2
+        else:
+            profit += -0.019 * self.Demand_China ** 2 + 2478 * 1e5 * self.Demand_China
         profit += -0.029 * self.Demand_ROW**2 + 1594.667 * 1e5 * self.Demand_ROW
         profit += self.tau * quicksum(self.Supply_Country[c] for c in range(self.Num_Country_Elevators))
 
@@ -232,7 +236,7 @@ class GCAM_SYB():
         self.model.params.NumericFocus = 3
         self.model.params.NonConvex = 2
         self.model.optimize()
-        if lp_to_file == True:
+        if lp_to_file:
             self.model.write(self.model_name + '-' + str(self.year) + '.lp')
 
     def _model_outputs(self):
@@ -287,6 +291,9 @@ class GCAM_SYB():
         self.C_profit = -0.019 * self.Demand_China ** 2 + 2478 * 1e5 * self.Demand_China
         self.R_profit = -0.029 * self.Demand_ROW ** 2 + 1594.667 * 1e5 * self.Demand_ROW
         self.Subsidy = self.tau * quicksum(self.Supply_Country[c] for c in range(self.Num_Country_Elevators)).getValue()
+
+        rate1 = quicksum(self.Supply_Country[c] for c in range(self.Num_Country_Elevators)).getValue() / self.Demand_China
+        rate2 = (self.C_profit + self.R_profit) / (self.D_profit)
 
     def _write_to_files(self):
         # write to file
@@ -405,6 +412,6 @@ if __name__ == '__main__':
     china = China_Demand(year)
 
     ## Solving by GUROBI Model
-    instacne = GCAM_SYB(scenario, year, china.quantity*0.5,
+    instacne = GCAM_SYB(scenario, year, china.quantity*10,
                         IRR_lo = Op_cost.IRR_lo, IRR_hi = Op_cost.IRR_hi, RFD_lo =Op_cost.RFD_lo, RFD_hi = Op_cost.RFD_hi,
-                        truck_rate=1, barge_rate=1, rail_rate=1, ocean_rate=8, figs = True)
+                        truck_rate=1, barge_rate=1, rail_rate=1, ocean_rate=8, figs = False, tax=False)

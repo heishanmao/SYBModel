@@ -48,7 +48,8 @@ if __name__ == '__main__':
                             if instance.model.Status == 2:
                                 res = [scenario, year, instance.scenario_text, int(instance.OBJ_vaules), int(instance.total_farmer), int(instance.total_barge), int(instance.total_rail),
                                     int(instance.total_ocaen),int(instance.total_production), int(instance.Quantity_X_Facility), int(instance.Quantity_X_Country_Stream),
-                                    int(instance.Quantity_X_Country_Rail), int(instance.Quantity_Y_Stream_Export), int(instance.Quantity_Y_Rail_Export), int(instance.Quantity_Z_Export_Import), int(china.quantity)]
+                                    int(instance.Quantity_X_Country_Rail), int(instance.Quantity_Y_Stream_Export), int(instance.Quantity_Y_Rail_Export), int(instance.Quantity_Z_Export_Import), int(china.quantity),
+                                       int(instance.D_profit), int(instance.C_profit), int(instance.R_profit), int(instance.Subsidy)]
                             else:
                                 res = [0] * (len(columns)-3)
                                 res = [scenario, year, instance.scenario_text] + res
