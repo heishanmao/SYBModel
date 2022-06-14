@@ -41,6 +41,7 @@ class GCAM_SYB():
         # build model
         self._load_cost(self.truck_rate, self.barge_rate, self.rail_rate, self.ocean_rate)
         self._load_quantity()
+        self._load_price()
         self._model_inputs_summary()
 
         try:
@@ -49,11 +50,13 @@ class GCAM_SYB():
             print('Error code ' + str(e.errno) + ": " + str(e))
 
         if self.model.Status == 2:
-            print('\033[1;32m Model solved successfully \033[0m')
+            self.Runtime = self.model.Runtime
+            #print('\033[1;32m Model solved successfully in %.2f seconds \033[0m' % self.Runtime)
             # outputs
             self.path = self.root + '/Exps/' + self.model_name + '/' + str(self.year) + '/'
             self._mkdir(self.path)
 
+            self._outputs()
             self._model_outputs()
             self._write_to_files()
 
@@ -87,7 +90,7 @@ class GCAM_SYB():
         self.Cost_Stream_Export = pd.read_csv(self.root + '\Data\Cost\CostStreamToExport.csv', index_col=0).to_numpy() * barge_rate
 
         # Rail_Elevator to Export_Terminals by Rail @(r, e)
-        self.Cost_Rail_Export = pd.read_csv(self.root + '\Data\Cost\CostRaiToExport.csv', index_col=0).to_numpy() * rail_rate
+        self.Cost_Rail_Export = pd.read_csv(self.root + '\Data\Cost\CostRaiToExport.csv', index_col=0).to_numpy() * rail_rate * 2
 
         # Export_Terminals to Import_China by Ocean shipment from barge @(e,i)
         self.Cost_Export_Import = pd.read_csv(self.root + '\Data\Cost\CostExportToImport.csv', index_col=0).to_numpy() * ocean_rate
@@ -121,17 +124,25 @@ class GCAM_SYB():
         # China demand at year 2020
         if self.tax:
             self.Demand_China = self.china_demand * 0.5
-            self.Demand_ROW = 0.8 * self.Demand_China * 1.2
+            self.Demand_ROW = 0.8 * self.china_demand * 1.2
+            self.tau = 80.621  # 1.65 * 36.74 /tou
+
         else:
             self.Demand_China = self.china_demand
-            self.Demand_ROW = 0.8 * self.Demand_China
+            self.Demand_ROW = 0.8 * self.china_demand
+            self.tau = 60.621  # 1.65 * 36.74 /tou
 
-        self.tau = 60.621       # 1.65 * 36.74 /tou
-
-        # self.Inventory_Country_LastYear = np.zeros(self.Cost_Country_Stream.shape[0])
         self.Inventory_Country = pd.read_csv(self.input_path, usecols=['Ending']).to_numpy()
-        # self.Inventory_Stream_LastYear = np.zeros(self.Cost_Stream_Export.shape[0])
-        # self.Inventory_Rail_LastYear = np.zeros(self.Cost_Rail_Export.shape[0])
+        self.Inventory_Country = self.Inventory_Country * 0.008
+
+    def _load_price(self):
+        try:
+            self.price_china = -0.019 * self.Demand_China / 1e5 + 2478
+            self.price_row = -0.029 * self.Demand_ROW / 1e5 + 1594.6447
+        except ZeroDivisionError:
+            self.price_china = 500
+            self.price_row = 300
+
 
     def _model_inputs_summary(self):
         ## model input summary
@@ -208,48 +219,48 @@ class GCAM_SYB():
         self.model.addConstr(quicksum(self.Z_Export_Import[k, m] for k in range(self.Num_Export_Terminals) for m in range(self.Num_Import_Terminals)) >= self.Demand_China + self.Demand_ROW)
 
         # 7 additional_constraints for the objective function
-        # for c in range(self.Num_Country_Elevators):
-        #     self.model.addConstr(self.Supply_Country[c] * 0.30 - self.X_Facility[c] >= 0)
+        for c in range(self.Num_Country_Elevators):
+            self.model.addConstr(self.Supply_Country[c] * 0.05 - self.X_Facility[c] >= 0)
 
-        self.model.addConstr(
-            5.21 * ( quicksum(self.X_Country_Stream[c, s] for c in range(self.Num_Country_Elevators) for s in range(self.Num_Stream_Elevators)) +
-            quicksum(self.X_Country_Rail[c, r] for c in range(self.Num_Country_Elevators) for r in range(self.Num_Rail_Elevators)) +
-            quicksum(self.X_Facility[c] for c in range(self.Num_Country_Elevators)) ) + 292.45 -
-            quicksum(self.I_Country[c] for c in range(self.Num_Country_Elevators)) * self.D_Price == 0
-        )
+        # 8 additional_constraints for the limitation of quantity for each exports
+        for k in range(self.Num_Export_Terminals):
+            self.model.addConstr(quicksum(self.Z_Export_Import[k, m] for m in range(self.Num_Import_Terminals)) <= self.Demand_China * 0.4)
+
+        # self.model.addConstr(
+        #     5.21 * ( quicksum(self.X_Country_Stream[c, s] for c in range(self.Num_Country_Elevators) for s in range(self.Num_Stream_Elevators)) +
+        #     quicksum(self.X_Country_Rail[c, r] for c in range(self.Num_Country_Elevators) for r in range(self.Num_Rail_Elevators)) +
+        #     quicksum(self.X_Facility[c] for c in range(self.Num_Country_Elevators)) ) + 292.45 -
+        #     quicksum(self.I_Country[c] for c in range(self.Num_Country_Elevators)) * self.D_Price == 0
+        # )
 
 
         # Objective
-        cost = LinExpr()
-        cost += quicksum(
+        self.cost_total = LinExpr()
+        self.cost_operation = quicksum(
             self.Yield_Country[c, 4] * (self.IRR_lo * self.Framer_Decision[c, 0] + self.IRR_hi * self.Framer_Decision[c, 1] + self.RFD_lo *
                                         self.Framer_Decision[c, 2] + self.RFD_hi * self.Framer_Decision[c, 3]) for c in range(self.Num_Country_Elevators))
-        cost += quicksum(self.holding_cost * self.I_Country[c] for c in range(self.Num_Country_Elevators))
-        cost += quicksum(self.Cost_Export_Import[k, m] * self.Z_Export_Import[k, m] for k in range(self.Num_Export_Terminals) for m in range(self.Num_Import_Terminals))
-        cost += quicksum(self.Cost_Country_Facility[c] * self.X_Facility[c] for c in range(self.Num_Country_Elevators))
-        cost += quicksum(self.Cost_Country_Stream[c, s] * self.X_Country_Stream[c, s] for c in range(self.Num_Country_Elevators) for s in range(self.Num_Stream_Elevators))
-        cost += quicksum(self.Cost_Country_Rail[c, r] * self.X_Country_Rail[c, r] for c in range(self.Num_Country_Elevators) for r in range(self.Num_Rail_Elevators))
-        cost += quicksum(self.Cost_Stream_Export[s, k] * self.Y_Stream_Export[s, k] for s in range(self.Num_Stream_Elevators) for k in range(self.Num_Export_Terminals))
-        cost += quicksum(self.Cost_Rail_Export[r, k] * self.Y_Rail_Export[r, k] for r in range(self.Num_Rail_Elevators) for k in range(self.Num_Export_Terminals))
+        self.cost_holding = quicksum(self.holding_cost * self.I_Country[c] for c in range(self.Num_Country_Elevators))
+        self.cost_ocean = quicksum(self.Cost_Export_Import[k, m] * self.Z_Export_Import[k, m] for k in range(self.Num_Export_Terminals) for m in range(self.Num_Import_Terminals))
+        self.cost_facility = quicksum(self.Cost_Country_Facility[c] * self.X_Facility[c] for c in range(self.Num_Country_Elevators))
+        self.cost_toBarge = quicksum(self.Cost_Country_Stream[c, s] * self.X_Country_Stream[c, s] for c in range(self.Num_Country_Elevators) for s in range(self.Num_Stream_Elevators))
+        self.cost_toRail = quicksum(self.Cost_Country_Rail[c, r] * self.X_Country_Rail[c, r] for c in range(self.Num_Country_Elevators) for r in range(self.Num_Rail_Elevators))
+        self.cost_BExport = quicksum(self.Cost_Stream_Export[s, k] * self.Y_Stream_Export[s, k] for s in range(self.Num_Stream_Elevators) for k in range(self.Num_Export_Terminals))
+        self.cost_SExport = quicksum(self.Cost_Rail_Export[r, k] * self.Y_Rail_Export[r, k] for r in range(self.Num_Rail_Elevators) for k in range(self.Num_Export_Terminals))
 
+        self.cost_total = self.cost_operation + self.cost_holding + self.cost_ocean + self.cost_facility + self.cost_toBarge + self.cost_toRail + self.cost_BExport + self.cost_SExport
 
-        profit = LinExpr()
-        #profit += (quicksum(self.I_Country[c] / (self.Supply_Country[c] + self.Inventory_Country[c] - self.I_Country[c]) for c in range(self.Num_Country_Elevators)) * 180.87 + 2.97) * quicksum(self.X_Facility[c] for c in range(self.Num_Country_Elevators))
-        profit += (self.D_Price * quicksum(self.X_Facility[c] for c in range(self.Num_Country_Elevators)))
-        # if self.tax:
-        #     profit += (-0.019 * self.Demand_China**2 + 2478 * 1e5 * self.Demand_China) * 5
-        #     profit += (-0.029 * self.Demand_ROW ** 2 + 1594.667 * 1e5 * self.Demand_ROW) * 0.8
-        # else:
-        profit += -0.019 * self.Demand_China ** 2 + 2478 * 1e5 * self.Demand_China
-        profit += -0.029 * self.Demand_ROW ** 2 + 1594.667 * 1e5 * self.Demand_ROW
+        self.revenue_total = LinExpr()
+        self.revenue_domestic = (quicksum(self.Supply_Country[c] for c in range(self.Num_Country_Elevators)) * 0.0011 - 857.112) * quicksum(self.X_Facility[c] for c in range(self.Num_Country_Elevators))
+        self.revenue_china = self.price_china * self.Demand_China
+        self.revenue_row = self.price_row * self.Demand_ROW
+        self.revenue_subsidy = self.tau * quicksum(self.Supply_Country[c] for c in range(self.Num_Country_Elevators))
 
-        profit += self.tau * quicksum(self.Supply_Country[c] for c in range(self.Num_Country_Elevators))
+        self.revenue_total = self.revenue_domestic + self.revenue_china + self.revenue_row + self.revenue_subsidy
 
-        #obj = LinExpr()
-        obj = profit - cost
+        self.profit = self.revenue_total - self.cost_total
 
         self.model.setObjective(
-            obj,
+            self.profit,
             GRB.MAXIMIZE
         )
 
@@ -257,9 +268,46 @@ class GCAM_SYB():
         self.model.update()
         self.model.params.NumericFocus = 3
         self.model.params.NonConvex = 2
+        self.model.Params.TimeLimit = 3600
         self.model.optimize()
         if lp_to_file:
             self.model.write(self.model_name + '-' + str(self.year) + '.lp')
+
+    def _outputs(self):
+        """
+        Outputs the results of the optimization.
+        """
+        # Outputs
+        self.Inventory_last = self.Inventory_Country.sum()
+        self.Inventory_current = quicksum(self.I_Country[c] for c in range(self.Num_Country_Elevators)).getValue()
+
+        rate_inventory_change = (self.Inventory_current - self.Inventory_last) / self.Inventory_last
+
+        self.total_production = quicksum(self.Supply_Country[c] + self.Inventory_Country[c] for c in range(self.Num_Country_Elevators)).getValue()
+        self.total_demand_global = self.Demand_China + self.Demand_ROW
+        self.total_demand_domestic = quicksum(self.X_Facility[c] for c in range(self.Num_Country_Elevators)).getValue()
+
+        rate_supply_demand = self.total_production / self.total_demand_global
+        rate_supply_domestic = self.total_production / self.total_demand_domestic
+
+        self.RevenueTotal = self.revenue_total.getValue()
+        self.RevenueDomestic = self.revenue_domestic.getValue()
+        self.RevenueChina = self.revenue_china
+        self.RevenueRow = self.revenue_row
+        self.RevenueSubsidy = self.revenue_subsidy.getValue()
+
+        self.CostTotal = self.cost_total.getValue()
+        self.CostOperation = self.cost_operation.getValue()
+        self.CostHolding = self.cost_holding.getValue()
+        self.CostFacility = self.cost_facility.getValue()
+        self.CostBarge = self.cost_toBarge.getValue()
+        self.CostRail = self.cost_toRail.getValue()
+        self.CostBExport = self.cost_BExport.getValue()
+        self.CostRExport = self.cost_SExport.getValue()
+        self.CostOcean = self.cost_ocean.getValue()
+
+        self.OBJ_vaules = self.model.getObjective().getValue()
+
 
     def _model_outputs(self):
         self.Matrix_Framer_Decision = [[self.Framer_Decision[a, b].x for a in range(self.Num_Country_Elevators)] for b in range(4)]
@@ -294,28 +342,6 @@ class GCAM_SYB():
         self.Matrix_Z_Export_Import = pd.DataFrame(self.Matrix_Z_Export_Import).T.add_prefix('Import_')
         self.Quantity_Z_Export_Import = self.Matrix_Z_Export_Import.sum().sum()
 
-        ## cost & obj
-        self.OBJ_vaules = self.model.getObjective().getValue()
-        cost_farmer = LinExpr()
-        cost_farmer += quicksum(self.Cost_Country_Facility[c] * self.X_Facility[c] for c in range(self.Num_Country_Elevators))
-        cost_farmer += quicksum(self.Cost_Country_Stream[c, s] * self.X_Country_Stream[c, s] for c in range(self.Num_Country_Elevators) for s in range(self.Num_Stream_Elevators))
-        cost_farmer += quicksum(self.Cost_Country_Rail[c, r] * self.X_Country_Rail[c, r] for c in range(self.Num_Country_Elevators) for r in range(self.Num_Rail_Elevators))
-        cost_farmer += quicksum(self.holding_cost * self.Inventory_Country[c] for c in range(self.Num_Country_Elevators))
-        self.total_farmer = cost_farmer.getValue()
-
-        self.total_barge = quicksum(self.Cost_Stream_Export[s, k] * self.Y_Stream_Export[s, k] for s in range(self.Num_Stream_Elevators) for k in range(self.Num_Export_Terminals)).getValue()
-        self.total_rail = quicksum(self.Cost_Rail_Export[r, k] * self.Y_Rail_Export[r, k] for r in range(self.Num_Rail_Elevators) for k in range(self.Num_Export_Terminals)).getValue()
-        self.total_ocaen = quicksum(self.Cost_Export_Import[k, m] * self.Z_Export_Import[k, m] for k in range(self.Num_Export_Terminals) for m in range(self.Num_Import_Terminals)).getValue()
-
-        self.total_production = quicksum(self.Supply_Country[c] for c in range(self.Num_Country_Elevators)).getValue()
-
-        self.D_profit = (quicksum((self.Supply_Country[c] - self.Inventory_Country[c]) / self.Inventory_Country[c] for c in range(self.Num_Country_Elevators)).getValue() * 180.87 + 2.97) * quicksum(self.X_Facility[c] for c in range(self.Num_Country_Elevators)).getValue()
-        self.C_profit = -0.019 * self.Demand_China ** 2 + 2478 * 1e5 * self.Demand_China
-        self.R_profit = -0.029 * self.Demand_ROW ** 2 + 1594.667 * 1e5 * self.Demand_ROW
-        self.Subsidy = self.tau * quicksum(self.Supply_Country[c] for c in range(self.Num_Country_Elevators)).getValue()
-
-        rate1 = quicksum(self.Supply_Country[c] for c in range(self.Num_Country_Elevators)).getValue() / self.Demand_China
-        rate2 = (self.C_profit + self.R_profit) / (self.D_profit)
 
     def _write_to_files(self):
         # write to file
@@ -412,10 +438,9 @@ class GCAM_SYB():
         # plt.ylabel("LATITUDE")
         plt.title('Total Production: {:.2e}  Total China Demand: {:.2e}'.format(self.total_production, self.china_demand))
 
-        textstr = 'Total Cost: {:.2e}\nFarmer Cost: {:.2e}\nBarge Cost: {:.2e}\nRail Cost: {:.2e}\nOcean Cost: {:.2e}'.format(self.OBJ_vaules, self.total_farmer, self.total_barge, self.total_rail, self.total_ocaen)
-        plt.text(-65, 27, textstr, fontsize=16, verticalalignment='center',horizontalalignment='right', bbox=dict(facecolor='white', edgecolor='#d6d6d6', boxstyle='round', alpha=0.75))
-
-        #plt.text(-75, 30, 'Total Barge Cost:: {:.2e}  Total Shuttle Cost: {:.2e} Total Ocean Cost: {:.2e}'.format(self.total_barge, self.total_rail, self.total_ocaen), fontsize=15)
+        #textstr = 'Total Cost: {:.2e}\nFarmer Cost: {:.2e}\nBarge Cost: {:.2e}\nRail Cost: {:.2e}\nOcean Cost: {:.2e}'.format(self.OBJ_vaules, self.total_farmer, self.total_barge, self.total_rail, self.total_ocaen)
+        #plt.text(-65, 27, textstr, fontsize=16, verticalalignment='center',horizontalalignment='right', bbox=dict(facecolor='white', edgecolor='#d6d6d6', boxstyle='round', alpha=0.75))
+        plt.show()
 
         #ax.set_axis_off()  # hide the axis
 
