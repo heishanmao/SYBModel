@@ -37,6 +37,8 @@ class GCAM_SYB():
         self.rail_rate = kwargs['rail_rate']
         self.ocean_rate = kwargs['ocean_rate']
         self.scenario_text = str(self.truck_rate) + '_' + str(self.barge_rate) + '_' + str(self.rail_rate) + '_' + str(self.ocean_rate)
+        # subsidy
+        self.tau = kwargs['subsidy'] # 60.621  # 1.65 * 36.74 /tou
 
         # build model
         self._load_cost(self.truck_rate, self.barge_rate, self.rail_rate, self.ocean_rate)
@@ -125,12 +127,12 @@ class GCAM_SYB():
         if self.tax:
             self.Demand_China = self.china_demand * 0.5
             self.Demand_ROW = 0.8 * self.china_demand * 1.2
-            self.tau = 80.621  # 1.65 * 36.74 /tou
+            #self.tau = 80.621  # 1.65 * 36.74 /tou
 
         else:
             self.Demand_China = self.china_demand
             self.Demand_ROW = 0.8 * self.china_demand
-            self.tau = 60.621  # 1.65 * 36.74 /tou
+            #self.tau = 60.621  # 1.65 * 36.74 /tou
 
         self.Inventory_Country = pd.read_csv(self.input_path, usecols=['Ending']).to_numpy()
         self.Inventory_Country = self.Inventory_Country * 0.008
