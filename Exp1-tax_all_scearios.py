@@ -88,7 +88,7 @@ if __name__ == '__main__':
                                             Res = Res.append(res, ignore_index=True)
                                             del instance
 
-                    dir = './Exps-tax/'+ scenario + '_' + index
+                    dir = './Exps-tax/'+ scenario + '_' + str(index)
                     _mkdir(dir)
                     Res.to_csv(dir + '/all_rates_' + str(year) + '.csv', index=False)
     print('Done')
