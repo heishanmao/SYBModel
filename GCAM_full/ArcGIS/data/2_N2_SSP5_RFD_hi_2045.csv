@@ -1,0 +1,7 @@
+scenario,subregion,management,level,2045,ssps_max,ssps_min
+SSP5,Arkansas_White_Red_Basin,RFD,hi,0.00560595,0.102,6.14e-05
+SSP5,Great_Lakes_Basin,RFD,hi,0.00836816,0.102,6.14e-05
+SSP5,Missouri_River_Basin,RFD,hi,0.0898,0.102,6.14e-05
+SSP5,Upper_Mississippi_Basin,RFD,hi,0.0506,0.102,6.14e-05
+SSP5,Saskatchewan_Nelson,RFD,hi,0.102,0.102,6.14e-05
+SSP5,Ohio_River_Basin,RFD,hi,0.0204,0.102,6.14e-05

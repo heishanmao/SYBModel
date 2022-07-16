@@ -252,7 +252,7 @@ if __name__ == '__main__':
 
     for i, file in enumerate(file_list):
         ax = fig.add_subplot(gs0[0, i])
-        pgc = Gplot.plot_map(file, scenario)
+        pgc = Gplot.plot_map(file, scenario, year)
         pgc.create_sum(ax, legs[i], cmap=ListedColormap(sns.color_palette(colors[i])))
 
 

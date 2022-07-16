@@ -1,0 +1,7 @@
+scenario,subregion,management,level,2030,ssps_max,ssps_min
+SSP1,Arkansas_White_Red_Basin,IRR,lo,0.000795,0.0838,6.49e-05
+SSP1,Great_Lakes_Basin,IRR,lo,9.32e-05,0.0838,6.49e-05
+SSP1,Missouri_River_Basin,IRR,lo,0.0060661,0.0838,6.49e-05
+SSP1,Upper_Mississippi_Basin,IRR,lo,0.000275,0.0838,6.49e-05
+SSP1,Saskatchewan_Nelson,IRR,lo,0.000489,0.0838,6.49e-05
+SSP1,Ohio_River_Basin,IRR,lo,6.6e-05,0.0838,6.49e-05
