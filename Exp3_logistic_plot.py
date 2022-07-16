@@ -15,6 +15,9 @@ import os
 import seaborn as sns
 sns.set(font_scale = 2)
 from matplotlib.gridspec import GridSpec
+import GCAM_full.GCAM_plot as Gplot
+import Exp2 as AC
+from matplotlib.colors import ListedColormap
 
 class logistic_plot():
     def __init__(self, ax, scenario, year, rate, leg, legs=False):
@@ -139,19 +142,15 @@ class logistic_plot():
         if legs == True:
             ax.legend(loc='lower left', markerscale=2, facecolor='#faf8ed',fontsize=35, bbox_to_anchor=(1.01, 0.2),  labelcolor='#2a4652', edgecolor='#faf8ed')
             ax.text(-128, 35, '{}               \n\nTotal production: {:.2e}\nChina demand: {:.2e}'.format(str(year)+'-'+str(scenario),self.total_production, self.china_demand),
-                    fontsize=45, color='#2a4652',
+                    fontsize=50, color='#2a4652',
                     horizontalalignment='right',
-                    verticalalignment='center')
-        # plt.xlabel("LONGITUDE")
-        # plt.ylabel("LATITUDE")
-        #ax.set_title('{} Total Production: {:.2e}  Total China Demand: {:.2e}'.format(leg, self.total_production, self.china_demand))
+                    verticalalignment='center',
+                    fontweight='bold')
 
-        textstr = '\nTotal Costs: {:.2e}\nTruck Costs: {:.2e}\nBarge Costs: {:.2e}\nRail Costs: {:.2e}\nOcean Costs: {:.2e}'.format(self.OBJ_vaules, self.total_farmer, self.total_barge, self.total_rail, self.total_ocaen)
-        ax.text(-107, 28, textstr, fontsize=38, verticalalignment='center', horizontalalignment='right', color='#2a4652')
-        #ax.text(-126, 24, textstr, fontsize=38, verticalalignment='center', horizontalalignment='right', color='#2a4652',
-                 #bbox=dict(facecolor='#faf8ed', edgecolor='#d6d6d6', boxstyle='round', alpha=0.8))
-        #ax.annotate(textstr, xy=(-126, 24), color='#2a4652')
-        ax.annotate('{}'.format(leg), xy=(-75, 27), color='#2a4652', fontsize=80)
+        # textstr = '\nTotal Costs: {:.2e}\nTruck Costs: {:.2e}\nBarge Costs: {:.2e}\nRail Costs: {:.2e}\nOcean Costs: {:.2e}'.format(self.OBJ_vaules, self.total_farmer, self.total_barge, self.total_rail, self.total_ocaen)
+        # ax.text(-107, 28, textstr, fontsize=38, verticalalignment='center', horizontalalignment='right', color='#2a4652')
+
+        ax.annotate('{}'.format(leg), xy=(-120, 27), color='#2a4652', fontsize=80)
 
         ax.set_axis_off()  # hide the axis
         ax.grid(False)
@@ -162,6 +161,24 @@ class logistic_plot():
         #plt.savefig(self.path + '/' + str(self.year) + '_' + self.model_name + '_' + self.scenario_text + '.pdf', dpi=600, bbox_inches="tight")
         #fig.savefig(self.root + '/Figs/{}_{}_{}.pdf'.format(scenario, year, leg) , bbox_inches="tight")
         #plt.close()
+
+    def cost_plot(self, ax, leg, axl=None):
+        x = [1, 2]
+        color = ['#ccd5ae', '#e9edc9', '#fefae0', '#faedcd', '#d4a373']
+        #ax.barh(1, self.OBJ_vaules, color='#d4a373')
+        hdl1 = ax.barh(2, self.total_farmer, color='#ccd5ae', label='Farmer')
+        hdl2 = ax.barh(2, self.total_barge, left=self.total_farmer, color='#e9edc9', label='Barge')
+        hdl3 = ax.barh(2, self.total_rail, left=self.total_farmer + self.total_barge, color='#fefae0', label='Rail')
+        hdl4 = ax.barh(2, self.total_ocaen, left=self.total_rail+self.total_farmer + self.total_barge, color='#faedcd', label='Ocean')
+
+        ax.set_facecolor('#faf8ed')
+        ax.grid(False)
+        ax.set_yticks([])
+        ax.set_title('Cost structure for {}'.format(leg), fontweight='bold')
+
+        if leg == 'S0':
+            axl.legend(handles=[hdl1, hdl2, hdl3, hdl4], loc='center', ncol=4, facecolor='#faf8ed', edgecolor='#faf8ed')
+            axl.set_axis_off()  # hide the axis
 
 if __name__ == '__main__':
     SMALL_SIZE = 38
@@ -181,28 +198,82 @@ if __name__ == '__main__':
     Rates = ['1_1_1_1', '1_10_1_1', '1_1_0.5_1', '1_1_1_10', '10_1_1_1']
     Legs = ['S0', 'S1', 'S2', 'S3', 'S4']
 
-    fig = plt.figure(figsize=(36, 32), facecolor='#faf8ed')
+    fig = plt.figure(figsize=(36, 40), facecolor='#faf8ed', constrained_layout=True)
     #fig.tight_layout()
-    gs = GridSpec(3, 2, hspace=0, wspace=0)
-    gs.update(left=0, right=1, bottom=0, top=1)
+    gs = fig.add_gridspec(6, 1, height_ratios=(2.7, 9, 0.5, 1.2, 0.5, 2), wspace=0.05, hspace=1)
 
-    ax = plt.subplot(gs[0, 0])
-    logistic_plot(ax, scenario, year, Rates[1], Legs[1])
+    gs0 = gs[0, 0].subgridspec(1, 5)
+    gs1 = gs[1, 0].subgridspec(3, 2)
+    gs2l = gs[2, 0].subgridspec(1, 1)
+    gs2 = gs[3, 0].subgridspec(1, 5)
+    gs4 = gs[4, 0].subgridspec(1, 1)
+    gs3 = gs[5, 0].subgridspec(1, 5)
 
-    ax = plt.subplot(gs[0, 1])
-    logistic_plot(ax, scenario, year, Rates[2], Legs[2])
 
-    ax = plt.subplot(gs[1, :])
-    logistic_plot(ax, scenario, year, Rates[0], Legs[0], True)
+    ax = fig.add_subplot(gs1[0, 0])
+    LP = logistic_plot(ax, scenario, year, Rates[1], Legs[1])
+    ax2 = fig.add_subplot(gs3[0, 0])
+    LP.cost_plot(ax2, Legs[1])
 
-    ax = plt.subplot(gs[2, 0])
-    logistic_plot(ax, scenario, year, Rates[3], Legs[3])
+    ax = fig.add_subplot(gs1[0, 1])
+    LP = logistic_plot(ax, scenario, year, Rates[2], Legs[2])
+    ax2 = fig.add_subplot(gs3[0, 1])
+    LP.cost_plot(ax2, Legs[2])
 
-    ax = plt.subplot(gs[2, 1])
-    logistic_plot(ax, scenario, year, Rates[4], Legs[4])
+    ax = fig.add_subplot(gs1[1, :])
+    LP = logistic_plot(ax, scenario, year, Rates[0], Legs[0], True)
+    ax2 = fig.add_subplot(gs3[0, 2])
+    axl = fig.add_subplot(gs4[0, 0])
+    LP.cost_plot(ax2, Legs[0], axl)
 
-    fig.show()
+    ax = fig.add_subplot(gs1[2, 0])
+    LP = logistic_plot(ax, scenario, year, Rates[3], Legs[3])
+    ax2 = fig.add_subplot(gs3[0, 3])
+    LP.cost_plot(ax2, Legs[3])
+
+    ax = fig.add_subplot(gs1[2, 1])
+    LP = logistic_plot(ax, scenario, year, Rates[4], Legs[4])
+    ax2 = fig.add_subplot(gs3[0, 4])
+    LP.cost_plot(ax2, Legs[4])
+
+    #############################################################################################
+    file_list = ['2_water.csv', '2_N2.csv', '2_emission.csv', '20220421_GCAM_totalarea.csv', '20220421_gcam_production.csv']
+
+    colors =[
+        ['#f0f9e8', '#ccebc5', '#a8ddb5', '#7bccc4', '#43a2ca', '#0868ac'],
+        ['#feebe2', '#fcc5c0', '#fa9fb5', '#f768a1', '#c51b8a', '#7a0177'],
+        ['#f6e8c3', '#dfc27d', '#d8b365', '#bf812d', '#a6611a', '#8c510a'],
+        ['#ffffcc', '#d9f0a3', '#addd8e', '#78c679', '#31a354', '#006837'],
+        ['#ffffb2', '#fed976', '#feb24c', '#fd8d3c', '#f03b20', '#bd0026'],
+        ['#f0f9e8', '#ccebc5', '#a8ddb5', '#7bccc4', '#43a2ca', '#0868ac'],
+    ]
+
+    legs = ['Water', 'Fertilizer', 'Emissions', 'Land', 'Production']
+
+    for i, file in enumerate(file_list):
+        ax = fig.add_subplot(gs0[0, i])
+        pgc = Gplot.plot_map(file, scenario)
+        pgc.create_sum(ax, legs[i], cmap=ListedColormap(sns.color_palette(colors[i])))
+
+
+    #############################################################################################
+    rates = ['1_10_1_1', '1_1_0.5_1', '1_1_1_1', '1_1_1_10', '10_1_1_1']
+    legs = ['S1', 'S2', 'S0', 'S3', 'S4']
+
+    ax2l = fig.add_subplot(gs2l[0, 0])
+
+    for i, rate in enumerate(rates):
+        ax = fig.add_subplot(gs2[0, i])
+        AC0 = AC.AnalysisCost(scenario, rate)
+        if i == 2:
+            AC0.create(ax, legs[i], ax2l, leg=True)
+        else:
+            AC0.create(ax, legs[i])
+
+    plt.show()
     fig.savefig('./Figs/Fig_network.pdf', dpi=600, bbox_inches="tight")
+
+
     # for index, rate in enumerate(Rates):
     #     logistic_plot(ax, scenario, year, rate, Legs[index])
 

@@ -23,13 +23,13 @@ for f in file_list:
     if f == '20220421_GCAM_totalarea.csv':
         data = data[['scenario', 'subregion', '2030']]
         data = data.query('scenario == @scenario')
-        data.to_csv(os.path.join(path_in, 'ArcGIS', 'data', f'{f}_{scenario}.csv'), index = False)
+        data.to_csv(os.path.join(path_in, 'ArcGIS', 'data', f'{f[:-4]}_{scenario}.csv'), index = False)
     else:
         data = data[['scenario', 'subregion', 'management', 'level', '2030']]
         for mgt in ['IRR','RFD']:
             for lev in ['hi','lo']:
                 data2 = data.query('scenario == @scenario and management == @mgt and level == @lev')
-                data2.to_csv(os.path.join(path_in, 'ArcGIS', 'data', f'{f}_{scenario}_{mgt}_{lev}.csv'), index = False)
+                data2.to_csv(os.path.join(path_in, 'ArcGIS', 'data', f'{f[:-4]}_{scenario}_{mgt}_{lev}.csv'), index = False)
 
         # find range of values
         print(f, data.query('scenario == @scenario')['2030'].min(), data.query('scenario == @scenario')['2030'].max())
