@@ -7,11 +7,12 @@ import seaborn as sns
 from matplotlib.colors import ListedColormap
 
 class plot_map():
-    def __init__(self, prefix, scenario):
+    def __init__(self, prefix, scenario, year):
         ## mapping base layer
         self.root = 'D:\\OneDrive - University of Tennessee\\Scripts\\SYBModel\\'  #os.path.abspath('.')
         self.prefix = prefix[:-4] # '2_emission'
         self.scenario = scenario # 'SSP2'
+        self.year = year
 
     def create_sum(self, ax, leg, cmap='RdBu_r'):
         if self.prefix != '20220421_GCAM_totalarea':
@@ -23,8 +24,8 @@ class plot_map():
             count = 0
             for mgt in mgt_list:
                 for lev in ['hi','lo']:
-                    temp = pd.read_csv(self.root + f'/GCAM_full/ArcGIS/data/{self.prefix}_{self.scenario}_{mgt}_{lev}.csv')
-                    temp = temp[['subregion', '2030']].set_index('subregion')
+                    temp = pd.read_csv(self.root + f'/GCAM_full/ArcGIS/data/{self.prefix}_{self.scenario}_{mgt}_{lev}_{self.year}.csv')
+                    temp = temp[['subregion', self.year]].set_index('subregion')
                     if count == 0:
                         data = temp
                     else:
@@ -32,7 +33,7 @@ class plot_map():
                     count += 1
             df = data.reset_index()
         else:
-            df = pd.read_csv(self.root + f'/GCAM_full/ArcGIS/data/{self.prefix}_{self.scenario}.csv')
+            df = pd.read_csv(self.root + f'/GCAM_full/ArcGIS/data/{self.prefix}_{self.scenario}_{self.year}.csv')
 
         df = df.rename({'subregion': 'glu_nm'}, axis = 'columns')
 
@@ -54,7 +55,7 @@ class plot_map():
         #     vmin = 0.0594595; vmax = 45.2
         # else:
         #     vmin = 0.022452; vmax = 30.5887
-        basins.plot(ax=ax, zorder=2, column = '2030', cmap=cmap,
+        basins.plot(ax=ax, zorder=2, column=self.year, cmap=cmap,
                     legend=True,
                     legend_kwds={'orientation': "horizontal",
                             'location': 'bottom',
@@ -67,12 +68,12 @@ class plot_map():
         ax.set_axis_off()  # hide the axis
         ax.grid(False)
 
-        plotname = self.root + f'/GCAM_full/ArcGIS/graphs/sum_{self.prefix}_{self.scenario}.png'
+        plotname = self.root + f'/GCAM_full/ArcGIS/graphs/sum_{self.prefix}_{self.scenario}_{self.year}.png'
         return plotname
 
     def create_single(self, ax, mgt = None, lev = None, cmap = 'RdBu_r'):
-        temp = pd.read_csv(self.root + f'/GCAM_full/ArcGIS/data/{self.prefix}_{self.scenario}_{mgt}_{lev}.csv')
-        df = temp[['subregion', '2030']]
+        temp = pd.read_csv(self.root + f'/GCAM_full/ArcGIS/data/{self.prefix}_{self.scenario}_{mgt}_{lev}_{self.year}.csv')
+        df = temp[['subregion', self.year]]
         df = df.rename({'subregion': 'glu_nm'}, axis = 'columns')
 
         USA = gpd.read_file(self.root + '/Shapefiles/cb_2018_us_state_20m.shp')
@@ -94,13 +95,14 @@ class plot_map():
             vmin = 0.0594595; vmax = 45.2
         else:
             vmin = 0.022452; vmax = 30.5887
-        basins.plot(ax=ax, zorder=2, column = '2030', cmap=cmap, legend=True, vmin = vmin, vmax = vmax)
+
+        basins.plot(ax=ax, zorder=2, column=self.year, cmap=cmap, legend=True, vmin = vmin, vmax = vmax)
 
         ax.set_facecolor('#faf8ed')
         ax.set_axis_off()  # hide the axis
         ax.grid(False)
 
-        plotname = self.root + f'/GCAM_full/ArcGIS/graphs/single_{self.prefix}_{self.scenario}.png'
+        plotname = self.root + f'/GCAM_full/ArcGIS/graphs/single_{self.prefix}_{self.scenario}_{self.year}.png'
         return plotname
 
 
@@ -108,6 +110,7 @@ if __name__ == '__main__':
     file_list = ['2_emission.csv', '2_N2.csv', '2_water.csv',   # '20220421_gcam_leafarea.csv',
                  '20220421_gcam_production.csv', '20220421_GCAM_totalarea.csv']
     scenario = 'SSP2'
+    year = '2050'
 
     colors =[
         ['#f6e8c3', '#dfc27d', '#d8b365', '#bf812d', '#a6611a', '#8c510a'],
@@ -124,7 +127,7 @@ if __name__ == '__main__':
 
     for i, f in enumerate(file_list):
         fig, ax = plt.subplots(figsize=(6, 5), facecolor='#faf8ed')
-        pgc = plot_map(f, scenario)
+        pgc = plot_map(f, scenario, year)
         plotname = pgc.create_sum(ax, legs[i], cmap = ListedColormap(sns.color_palette(colors[i])))
         plt.savefig(plotname, dpi=300)
         plt.close()
@@ -148,7 +151,7 @@ if __name__ == '__main__':
                     ax = fig.add_subplot(gs[k])
                 else:
                     ax = fig.add_subplot(gs[j, k])
-                pgc = plot_map(f, scenario)
+                pgc = plot_map(f, scenario, year)
                 plotname = pgc.create_single(ax, mgt, lev)
         plt.savefig(plotname, dpi=300)
         plt.close()
