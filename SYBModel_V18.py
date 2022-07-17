@@ -65,6 +65,16 @@ class GCAM_SYB():
             # plot
             self._plot_logistic_routes(figs)
         else:
+            #self._feasible_solution()
+            self.Runtime = self.model.Runtime
+            self.path = self.root + '/Exps/' + self.model_name + '/' + str(self.year) + '/'
+            self._mkdir(self.path)
+
+            self._outputs()
+            self._model_outputs()
+            self._write_to_files()
+            self.Gap = self.model.MIPGap
+
             print('\033[1;31m Model failed \033[0m')
 
     def _mkdir(self, path):
@@ -144,7 +154,6 @@ class GCAM_SYB():
         except ZeroDivisionError:
             self.price_china = 500
             self.price_row = 300
-
 
     def _model_inputs_summary(self):
         ## model input summary
@@ -270,10 +279,32 @@ class GCAM_SYB():
         self.model.update()
         self.model.params.NumericFocus = 3
         self.model.params.NonConvex = 2
-        self.model.Params.TimeLimit = 3600
+        self.model.Params.TimeLimit = 360
         self.model.optimize()
         if lp_to_file:
             self.model.write(self.model_name + '-' + str(self.year) + '.lp')
+
+    def _feasible_solution(self):
+
+        if self.model.SolCount > 0:
+            self.OBJ_vaules = self.model.getObjective().getValue()
+
+            X_Country_Stream = {v.varName: v.X for v in self.model.getVars() if "X_Country_Stream" in v.varName}
+
+            self.CostHolding = 0
+            for e in range(self.Num_Country_Elevators):
+                self.CostHolding += self.cost_holding.getCoeff(e) * self.cost_holding.getVar(e).X
+
+            self.CostTotal = 0
+            for i in range(self.cost_total.size()):
+                self.CostTotal += self.cost_total.getCoeff(i) * self.cost_total.getVar(i).X
+
+            self.RevenueTotal = 0
+            for i in range(self.revenue_total.size()):
+                self.RevenueTotal += self.revenue_total.getCoeff(i) * self.revenue_total.getVar1(i).X * self.revenue_total.getVar2(i).X
+
+            self.Runtime = self.model.MIPGap
+
 
     def _outputs(self):
         """

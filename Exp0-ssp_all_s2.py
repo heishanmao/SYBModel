@@ -36,7 +36,7 @@ if __name__ == '__main__':
     #Year = Year.columns.values.tolist()[5:-1]
     #Scenario = pd.read_csv('./GCAM_full/20220421_gcam_production.csv', usecols=['scenario']).squeeze().unique().tolist()[0:-1]
 
-    Scenarios = ['SSP1', 'SSP2', 'SSP3', 'SSP4', 'SSP5']
+    Scenarios = ['SSP4']
     Years = ['2020', '2025', '2030', '2035', '2040', '2045', '2050']
     rates = ['1_10_1_1', '1_1_0.5_1', '1_1_1_1', '1_1_1_10', '10_1_1_1']
     legs = ['S1', 'S2', 'S0', 'S3', 'S4']
@@ -83,8 +83,12 @@ if __name__ == '__main__':
                                         res = res_0 + res_1 + res_2 + res_3
 
                                     else:
-                                        res = [0] * (len(columns)-3)
-                                        res = [scenario, year, instance.scenario_text] + res
+                                        res_0 = [scenario, year, instance.scenario_text, int(instance.Demand_China), int(instance.Demand_ROW), int(instance.OBJ_vaules), int(instance.RevenueTotal), int(instance.CostTotal)]
+                                        res_1 = [int(instance.CostOperation), int(instance.CostHolding), int(instance.CostFacility), int(instance.CostBarge), int(instance.CostRail), int(instance.CostBExport), int(instance.CostRExport), int(instance.CostOcean)]
+                                        res_2 = [int(instance.total_production), int(instance.Inventory_current), int(instance.Quantity_X_Facility), int(instance.Quantity_X_Country_Stream), int(instance.Quantity_X_Country_Rail), int(instance.Quantity_Y_Stream_Export), int(instance.Quantity_Y_Rail_Export), int(instance.Quantity_Z_Export_Import)]
+                                        res_3 = [int(instance.price_china), int(instance.price_row), int(instance.RevenueDomestic), int(instance.RevenueChina), int(instance.RevenueRow), int(instance.RevenueSubsidy), instance.Gap, instance.Runtime]
+
+                                        res = res_0 + res_1 + res_2 + res_3
 
                                     res = pd.Series(res, index=columns)
                                     Res = Res.append(res, ignore_index=True)
