@@ -134,9 +134,10 @@ if __name__=='__main__':
 
     for year in Year:
         for scenario in Scenario:
-            if ~pd.isna(scenario):
-                print('\033[1;33m Processing ' + year + scenario + '\033[0m')
-                gcam = Read_GCAM(year, scenario)
+            if scenario == 'SSP4':
+                if ~pd.isna(scenario):
+                    print('\033[1;33m Processing ' + year + scenario + '\033[0m')
+                    gcam = Read_GCAM(year, scenario)
 
 
 
