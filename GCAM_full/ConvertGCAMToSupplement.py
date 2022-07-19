@@ -128,16 +128,19 @@ if __name__=='__main__':
     # Year = '2020'
     # Scenario = 'Reference'
 
-    Year = pd.read_csv('../GCAM_full/20220421_gcam_production.csv')
-    Year = Year.columns.values.tolist()[5:-1]
-    Scenario = pd.read_csv('../GCAM_full/20220421_gcam_production.csv', usecols=['scenario']).squeeze().unique().tolist()[0:-1]
+    # Year = pd.read_csv('../GCAM_full/20220421_gcam_production.csv')
+    # Year = Year.columns.values.tolist()[5:-1]
+    # Scenario = pd.read_csv('../GCAM_full/20220421_gcam_production.csv', usecols=['scenario']).squeeze().unique().tolist()[0:-1]
 
-    for year in Year:
-        for scenario in Scenario:
-            if scenario == 'SSP4':
-                if ~pd.isna(scenario):
-                    print('\033[1;33m Processing ' + year + scenario + '\033[0m')
-                    gcam = Read_GCAM(year, scenario)
+    Scenarios = ['SSP1', 'SSP2', 'SSP3', 'SSP4', 'SSP5']
+    # Years = ['1990', '2005', '2010', '2015', '2020', '2025', '2030', '2035', '2040', '2045', '2050', '2055', '2060', '2065', '2070', '2075', '2080', '2085', '2090', '2095', '2100']
+    Years = ['2020', '2025', '2030', '2035', '2040', '2045', '2050']
+
+    for year in Years:
+        for scenario in Scenarios:
+            if ~pd.isna(scenario):
+                print('\033[1;33m Processing ' + year + scenario + '\033[0m')
+                gcam = Read_GCAM(year, scenario)
 
 
 

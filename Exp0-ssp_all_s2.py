@@ -36,7 +36,7 @@ if __name__ == '__main__':
     #Year = Year.columns.values.tolist()[5:-1]
     #Scenario = pd.read_csv('./GCAM_full/20220421_gcam_production.csv', usecols=['scenario']).squeeze().unique().tolist()[0:-1]
 
-    Scenarios = ['SSP4']
+    Scenarios = ['SSP1', 'SSP2', 'SSP3', 'SSP4', 'SSP5']
     Years = ['2020', '2025', '2030', '2035', '2040', '2045', '2050']
     rates = ['1_10_1_1', '1_1_0.5_1', '1_1_1_1', '1_1_1_10', '10_1_1_1']
     legs = ['S1', 'S2', 'S0', 'S3', 'S4']
@@ -94,7 +94,7 @@ if __name__ == '__main__':
                                     Res = Res.append(res, ignore_index=True)
                                     del instance
 
-            dir = './Exps-ssps/' + scenario
+            dir = './Exps-ssps2/' + scenario
             _mkdir(dir)
             Res.to_csv(dir + '/all_rates_' + str(year) + '.csv', index=False)
     print('Done')
