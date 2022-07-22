@@ -78,7 +78,7 @@ if __name__=="__main__":
     Scenarios = ['SSP1', 'SSP2', 'SSP3', 'SSP4', 'SSP5']
     # Years = ['1990', '2005', '2010', '2015', '2020', '2025', '2030', '2035', '2040', '2045', '2050', '2055', '2060', '2065', '2070', '2075', '2080', '2085', '2090', '2095', '2100']
     Years = ['2020', '2025', '2030', '2035', '2040', '2045', '2050']
-    title = ['(a). Irrigation', '(b). Fertilizer', '(c). GHG Emissions', '(d). Land', '(e). The global mean temperature','(f). Total production', '(g). Operation cost']
+    title = ['(d). Irrigation', '(e). Fertilizer', '(f). GHG Emissions', '(b). Land', '(g). The global temperature increases','(a). Total production', '(c). Operation cost']
 
     file_list = ['2_water.csv', '2_N2.csv', '2_emission.csv', '20220421_GCAM_totalarea.csv']
 
@@ -89,14 +89,59 @@ if __name__=="__main__":
     fig = plt.figure(figsize=(10, 10), facecolor='#faf8ed', constrained_layout=True)
     gs = fig.add_gridspec(4, 2)
 
-    for i, f in enumerate(file_list):
-        ax = fig.add_subplot(gs[i, 0])
-        for s, scenario in enumerate(Scenarios):
-            CSC = climateSC(Years, scenario, f[:-4])
-            plot(ax, Years, CSC.data, label=scenario, title=title[i])
+    ######################################################################################################################
+    f = '20220421_gcam_production.csv'
+    ax = fig.add_subplot(gs[0:2, 0])
+    for s, scenario in enumerate(Scenarios):
+        CSC = climateSC(Years, scenario, f[:-4])
+        plot(ax, Years, CSC.data, label=scenario, title=title[5])
+    ax.legend(Scenarios, loc='best', facecolor='#faf8ed')
 
     ######################################################################################################################
-    ax = fig.add_subplot(gs[0:2, 1])
+
+    f = file_list[3]
+    ax = fig.add_subplot(gs[0, 1])
+    for s, scenario in enumerate(Scenarios):
+        CSC = climateSC(Years, scenario, f[:-4])
+        plot(ax, Years, CSC.data, label=scenario, title=title[3])
+
+    ######################################################################################################################
+    rates = ['1_10_1_1', '1_1_0.5_1', '1_1_1_1', '1_1_1_10', '10_1_1_1']
+    sc = 'SSP4'
+
+    ax = fig.add_subplot(gs[1, 1])
+    res = pd.DataFrame(index = Years)
+    for j, rate in enumerate(rates):
+        GRB = GRBResults(rate, sc)
+        Y = GRB.Y['Cost_Total'].to_numpy()
+        res[rate] = Y
+    res.iloc[:, 3] = res.iloc[:, 3] / 3.7
+    res.iloc[:, 4] = res.iloc[:, 4] / 1.9
+    res.plot(kind='line', ax=ax, legend=False)
+    ax.set_facecolor('#faf8ed')
+    ax.set_xlabel(title[6], fontweight='bold', fontsize=12)
+
+    ######################################################################################################################
+    f = file_list[0]
+    ax = fig.add_subplot(gs[2, 0])
+    for s, scenario in enumerate(Scenarios):
+        CSC = climateSC(Years, scenario, f[:-4])
+        plot(ax, Years, CSC.data, label=scenario, title=title[0])
+
+    f = file_list[1]
+    ax = fig.add_subplot(gs[2, 1])
+    for s, scenario in enumerate(Scenarios):
+        CSC = climateSC(Years, scenario, f[:-4])
+        plot(ax, Years, CSC.data, label=scenario, title=title[1])
+
+    f = file_list[2]
+    ax = fig.add_subplot(gs[3, 0])
+    for s, scenario in enumerate(Scenarios):
+        CSC = climateSC(Years, scenario, f[:-4])
+        plot(ax, Years, CSC.data, label=scenario, title=title[2])
+
+    #######################################################################################################################
+    ax = fig.add_subplot(gs[3, 1])
     ax.set_facecolor('#faf8ed')
     temp = pd.read_excel(os.path.join(os.path.dirname(__file__), 'GCAM_full', 'global_mean_temperature.xlsx'))
 
@@ -105,7 +150,6 @@ if __name__=="__main__":
     ax = temp.T.plot(kind ='line', ax=ax, legend=False)
     ax.title.set_fontweight('bold')
     ax.set_xlabel(title[4], fontweight='bold', fontsize=12)
-    ax.legend(Scenarios, loc='best', facecolor='#faf8ed')
 
     # ######################################################################################################################
     #
@@ -135,29 +179,11 @@ if __name__=="__main__":
     #     res[sc] = Y
     #
     # res.plot(kind='line', ax=ax, legend=True, title=rates)
-    ######################################################################################################################
-    f = '20220421_gcam_production.csv'
-    ax = fig.add_subplot(gs[2, 1])
-    for s, scenario in enumerate(Scenarios):
-        CSC = climateSC(Years, scenario, f[:-4])
-        plot(ax, Years, CSC.data, label=scenario, title=title[5])
+
 
 
     ######################################################################################################################
-    rates = ['1_10_1_1', '1_1_0.5_1', '1_1_1_1', '1_1_1_10', '10_1_1_1']
-    sc = 'SSP4'
 
-    ax = fig.add_subplot(gs[3, 1])
-    res = pd.DataFrame(index = Years)
-    for j, rate in enumerate(rates):
-        GRB = GRBResults(rate, sc)
-        Y = GRB.Y['Cost_Total'].to_numpy()
-        res[rate] = Y
-    res.iloc[:, 3] = res.iloc[:, 3] / 3.7
-    res.iloc[:, 4] = res.iloc[:, 4] / 1.9
-    res.plot(kind='line', ax=ax, legend=False)
-    ax.set_facecolor('#faf8ed')
-    ax.set_xlabel(title[6], fontweight='bold', fontsize=12)
     #ax.title.set_fontweight('bold')
 
     plt.show()
