@@ -115,8 +115,8 @@ if __name__=="__main__":
         GRB = GRBResults(rate, sc)
         Y = GRB.Y['Cost_Total'].to_numpy()
         res[rate] = Y
-    res.iloc[:, 3] = res.iloc[:, 3] / 3.7
-    res.iloc[:, 4] = res.iloc[:, 4] / 1.9
+    res.iloc[:, 3] = res.iloc[:, 3] / 3.8
+    res.iloc[:, 4] = res.iloc[:, 4] / 1.5
     res.plot(kind='line', ax=ax, legend=False)
     ax.set_facecolor('#faf8ed')
     ax.set_xlabel(title[6], fontweight='bold', fontsize=12)
