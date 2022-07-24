@@ -69,7 +69,7 @@ class plot_map():
         ax.grid(False)
 
         plotname = self.root + f'/GCAM_full/ArcGIS/graphs/sum_{self.prefix}_{self.scenario}_{self.year}.png'
-        return plotname
+        return plotname, df
 
     def create_single(self, ax, mgt = None, lev = None, cmap = 'RdBu_r'):
         temp = pd.read_csv(self.root + f'/GCAM_full/ArcGIS/data/{self.prefix}_{self.scenario}_{mgt}_{lev}_{self.year}.csv')

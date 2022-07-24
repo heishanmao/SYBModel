@@ -19,6 +19,12 @@ import GCAM_full.GCAM_plot as Gplot
 import Exp2 as AC
 from matplotlib.colors import ListedColormap
 
+def P_Calcul(pgc):
+    a = pgc
+
+    P_Calcul = pgc.P_Calcul
+    return P_Calcul
+
 class logistic_plot():
     def __init__(self, ax, scenario, year, rate, leg, legs=False):
         self.root = os.path.abspath('.')  # get the current directory 'D:\\OneDrive - University of Tennessee\\Scripts\\SYBModel'
@@ -253,7 +259,11 @@ if __name__ == '__main__':
     for i, file in enumerate(file_list):
         ax = fig.add_subplot(gs0[0, i])
         pgc = Gplot.plot_map(file, scenario, year)
-        pgc.create_sum(ax, legs[i], cmap=ListedColormap(sns.color_palette(colors[i])))
+        plotname, df = pgc.create_sum(ax, legs[i], cmap=ListedColormap(sns.color_palette(colors[i])))
+
+        #
+        if i ==0:
+            percent = P_Calcul(df)
 
 
     #############################################################################################
