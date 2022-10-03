@@ -1,0 +1,7 @@
+Name,Shuttle train,Railroad,Adress,Destination port,X,Y
+BNSF1,"Sioux Falls, SD ",BNSF,"503 E 8th St, Sioux Falls, SD 57103","Tacoma, WA ",-96.72000006,43.54788106
+BNSF2,"Minneapolis, MN ",BNSF,"80 44th Ave NE, Minneapolis, MN 55421","Portland, OR ",-93.27232698,45.04857499
+BNSF3,"Fargo, ND ",BNSF,"420 4th St N, Fargo, ND 58102","Tacoma, WA ",-96.78515795,46.88097231
+UP1,"Council Bluffs, IA ",UP,"1704 14th Ave #1742, Council Bluffs, IA 51501","New Orleans, LA ",-95.86962002,41.24889702
+CSX,"Toledo, OH ",CSX,"Toledo, OH 43605","Huntsville, AL ",-83.521655,41.641605
+UP2,"Grand Island, NE ",UP,"601 E South Front St, Grand Island, NE 6880","Portland, OR ",-98.33773314,40.92780385
